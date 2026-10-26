@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 8: Mechanical Properties of Solids</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Mechanical Properties of Solids</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 8</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🛠️ 1. Elasticity and Plasticity</h2>
+        
+        <ul>
+            <li><strong>Elasticity:</strong> The property of a body by virtue of which it tends to regain its original size and shape when the applied force is removed. (e.g., steel, rubber).</li>
+            <li><strong>Plasticity:</strong> The property by virtue of which it does not regain its original shape and size after removal of deforming force. (e.g., putty, mud).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Steel vs Rubber</div>
+            <p>Did you know? <strong>Steel is more elastic than rubber!</strong> Elasticity is the resistance to deformation. Since a greater force is required to stretch steel than rubber for the same strain, steel possesses a higher Young's modulus and is technically more elastic.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>📏 2. Stress and Strain</h2>
+
+        <h3>Stress (&sigma;)</h3>
+        <p>The restoring force per unit area set up inside the body. Unit: N/m<sup>2</sup> or Pascal (Pa).</p>
+        <ul>
+            <li><strong>Normal Stress:</strong> Force applied perpendicular to surface. (Tensile: increases length; Compressive: decreases length).</li>
+            <li><strong>Tangential/Shearing Stress:</strong> Force applied parallel to surface, causing a change in shape.</li>
+            <li><strong>Volumetric/Hydraulic Stress:</strong> Force applied uniformly over entire surface, changing volume.</li>
+        </ul>
+
+        <h3>Strain (&epsilon;)</h3>
+        <p>The ratio of change in dimension to the original dimension. It is a dimensionless quantity.</p>
+        <ul>
+            <li><strong>Longitudinal Strain:</strong> &Delta;L / L</li>
+            <li><strong>Shear Strain:</strong> &Delta;x / L = tan&theta; &approx; &theta;</li>
+            <li><strong>Volumetric Strain:</strong> &Delta;V / V</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔗 3. Hooke's Law and Moduli of Elasticity</h2>
+        <p><strong>Hooke's Law:</strong> Within the elastic limit, stress is directly proportional to strain.</p>
+        <p><strong>Stress &propto; Strain</strong> &rArr; Stress / Strain = E (Modulus of Elasticity).</p>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Types of Moduli</div>
+            <ul>
+                <li><strong>Young's Modulus (Y):</strong> Longitudinal Stress / Longitudinal Strain. <strong>Y = (F/A) / (&Delta;L/L) = FL / A&Delta;L</strong>. Applicable to solids only.</li>
+                <li><strong>Shear Modulus / Modulus of Rigidity (G):</strong> Shearing Stress / Shearing Strain. <strong>G = (F/A) / &theta;</strong>. Applicable to solids only.</li>
+                <li><strong>Bulk Modulus (B):</strong> Hydraulic Stress / Volumetric Strain. <strong>B = -p / (&Delta;V/V)</strong>. Applicable to solids, liquids, and gases.</li>
+            </ul>
+        </div>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Compressibility (k)</div>
+            <p>It is the reciprocal of Bulk Modulus. k = 1 / B. Gases are highly compressible, hence their Bulk Modulus is very low.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>📈 4. Stress-Strain Curve</h2>
+
+        <!-- DIAGRAM: STRESS STRAIN CURVE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 300" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Axes -->
+                <line x1="50" y1="250" x2="400" y2="250" stroke="#333" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="50" stroke="#333" stroke-width="2"/>
+                <text x="410" y="255" font-size="12" fill="#333">Strain (&epsilon;)</text>
+                <text x="15" y="40" font-size="12" fill="#333">Stress (&sigma;)</text>
+
+                <!-- Curve -->
+                <path d="M 50 250 L 150 150 Q 200 120 220 130 T 320 80 Q 360 120 380 180" fill="none" stroke="#D32F2F" stroke-width="3"/>
+                
+                <!-- Points -->
+                <circle cx="150" cy="150" r="4" fill="#1565C0"/>
+                <text x="110" y="145" font-size="12" fill="#1565C0">Proportional Limit</text>
+
+                <circle cx="170" cy="138" r="4" fill="#0288D1"/>
+                <text x="160" y="125" font-size="12" fill="#0288D1">Elastic Limit (Yield)</text>
+
+                <circle cx="320" cy="80" r="4" fill="#E65100"/>
+                <text x="260" y="70" font-size="12" fill="#E65100">Ultimate Tensile Strength</text>
+
+                <circle cx="380" cy="180" r="4" fill="#333"/>
+                <text x="390" y="185" font-size="12" fill="#333">Fracture</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Typical Stress-Strain Curve for a ductile metal</div>
+        </div>
+
+        <ul>
+            <li><strong>Proportional Limit:</strong> Region where Hooke's Law is strictly obeyed (straight line).</li>
+            <li><strong>Elastic Limit (Yield Point):</strong> Maximum stress the material can endure without permanent set.</li>
+            <li><strong>Plastic Region:</strong> Beyond elastic limit, strain increases much more rapidly than stress. Material undergoes permanent deformation.</li>
+            <li><strong>Ultimate Tensile Strength (UTS):</strong> Maximum stress the material can withstand before breaking.</li>
+            <li><strong>Fracture Point:</strong> The point at which the wire breaks.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Ductile vs Brittle</div>
+            <p>If the distance between UTS and Fracture Point is large, the material is <strong>Ductile</strong> (can be drawn into wires, e.g., Copper). If they are very close, the material is <strong>Brittle</strong> (breaks easily, e.g., Glass).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔋 5. Elastic Potential Energy</h2>
+        <p>When a wire is stretched, work is done against the restoring forces. This work is stored as elastic potential energy.</p>
+
+        <p><strong>Work done (W) = &frac12; &times; Load &times; Extension = &frac12; F &Delta;L</strong></p>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Energy Density</div>
+            <p>Energy stored per unit volume of the stretched wire is called Energy Density (u).</p>
+            <p><strong>u = &frac12; &times; Stress &times; Strain = &frac12; &times; Y &times; (Strain)<sup>2</sup></strong></p>
+        </div>
+
+        <h3>Poisson's Ratio (&nu;)</h3>
+        <p>Ratio of lateral strain to longitudinal strain. &nu; = - (&Delta;d/d) / (&Delta;L/L). Theoretical limit: -1 to 0.5. Practical limit: 0 to 0.5.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 8 (Class 11) | Mechanical Properties of Solids</span>
+    </div>
+
+</div>
+
+</body>
+</html>

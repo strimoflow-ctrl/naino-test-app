@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 3: Human Reproduction</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Human Reproduction</h1>
+        <div class="subtitle">Class 12 Zoology | Chapter 3</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🚹 1. Male Reproductive System</h2>
+        <p>Located in the pelvis region. It includes a pair of testes along with accessory ducts, glands and the external genitalia.</p>
+
+        <h3>Testes</h3>
+        <p>Situated outside the abdominal cavity within a pouch called <strong>scrotum</strong>. Scrotum helps in maintaining the low temperature of the testes (<strong>2-2.5 °C lower</strong> than normal internal body temperature), necessary for spermatogenesis.</p>
+        <ul>
+            <li>Each testis has about 250 compartments called testicular lobules.</li>
+            <li>Each lobule contains 1 to 3 highly coiled <strong>seminiferous tubules</strong> where sperms are produced.</li>
+            <li>Inner lining of seminiferous tubules has: 
+                <br>1. <strong>Male germ cells (spermatogonia):</strong> Undergo meiotic divisions finally leading to sperm formation.
+                <br>2. <strong>Sertoli cells:</strong> Provide nutrition to the germ cells.
+            </li>
+            <li>The regions outside the seminiferous tubules called interstitial spaces contain <strong>Leydig cells</strong>. Leydig cells synthesize and secrete testicular hormones called <strong>androgens</strong> (testosterone).</li>
+        </ul>
+
+        <h3>Accessory Ducts & Glands</h3>
+        <p><strong>Ducts:</strong> Rete testis -> Vasa efferentia -> Epididymis -> Vas deferens.<br>
+        <strong>Glands:</strong> Seminal vesicles (paired), Prostate (single), Bulbourethral glands (paired). Secretions of these glands constitute the <strong>seminal plasma</strong> which is rich in fructose, calcium and certain enzymes.</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Pathway of Sperm</div>
+            <p><strong>S-E-V-E-N U-P</strong><br>
+            <strong>S</strong>eminiferous tubules → <strong>E</strong>pididymis → <strong>V</strong>as deferens → <strong>E</strong>jaculatory duct → <strong>N</strong>(Nothing) → <strong>U</strong>rethra → <strong>P</strong>enis.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🚺 2. Female Reproductive System</h2>
+        <p>Located in the pelvic region. Consists of a pair of ovaries, a pair of oviducts (fallopian tubes), uterus, cervix, vagina, and external genitalia. Supported by mammary glands.</p>
+
+        <h3>Ovaries & Oviducts</h3>
+        <ul>
+            <li><strong>Ovaries:</strong> Primary female sex organs that produce the female gamete (ovum) and ovarian hormones (estrogen, progesterone).</li>
+            <li><strong>Fallopian Tubes (Oviducts):</strong> About 10-12 cm long. Parts:
+                <ul>
+                    <li><strong>Infundibulum:</strong> Funnel-shaped part closer to ovary. Edges possess finger-like projections called <strong>fimbriae</strong> (help in collection of ovum after ovulation).</li>
+                    <li><strong>Ampulla:</strong> Wider part. This is the <strong>site of fertilization!</strong></li>
+                    <li><strong>Isthmus:</strong> Narrow part joining the uterus.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Uterus (Womb)</h3>
+        <p>Single, shaped like an inverted pear. The wall of the uterus has three layers of tissue:</p>
+        <ol>
+            <li><strong>Perimetrium:</strong> External thin membranous layer.</li>
+            <li><strong>Myometrium:</strong> Middle thick layer of smooth muscle. Exhibits strong contraction during delivery of the baby.</li>
+            <li><strong>Endometrium:</strong> Inner glandular layer. Undergoes cyclical changes during menstrual cycle. Implantation of blastocyst occurs here.</li>
+        </ol>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧬 3. Gametogenesis</h2>
+
+        <h3>Spermatogenesis</h3>
+        <p>Process of formation of sperms in seminiferous tubules. Begins at puberty due to significant increase in GnRH.<br>
+        Spermatogonia (2n) -> Primary Spermatocytes (2n) -> <em>Meiosis I</em> -> Secondary Spermatocytes (n) -> <em>Meiosis II</em> -> Spermatids (n) -> <em>Spermiogenesis</em> -> Spermatozoa (n).</p>
+
+        <!-- DIAGRAM: HUMAN SPERM -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 150" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Tail -->
+                <path d="M 280 75 Q 350 50, 450 80" fill="none" stroke="#BBDEFB" stroke-width="4"/>
+                
+                <!-- Middle Piece -->
+                <rect x="180" y="65" width="100" height="20" fill="#FFCDD2" rx="5"/>
+                <!-- Mitochondria spiral -->
+                <path d="M 180 65 Q 190 85, 200 65 Q 210 85, 220 65 Q 230 85, 240 65 Q 250 85, 260 65 Q 270 85, 280 65" fill="none" stroke="#D32F2F" stroke-width="2"/>
+
+                <!-- Neck -->
+                <rect x="160" y="68" width="20" height="14" fill="#E0E0E0"/>
+
+                <!-- Head -->
+                <path d="M 160 55 C 100 55, 60 75, 60 75 C 60 75, 100 95, 160 95 Z" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+                
+                <!-- Acrosome -->
+                <path d="M 120 59 C 80 65, 60 75, 60 75 C 60 75, 80 85, 120 91 C 110 85, 110 65, 120 59 Z" fill="#1565C0"/>
+
+                <!-- Nucleus -->
+                <ellipse cx="130" cy="75" rx="20" ry="10" fill="#2E7D32" opacity="0.6"/>
+
+                <!-- Labels -->
+                <text x="90" y="45" font-size="12" fill="#1565C0" font-weight="bold">Acrosome</text>
+                <text x="130" y="115" font-size="12" fill="#2E7D32" font-weight="bold">Nucleus</text>
+                <text x="230" y="45" font-size="12" fill="#D32F2F" font-weight="bold">Mitochondria (Middle Piece)</text>
+                <text x="400" y="100" font-size="12" fill="#1565C0" font-weight="bold">Tail</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Structure of a Human Sperm</div>
+        </div>
+
+        <h3>Oogenesis</h3>
+        <p>Process of formation of a mature female gamete. It is initiated during the embryonic development stage when millions of oogonia are formed within each fetal ovary. No more oogonia are formed and added after birth.</p>
+        <p>Oogonia -> Primary Oocyte (arrested in Prophase I of Meiosis I). At puberty, out of many, only 60,000-80,000 primary follicles are left in each ovary. Every month, one completes Meiosis I resulting in a large Secondary Oocyte (n) and a tiny First Polar Body.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>📅 4. Menstrual Cycle</h2>
+        <p>The reproductive cycle in the female primates (e.g., monkeys, apes and human beings) is called menstrual cycle. Menarche is the first menstruation. Menopause is cessation of the cycle (~50 years of age).</p>
+        
+        <ol>
+            <li><strong>Menstrual Phase (Days 1-5):</strong> Breakdown of endometrial lining of uterus and its blood vessels. Occurs only if the released ovum is not fertilised.</li>
+            <li><strong>Follicular / Proliferative Phase (Days 6-13):</strong> Primary follicles grow to become fully mature Graafian follicle. Endometrium regenerates. LH and FSH increase gradually. Secretion of estrogens increases.</li>
+            <li><strong>Ovulatory Phase (Day 14):</strong> Rapid secretion of LH leading to its maximum level during the mid-cycle called <strong>LH surge</strong>. This induces rupture of Graafian follicle and release of ovum (ovulation).</li>
+            <li><strong>Luteal / Secretory Phase (Days 15-28):</strong> Remaining parts of Graafian follicle transform into <strong>Corpus Luteum</strong>. It secretes large amounts of <strong>Progesterone</strong> which is essential for maintenance of the endometrium for implantation.</li>
+        </ol>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Hormone peaks</div>
+            <p>During the Menstrual Cycle:<br>
+            - <strong>Estrogen</strong> peaks just BEFORE ovulation.<br>
+            - <strong>LH and FSH</strong> peak ON the day of ovulation (Day 14).<br>
+            - <strong>Progesterone</strong> peaks AFTER ovulation (during luteal phase).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>👶 5. Fertilisation, Implantation & Pregnancy</h2>
+
+        <h3>Fertilisation</h3>
+        <p>The fusion of a sperm with an ovum. Takes place in the <strong>ampullary region</strong> of the fallopian tube. The sperm induces changes in the <strong>zona pellucida</strong> layer of the ovum that block the entry of additional sperms (prevents polyspermy).</p>
+
+        <h3>Implantation</h3>
+        <p>The zygote undergoes mitotic division (cleavage) moving towards uterus to form 2, 4, 8, 16 daughter cells called <strong>blastomeres</strong>. Embryo with 8-16 blastomeres is a <strong>Morula</strong>. It transforms into a <strong>Blastocyst</strong>. The outer layer (trophoblast) attaches to the endometrium, and inner cell mass gets differentiated as the embryo. This attachment is called implantation.</p>
+
+        <h3>Placenta & Hormones</h3>
+        <p>Placenta is the structural and functional unit between developing embryo and maternal body. It produces several hormones like <strong>hCG (human chorionic gonadotropin), hPL (human placental lactogen), estrogens, progesterones</strong>. <em>hCG, hPL and relaxin are produced in women ONLY during pregnancy.</em></p>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Colostrum</div>
+            <p>The milk produced during the initial few days of lactation is called <strong>colostrum</strong>. It contains several antibodies (especially <strong>IgA</strong>) absolutely essential to develop resistance for the new-born babies!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 3 (Class 12) | Human Reproduction</span>
+    </div>
+
+</div>
+
+</body>
+</html>

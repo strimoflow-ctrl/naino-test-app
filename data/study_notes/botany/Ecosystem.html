@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 14: Ecosystem</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Ecosystem</h1>
+        <div class="subtitle">Class 12 Biology | Chapter 14</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌍 1. Ecosystem Structure and Function</h2>
+        <p>An ecosystem can be visualized as a functional unit of nature, where living organisms interact among themselves and also with the surrounding physical environment. Examples: Forest, Grassland, Pond, Crop field, Aquarium.</p>
+
+        <h3>Key Components</h3>
+        <p>Interaction of biotic and abiotic components results in a physical structure characteristic for each type of ecosystem. The four basic functional components are:</p>
+        <ol>
+            <li><strong>Productivity:</strong> Rate of biomass production.
+                <ul>
+                    <li><em>Gross Primary Productivity (GPP):</em> Rate of production of organic matter during photosynthesis.</li>
+                    <li><em>Net Primary Productivity (NPP):</em> GPP minus respiration losses (R). NPP = GPP - R. This is the available biomass for consumption to heterotrophs.</li>
+                    <li><em>Secondary Productivity:</em> Rate of formation of new organic matter by consumers.</li>
+                </ul>
+            </li>
+            <li><strong>Decomposition:</strong> Breakdown of complex organic matter into inorganic substances (CO₂, water, nutrients) by decomposers. Steps involved: Fragmentation, Leaching, Catabolism, Humification, and Mineralisation.</li>
+            <li><strong>Energy Flow:</strong> Unidirectional flow of energy from sun to producers to consumers.</li>
+            <li><strong>Nutrient Cycling:</strong> Movement of nutrient elements through various components of an ecosystem.</li>
+        </ol>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Global Productivity</div>
+            <p>The annual net primary productivity of the whole biosphere is approximately <strong>170 billion tons</strong> (dry weight) of organic matter. Of this, despite occupying about 70% of the surface, the productivity of the oceans is only <strong>55 billion tons</strong>!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚡ 2. Energy Flow</h2>
+        <p>Except for the deep sea hydro-thermal ecosystem, sun is the only source of energy for all ecosystems on Earth.</p>
+        
+        <ul>
+            <li>Of the incident solar radiation, less than 50% is <strong>Photosynthetically Active Radiation (PAR)</strong>.</li>
+            <li>Plants capture only <strong>2-10%</strong> of the PAR, and this small amount of energy sustains the entire living world.</li>
+            <li>Energy flow is strictly unidirectional and follows the laws of thermodynamics.</li>
+        </ul>
+
+        <h3>Food Chains</h3>
+        <ul>
+            <li><strong>Grazing Food Chain (GFC):</strong> Begins with producers (plants) -> Herbivores -> Carnivores. Major conduit of energy flow in AQUATIC ecosystems.</li>
+            <li><strong>Detritus Food Chain (DFC):</strong> Begins with dead organic matter (detritus) -> Decomposers (saprotrophs like fungi and bacteria). Major conduit of energy flow in TERRESTRIAL ecosystems.</li>
+        </ul>
+        <p>Food chains become interconnected to form a complex network called a <strong>Food Web</strong>.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔺 3. Ecological Pyramids</h2>
+        <p>The relationship between different trophic levels can be expressed in terms of number, biomass, or energy. The base of each pyramid represents the producers or the first trophic level.</p>
+
+        <ul>
+            <li><strong>Pyramid of Number:</strong> Usually upright. Exceptions: Tree ecosystem (inverted - 1 tree supports many insects).</li>
+            <li><strong>Pyramid of Biomass:</strong> Usually upright. Exception: Sea/Ocean ecosystem is <strong>inverted</strong> because the biomass of fishes far exceeds that of phytoplankton.</li>
+            <li><strong>Pyramid of Energy:</strong> <strong>ALWAYS upright</strong>, can never be inverted. Because when energy flows from one trophic level to the next, some energy is always lost as heat at each step (Lindeman's 10% law).</li>
+        </ul>
+
+        <!-- DIAGRAM: PYRAMID OF ENERGY -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 350" width="100%" style="max-width: 400px; font-family: sans-serif;">
+                
+                <!-- Producers -->
+                <polygon points="50,300 450,300 400,240 100,240" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+                <text x="250" y="275" font-size="16" fill="#2E7D32" font-weight="bold" text-anchor="middle">Primary Producers (10,000 J)</text>
+                
+                <!-- Primary Consumers -->
+                <polygon points="100,240 400,240 350,180 150,180" fill="#FFF9C4" stroke="#F57F17" stroke-width="2"/>
+                <text x="250" y="215" font-size="16" fill="#F57F17" font-weight="bold" text-anchor="middle">Primary Consumers (1,000 J)</text>
+
+                <!-- Secondary Consumers -->
+                <polygon points="150,180 350,180 300,120 200,120" fill="#FFE082" stroke="#FF8F00" stroke-width="2"/>
+                <text x="250" y="155" font-size="14" fill="#FF8F00" font-weight="bold" text-anchor="middle">Secondary Cons. (100 J)</text>
+
+                <!-- Tertiary Consumers -->
+                <polygon points="200,120 300,120 250,60" fill="#FFCDD2" stroke="#D32F2F" stroke-width="2"/>
+                <text x="250" y="105" font-size="12" fill="#D32F2F" font-weight="bold" text-anchor="middle">Tertiary</text>
+                <text x="250" y="118" font-size="12" fill="#D32F2F" font-weight="bold" text-anchor="middle">Cons. (10 J)</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Pyramid of Energy representing Lindeman's 10% Law</div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌲 4. Ecological Succession</h2>
+        <p>The gradual and fairly predictable change in the species composition of a given area is called ecological succession.</p>
+        
+        <ul>
+            <li><strong>Pioneer Species:</strong> The species that invade a bare area.</li>
+            <li><strong>Climax Community:</strong> The final community that is in near equilibrium with the environment. Remains stable as long as the environment remains unchanged.</li>
+            <li><strong>Primary Succession:</strong> Begins in areas where no living organisms ever existed (e.g., bare rock, newly cooled lava). Extremely slow (takes thousands of years).</li>
+            <li><strong>Secondary Succession:</strong> Begins in areas where natural biotic communities have been destroyed (e.g., abandoned farm lands, burned forests). Faster than primary succession.</li>
+        </ul>
+
+        <h3>Succession on Rocks (Xerarch)</h3>
+        <p>Pioneer species: <strong>Lichens</strong> (secrete acids to dissolve rock) -> Bryophytes -> Herbaceous plants -> Shrubs -> Forest (Climax).</p>
+
+        <h3>Succession in Water (Hydrarch)</h3>
+        <p>Pioneer species: <strong>Phytoplankton</strong> -> Free-floating angiosperms -> Rooted hydrophytes -> Sedges -> Grasses -> Trees (Climax).</p>
+        
+        <p><em>Note: Both Hydrarch and Xerarch successions lead to medium water conditions (Mesic climax community).</em></p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔄 5. Nutrient Cycling (Biogeochemical Cycles)</h2>
+        <p>The movement of nutrient elements through the various components of an ecosystem. Nutrient is never lost from the ecosystems, they are recycled time and again indefinitely.</p>
+
+        <h3>Gaseous Cycles (Reservoir in Atmosphere/Hydrosphere)</h3>
+        <ul>
+            <li><strong>Carbon Cycle:</strong> 71% of carbon is dissolved in oceans. Fossil fuels also represent a reservoir. Carbon cycling occurs through atmosphere, ocean, and through living/dead organisms. Human activities (deforestation, burning fossil fuels) have significantly increased the rate of release of CO₂ into the atmosphere.</li>
+        </ul>
+
+        <h3>Sedimentary Cycles (Reservoir in Earth's Crust)</h3>
+        <ul>
+            <li><strong>Phosphorus Cycle:</strong> Phosphorus is a major constituent of biological membranes, nucleic acids, and cellular energy transfer systems. The natural reservoir is <strong>Rock</strong>. When rocks weather, minute amounts dissolve in soil solution and are absorbed by roots of plants.</li>
+        </ul>
+        <p><em>Difference:</em> Atmospheric inputs of phosphorus through rainfall are much smaller than carbon inputs, and gaseous exchanges of phosphorus between organism and environment are negligible.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 14 (Class 12) | Ecosystem</span>
+    </div>
+
+</div>
+
+</body>
+</html>

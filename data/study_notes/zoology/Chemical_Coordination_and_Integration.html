@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 22: Chemical Coordination and Integration</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Chemical Coordination and Integration</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 22</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧪 1. Endocrine Glands and Hormones</h2>
+        <p>Endocrine glands lack ducts and are hence, called ductless glands. Their secretions are called hormones.</p>
+        
+        <div class="box box-definition">
+            <div class="box-title">📘 Definition: Hormones</div>
+            <p>Hormones are non-nutrient chemicals which act as intercellular messengers and are produced in trace amounts.</p>
+        </div>
+
+        <h3>Hypothalamus</h3>
+        <p>Located at the base of the diencephalon (forebrain). It contains neurosecretory cells called nuclei which produce hormones. These hormones regulate the synthesis and secretion of pituitary hormones. Types: releasing hormones (e.g., GnRH) and inhibiting hormones (e.g., Somatostatin).</p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>👑 2. Pituitary and Pineal Glands</h2>
+
+        <h3>Pituitary Gland (The Master Gland)</h3>
+        <p>Located in a bony cavity called sella tursica. Divided anatomically into an adenohypophysis and a neurohypophysis.</p>
+        
+        <table>
+            <tr><th>Region</th><th>Hormones Secreted</th><th>Major Functions</th></tr>
+            <tr><td>Pars Distalis (Anterior Pituitary)</td><td>GH, PRL, TSH, ACTH, LH, FSH</td><td>Growth, Milk production, Thyroid stimulation, Adrenal cortex stimulation, Gonad stimulation.</td></tr>
+            <tr><td>Pars Intermedia</td><td>MSH (Melanocyte Stimulating Hormone)</td><td>Acts on melanocytes, regulates pigmentation of the skin.</td></tr>
+            <tr><td>Pars Nervosa (Posterior Pituitary)</td><td>Oxytocin, Vasopressin (ADH)</td><td>Synthesized by hypothalamus and transported here. Oxytocin helps in child birth (uterine contraction) and milk ejection. ADH reabsorbs water in kidneys.</td></tr>
+        </table>
+
+        <h3>Pineal Gland</h3>
+        <p>Located on the dorsal side of forebrain. Secretes a hormone called <strong>melatonin</strong>. Melatonin plays a very important role in the regulation of a 24-hour (diurnal) rhythm of our body (sleep-wake cycle, body temperature).</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Pituitary Disorders</div>
+            <p><strong>Gigantism:</strong> Over-secretion of GH during childhood.<br>
+            <strong>Acromegaly:</strong> Over-secretion of GH in adults (especially middle age) leading to severe disfigurement (especially face).<br>
+            <strong>Dwarfism:</strong> Low secretion of GH.<br>
+            <strong>Diabetes Insipidus:</strong> Impairment affecting synthesis/release of ADH, resulting in water loss and dehydration.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🦋 3. Thyroid and Parathyroid Glands</h2>
+
+        <h3>Thyroid Gland</h3>
+        <p>Located on either side of the trachea. Composed of follicles and stromal tissues. Synthesizes two main hormones: T4 (thyroxine) and T3. <strong>Iodine</strong> is essential for their normal rate of synthesis. Functions include regulation of BMR, RBC formation, control of metabolism of carbohydrates, proteins and fats. It also secretes TCT (Thyrocalcitonin) which regulates blood calcium levels.</p>
+
+        <ul>
+            <li><strong>Hypothyroidism:</strong> Enlargement of thyroid gland (Goitre). During pregnancy, it causes defective development of growing baby (Cretinism: stunted growth, mental retardation). In adult women, may cause irregular menstrual cycle.</li>
+            <li><strong>Hyperthyroidism:</strong> Exophthalmic goitre (Grave's disease) characterised by enlargement of thyroid gland, protrusion of eyeballs, increased BMR, and weight loss.</li>
+        </ul>
+
+        <h3>Parathyroid Gland</h3>
+        <p>Four parathyroid glands are present on the back side of the thyroid gland. They secrete Parathyroid hormone (PTH).</p>
+        <p><strong>Role of PTH:</strong> It is a <em>hypercalcemic</em> hormone, meaning it increases blood Ca²⁺ levels. It acts on bones (stimulates bone resorption/demineralisation), stimulates reabsorption of Ca²⁺ by renal tubules and increases Ca²⁺ absorption from the digested food.</p>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Antagonistic Action</div>
+            <p>PTH and TCT (Thyrocalcitonin) have exactly opposite actions! While PTH increases blood calcium by pulling it from bones, TCT decreases blood calcium by putting it back into the bones.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>⚔️ 4. Adrenal and Pancreas</h2>
+
+        <h3>Adrenal Gland</h3>
+        <p>Located at the anterior part of each kidney. Composed of two types of tissues: centrally located adrenal medulla and outside adrenal cortex.</p>
+        <ul>
+            <li><strong>Adrenal Medulla:</strong> Secretes Adrenaline (epinephrine) and Noradrenaline (norepinephrine). These are called <strong>Emergency hormones</strong> or hormones of Fight or Flight. They increase alertness, pupillary dilation, piloerection (raising of hairs), sweating, heart beat, and breakdown of glycogen (increasing blood glucose).</li>
+            <li><strong>Adrenal Cortex:</strong> Secretes corticoids.
+                <ul>
+                    <li><em>Glucocorticoids (e.g., Cortisol):</em> Involved in carbohydrate metabolism. Stimulate gluconeogenesis, lipolysis and proteolysis. Cortisol is also anti-inflammatory and suppresses the immune response.</li>
+                    <li><em>Mineralocorticoids (e.g., Aldosterone):</em> Regulate balance of water and electrolytes. Acts on renal tubules to reabsorb Na⁺ and water.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Pancreas (Composite Gland)</h3>
+        <p>Acts as both exocrine and endocrine gland. The endocrine pancreas consists of <strong>Islets of Langerhans</strong> (about 1 to 2 million). Two main types of cells: alpha cells (secrete Glucagon) and beta cells (secrete Insulin).</p>
+        <ul>
+            <li><strong>Glucagon:</strong> A peptide hormone. Hyperglycemic hormone (increases blood glucose). Stimulates glycogenolysis and gluconeogenesis in liver.</li>
+            <li><strong>Insulin:</strong> A peptide hormone. Hypoglycemic hormone (decreases blood glucose). Enhances cellular glucose uptake by hepatocytes and adipocytes. Stimulates glycogenesis.</li>
+            <li><em>Diabetes Mellitus:</em> Prolonged hyperglycemia is associated with this complex disorder which leads to loss of glucose through urine and formation of harmful ketone bodies.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔬 5. Mechanism of Hormone Action</h2>
+        <p>Hormones produce their effects on target tissues by binding to specific proteins called hormone receptors located in the target tissues only.</p>
+
+        <ul>
+            <li><strong>Membrane-bound Receptors:</strong> Hormones which interact with membrane-bound receptors normally do not enter the target cell, but generate <strong>second messengers</strong> (e.g., cyclic AMP, IP3, Ca⁺⁺) which in turn regulate cellular metabolism. Mostly protein/peptide hormones.</li>
+            <li><strong>Intracellular Receptors:</strong> Receptors are inside the cell (mostly nuclear receptors). The hormone-receptor complex interacts directly with the <strong>genome</strong> to regulate gene expression or chromosome function. Mostly steroid hormones and iodothyronines.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Chemical Nature of Hormones</div>
+            <p><strong>Steroid Hormones:</strong> Anything related to the adrenal cortex or gonads! (Cortisol, testosterone, estradiol, progesterone).<br>
+            <strong>Amino-acid derivatives:</strong> Epinephrine.<br>
+            <strong>Peptide/Protein:</strong> Insulin, Glucagon, Pituitary hormones, Hypothalamic hormones.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 22 (Class 11) | Chemical Coordination and Integration</span>
+    </div>
+
+</div>
+
+</body>
+</html>

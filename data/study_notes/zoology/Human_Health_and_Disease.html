@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 8: Human Health and Disease</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Human Health and Disease</h1>
+        <div class="subtitle">Class 12 Zoology | Chapter 8</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🦠 1. Common Diseases in Humans</h2>
+        <p>A wide range of organisms could cause disease in man. Such disease causing organisms are called <strong>pathogens</strong>.</p>
+
+        <table>
+            <tr><th>Disease</th><th>Pathogen</th><th>Symptoms & Tests</th></tr>
+            <tr><td><strong>Typhoid</strong></td><td><em>Salmonella typhi</em> (Bacteria)</td><td>High fever, weakness, stomach pain, intestinal perforation. Test: <strong>Widal test</strong>. (Remember Typhoid Mary!)</td></tr>
+            <tr><td><strong>Pneumonia</strong></td><td><em>Streptococcus pneumoniae, Haemophilus influenzae</em></td><td>Infects alveoli of lungs (fluid filled). Fever, chills, cough, lips/nails turn bluish.</td></tr>
+            <tr><td><strong>Common Cold</strong></td><td><em>Rhinoviruses</em></td><td>Infects the nose and respiratory passage but <strong>not the lungs</strong>. Congestion, sore throat.</td></tr>
+            <tr><td><strong>Malaria</strong></td><td><em>Plasmodium (P. vivax, P. malariae, P. falciparum)</em></td><td>High fever and chills recurring every 3 to 4 days (due to rupture of RBCs releasing hemozoin). Vector: Female Anopheles mosquito.</td></tr>
+            <tr><td><strong>Amoebiasis</strong></td><td><em>Entamoeba histolytica</em> (Protozoan)</td><td>Constipation, abdominal pain, stools with excess mucous and blood clots. Vector: Houseflies.</td></tr>
+            <tr><td><strong>Ascariasis</strong></td><td><em>Ascaris</em> (Roundworm)</td><td>Internal bleeding, muscular pain, blockage of intestinal passage.</td></tr>
+            <tr><td><strong>Ringworms</strong></td><td><em>Microsporum, Trichophyton, Epidermophyton</em> (Fungi)</td><td>Dry, scaly lesions on skin, nails and scalp with intense itching.</td></tr>
+        </table>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🛡️ 2. Immunity</h2>
+        <p>The overall ability of the host to fight the disease-causing organisms is called immunity. Two types: Innate and Acquired.</p>
+
+        <h3>Innate Immunity</h3>
+        <p>Non-specific type of defense, present at the time of birth. Four types of barriers:</p>
+        <ol>
+            <li><strong>Physical barriers:</strong> Skin, mucus coating of respiratory, gastrointestinal tracts.</li>
+            <li><strong>Physiological barriers:</strong> Acid in the stomach, saliva in the mouth, tears from eyes.</li>
+            <li><strong>Cellular barriers:</strong> PMNL-neutrophils, monocytes, natural killer (NK) cells, macrophages.</li>
+            <li><strong>Cytokine barriers:</strong> Virus-infected cells secrete proteins called <strong>interferons</strong> which protect non-infected cells from further viral infection.</li>
+        </ol>
+
+        <h3>Acquired Immunity</h3>
+        <p>Pathogen specific. Characterised by memory. Carried out by B-lymphocytes (produce antibodies) and T-lymphocytes (help B cells produce antibodies).</p>
+
+        <!-- DIAGRAM: ANTIBODY -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 300" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                
+                <!-- Heavy Chains -->
+                <path d="M 170 50 L 170 150 L 195 250" fill="none" stroke="#1565C0" stroke-width="8" stroke-linecap="round"/>
+                <path d="M 230 50 L 230 150 L 205 250" fill="none" stroke="#1565C0" stroke-width="8" stroke-linecap="round"/>
+
+                <!-- Light Chains -->
+                <path d="M 130 50 L 130 130" fill="none" stroke="#D32F2F" stroke-width="8" stroke-linecap="round"/>
+                <path d="M 270 50 L 270 130" fill="none" stroke="#D32F2F" stroke-width="8" stroke-linecap="round"/>
+
+                <!-- Disulfide Bonds (Lines) -->
+                <line x1="130" y1="90" x2="170" y2="90" stroke="#000" stroke-width="2"/>
+                <line x1="230" y1="90" x2="270" y2="90" stroke="#000" stroke-width="2"/>
+                <line x1="170" y1="130" x2="230" y2="130" stroke="#000" stroke-width="2"/>
+                <line x1="170" y1="140" x2="230" y2="140" stroke="#000" stroke-width="2"/>
+                <text x="200" y="115" font-size="10" text-anchor="middle">S-S</text>
+
+                <!-- Labels -->
+                <text x="170" y="30" font-size="12" fill="#333" text-anchor="middle">Antigen binding site</text>
+                <text x="230" y="30" font-size="12" fill="#333" text-anchor="middle">Antigen binding site</text>
+                
+                <text x="100" y="90" font-size="12" font-weight="bold" fill="#D32F2F">Light Chain</text>
+                <text x="300" y="200" font-size="12" font-weight="bold" fill="#1565C0">Heavy Chain</text>
+
+                <text x="200" y="280" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">H₂L₂ Structure</text>
+            </svg>
+            <div class="diagram-caption">Fig: Structure of an Antibody Molecule (Ig)</div>
+        </div>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Active vs Passive Immunity</div>
+            <p><strong>Active:</strong> Host is exposed to antigens, and antibodies are produced in the host body. Slow. (e.g., Natural infection or Vaccination).<br>
+            <strong>Passive:</strong> Ready-made antibodies are directly given to protect the body. Fast. (e.g., Colostrum rich in IgA, Anti-tetanus injection, Anti-snake venom).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚠️ 3. Allergies & Autoimmunity</h2>
+        
+        <h3>Allergies</h3>
+        <p>The exaggerated response of the immune system to certain antigens present in the environment is called allergy. The substances to which such an immune response is produced are called allergens. Antibodies produced are of <strong>IgE</strong> type. Symptoms (sneezing, watery eyes, running nose) are due to release of chemicals like <strong>histamine and serotonin</strong> from the mast cells.</p>
+
+        <h3>Autoimmunity</h3>
+        <p>Sometimes, due to genetic and other unknown reasons, the body attacks self-cells. This results in damage to the body and is called auto-immune disease. Example: <strong>Rheumatoid arthritis</strong> which affects many people in our society.</p>
+
+        <h3>Lymphoid Organs</h3>
+        <p>Organs where origin and/or maturation and proliferation of lymphocytes occur.</p>
+        <ul>
+            <li><strong>Primary:</strong> Bone marrow (B-cells) and Thymus (T-cells). Here immature lymphocytes differentiate into antigen-sensitive lymphocytes.</li>
+            <li><strong>Secondary:</strong> Spleen, lymph nodes, tonsils, Peyer's patches of small intestine. Spleen is a large bean-shaped organ which acts as a filter of the blood by trapping blood-borne microorganisms. MALT (Mucosa-Associated Lymphoid Tissue) constitutes about 50% of lymphoid tissue in human body.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🎗️ 4. AIDS and Cancer</h2>
+
+        <h3>AIDS (Acquired Immuno Deficiency Syndrome)</h3>
+        <p>Caused by HIV (Human Immunodeficiency Virus), a retrovirus. HIV enters into <strong>macrophages</strong> where RNA genome of the virus replicates to form viral DNA with the help of the enzyme <strong>reverse transcriptase</strong>. Macrophages act as an HIV factory. Simultaneously, HIV enters into <strong>helper T-lymphocytes (TH)</strong>, replicates and produces progeny viruses, causing a progressive decrease in the number of helper T-lymphocytes. Test: <strong>ELISA</strong>.</p>
+
+        <h3>Cancer</h3>
+        <p>One of the most dreaded diseases. Normal cells show a property called <strong>contact inhibition</strong> by virtue of which contact with other cells inhibits their uncontrolled growth. Cancer cells appear to have lost this property.<br>
+        Tumors are of two types: Benign (remain confined to original location) and <strong>Malignant</strong> (mass of proliferating cells called neoplastic or tumor cells). Malignant cells invade surrounding tissues and travel to distant sites (<strong>Metastasis</strong>).</p>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Carcinogens</div>
+            <p>Cancer causing agents are called carcinogens. UV rays and X-rays are physical carcinogens. Tobacco smoke contains chemical carcinogens (causes lung cancer). Cancer causing viruses are called <strong>oncogenic viruses</strong> and they have genes called viral oncogenes.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>💊 5. Drugs and Alcohol Abuse</h2>
+        
+        <ul>
+            <li><strong>Opioids:</strong> Bind to specific opioid receptors in CNS and GI tract. <em>Heroin (smack)</em> is chemically diacetylmorphine, extracted from latex of poppy plant <em>Papaver somniferum</em>. It is a depressant and slows down body functions.</li>
+            <li><strong>Cannabinoids:</strong> Interacts with cannabinoid receptors principally in the brain. Obtained from inflorescences of the plant <em>Cannabis sativa</em>. Includes marijuana, hashish, charas and ganja. Effects cardiovascular system of the body.</li>
+            <li><strong>Coca alkaloid or Cocaine:</strong> Obtained from coca plant <em>Erythroxylum coca</em>. Interferes with transport of dopamine. Commonly called coke or crack. Has potent stimulating action on CNS, producing sense of euphoria and increased energy. Excessive dosage causes hallucinations.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 8 (Class 12) | Human Health and Disease</span>
+    </div>
+
+</div>
+
+</body>
+</html>

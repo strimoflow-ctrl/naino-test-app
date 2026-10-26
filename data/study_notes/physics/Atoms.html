@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 12: Atoms</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Atoms</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 12</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔬 1. Alpha-Particle Scattering Experiment</h2>
+        <p>Rutherford's gold foil experiment showed that most of the space inside the atom is empty and the entire positive charge and most of the mass is concentrated in a tiny central core called the <strong>Nucleus</strong>.</p>
+        
+        <ul>
+            <li><strong>Distance of closest approach (r<sub>0</sub>):</strong> The minimum distance from the nucleus up to which an &alpha;-particle can approach. At this distance, its entire Kinetic Energy converts to Electrostatic Potential Energy. r<sub>0</sub> &propto; 1/K.</li>
+            <li><strong>Impact Parameter (b):</strong> The perpendicular distance of the initial velocity vector of the &alpha;-particle from the central line of the nucleus. Smaller the 'b', larger the scattering angle. If b=0, scattering angle is 180&deg; (head-on collision).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚛️ 2. Bohr's Model of Hydrogen Atom</h2>
+        <p>Bohr modified Rutherford's model using Planck's quantum theory.</p>
+
+        <h3>Bohr's Postulates:</h3>
+        <ol>
+            <li>Electrons revolve in certain stable, non-radiating orbits (Stationary Orbits).</li>
+            <li><strong>Quantization of Angular Momentum:</strong> An electron can only revolve in those orbits for which its orbital angular momentum is an integral multiple of h/2&pi;.<br>
+            <strong>mvr = nh / 2&pi;</strong></li>
+            <li>Energy is radiated or absorbed only when an electron jumps from one orbit to another.<br>
+            <strong>h&nu; = E<sub>f</sub> - E<sub>i</sub></strong></li>
+        </ol>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Important Bohr Formulas (for H-like atoms)</div>
+            <p><strong>Radius:</strong> r<sub>n</sub> = 0.529 (n<sup>2</sup> / Z) &Aring;<br>
+            <strong>Velocity:</strong> v<sub>n</sub> = 2.18 &times; 10<sup>6</sup> (Z / n) m/s<br>
+            <strong>Energy:</strong> E<sub>n</sub> = -13.6 (Z<sup>2</sup> / n<sup>2</sup>) eV</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚡ 3. Energy Levels of Hydrogen</h2>
+        <p>The energy of an electron in the nth orbit of hydrogen (Z=1) is E<sub>n</sub> = -13.6 / n<sup>2</sup> eV.</p>
+        <ul>
+            <li>n=1 (Ground state): E<sub>1</sub> = -13.6 eV</li>
+            <li>n=2 (First excited state): E<sub>2</sub> = -3.4 eV</li>
+            <li>n=3 (Second excited state): E<sub>3</sub> = -1.51 eV</li>
+            <li>n=4: E<sub>4</sub> = -0.85 eV</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Energy Relations</div>
+            <p>Total Energy (TE) = - Kinetic Energy (KE)<br>
+            Potential Energy (PE) = 2 &times; Total Energy (TE)</p>
+            <p>If TE = -13.6 eV, then KE = +13.6 eV and PE = -27.2 eV.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌈 4. Hydrogen Emission Spectrum</h2>
+        <p>When hydrogen gas is excited, electrons jump to higher levels. When they fall back, they emit photons of specific wavelengths, forming a line spectrum.</p>
+        
+        <p><strong>Rydberg Formula:</strong> 1/&lambda; = R Z<sup>2</sup> [1/n<sub>1</sub><sup>2</sup> - 1/n<sub>2</sub><sup>2</sup>] (where R &approx; 1.097 &times; 10<sup>7</sup> m<sup>-1</sup>)</p>
+
+        <!-- DIAGRAM: SPECTRAL SERIES -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Energy levels -->
+                <line x1="100" y1="20" x2="400" y2="20" stroke="#333" stroke-width="2"/>
+                <text x="420" y="25" font-size="12" fill="#333">n = &infin; (0 eV)</text>
+
+                <line x1="100" y1="60" x2="400" y2="60" stroke="#333" stroke-width="1.5"/>
+                <text x="420" y="65" font-size="12" fill="#333">n = 4 (-0.85 eV)</text>
+
+                <line x1="100" y1="100" x2="400" y2="100" stroke="#333" stroke-width="1.5"/>
+                <text x="420" y="105" font-size="12" fill="#333">n = 3 (-1.51 eV)</text>
+
+                <line x1="100" y1="150" x2="400" y2="150" stroke="#333" stroke-width="2"/>
+                <text x="420" y="155" font-size="12" fill="#333">n = 2 (-3.4 eV)</text>
+
+                <line x1="100" y1="230" x2="400" y2="230" stroke="#D32F2F" stroke-width="3"/>
+                <text x="420" y="235" font-size="12" fill="#D32F2F" font-weight="bold">n = 1 (-13.6 eV)</text>
+
+                <!-- Lyman -->
+                <line x1="150" y1="150" x2="150" y2="230" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+                <line x1="170" y1="100" x2="170" y2="230" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="160" y="245" font-size="12" fill="#1565C0" text-anchor="middle">Lyman (UV)</text>
+
+                <!-- Balmer -->
+                <line x1="250" y1="100" x2="250" y2="150" stroke="#F57F17" stroke-width="2" marker-end="url(#arrow)"/>
+                <line x1="270" y1="60" x2="270" y2="150" stroke="#F57F17" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="260" y="165" font-size="12" fill="#F57F17" text-anchor="middle">Balmer (Visible)</text>
+
+                <!-- Paschen -->
+                <line x1="330" y1="60" x2="330" y2="100" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="330" y="115" font-size="12" fill="#D32F2F" text-anchor="middle">Paschen (IR)</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Energy Level Diagram and Spectral Series of Hydrogen</div>
+        </div>
+
+        <h3>Spectral Series:</h3>
+        <ul>
+            <li><strong>Lyman:</strong> Jumps to n=1. Region: Ultraviolet (UV).</li>
+            <li><strong>Balmer:</strong> Jumps to n=2. Region: Visible.</li>
+            <li><strong>Paschen:</strong> Jumps to n=3. Region: Infrared (IR).</li>
+            <li><strong>Brackett (n=4) & Pfund (n=5):</strong> Region: Far Infrared.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 12 (Class 12) | Atoms</span>
+    </div>
+
+</div>
+
+</body>
+</html>

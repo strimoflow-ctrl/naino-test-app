@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 4: Animal Kingdom</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Animal Kingdom</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 4</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>📊 1. Basis of Classification</h2>
+        <p>In spite of differences in structure and form of different animals, there are fundamental features common to various individuals in relation to the arrangement of cells, body symmetry, nature of coelom, patterns of digestive, circulatory or reproductive systems.</p>
+
+        <h3>Levels of Organisation</h3>
+        <ul>
+            <li><strong>Cellular level:</strong> Cells are arranged as loose cell aggregates. (Porifera).</li>
+            <li><strong>Tissue level:</strong> Cells performing the same function are arranged into tissues. (Coelenterata, Ctenophora).</li>
+            <li><strong>Organ level:</strong> Tissues are grouped together to form organs, each specialized for a particular function. (Platyhelminthes).</li>
+            <li><strong>Organ-system level:</strong> Organs have associated to form functional systems. (Aschelminthes to Chordates).</li>
+        </ul>
+
+        <h3>Symmetry</h3>
+        <ul>
+            <li><strong>Asymmetrical:</strong> Any plane that passes through the centre does not divide them into equal halves. (Sponges).</li>
+            <li><strong>Radial symmetry:</strong> When any plane passing through the central axis of the body divides the organism into two identical halves. (Coelenterates, Ctenophores, and adult Echinoderms).</li>
+            <li><strong>Bilateral symmetry:</strong> Body can be divided into identical left and right halves in only one plane. (Annelids, Arthropods, etc).</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Coelom Types</div>
+            <p><strong>Acoelomates:</strong> The body cavity is absent. (Platyhelminthes).<br>
+            <strong>Pseudocoelomates:</strong> The body cavity is not lined by mesoderm, instead, the mesoderm is present as scattered pouches in between ectoderm and endoderm. (Aschelminthes).<br>
+            <strong>Eucoelomates/Coelomates:</strong> Have true coelom lined by mesoderm. (Annelida, Mollusca, Arthropoda, Echinodermata, Hemichordata, Chordata).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🧽 2. Non-Chordates (Porifera to Aschelminthes)</h2>
+        
+        <h3>Phylum – Porifera (Sponges)</h3>
+        <p>Marine, asymmetrical, cellular level of organisation. Have a water transport or canal system. Water enters through minute pores (<strong>ostia</strong>) in the body wall into a central cavity, <strong>spongocoel</strong>, from where it goes out through the <strong>osculum</strong>. Choanocytes or collar cells line the spongocoel and the canals. Skeleton made up of <strong>spicules or spongin fibres</strong>. (e.g., <em>Sycon, Euspongia</em>).</p>
+
+        <h3>Phylum – Coelenterata (Cnidaria)</h3>
+        <p>Aquatic, mostly marine, sessile or free-swimming, radially symmetrical animals. The name cnidaria is derived from the <strong>cnidoblasts or cnidocytes</strong> (which contain the stinging capsules or nematocysts) present on the tentacles. Exhibit two basic body forms: Polyp (sessile, e.g., Hydra) and Medusa (umbrella-shaped, free-swimming, e.g., Aurelia/Jellyfish). Those that exist in both forms exhibit <strong>Metagenesis</strong> (e.g., Obelia). (e.g., <em>Physalia, Adamsia</em>).</p>
+
+        <h3>Phylum – Ctenophora (Sea Walnuts or Comb Jellies)</h3>
+        <p>Exclusively marine, radially symmetrical, diploblastic. Body bears eight external rows of ciliated <strong>comb plates</strong>, which help in locomotion. Bioluminescence is well-marked. (e.g., <em>Pleurobrachia and Ctenoplana</em>).</p>
+
+        <h3>Phylum – Platyhelminthes (Flatworms)</h3>
+        <p>Dorso-ventrally flattened body. Mostly endoparasites found in animals. Bilaterally symmetrical, triploblastic and acoelomate. Specialized cells called <strong>flame cells</strong> help in osmoregulation and excretion. (e.g., <em>Taenia/Tapeworm, Fasciola/Liver fluke</em>).</p>
+
+        <h3>Phylum – Aschelminthes (Roundworms)</h3>
+        <p>Body is circular in cross-section. Free living, aquatic and terrestrial or parasitic in plants and animals. Pseudocoelomate animals. Alimentary canal is complete with a well-developed muscular pharynx. (e.g., <em>Ascaris/Roundworm, Wuchereria/Filarial worm</em>).</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🐞 3. Non-Chordates (Annelida to Hemichordata)</h2>
+
+        <h3>Phylum – Annelida</h3>
+        <p>Metamerically segmented and coelomate. Possess longitudinal and circular muscles which help in locomotion. Aquatic annelids like Nereis possess lateral appendages, <strong>parapodia</strong>, which help in swimming. Nephridia help in osmoregulation. (e.g., <em>Pheretima/Earthworm, Hirudinaria/Blood-sucking leech</em>).</p>
+
+        <h3>Phylum – Arthropoda (Largest Phylum)</h3>
+        <p>Over two-thirds of all named species on earth are arthropods. Body is covered by a <strong>chitinous exoskeleton</strong>. Body consists of head, thorax and abdomen. Have <strong>jointed appendages</strong> (arthros-joint, poda-appendages). Respiratory organs are gills, book gills, book lungs or tracheal system. Excretion takes place through malpighian tubules. (e.g., <em>Apis/Honey bee, Anopheles/Mosquito, Limulus/King crab</em>).</p>
+
+        <h3>Phylum – Mollusca (Second Largest)</h3>
+        <p>Terrestrial or aquatic having an unsegmented body with a distinct head, muscular foot and visceral hump. A soft and spongy layer of skin forms a mantle over the visceral hump. The space between the hump and the mantle is called the <strong>mantle cavity</strong> in which feather like gills are present. The mouth contains a file-like rasping organ for feeding, called <strong>radula</strong>. (e.g., <em>Pila/Apple snail, Octopus/Devil fish</em>).</p>
+
+        <h3>Phylum – Echinodermata</h3>
+        <p>Have an endoskeleton of calcareous ossicles (spiny bodied). All are marine. <strong>Adult echinoderms are radially symmetrical but larvae are bilaterally symmetrical</strong>. The most distinctive feature is the presence of <strong>water vascular system</strong> which helps in locomotion, capture and transport of food and respiration. (e.g., <em>Asterias/Star fish, Echinus/Sea urchin</em>).</p>
+
+        <h3>Phylum – Hemichordata</h3>
+        <p>Earlier considered as a sub-phylum under chordata, but now placed as a separate phylum under non-chordata. Worm-like marine animals. Body is cylindrical and is composed of an anterior proboscis, a collar and a long trunk. (e.g., <em>Balanoglossus and Saccoglossus</em>).</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Phyla Sequence</div>
+            <p><strong>P</strong>oor <strong>C</strong>ows <strong>C</strong>an't <strong>P</strong>lay <strong>A</strong>round <strong>A</strong>nd <strong>A</strong>lways <strong>M</strong>iss <strong>E</strong>very <strong>H</strong>urdle.<br>
+            Porifera, Coelenterata, Ctenophora, Platyhelminthes, Aschelminthes, Annelida, Arthropoda, Mollusca, Echinodermata, Hemichordata.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🐟 4. Phylum – Chordata</h2>
+        <p>Fundamentally characterised by the presence of a <strong>notochord, a dorsal hollow nerve cord and paired pharyngeal gill slits</strong>. They are bilaterally symmetrical, triploblastic, coelomate with organ-system level of organisation. Possess a post anal tail.</p>
+
+        <h3>Subphyla of Chordata</h3>
+        <ul>
+            <li><strong>Urochordata (Tunicata):</strong> Notochord is present only in larval tail. (e.g., <em>Ascidia, Salpa, Doliolum</em>).</li>
+            <li><strong>Cephalochordata:</strong> Notochord extends from head to tail region and is persistent throughout their life. (e.g., <em>Branchiostoma/Amphioxus</em>).</li>
+            <li><strong>Vertebrata:</strong> Possess notochord during the embryonic period. The notochord is replaced by a cartilaginous or bony vertebral column in the adult. <em>"All vertebrates are chordates but all chordates are not vertebrates."</em></li>
+        </ul>
+
+        <h3>Classes of Vertebrata</h3>
+        <ul>
+            <li><strong>Cyclostomata:</strong> Jawless fishes. Ectoparasites on some fishes. Elongated body bearing 6-15 pairs of gill slits. Sucking and circular mouth without jaws. (e.g., Petromyzon/Lamprey).</li>
+            <li><strong>Chondrichthyes (Cartilaginous Fishes):</strong> Marine with cartilaginous endoskeleton. Mouth is located ventrally. Notochord is persistent throughout life. Gill slits are separate and without operculum (gill cover). Have to swim constantly to avoid sinking (lack air bladder). (e.g., Scoliodon/Dog fish).</li>
+            <li><strong>Osteichthyes (Bony Fishes):</strong> Marine and fresh water fishes with bony endoskeleton. Mouth is mostly terminal. Have four pairs of gills covered by an operculum. Air bladder is present which regulates buoyancy. (e.g., Labeo/Rohu, Hippocampus/Sea horse).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🦅 5. Tetrapoda (Amphibians to Mammals)</h2>
+        
+        <ul>
+            <li><strong>Amphibia:</strong> Can live in aquatic as well as terrestrial habitats. Most have two pairs of limbs. Skin is moist (without scales). Heart is 3-chambered. Respiration by gills, lungs and through skin. (e.g., Bufo/Toad, Rana/Frog).</li>
+            <li><strong>Reptilia:</strong> Creeping or crawling mode of locomotion. Mostly terrestrial. Body is covered by dry and cornified skin, epidermal scales or scutes. Heart is usually 3-chambered, but 4-chambered in crocodiles. Poikilotherms. (e.g., Chelone/Turtle, Naja/Cobra).</li>
+            <li><strong>Aves (Birds):</strong> Presence of feathers. Forelimbs are modified into wings. Hind limbs generally have scales and are modified for walking, swimming or clasping. Endoskeleton is fully ossified (bony) and the long bones are hollow with air cavities (<strong>pneumatic</strong>). Heart is completely 4-chambered. Warm-blooded (homoiothermous). (e.g., Corvus/Crow, Columba/Pigeon).</li>
+            <li><strong>Mammalia:</strong> Found in a variety of habitats. Most unique mammalian characteristic is the presence of milk producing glands (mammary glands). Have two pairs of limbs. Skin possesses hair. External ears or pinnae are present. Heart is 4-chambered. Homoiothermous. Viviparous with few exceptions. (e.g., Ornithorhynchus/Platypus - Oviparous; Macropus/Kangaroo, Homo/Human).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: The Platypus</div>
+            <p>Did you know? The Platypus (<em>Ornithorhynchus</em>) is a mammal, yet it lays eggs instead of giving birth to live young! It is a living link between reptiles and mammals, proving evolution in action!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 4 (Class 11) | Animal Kingdom</span>
+    </div>
+
+</div>
+
+</body>
+</html>

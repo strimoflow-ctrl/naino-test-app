@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 1: Units and Measurements</title>
+    <style>
+        :root {
+            --primary: #0288D1;
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Units and Measurements</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 1</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>📏 1. Physical Quantities & Units</h2>
+        <p>A physical quantity is a property of a material or system that can be quantified by measurement. A physical quantity is expressed as: <strong>Q = nu</strong> (where n = numerical value, u = unit).</p>
+
+        <h3>The SI System (Systeme International)</h3>
+        <p>There are 7 fundamental (base) units in the SI system:</p>
+        
+        <table>
+            <tr><th>Base Quantity</th><th>Name</th><th>Symbol</th></tr>
+            <tr><td>Length</td><td>metre</td><td>m</td></tr>
+            <tr><td>Mass</td><td>kilogram</td><td>kg</td></tr>
+            <tr><td>Time</td><td>second</td><td>s</td></tr>
+            <tr><td>Electric Current</td><td>ampere</td><td>A</td></tr>
+            <tr><td>Thermodynamic Temperature</td><td>kelvin</td><td>K</td></tr>
+            <tr><td>Amount of Substance</td><td>mole</td><td>mol</td></tr>
+            <tr><td>Luminous Intensity</td><td>candela</td><td>cd</td></tr>
+        </table>
+
+        <h3>Supplementary Units</h3>
+        <ul>
+            <li><strong>Plane Angle (d&theta;):</strong> Radian (rad). Ratio of length of arc to the radius (d&theta; = ds/r).</li>
+            <li><strong>Solid Angle (d&Omega;):</strong> Steradian (sr). Ratio of intercepted area to the square of radius (d&Omega; = dA/r<sup>2</sup>).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔬 2. Errors in Measurement</h2>
+        <p>Error is the uncertainty in a measurement. True value is generally taken as the arithmetic mean of all readings.</p>
+
+        <ul>
+            <li><strong>Absolute Error (&Delta;a):</strong> Magnitude of the difference between true value and measured value. &Delta;a<sub>i</sub> = |a<sub>mean</sub> - a<sub>i</sub>|</li>
+            <li><strong>Relative Error:</strong> Ratio of mean absolute error to the mean value. &Delta;a<sub>mean</sub> / a<sub>mean</sub></li>
+            <li><strong>Percentage Error:</strong> Relative error &times; 100%</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Combination of Errors</div>
+            <ul>
+                <li>If Z = A + B or Z = A - B, then maximum absolute error: <strong>&Delta;Z = &Delta;A + &Delta;B</strong></li>
+                <li>If Z = AB or Z = A/B, then maximum relative error: <strong>&Delta;Z/Z = &Delta;A/A + &Delta;B/B</strong></li>
+                <li>If Z = A<sup>p</sup> B<sup>q</sup> / C<sup>r</sup>, then: <strong>&Delta;Z/Z = p(&Delta;A/A) + q(&Delta;B/B) + r(&Delta;C/C)</strong></li>
+            </ul>
+        </div>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Least Count Error</div>
+            <p>Least count is the smallest value that can be measured by the measuring instrument. Least count error belongs to the category of random errors but occurs within a restricted range. It can be reduced by using instruments with higher resolution (e.g., Vernier Calipers vs Metre Scale).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔢 3. Significant Figures</h2>
+        <p>Significant figures indicate the precision of measurement which depends on the least count of the measuring instrument.</p>
+
+        <h3>Rules for Counting Significant Figures:</h3>
+        <ol>
+            <li>All non-zero digits are significant.</li>
+            <li>All zeros between two non-zero digits are significant.</li>
+            <li>If a number is less than 1, the zero(s) on the right of decimal point but to the left of the first non-zero digit are NOT significant. (e.g., 0.002308 has 4 sig figs).</li>
+            <li>Terminal zeros in a number without a decimal point are NOT significant. (e.g., 123 m = 12300 cm has 3 sig figs).</li>
+            <li>Trailing zeros in a number WITH a decimal point ARE significant. (e.g., 3.500 has 4 sig figs).</li>
+        </ol>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Rounding Off Rules</div>
+            <p>If the digit to be dropped is 5, look at the preceding digit:<br>
+            If <strong>Odd</strong>, increase by 1 (e.g., 2.75 &rarr; 2.8)<br>
+            If <strong>Even</strong>, leave unchanged (e.g., 2.85 &rarr; 2.8)</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>📐 4. Dimensions of Physical Quantities</h2>
+        <p>The dimensions of a physical quantity are the powers to which the base quantities are raised to represent that quantity. Represented by square brackets [ ].</p>
+
+        <table>
+            <tr><th>Quantity</th><th>Formula</th><th>Dimensional Formula</th></tr>
+            <tr><td>Velocity / Speed</td><td>Displacement / Time</td><td>[M<sup>0</sup> L<sup>1</sup> T<sup>-1</sup>]</td></tr>
+            <tr><td>Acceleration</td><td>Velocity / Time</td><td>[M<sup>0</sup> L<sup>1</sup> T<sup>-2</sup>]</td></tr>
+            <tr><td>Force</td><td>Mass &times; Acceleration</td><td>[M<sup>1</sup> L<sup>1</sup> T<sup>-2</sup>]</td></tr>
+            <tr><td>Work / Energy / Torque</td><td>Force &times; Displacement</td><td>[M<sup>1</sup> L<sup>2</sup> T<sup>-2</sup>]</td></tr>
+            <tr><td>Power</td><td>Work / Time</td><td>[M<sup>1</sup> L<sup>2</sup> T<sup>-3</sup>]</td></tr>
+            <tr><td>Pressure / Stress</td><td>Force / Area</td><td>[M<sup>1</sup> L<sup>-1</sup> T<sup>-2</sup>]</td></tr>
+        </table>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Quantities with Same Dimensions</div>
+            <p>1. Work, Energy, Torque, Heat: <strong>[M<sup>1</sup> L<sup>2</sup> T<sup>-2</sup>]</strong><br>
+            2. Frequency, Angular Velocity, Velocity Gradient: <strong>[M<sup>0</sup> L<sup>0</sup> T<sup>-1</sup>]</strong><br>
+            3. Momentum and Impulse: <strong>[M<sup>1</sup> L<sup>1</sup> T<sup>-1</sup>]</strong><br>
+            4. Strain, Angle, Solid Angle, Relative Density: <strong>Dimensionless [M<sup>0</sup> L<sup>0</sup> T<sup>0</sup>]</strong></p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🛠️ 5. Applications of Dimensional Analysis</h2>
+        
+        <p><strong>Principle of Homogeneity of Dimensions:</strong> The dimensions of all the terms on both sides of a physical equation must be the same. Quantities can be added or subtracted only if they have the same dimensions.</p>
+
+        <p>Dimensional analysis is used to:</p>
+        <ol>
+            <li>Check the dimensional consistency of equations (e.g., s = ut + &frac12;at<sup>2</sup>).</li>
+            <li>Deduce relations among physical quantities.</li>
+            <li>Convert a physical quantity from one system of units to another (n<sub>1</sub>[u<sub>1</sub>] = n<sub>2</sub>[u<sub>2</sub>]).</li>
+        </ol>
+
+        <div class="box box-funfact">
+            <div class="box-title">⚠️ Limitations</div>
+            <p>Dimensional analysis cannot derive the value of dimensionless constants (like &pi;, e, or 2). It also fails if a quantity depends on more than three physical quantities, or if the formula contains trigonometric, exponential or logarithmic functions.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 1 (Class 11) | Units and Measurements</span>
+    </div>
+
+</div>
+
+</body>
+</html>

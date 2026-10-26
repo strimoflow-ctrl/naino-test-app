@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 6: Molecular Basis of Inheritance</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Molecular Basis of Inheritance</h1>
+        <div class="subtitle">Class 12 Biology | Chapter 6</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧬 1. DNA: The Genetic Material</h2>
+        <p>Deoxyribonucleic acid (DNA) is the genetic material in most of the organisms. RNA mostly functions as a messenger, though it acts as genetic material in some viruses (e.g., TMV, HIV, QB bacteriophage).</p>
+
+        <h3>Structure of Polynucleotide Chain</h3>
+        <ul>
+            <li>A nucleotide has three components: A nitrogenous base, a pentose sugar, and a phosphate group.</li>
+            <li>Nitrogenous base is linked to the OH of 1'C pentose sugar through an <strong>N-glycosidic linkage</strong> to form a nucleoside.</li>
+            <li>Phosphate group is linked to OH of 5'C of a nucleoside through <strong>phosphoester linkage</strong> to form a nucleotide.</li>
+            <li>Two nucleotides are linked through <strong>3'-5' phosphodiester linkage</strong>.</li>
+        </ul>
+
+        <h3>Double Helix Model</h3>
+        <p>Proposed by Watson and Crick (1953) based on X-ray diffraction data produced by Maurice Wilkins and Rosalind Franklin.</p>
+        <ul>
+            <li>Made of two polynucleotide chains where the backbone is sugar-phosphate, and bases project inside.</li>
+            <li>The two chains have <strong>anti-parallel polarity</strong> (one is 5'->3', other is 3'->5').</li>
+            <li>Bases are paired through Hydrogen bonds: A pairs with T (2 H-bonds); G pairs with C (3 H-bonds).</li>
+            <li>Pitch of the helix is 3.4 nm. There are roughly 10 bp in each turn. The distance between a bp in a helix is approximately 0.34 nm.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Chargaff's Rule</div>
+            <p>Erwin Chargaff observed that for a double stranded DNA, the ratios between Adenine and Thymine and Guanine and Cytosine are constant and equals one. <strong>[A + G] = [T + C]</strong> or Purines = Pyrimidines.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔍 2. The Search for Genetic Material</h2>
+        
+        <h3>Griffith's Transforming Principle (1928)</h3>
+        <p>Frederick Griffith experimented with <em>Streptococcus pneumoniae</em>. He used two strains: Smooth (S) strain (virulent, has capsule) and Rough (R) strain (non-virulent).</p>
+        <ul>
+            <li>S strain -> Mice die.</li>
+            <li>R strain -> Mice live.</li>
+            <li>Heat-killed S strain -> Mice live.</li>
+            <li>Heat-killed S + live R strain -> Mice die! He recovered live S bacteria from dead mice.</li>
+        </ul>
+        <p>He concluded that the R strain had been 'transformed' by a transforming principle from the heat-killed S strain.</p>
+
+        <h3>Avery, MacLeod, and McCarty (1944)</h3>
+        <p>Purified biochemicals (proteins, DNA, RNA) from heat-killed S cells. Discovered that proteases and RNases did not affect transformation, but <strong>DNase</strong> inhibited transformation. Hence, DNA is the hereditary material.</p>
+
+        <h3>Hershey-Chase Experiment (1952)</h3>
+        <p>Unequivocal proof that DNA is the genetic material came from experiments on bacteriophages. They used radioactive Phosphorus (³²P) to label DNA and radioactive Sulfur (³⁵S) to label protein coats. Only ³²P was found inside the infected bacteria, proving DNA entered the cell.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚙️ 3. Central Dogma of Molecular Biology</h2>
+        <p>Proposed by Francis Crick. It states that genetic information flows from DNA to RNA to Protein.</p>
+
+        <!-- DIAGRAM: CENTRAL DOGMA -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 150" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- DNA Box -->
+                <rect x="50" y="50" width="80" height="50" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2" rx="5"/>
+                <text x="90" y="80" font-size="18" font-weight="bold" fill="#2E7D32" text-anchor="middle">DNA</text>
+                
+                <!-- Replication Arrow -->
+                <path d="M 60 50 C 30 10, 110 10, 120 50" fill="none" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="90" y="25" font-size="12" fill="#2E7D32" text-anchor="middle">Replication</text>
+
+                <!-- Transcription Arrow -->
+                <path d="M 130 75 L 210 75" fill="none" stroke="#1565C0" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="170" y="65" font-size="14" fill="#1565C0" text-anchor="middle">Transcription</text>
+
+                <!-- RNA Box -->
+                <rect x="210" y="50" width="80" height="50" fill="#E3F2FD" stroke="#1565C0" stroke-width="2" rx="5"/>
+                <text x="250" y="80" font-size="18" font-weight="bold" fill="#1565C0" text-anchor="middle">mRNA</text>
+
+                <!-- Translation Arrow -->
+                <path d="M 290 75 L 370 75" fill="none" stroke="#D32F2F" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="330" y="65" font-size="14" fill="#D32F2F" text-anchor="middle">Translation</text>
+
+                <!-- Protein Box -->
+                <rect x="370" y="50" width="100" height="50" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" rx="5"/>
+                <text x="420" y="80" font-size="18" font-weight="bold" fill="#D32F2F" text-anchor="middle">Protein</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: The Central Dogma (Proposed by Francis Crick)</div>
+        </div>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Reverse Transcription</div>
+            <p>Did you know? Certain viruses (like HIV, a retrovirus) break this rule! They have RNA as genetic material and use an enzyme called <strong>Reverse Transcriptase</strong> to synthesize DNA from RNA. This is called the Reverse Central Dogma.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🛠️ 4. Processes: Replication, Transcription & Translation</h2>
+
+        <h3>Replication</h3>
+        <p>Occurs in the S-phase of cell cycle. It is <strong>Semi-conservative</strong> (proved by Meselson and Stahl using ¹⁵N heavy isotope of nitrogen in E.coli).<br>
+        Main enzyme is <strong>DNA-dependent DNA polymerase</strong>. It polymerizes only in 5'->3' direction. Therefore, on one strand (3'->5' template) replication is continuous (Leading strand), while on the other (5'->3' template) it is discontinuous (Lagging strand), forming Okazaki fragments which are joined by <strong>DNA ligase</strong>.</p>
+
+        <h3>Transcription</h3>
+        <p>The process of copying genetic info from one strand of DNA into RNA. Enzyme used is <strong>DNA-dependent RNA polymerase</strong>.<br>
+        A transcription unit has three regions in DNA: Promoter, Structural gene, and Terminator. Only the template strand (3'->5') is transcribed. The coding strand (5'->3') has the same sequence as RNA (except T instead of U).</p>
+        <ul>
+            <li>In eukaryotes, there are 3 RNA polymerases (I transcribes rRNA, II transcribes mRNA precursor hnRNA, III transcribes tRNA).</li>
+            <li><strong>Post-transcriptional modifications:</strong> Splicing (introns removed, exons joined), Capping (methyl guanosine triphosphate added to 5' end), Tailing (poly-A tail added at 3' end).</li>
+        </ul>
+
+        <h3>Translation</h3>
+        <p>Process of polymerisation of amino acids to form a polypeptide. The order and sequence of amino acids are defined by the sequence of bases in the mRNA.<br>
+        Requires Ribosomes (the protein factory) and tRNA (the adapter molecule that reads the codon and brings the amino acid).</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Stop Codons</div>
+            <p><strong>UAA, UAG, UGA</strong> are Stop/Nonsense Codons.<br>
+            Remember: <strong>U A</strong>re <strong>A</strong>way, <strong>U A</strong>re <strong>G</strong>one, <strong>U G</strong>o <strong>A</strong>way!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🎛️ 5. Regulation of Gene Expression (Lac Operon)</h2>
+        <p>Elucidated by Francois Jacob and Jacque Monod. An operon is a polycistronic structural gene regulated by a common promoter and regulatory genes.</p>
+        
+        <ul>
+            <li><strong>The Lac Operon:</strong> Consists of one regulatory gene (i gene - codes for repressor) and three structural genes (z, y, a).</li>
+            <li><strong>z gene:</strong> codes for beta-galactosidase (breaks down lactose into galactose and glucose).</li>
+            <li><strong>y gene:</strong> codes for permease (increases permeability of cell to beta-galactosides).</li>
+            <li><strong>a gene:</strong> codes for a transacetylase.</li>
+        </ul>
+        <p><strong>Mechanism:</strong> In absence of lactose, the repressor binds to the operator region and prevents RNA polymerase from transcribing the operon. When lactose (inducer) is present, it binds to the repressor and inactivates it, allowing transcription to proceed. This is called negative regulation.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 6 (Class 12) | Molecular Basis of Inheritance</span>
+    </div>
+
+</div>
+
+</body>
+</html>

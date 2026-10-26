@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 17: Breathing and Exchange of Gases</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Breathing and Exchange of Gases</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 17</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🫁 1. Respiratory Organs</h2>
+        <p>Mechanisms of breathing vary among different groups of animals depending mainly on their habitats and levels of organisation.</p>
+        
+        <ul>
+            <li><strong>Simple diffusion over body surface:</strong> Sponges, coelenterates, flatworms.</li>
+            <li><strong>Moist cuticle (skin):</strong> Earthworms.</li>
+            <li><strong>Tracheal tubes:</strong> Insects.</li>
+            <li><strong>Gills (Branchial respiration):</strong> Most aquatic arthropods and molluscs, fishes.</li>
+            <li><strong>Lungs (Pulmonary respiration):</strong> Terrestrial forms like reptiles, birds, mammals. (Amphibians like frogs can respire through their moist skin - cutaneous respiration).</li>
+        </ul>
+
+        <h3>Human Respiratory System</h3>
+        <p>Nostrils -> Nasal passage -> Nasal chamber -> Pharynx -> Larynx -> Trachea -> Primary, Secondary & Tertiary bronchi -> Bronchioles -> Alveoli.</p>
+        <ul>
+            <li><strong>Larynx:</strong> A cartilaginous box which helps in sound production (sound box). During swallowing, glottis is covered by a thin elastic cartilaginous flap called <strong>epiglottis</strong> to prevent entry of food into larynx.</li>
+            <li><strong>Trachea:</strong> A straight tube extending up to the mid-thoracic cavity, which divides at the level of <strong>5th thoracic vertebra</strong> into a right and left primary bronchus. Supported by <em>incomplete cartilaginous rings</em>.</li>
+            <li><strong>Lungs:</strong> Covered by a double layered <strong>pleura</strong>, with pleural fluid between them (reduces friction). The part starting with external nostrils up to terminal bronchioles constitutes the <strong>conducting part</strong>, whereas the alveoli and their ducts form the <strong>respiratory/exchange part</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌬️ 2. Mechanism of Breathing</h2>
+        <p>Breathing involves two stages: <strong>inspiration</strong> (atmospheric air is drawn in) and <strong>expiration</strong> (alveolar air is released out).</p>
+
+        <h3>Inspiration</h3>
+        <ul>
+            <li>Initiated by the contraction of the <strong>diaphragm</strong> which increases the volume of thoracic chamber in the antero-posterior axis.</li>
+            <li>Contraction of <strong>external inter-costal muscles</strong> lifts up the ribs and sternum, increasing the volume in the dorso-ventral axis.</li>
+            <li>The overall increase in the thoracic volume causes a similar increase in pulmonary volume. This decreases intra-pulmonary pressure to less than atmospheric pressure, forcing air into lungs.</li>
+        </ul>
+
+        <h3>Expiration</h3>
+        <ul>
+            <li>Relaxation of the diaphragm and inter-costal muscles returns the diaphragm and sternum to their normal positions and reduces the thoracic volume.</li>
+            <li>This increases the intra-pulmonary pressure to slightly above atmospheric pressure causing expulsion of air from the lungs.</li>
+            <li>A healthy human breathes <strong>12-16 times/minute</strong>. The volume of air involved in breathing movements can be estimated by using a <strong>spirometer</strong>.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Respiratory Volumes</div>
+            <p><strong>TIR E R</strong> (Tire er!)<br>
+            <strong>T</strong>idal Volume (TV) = 500 mL<br>
+            <strong>I</strong>nspiratory Reserve Volume (IRV) = 2500-3000 mL<br>
+            <strong>E</strong>xpiratory Reserve Volume (ERV) = 1000-1100 mL<br>
+            <strong>R</strong>esidual Volume (RV) = 1100-1200 mL</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔄 3. Exchange of Gases</h2>
+        <p>Alveoli are the primary sites of exchange of gases. Exchange of O₂ and CO₂ occurs by simple diffusion mainly based on pressure/concentration gradient.</p>
+
+        <!-- DIAGRAM: ALVEOLUS EXCHANGE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 300" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Alveolus -->
+                <path d="M 150 50 A 100 100 0 1 0 350 50 L 350 20 L 150 20 Z" fill="#E3F2FD" stroke="#1565C0" stroke-width="3"/>
+                <text x="250" y="100" font-size="20" font-weight="bold" fill="#1565C0" text-anchor="middle">Alveolar Cavity</text>
+                <text x="250" y="125" font-size="14" fill="#333" text-anchor="middle">pO₂ = 104 mmHg</text>
+                <text x="250" y="145" font-size="14" fill="#333" text-anchor="middle">pCO₂ = 40 mmHg</text>
+                
+                <!-- Blood Capillary -->
+                <path d="M 50 250 Q 250 180 450 250 L 450 280 Q 250 210 50 280 Z" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2"/>
+                <text x="250" y="270" font-size="16" font-weight="bold" fill="#D32F2F" text-anchor="middle">Blood Capillary</text>
+
+                <!-- Diffusion O2 -->
+                <path d="M 220 160 L 220 220" fill="none" stroke="#2E7D32" stroke-width="4" marker-end="url(#arrow)"/>
+                <text x="180" y="200" font-size="16" font-weight="bold" fill="#2E7D32">O₂</text>
+
+                <!-- Diffusion CO2 -->
+                <path d="M 280 220 L 280 160" fill="none" stroke="#D32F2F" stroke-width="4" marker-end="url(#arrow)"/>
+                <text x="300" y="200" font-size="16" font-weight="bold" fill="#D32F2F">CO₂</text>
+
+                <!-- Labels -->
+                <text x="100" y="230" font-size="12" fill="#D32F2F">Deoxygenated Blood</text>
+                <text x="100" y="245" font-size="12" fill="#D32F2F">pO₂ = 40, pCO₂ = 45</text>
+
+                <text x="400" y="230" font-size="12" fill="#D32F2F">Oxygenated Blood</text>
+                <text x="400" y="245" font-size="12" fill="#D32F2F">pO₂ = 95, pCO₂ = 40</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Exchange of gases at the alveolus surface</div>
+        </div>
+
+        <h3>Diffusion Membrane</h3>
+        <p>The diffusion membrane is made up of three major layers: 
+        1. Thin squamous epithelium of alveoli
+        2. Endothelium of alveolar capillaries
+        3. Basement substance in between them.
+        Its total thickness is much less than a millimetre.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🩸 4. Transport of Gases</h2>
+
+        <h3>Transport of Oxygen</h3>
+        <p>About <strong>97%</strong> of O₂ is transported by RBCs in the blood. Remaining 3% is carried in dissolved state in plasma.</p>
+        <ul>
+            <li>O₂ binds with haemoglobin reversibly to form <strong>oxyhaemoglobin</strong>. Each Hb molecule can carry a maximum of four molecules of O₂.</li>
+            <li>A sigmoid curve is obtained when percentage saturation of Hb with O₂ is plotted against the pO₂ (Oxygen dissociation curve).</li>
+            <li><strong>Factors favoring dissociation (shift to right):</strong> Low pO₂, high pCO₂, high H⁺ concentration, high temperature. (These conditions exist in the tissues).</li>
+            <li>Every 100 ml of oxygenated blood can deliver around <strong>5 ml of O₂</strong> to the tissues under normal physiological conditions.</li>
+        </ul>
+
+        <h3>Transport of Carbon Dioxide</h3>
+        <p>CO₂ is carried by Hb as <strong>carbamino-haemoglobin</strong> (about 20-25%). Transported as bicarbonate (about 70%). Dissolved state in plasma (about 7%).</p>
+        <ul>
+            <li>RBCs contain a very high concentration of the enzyme <strong>carbonic anhydrase</strong>. At tissues, high pCO₂ leads to formation of HCO₃⁻ and H⁺. At alveoli, reaction goes in opposite direction leading to formation of CO₂ and H₂O.</li>
+            <li>Every 100 ml of deoxygenated blood delivers approximately <strong>4 ml of CO₂</strong> to the alveoli.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Oxygen Dissociation Curve Shift</div>
+            <p>In the TISSUES, oxygen needs to be released from Hb. So, conditions like high CO₂ (Bohr effect), high H⁺ (acidic), and high temperature cause the curve to shift to the <strong>RIGHT</strong>, decreasing Hb's affinity for Oxygen.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🧠 5. Regulation and Disorders</h2>
+
+        <h3>Regulation of Respiration</h3>
+        <ul>
+            <li><strong>Respiratory Rhythm Centre:</strong> Specialised centre in the medulla region of the brain, primarily responsible for this regulation.</li>
+            <li><strong>Pneumotaxic Centre:</strong> Located in the pons region, it can moderate the functions of the respiratory rhythm centre (reduces duration of inspiration).</li>
+            <li><strong>Chemosensitive Area:</strong> Situated adjacent to rhythm centre, highly sensitive to CO₂ and hydrogen ions. <em>(Role of oxygen in regulation is quite insignificant).</em></li>
+        </ul>
+
+        <h3>Disorders of Respiratory System</h3>
+        <ul>
+            <li><strong>Asthma:</strong> Difficulty in breathing causing wheezing due to inflammation of bronchi and bronchioles.</li>
+            <li><strong>Emphysema:</strong> A chronic disorder in which alveolar walls are damaged due to which respiratory surface is decreased. One of the major causes is <strong>cigarette smoking</strong>.</li>
+            <li><strong>Occupational Respiratory Disorders:</strong> In grinding/stone-breaking industries, dust leads to proliferation of fibrous tissues (fibrosis) causing serious lung damage. Examples: Silicosis, Asbestosis.</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Lung Capacity of Athletes</div>
+            <p>While an average person's total lung capacity is about 6 liters, elite swimmers and rowers can have a lung capacity of up to <strong>8 to 12 liters</strong>!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 17 (Class 11) | Breathing and Exchange of Gases</span>
+    </div>
+
+</div>
+
+</body>
+</html>

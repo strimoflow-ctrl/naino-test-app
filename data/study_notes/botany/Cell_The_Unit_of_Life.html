@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 8: Cell: The Unit of Life</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .tag-red { background: #FFCDD2; color: #B71C1C; }
+        .tag-green { background: #C8E6C9; color: #1B5E20; }
+        .tag-blue { background: #BBDEFB; color: #0D47A1; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Cell: The Unit of Life</h1>
+        <div class="subtitle">Class 11 Biology | Chapter 8</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔬 1. What is a Cell?</h2>
+        <p>Cell is the fundamental structural and functional unit of all living organisms. Anything less than a complete structure of a cell does not ensure independent living.</p>
+
+        <h3>Important Discoveries</h3>
+        <ul>
+            <li><strong>Anton Von Leeuwenhoek:</strong> First saw and described a live cell.</li>
+            <li><strong>Robert Brown:</strong> Discovered the nucleus.</li>
+        </ul>
+
+        <h3>Cell Theory</h3>
+        <ul>
+            <li><strong>Matthias Schleiden (1838):</strong> German botanist, observed that all plants are composed of different kinds of cells.</li>
+            <li><strong>Theodore Schwann (1839):</strong> British Zoologist, reported that cells have a thin outer layer (plasma membrane). Concluded that presence of cell wall is a unique character of plant cells.</li>
+            <li><strong>Rudolf Virchow (1855):</strong> Modified the theory to explain how new cells are formed: <em>Omnis cellula-e cellula</em> (all cells arise from pre-existing cells).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: The Largest Cell</div>
+            <p>The largest isolated single cell is the egg of an ostrich. The human red blood cell is about 7.0 µm in diameter. The longest cells in the human body are the nerve cells (up to a meter long)!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🦠 2. Prokaryotic Cells</h2>
+        <p>Prokaryotic cells (bacteria, blue-green algae, mycoplasma, PPLO) are generally smaller and multiply more rapidly than eukaryotic cells.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>No well-defined nucleus. Genetic material is naked (not enveloped by a nuclear membrane). The genomic DNA is a single circular chromosome.</li>
+            <li>Many bacteria have small circular DNA outside the genomic DNA called <strong>plasmids</strong>. Plasmids confer unique phenotypic characters like antibiotic resistance.</li>
+            <li>No membrane-bound organelles (like mitochondria, Golgi, etc.) are present, EXCEPT ribosomes.</li>
+            <li>A specialized differentiated form of cell membrane called <strong>mesosome</strong> is the characteristic of prokaryotes. They help in respiration, secretion, and increasing surface area.</li>
+        </ul>
+
+        <h3>Cell Envelope</h3>
+        <p>Consists of a tightly bound three-layered structure:</p>
+        <ol>
+            <li><strong>Glycocalyx:</strong> Outermost layer. Could be a loose sheath (slime layer) or thick and tough (capsule).</li>
+            <li><strong>Cell Wall:</strong> Determines the shape and provides strong structural support.</li>
+            <li><strong>Plasma Membrane:</strong> Selectively permeable nature, interacts with outside world.</li>
+        </ol>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Gram Positive vs Negative</div>
+            <p><strong>Positive stays Purple (P-P).</strong> Gram positive bacteria retain the crystal violet stain (purple) because they have a thick peptidoglycan cell wall. Gram negative don't (they appear pink/red).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧬 3. Eukaryotic Cells</h2>
+        <p>Includes all protists, plants, fungi, and animals. There is extensive compartmentalization of cytoplasm through membrane-bound organelles.</p>
+
+        <h3>Cell Membrane (Plasma Membrane)</h3>
+        <ul>
+            <li><strong>Fluid Mosaic Model:</strong> Proposed by Singer and Nicolson (1972).</li>
+            <li>Composed of lipids (mainly phosphoglycerides) that are arranged in a bilayer. The polar heads are towards the outer sides, and hydrophobic tails towards the inner part.</li>
+            <li>Contains integral proteins (partially/totally buried) and peripheral proteins (on the surface).</li>
+            <li>Fluid nature allows functions like cell growth, formation of intercellular junctions, secretion, endocytosis, cell division.</li>
+        </ul>
+
+        <h3>Endomembrane System</h3>
+        <p>Includes organelles whose functions are coordinated. <em>(Mitochondria, chloroplasts, and peroxisomes are NOT part of the endomembrane system)</em>.</p>
+        <ul>
+            <li><strong>Endoplasmic Reticulum (ER):</strong> Network of tiny tubular structures scattered in cytoplasm.<br>
+                - <em>Rough ER (RER):</em> Bears ribosomes. Active in protein synthesis and secretion.<br>
+                - <em>Smooth ER (SER):</em> No ribosomes. Major site for synthesis of lipids (and steroid hormones in animal cells).</li>
+            <li><strong>Golgi Apparatus:</strong> Flat, disc-shaped sacs (cisternae) stacked parallel. Cis face (forming) is convex, trans face (maturing) is concave. Function: Packaging of materials to be delivered. Important site for formation of <strong>glycoproteins and glycolipids</strong>.</li>
+            <li><strong>Lysosomes:</strong> Vesicular structures formed by Golgi. Rich in hydrolytic enzymes (hydrolases - lipases, proteases, carbohydrases) optimally active at acidic pH. Suicidal bags of the cell.</li>
+            <li><strong>Vacuoles:</strong> Contains water, sap, excretory product. Bound by a single membrane called <strong>tonoplast</strong>. In plants, can occupy up to 90% of cell volume.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Tonoplast & Concentration Gradient</div>
+            <p>In plant cells, the tonoplast facilitates the transport of a number of ions and other materials AGAINST concentration gradients into the vacuole. Hence, their concentration is significantly HIGHER in the vacuole than in the cytoplasm!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>⚡ 4. Other Key Organelles</h2>
+
+        <h3>Mitochondria</h3>
+        <ul>
+            <li>Sausage-shaped. Bound by double membrane.</li>
+            <li>Outer membrane is continuous. Inner membrane forms a number of infoldings called <strong>cristae</strong> towards the matrix (increases surface area).</li>
+            <li>Sites of aerobic respiration. Produce cellular energy in the form of ATP (Powerhouses of the cell).</li>
+            <li>Matrix possesses single circular DNA molecule, a few RNA molecules, ribosomes (70S) and components required for protein synthesis. Divide by fission.</li>
+        </ul>
+
+        <h3>Plastids</h3>
+        <p>Found in all plant cells and in euglenoids.</p>
+        <ul>
+            <li><strong>Chloroplasts:</strong> Contain chlorophyll and carotenoid pigments. Double membrane bound. Inner space is stroma. Flattened membranous sacs are thylakoids (arranged in stacks called grana). Stroma contains enzymes for carbohydrate/protein synthesis, small circular DNA, and 70S ribosomes.</li>
+            <li><strong>Chromoplasts:</strong> Fat-soluble carotenoid pigments like carotene, xanthophylls present. Gives yellow, orange, red colors to parts of the plant.</li>
+            <li><strong>Leucoplasts:</strong> Colorless plastids. Amyloplasts (store carbohydrates/starch), Elaioplasts (store oils and fats), Aleuroplasts (store proteins).</li>
+        </ul>
+
+        <h3>Ribosomes & Cytoskeleton</h3>
+        <ul>
+            <li><strong>Ribosomes:</strong> Granular structures composed of RNA and proteins. Eukaryotic ribosomes are 80S (60S + 40S subunits). Prokaryotic are 70S (50S + 30S). 'S' stands for Svedberg's Unit (sedimentation coefficient).</li>
+            <li><strong>Cytoskeleton:</strong> Network of filamentous proteinaceous structures (microtubules, microfilaments, intermediate filaments) involved in mechanical support, motility, maintenance of cell shape.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Leucoplast Storage</div>
+            <p><strong>A-A-E</strong> rule:<br><strong>A</strong>myloplasts = <strong>A</strong>mylose (Starch/Carbs)<br><strong>A</strong>leuroplasts = <strong>A</strong>mino acids (Proteins)<br><strong>E</strong>laioplasts = <strong>E</strong>lastic oils/fats</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>👑 5. Nucleus and Chromosomes</h2>
+        <p>Discovered by Robert Brown (1831). The material of the nucleus stained by basic dyes was given the name <strong>chromatin</strong> by Flemming.</p>
+
+        <h3>Structure of Nucleus</h3>
+        <ul>
+            <li><strong>Nuclear Envelope:</strong> Double membrane with a space between (perinuclear space). Outer membrane usually continuous with ER and bears ribosomes. Interrupted by nuclear pores (passages for RNA and proteins).</li>
+            <li><strong>Nucleoplasm:</strong> Contains chromatin and nucleolus.</li>
+            <li><strong>Nucleolus:</strong> Non-membrane bound structure. Site for active <strong>ribosomal RNA (rRNA) synthesis</strong>.</li>
+        </ul>
+
+        <h3>Chromosomes</h3>
+        <p>During cell division, chromatin condenses to form chromosomes. Every chromosome has a primary constriction (centromere) with disc-shaped structures at its sides called kinetochores.</p>
+        <ul>
+            <li><strong>Metacentric:</strong> Middle centromere (two equal arms).</li>
+            <li><strong>Sub-metacentric:</strong> Centromere slightly away from the middle.</li>
+            <li><strong>Acrocentric:</strong> Centromere situated close to its end.</li>
+            <li><strong>Telocentric:</strong> Terminal centromere.</li>
+        </ul>
+        <p><em>Some chromosomes have non-staining secondary constrictions which give the appearance of a small fragment called the <strong>satellite</strong>.</em></p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 8 | Cell: The Unit of Life</span>
+    </div>
+
+</div>
+
+</body>
+</html>

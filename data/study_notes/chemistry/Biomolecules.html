@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Chemistry | Class 12 | Ch 10: Biomolecules</title>
+    <style>
+        :root {
+            --primary: #F57C00; /* Orange for Chemistry */
+            --primary-light: #FFE0B2;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #E65100 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(245, 124, 0, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Biomolecules</h1>
+        <div class="subtitle">Class 12 Chemistry | Chapter 10</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🍞 1. Carbohydrates</h2>
+        <p>Optically active polyhydroxy aldehydes or ketones. General formula: C<sub>x</sub>(H<sub>2</sub>O)<sub>y</sub>.</p>
+
+        <h3>Classification:</h3>
+        <ul>
+            <li><strong>Monosaccharides:</strong> Simplest, cannot be hydrolyzed. E.g., Glucose (Aldohexose), Fructose (Ketohexose).</li>
+            <li><strong>Disaccharides:</strong> Yield two monosaccharides on hydrolysis. Linked by <strong>Glycosidic Linkage</strong> (an oxide linkage).
+                <ul>
+                    <li>Sucrose &rarr; &alpha;-D-Glucose + &beta;-D-Fructose (Non-reducing sugar).</li>
+                    <li>Maltose &rarr; &alpha;-D-Glucose + &alpha;-D-Glucose (Reducing sugar).</li>
+                    <li>Lactose &rarr; &beta;-D-Galactose + &beta;-D-Glucose (Reducing sugar).</li>
+                </ul>
+            </li>
+            <li><strong>Polysaccharides:</strong> Polymers of monosaccharides. E.g., Starch (Amylose + Amylopectin), Cellulose, Glycogen.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Glucose Reactions</div>
+            <ul>
+                <li>With HI/Heat &rarr; n-Hexane (Proves 6 carbons in a straight chain).</li>
+                <li>With Bromine water &rarr; Gluconic acid (Proves presence of aldehyde group).</li>
+                <li>With HNO<sub>3</sub> (Nitric acid) &rarr; Saccharic acid (Oxidizes both -CHO and terminal -CH<sub>2</sub>OH).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🥩 2. Proteins</h2>
+        <p>Polymers of &alpha;-amino acids linked by <strong>Peptide Bonds</strong> (-CO-NH-).</p>
+
+        <ul>
+            <li><strong>Essential Amino Acids:</strong> Cannot be synthesized in the body, must be taken in diet. (e.g., Valine, Leucine).</li>
+            <li><strong>Zwitterion:</strong> In aqueous solution, carboxyl group loses a proton and amino group accepts it, forming a dipolar ion. It is neutral but contains both + and - charges.</li>
+        </ul>
+
+        <h3>Structure of Proteins</h3>
+        <ul>
+            <li><strong>Primary:</strong> Sequence of amino acids.</li>
+            <li><strong>Secondary:</strong> Local folding (e.g., &alpha;-helix and &beta;-pleated sheet) stabilized by Hydrogen bonds.</li>
+            <li><strong>Tertiary:</strong> Overall 3D shape (folding of secondary structure). Stabilized by H-bonds, disulfide linkages, van der Waals, and electrostatic forces.</li>
+            <li><strong>Denaturation:</strong> Loss of biological activity due to unfolding of 2&deg; and 3&deg; structure (1&deg; structure remains intact) caused by heat, pH change. (e.g., Coagulation of egg white).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧬 3. Nucleic Acids (DNA & RNA)</h2>
+        <p>Polymers of Nucleotides. A Nucleotide = Pentose Sugar + Nitrogenous Base + Phosphate group.</p>
+        <p>(A Nucleoside = Base + Sugar only).</p>
+
+        <ul>
+            <li><strong>DNA (Deoxyribonucleic Acid):</strong> Sugar is &beta;-D-2-deoxyribose. Bases: Adenine (A), Guanine (G), Cytosine (C), <strong>Thymine (T)</strong>. Double helix structure.</li>
+            <li><strong>RNA (Ribonucleic Acid):</strong> Sugar is &beta;-D-ribose. Bases: Adenine (A), Guanine (G), Cytosine (C), <strong>Uracil (U)</strong>. Usually single stranded.</li>
+        </ul>
+
+        <p><strong>Phosphodiester Linkage:</strong> Joins two nucleotides between 5' and 3' carbon atoms of the pentose sugar.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>💊 4. Vitamins</h2>
+        <p>Organic compounds required in small amounts for normal growth and health.</p>
+
+        <ul>
+            <li><strong>Fat-soluble:</strong> Vitamins A, D, E, K. Stored in liver and adipose tissues.</li>
+            <li><strong>Water-soluble:</strong> B group vitamins and Vitamin C. Must be supplied regularly as they are excreted in urine (Except Vitamin B12).</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Deficiency Diseases</div>
+            <ul>
+                <li><strong>Vit A:</strong> Night blindness, Xerophthalmia.</li>
+                <li><strong>Vit B1 (Thiamine):</strong> Beri-beri.</li>
+                <li><strong>Vit C (Ascorbic acid):</strong> Scurvy.</li>
+                <li><strong>Vit D:</strong> Rickets (children), Osteomalacia (adults).</li>
+                <li><strong>Vit B12:</strong> Pernicious anaemia.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Chemistry &bull; Chapter 10 (Class 12) | Biomolecules</span>
+    </div>
+
+</div>
+
+</body>
+</html>

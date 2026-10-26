@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 21: Neural Control and Coordination</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Neural Control and Coordination</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 21</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧠 1. Human Neural System</h2>
+        <p>The human neural system is divided into two parts: Central Neural System (CNS) and Peripheral Neural System (PNS).</p>
+
+        <ul>
+            <li><strong>CNS:</strong> Includes the brain and the spinal cord. It is the site of information processing and control.</li>
+            <li><strong>PNS:</strong> Comprises of all the nerves of the body associated with the CNS. The nerve fibres are of two types: Afferent (sensory) and Efferent (motor).</li>
+        </ul>
+        <p>The PNS is further divided into Somatic neural system (relays impulses from CNS to skeletal muscles) and Autonomic neural system (relays impulses from CNS to involuntary organs and smooth muscles).</p>
+
+        <h3>Neuron as Structural and Functional Unit</h3>
+        <p>A neuron consists of a cell body, dendrites, and an axon. The cell body contains cytoplasm with typical cell organelles and certain granular bodies called <strong>Nissl's granules</strong>. The axon is a long fibre which transmits nerve impulses away from the cell body to a synapse or neuromuscular junction.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Types of Neurons</div>
+            <p><strong>Multipolar:</strong> One axon and two or more dendrites; found in the cerebral cortex.<br>
+            <strong>Bipolar:</strong> One axon and one dendrite; found in the retina of eye.<br>
+            <strong>Unipolar:</strong> Cell body with one axon only; found usually in the embryonic stage.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚡ 2. Generation and Conduction of Nerve Impulse</h2>
+        <p>Neurons are excitable cells because their membranes are in a polarized state. Ion channels on the membrane are selectively permeable.</p>
+
+        <h3>Resting State</h3>
+        <p>When a neuron is not conducting any impulse, the axonal membrane is comparatively more permeable to <strong>K⁺ ions</strong> and nearly impermeable to <strong>Na⁺ ions</strong>. Thus, the fluid outside has high Na⁺, and fluid inside has high K⁺ and negatively charged proteins. This maintains a resting membrane potential (inside is negative relative to outside).</p>
+        <p>This gradient is maintained by the active transport of ions by the <strong>Sodium-Potassium Pump</strong> which transports 3 Na⁺ outwards for 2 K⁺ into the cell.</p>
+
+        <h3>Action Potential</h3>
+        <p>When a stimulus is applied at a site, the membrane becomes freely permeable to Na⁺. This leads to a rapid influx of Na⁺, causing <strong>depolarisation</strong>. The electrical potential difference across the plasma membrane at this site is called the action potential or nerve impulse. Shortly after, permeability to Na⁺ falls and K⁺ rises, causing K⁺ to diffuse out and restore the resting potential (repolarisation).</p>
+
+        <!-- DIAGRAM: SYNAPSE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 300" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                
+                <!-- Pre-synaptic Knob -->
+                <path d="M 150 50 L 150 120 C 150 180, 250 180, 250 120 L 250 50 Z" fill="#E3F2FD" stroke="#1565C0" stroke-width="3"/>
+                <text x="200" y="80" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">Synaptic Knob</text>
+                
+                <!-- Synaptic Vesicles -->
+                <circle cx="180" cy="110" r="10" fill="#FFF" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="220" cy="130" r="10" fill="#FFF" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="200" cy="150" r="10" fill="#FFF" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="200" cy="150" r="2" fill="#D32F2F"/>
+                
+                <!-- Neurotransmitters diffusing -->
+                <circle cx="190" cy="190" r="2" fill="#D32F2F"/>
+                <circle cx="210" cy="200" r="2" fill="#D32F2F"/>
+                <circle cx="200" cy="210" r="2" fill="#D32F2F"/>
+
+                <!-- Synaptic Cleft -->
+                <text x="200" y="195" font-size="12" font-style="italic" fill="#555" text-anchor="middle">Synaptic Cleft</text>
+
+                <!-- Post-synaptic Membrane -->
+                <path d="M 120 250 Q 200 210, 280 250 L 280 280 L 120 280 Z" fill="#FFEBEE" stroke="#D32F2F" stroke-width="3"/>
+                
+                <!-- Receptors -->
+                <path d="M 170 238 L 180 228 L 190 238" fill="none" stroke="#D32F2F" stroke-width="3"/>
+                <path d="M 210 238 L 220 228 L 230 238" fill="none" stroke="#D32F2F" stroke-width="3"/>
+
+                <text x="200" y="270" font-size="14" font-weight="bold" fill="#D32F2F" text-anchor="middle">Post-synaptic Membrane</text>
+                <text x="320" y="235" font-size="12" fill="#D32F2F" text-anchor="middle">Receptors</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Chemical Synapse showing neurotransmitter release</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧠 3. Central Neural System (Brain)</h2>
+        <p>The brain is the central information processing organ of our body. It is protected by the skull and cranial meninges: an outer dura mater, a very thin middle arachnoid, and an inner pia mater.</p>
+
+        <h3>1. Forebrain</h3>
+        <p>Consists of cerebrum, thalamus and hypothalamus.</p>
+        <ul>
+            <li><strong>Cerebrum:</strong> Forms the major part of the human brain. Divided into two cerebral hemispheres connected by a tract of nerve fibres called <strong>corpus callosum</strong>. The cerebral cortex contains motor areas, sensory areas and large regions called <strong>association areas</strong> (responsible for complex functions like memory and communication).</li>
+            <li><strong>Thalamus:</strong> Major coordinating centre for sensory and motor signaling.</li>
+            <li><strong>Hypothalamus:</strong> Controls body temperature, urge for eating and drinking. Also contains neurosecretory cells which secrete hypothalamic hormones.</li>
+            <li><em>Limbic System:</em> Inner parts of cerebral hemispheres and a group of associated deep structures like amygdala, hippocampus, etc., form the limbic system. Involved in regulation of sexual behaviour, expression of emotional reactions (excitement, pleasure, rage and fear), and motivation.</li>
+        </ul>
+
+        <h3>2. Midbrain</h3>
+        <p>Located between the thalamus/hypothalamus of the forebrain and pons of the hindbrain. A canal called the <strong>cerebral aqueduct</strong> passes through it. The dorsal portion consists mainly of four round swellings (lobes) called <strong>corpora quadrigemina</strong>.</p>
+
+        <h3>3. Hindbrain</h3>
+        <p>Consists of pons, cerebellum and medulla.</p>
+        <ul>
+            <li><strong>Pons:</strong> Interconnects different regions of the brain.</li>
+            <li><strong>Cerebellum:</strong> Has very convoluted surface in order to provide the additional space for many more neurons. Coordinates voluntary movements and balance.</li>
+            <li><strong>Medulla:</strong> Contains centres which control respiration, cardiovascular reflexes and gastric secretions.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>👁️ 4. Sensory Reception and Processing (Eye)</h2>
+        <p>The adult human eye ball is nearly a spherical structure. The wall of the eye ball is composed of three layers.</p>
+
+        <ul>
+            <li><strong>Sclera:</strong> The external layer composed of dense connective tissue. The anterior portion is called the cornea.</li>
+            <li><strong>Choroid:</strong> Middle layer, contains many blood vessels and looks bluish. It is thick in the anterior part to form the <strong>ciliary body</strong>, which itself continues forward to form a pigmented and opaque structure called the <strong>iris</strong>. The eyeball contains a transparent crystalline <strong>lens</strong>.</li>
+            <li><strong>Retina:</strong> Inner layer containing three layers of neural cells - ganglion cells, bipolar cells and photoreceptor cells (rods and cones).
+                <ul>
+                    <li><strong>Rods:</strong> Contain a purplish-red protein called rhodopsin (requires Vitamin A). Responsible for twilight (scotopic) vision.</li>
+                    <li><strong>Cones:</strong> Contain photopigments responding to red, green and blue lights. Responsible for daylight (photopic) vision and colour vision.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Blind Spot and Fovea</div>
+            <p>The region where the optic nerve leaves the eye lacks photoreceptor cells and is called the <strong>Blind spot</strong>. But just slightly lateral to it is a yellowish pigmented spot called Macula lutea with a central pit called the <strong>Fovea</strong>, where visual acuity (resolution) is the greatest!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>👂 5. The Ear (Hearing & Balance)</h2>
+        <p>The ear performs two sensory functions: hearing and maintenance of body balance. Divided into three major sections: outer ear, middle ear and inner ear.</p>
+
+        <ul>
+            <li><strong>Outer Ear:</strong> Pinna and external auditory meatus (canal) which leads to the tympanic membrane (ear drum).</li>
+            <li><strong>Middle Ear:</strong> Contains three ossicles called <strong>malleus, incus and stapes</strong>. The stapes is attached to the oval window of the cochlea. The Eustachian tube connects the middle ear cavity with the pharynx to equalize pressures.</li>
+            <li><strong>Inner Ear:</strong> Fluid-filled inner ear called labyrinth consists of two parts: bony and membranous labyrinths. The coiled portion is called <strong>cochlea</strong> (hearing part). Inside cochlea is the <strong>Organ of Corti</strong> containing hair cells that act as auditory receptors.</li>
+            <li><strong>Vestibular Apparatus:</strong> Located above the cochlea. Made of three semi-circular canals and the otolith organ. Responsible for maintaining body balance and posture!</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Ear Ossicles</div>
+            <p>Remember <strong>M-I-S</strong> (Malleus, Incus, Stapes). They amplify sound waves to the inner ear just like a MISsile!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 21 (Class 11) | Neural Control and Coordination</span>
+    </div>
+
+</div>
+
+</body>
+</html>

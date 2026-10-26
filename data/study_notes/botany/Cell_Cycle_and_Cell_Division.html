@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 10: Cell Cycle and Cell Division</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .tag-red { background: #FFCDD2; color: #B71C1C; }
+        .tag-green { background: #C8E6C9; color: #1B5E20; }
+        .tag-blue { background: #BBDEFB; color: #0D47A1; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Cell Cycle and Cell Division</h1>
+        <div class="subtitle">Class 11 Biology | Chapter 10</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔄 1. Cell Cycle</h2>
+        <p>The sequence of events by which a cell duplicates its genome, synthesizes the other constituents of the cell and eventually divides into two daughter cells is termed cell cycle.</p>
+        <p>A typical eukaryotic cell cycle (like human cells in culture) divides once in approximately every <strong>24 hours</strong>. Yeast cell divides in about <strong>90 minutes</strong>.</p>
+
+        <h3>Phases of Cell Cycle</h3>
+        <p>The cell cycle is divided into two basic phases:</p>
+        <ol>
+            <li><strong>Interphase:</strong> Lasts more than 95% of the duration of cell cycle. The cell prepares for division by undergoing cell growth and DNA replication in an orderly manner.</li>
+            <li><strong>M Phase (Mitosis Phase):</strong> Actual cell division occurs here. Starts with nuclear division (karyokinesis) and ends with division of cytoplasm (cytokinesis).</li>
+        </ol>
+
+        <!-- DIAGRAM: CELL CYCLE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 400" width="100%" style="max-width: 300px; font-family: sans-serif;">
+                <circle cx="200" cy="200" r="180" fill="none" stroke="#E0E0E0" stroke-width="20"/>
+                
+                <!-- G1 Phase (approx 45%) -->
+                <path d="M 200 20 A 180 180 0 0 1 371.4 255.8" fill="none" stroke="#4CAF50" stroke-width="20" stroke-linecap="round"/>
+                <text x="290" y="120" font-size="24" font-weight="bold" fill="#4CAF50">G1 Phase</text>
+                
+                <!-- S Phase (approx 35%) -->
+                <path d="M 371.4 255.8 A 180 180 0 0 1 85.5 338.5" fill="none" stroke="#2196F3" stroke-width="20" stroke-linecap="round"/>
+                <text x="180" y="320" font-size="24" font-weight="bold" fill="#2196F3">S Phase</text>
+                
+                <!-- G2 Phase (approx 15%) -->
+                <path d="M 85.5 338.5 A 180 180 0 0 1 29.5 143.8" fill="none" stroke="#FF9800" stroke-width="20" stroke-linecap="round"/>
+                <text x="50" y="240" font-size="24" font-weight="bold" fill="#FF9800">G2 Phase</text>
+                
+                <!-- M Phase (approx 5%) -->
+                <path d="M 29.5 143.8 A 180 180 0 0 1 200 20" fill="none" stroke="#F44336" stroke-width="20" stroke-linecap="round"/>
+                <text x="100" y="90" font-size="24" font-weight="bold" fill="#F44336">M Phase</text>
+                
+                <text x="200" y="200" font-size="20" text-anchor="middle" fill="#555" font-weight="bold">CELL CYCLE</text>
+            </svg>
+            <div class="diagram-caption">Fig: The Eukaryotic Cell Cycle demonstrating Interphase (G1, S, G2) and M Phase</div>
+        </div>
+
+        <h3>Sub-stages of Interphase</h3>
+        <ul>
+            <li><strong>G1 Phase (Gap 1):</strong> Interval between mitosis and initiation of DNA replication. Cell is metabolically active and continuously grows but <em>does not replicate its DNA</em>.</li>
+            <li><strong>S Phase (Synthesis):</strong> DNA replication occurs. The amount of DNA per cell doubles (from 2C to 4C), but the chromosome number remains the same (2n). Centriole duplicates in the cytoplasm.</li>
+            <li><strong>G2 Phase (Gap 2):</strong> Proteins are synthesized in preparation for mitosis while cell growth continues.</li>
+            <li><strong>G0 Phase (Quiescent Stage):</strong> Cells that do not divide further exit G1 phase to enter an inactive stage called G0. Cells in this stage remain metabolically active but no longer proliferate unless called on to do so depending on the requirement of the organism.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: DNA Content vs Chromosome Number</div>
+            <p>During S-phase, the <strong>amount of DNA doubles</strong> (2C becomes 4C). However, the <strong>chromosome number does NOT double</strong>! If the cell had 46 chromosomes in G1, it will still have 46 chromosomes in G2, but each chromosome will now have two sister chromatids.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>✂️ 2. M Phase (Mitosis)</h2>
+        <p>Also called equational division, as the number of chromosomes in the parent and progeny cells is the same. Divided into four stages of nuclear division (karyokinesis):</p>
+
+        <h3>1. Prophase</h3>
+        <ul>
+            <li>Chromosomal material condenses to form compact mitotic chromosomes.</li>
+            <li>Centrosome (duplicated during S phase) begins to move towards opposite poles of the cell.</li>
+            <li>At the end of prophase, cells do not show Golgi complexes, endoplasmic reticulum, nucleolus and the nuclear envelope.</li>
+        </ul>
+
+        <h3>2. Metaphase</h3>
+        <ul>
+            <li>The complete disintegration of the nuclear envelope marks the start of metaphase. Chromosomes are spread through the cytoplasm.</li>
+            <li>Condensation is completed. This is the <strong>best stage to study morphology of chromosomes</strong>.</li>
+            <li>Chromosomes align at the equator to form the <strong>Metaphase plate</strong>. Spindle fibres attach to kinetochores.</li>
+        </ul>
+
+        <h3>3. Anaphase</h3>
+        <ul>
+            <li>Centromeres split and chromatids separate.</li>
+            <li>Chromatids move to opposite poles. The centromere of each chromosome is towards the pole, and arms trail behind (V, L, J, or I shapes).</li>
+        </ul>
+
+        <h3>4. Telophase</h3>
+        <ul>
+            <li>Chromosomes reach poles and decondense. Lose their individuality.</li>
+            <li>Nuclear envelope assembles around chromosome clusters.</li>
+            <li>Nucleolus, Golgi complex and ER reform.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Stages of Mitosis</div>
+            <p><strong>P-MAT</strong>: <strong>P</strong>rophase ➔ <strong>M</strong>etaphase ➔ <strong>A</strong>naphase ➔ <strong>T</strong>elophase.<br>
+            <em>Remember:</em> "Please Make Another Twin" (Because mitosis creates twin cells!).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧬 3. Meiosis</h2>
+        <p>A specialized kind of cell division that reduces the chromosome number by half, resulting in the production of haploid daughter cells. Essential for sexual reproduction (gametogenesis).</p>
+        <p>It involves two sequential cycles of nuclear and cell division called <strong>Meiosis I</strong> and <strong>Meiosis II</strong>, but only a single cycle of DNA replication.</p>
+
+        <h3>Meiosis I: Reductional Division</h3>
+        <p><strong>Prophase I</strong> is typically longer and more complex, subdivided into 5 phases based on chromosomal behavior:</p>
+        <ul>
+            <li><strong>Leptotene:</strong> Chromosomes become visible under light microscope. Compaction continues.</li>
+            <li><strong>Zygotene:</strong> Homologous chromosomes pair together (process called <strong>synapsis</strong>). Accompanied by formation of synaptonemal complex. The paired chromosomes form a bivalent/tetrad.</li>
+            <li><strong>Pachytene:</strong> Bivalents clearly appear as tetrads. <strong>Crossing over</strong> occurs between non-sister chromatids of homologous chromosomes. Enzyme involved is Recombinase.</li>
+            <li><strong>Diplotene:</strong> Dissolution of synaptonemal complex. Recombined homologous chromosomes separate from each other except at the sites of crossovers, forming X-shaped structures called <strong>Chiasmata</strong>.</li>
+            <li><strong>Diakinesis:</strong> Terminalisation of chiasmata. Nucleolus disappears, nuclear envelope breaks down.</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Suspended Diplotene</div>
+            <p>Did you know? In oocytes (egg cells) of some vertebrates (including human females), Meiosis I arrests at the <strong>Diplotene</strong> stage before birth, and can last for months or YEARS until puberty when ovulation occurs!</p>
+        </div>
+
+        <p><strong>Metaphase I:</strong> Bivalent chromosomes align on the equatorial plate.<br>
+        <strong>Anaphase I:</strong> Homologous chromosomes separate, while sister chromatids remain associated at their centromeres.<br>
+        <strong>Telophase I:</strong> Nuclear membrane and nucleolus reappear, cytokinesis follows. Cells enter short interkinesis.</p>
+
+        <h3>Meiosis II: Equational Division</h3>
+        <p>Resembles normal mitosis. Sister chromatids separate and move to opposite poles. Result is four haploid cells.</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Prophase I Stages</div>
+            <p><strong>L</strong>ata <strong>Z</strong>ara <strong>P</strong>ani <strong>D</strong>e <strong>D</strong>o!<br>
+            <strong>L</strong>eptotene ➔ <strong>Z</strong>ygotene ➔ <strong>P</strong>achytene ➔ <strong>D</strong>iplotene ➔ <strong>D</strong>iakinesis</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 10 | Cell Cycle and Cell Division</span>
+    </div>
+
+</div>
+
+</body>
+</html>

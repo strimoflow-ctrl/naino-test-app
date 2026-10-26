@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 20: Locomotion and Movement</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Locomotion and Movement</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 20</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🏃 1. Types of Movement</h2>
+        <p>Cells of the human body exhibit three main types of movements, namely amoeboid, ciliary, and muscular.</p>
+
+        <ul>
+            <li><strong>Amoeboid Movement:</strong> Some specialised cells in our body like macrophages and leucocytes in blood exhibit amoeboid movement. It is effected by pseudopodia formed by the streaming of protoplasm (as in Amoeba). Cytoskeletal elements like microfilaments are also involved.</li>
+            <li><strong>Ciliary Movement:</strong> Occurs in most of our internal tubular organs which are lined by ciliated epithelium. For example, the coordinated movements of cilia in the trachea help in removing dust particles. Passage of ova through the female reproductive tract is also facilitated by ciliary movement.</li>
+            <li><strong>Muscular Movement:</strong> Movement of our limbs, jaws, tongue, etc. require muscular movement. It relies on the contractile property of muscles.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>💪 2. Structure of Skeletal Muscle</h2>
+        <p>Each organised skeletal muscle is made of a number of muscle bundles or fascicles held together by a common collagenous connective tissue layer called <strong>fascia</strong>. Each muscle fibre is lined by plasma membrane called sarcolemma enclosing the sarcoplasm.</p>
+        
+        <p>Muscle fibres contain a large number of parallelly arranged filaments called <strong>myofilaments or myofibrils</strong>. A myofibril has alternate dark and light bands. The striated appearance is due to two important proteins: <strong>Actin</strong> and <strong>Myosin</strong>.</p>
+        
+        <ul>
+            <li><strong>Light bands (I-band or Isotropic band):</strong> Contain actin.</li>
+            <li><strong>Dark bands (A-band or Anisotropic band):</strong> Contain myosin.</li>
+        </ul>
+
+        <!-- DIAGRAM: SARCOMERE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Z lines -->
+                <line x1="100" y1="50" x2="100" y2="200" stroke="#1565C0" stroke-width="4"/>
+                <line x1="400" y1="50" x2="400" y2="200" stroke="#1565C0" stroke-width="4"/>
+                <text x="100" y="40" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">Z line</text>
+                <text x="400" y="40" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">Z line</text>
+
+                <!-- Thin Filaments (Actin) -->
+                <line x1="100" y1="80" x2="200" y2="80" stroke="#4CAF50" stroke-width="4"/>
+                <line x1="100" y1="120" x2="200" y2="120" stroke="#4CAF50" stroke-width="4"/>
+                <line x1="100" y1="160" x2="200" y2="160" stroke="#4CAF50" stroke-width="4"/>
+                
+                <line x1="300" y1="80" x2="400" y2="80" stroke="#4CAF50" stroke-width="4"/>
+                <line x1="300" y1="120" x2="400" y2="120" stroke="#4CAF50" stroke-width="4"/>
+                <line x1="300" y1="160" x2="400" y2="160" stroke="#4CAF50" stroke-width="4"/>
+
+                <!-- Thick Filaments (Myosin) -->
+                <rect x="180" y="95" width="140" height="10" fill="#D32F2F" rx="2"/>
+                <rect x="180" y="135" width="140" height="10" fill="#D32F2F" rx="2"/>
+                
+                <!-- H Zone and M Line -->
+                <line x1="250" y1="90" x2="250" y2="150" stroke="#333" stroke-width="2" stroke-dasharray="4,2"/>
+                <text x="250" y="180" font-size="12" fill="#333" text-anchor="middle">M line</text>
+                
+                <path d="M 205 65 L 295 65" fill="none" stroke="#D32F2F" stroke-width="1"/>
+                <text x="250" y="60" font-size="12" fill="#D32F2F" text-anchor="middle">H Zone</text>
+
+                <!-- A Band and I Band Labels -->
+                <path d="M 180 220 L 320 220" fill="none" stroke="#D32F2F" stroke-width="2"/>
+                <text x="250" y="240" font-size="14" font-weight="bold" fill="#D32F2F" text-anchor="middle">A Band</text>
+
+                <path d="M 50 220 L 100 220" fill="none" stroke="#4CAF50" stroke-width="2"/>
+                <text x="75" y="240" font-size="12" font-weight="bold" fill="#4CAF50" text-anchor="middle">I Band</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Diagrammatic representation of a Sarcomere</div>
+        </div>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: The Sarcomere</div>
+            <p>The portion of the myofibril between two successive <strong>'Z' lines</strong> is considered as the functional unit of contraction and is called a <strong>sarcomere</strong>. During contraction, the 'Z' lines attached to actin are pulled inwards, shortening the sarcomere. The 'A' band retains its length, but the 'I' band gets reduced.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚡ 3. Mechanism of Muscle Contraction</h2>
+        <p>Best explained by the <strong>Sliding Filament Theory</strong> which states that contraction of a muscle fibre takes place by the sliding of the thin filaments (actin) over the thick filaments (myosin).</p>
+
+        <ol>
+            <li>Signal from CNS reaches the neuromuscular junction, releasing a neurotransmitter (Acetylcholine) which generates an action potential in the sarcolemma.</li>
+            <li>This spreads through the muscle fibre and causes the release of <strong>Calcium ions</strong> into the sarcoplasm from the sarcoplasmic reticulum.</li>
+            <li>Calcium binds to a subunit of <strong>troponin</strong> on actin filaments, uncovering the myosin binding sites.</li>
+            <li>Utilising the energy from ATP hydrolysis, the myosin head binds to the exposed active sites on actin to form a <strong>cross bridge</strong>.</li>
+            <li>This pulls the actin filaments towards the centre of the 'A' band (M-line), causing contraction.</li>
+        </ol>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🦴 4. Skeletal System</h2>
+        <p>Consists of a framework of bones and a few cartilages. Human beings have <strong>206 bones</strong>. It is grouped into two principal divisions: Axial and Appendicular skeleton.</p>
+
+        <h3>Axial Skeleton (80 bones)</h3>
+        <ul>
+            <li><strong>Skull (22 bones):</strong> Cranial bones (8) protect the brain. Facial bones (14) form the front of the skull. A single U-shaped bone called <strong>hyoid</strong> is present at the base of the buccal cavity. Each middle ear contains three tiny bones (Malleus, Incus, Stapes) called ear ossicles.</li>
+            <li><strong>Vertebral Column (26 bones):</strong> Cervical (7), Thoracic (12), Lumbar (5), Sacral (1-fused), Coccygeal (1-fused).</li>
+            <li><strong>Sternum:</strong> Flat bone on the ventral midline of thorax.</li>
+            <li><strong>Ribs (12 pairs):</strong> True ribs (first 7 pairs, attached to sternum), False ribs (8th, 9th, 10th pairs, join 7th rib via cartilage), Floating ribs (last 2 pairs, not connected ventrally).</li>
+        </ul>
+
+        <h3>Appendicular Skeleton (126 bones)</h3>
+        <p>Bones of the limbs along with their girdles.</p>
+        <ul>
+            <li><strong>Forelimb (30 bones):</strong> Humerus, radius, ulna, carpals (8), metacarpals (5), phalanges (14).</li>
+            <li><strong>Hindlimb (30 bones):</strong> Femur (longest bone), tibia, fibula, tarsals (7), metatarsals (5), phalanges (14), patella (knee cap).</li>
+            <li><strong>Pectoral Girdle:</strong> Clavicle (collar bone) and Scapula (shoulder blade). Has a <strong>glenoid cavity</strong> for articulation of humerus.</li>
+            <li><strong>Pelvic Girdle:</strong> Made of two coxal bones (each formed by fusion of ilium, ischium and pubis). Has an <strong>acetabulum</strong> for articulation of femur.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Vertebral Column Formula</div>
+            <p><strong>C-T-L-S-C</strong> : 7, 12, 5, 1, 1<br>
+            Cervical(7) - Breakfast at 7 AM<br>
+            Thoracic(12) - Lunch at 12 PM<br>
+            Lumbar(5) - Dinner at 5 PM</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔗 5. Joints and Disorders</h2>
+
+        <h3>Joints</h3>
+        <ul>
+            <li><strong>Fibrous joints:</strong> Do not allow any movement. E.g., Sutures in the skull.</li>
+            <li><strong>Cartilaginous joints:</strong> Bones are joined together with the help of cartilages. Permits limited movement. E.g., joint between adjacent vertebrae.</li>
+            <li><strong>Synovial joints:</strong> Characterised by the presence of a fluid filled synovial cavity. Allow considerable movement.
+                <ul>
+                    <li><em>Ball and socket:</em> Between humerus and pectoral girdle.</li>
+                    <li><em>Hinge joint:</em> Knee joint.</li>
+                    <li><em>Pivot joint:</em> Between atlas and axis.</li>
+                    <li><em>Gliding joint:</em> Between the carpals.</li>
+                    <li><em>Saddle joint:</em> Between carpal and metacarpal of thumb.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Disorders</h3>
+        <ul>
+            <li><strong>Myasthenia gravis:</strong> Auto-immune disorder affecting neuromuscular junction leading to fatigue, weakening and paralysis of skeletal muscle.</li>
+            <li><strong>Muscular dystrophy:</strong> Progressive degeneration of skeletal muscle mostly due to genetic disorder.</li>
+            <li><strong>Tetany:</strong> Rapid spasms (wild contractions) in muscle due to low Ca⁺⁺ in body fluid.</li>
+            <li><strong>Arthritis:</strong> Inflammation of joints.</li>
+            <li><strong>Osteoporosis:</strong> Age-related disorder characterised by decreased bone mass and increased chances of fractures. Decreased levels of estrogen is a common cause.</li>
+            <li><strong>Gout:</strong> Inflammation of joints due to accumulation of <strong>uric acid crystals</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 20 (Class 11) | Locomotion and Movement</span>
+    </div>
+
+</div>
+
+</body>
+</html>

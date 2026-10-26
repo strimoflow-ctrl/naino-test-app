@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 6: System of Particles and Rotational Motion</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Rotational Motion</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 6</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🎯 1. Centre of Mass</h2>
+        <p>The centre of mass of a system of particles is the point where the entire mass of the system can be supposed to be concentrated for describing its translational motion.</p>
+
+        <p><strong>Position Vector of COM:</strong> <b>R</b><sub>CM</sub> = (m<sub>1</sub><b>r</b><sub>1</sub> + m<sub>2</sub><b>r</b><sub>2</sub> + ... + m<sub>n</sub><b>r</b><sub>n</sub>) / (m<sub>1</sub> + m<sub>2</sub> + ... + m<sub>n</sub>)</p>
+        <p>If no external force acts on a system (F<sub>ext</sub> = 0), the velocity of its centre of mass remains constant. The internal forces do not affect the motion of the centre of mass.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Exploding Bomb</div>
+            <p>If a bomb explodes mid-air, it breaks into many pieces due to internal forces. Since external force is zero, the <strong>Centre of Mass of all the fragments continues to move in the original parabolic path</strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔄 2. Torque and Angular Momentum</h2>
+
+        <h3>Torque (&tau;)</h3>
+        <p>Torque is the rotational analogue of force. It measures the turning effect of a force. <br>
+        <b>&tau;</b> = <b>r</b> &times; <b>F</b> = r F sin&theta; <b>n</b></p>
+        <p>Torque is maximum when force is perpendicular to the position vector (&theta; = 90&deg;).</p>
+
+        <h3>Angular Momentum (L)</h3>
+        <p>Rotational analogue of linear momentum.<br>
+        <b>L</b> = <b>r</b> &times; <b>p</b> = r p sin&theta; <b>n</b></p>
+        
+        <p><strong>Relation:</strong> Just as F = dp/dt, we have <strong>&tau; = dL/dt</strong>.</p>
+        <p>If net external torque is zero (&tau; = 0), then <strong>Angular Momentum is Conserved</strong> (L = constant).</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚙️ 3. Moment of Inertia (I)</h2>
+        <p>Moment of inertia is the rotational analogue of mass. It represents the inertia of a rotating body. It depends on mass, its distribution about the axis, and the position of the axis of rotation.</p>
+
+        <p><strong>I = &Sigma; m<sub>i</sub> r<sub>i</sub><sup>2</sup></strong></p>
+        <p>Radius of Gyration (k): It is the distance from the axis of rotation where the entire mass of the body can be assumed to be concentrated. I = mk<sup>2</sup>.</p>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Standard Moment of Inertia Formulas</div>
+            <table>
+                <tr><th>Body</th><th>Axis of Rotation</th><th>I</th></tr>
+                <tr><td>Ring (Radius R)</td><td>Through centre, &perp; to plane</td><td>MR<sup>2</sup></td></tr>
+                <tr><td>Disc (Radius R)</td><td>Through centre, &perp; to plane</td><td>&frac12; MR<sup>2</sup></td></tr>
+                <tr><td>Solid Cylinder</td><td>Axis of cylinder</td><td>&frac12; MR<sup>2</sup></td></tr>
+                <tr><td>Solid Sphere</td><td>Diameter</td><td>2/5 MR<sup>2</sup></td></tr>
+                <tr><td>Hollow Sphere</td><td>Diameter</td><td>2/3 MR<sup>2</sup></td></tr>
+                <tr><td>Thin Rod (Length L)</td><td>Through centre, &perp; to length</td><td>ML<sup>2</sup>/12</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>📏 4. Theorems of Moment of Inertia</h2>
+
+        <!-- DIAGRAM: THEOREMS -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Parallel Axis Theorem -->
+                <ellipse cx="150" cy="100" rx="60" ry="30" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+                <!-- Center of mass axis -->
+                <line x1="150" y1="40" x2="150" y2="160" stroke="#D32F2F" stroke-width="2" stroke-dasharray="4"/>
+                <text x="120" y="50" font-size="12" fill="#D32F2F">I_cm</text>
+                
+                <!-- Parallel axis -->
+                <line x1="190" y1="40" x2="190" y2="160" stroke="#1565C0" stroke-width="2"/>
+                <text x="195" y="50" font-size="12" fill="#1565C0">I</text>
+
+                <line x1="150" y1="100" x2="190" y2="100" stroke="#333" stroke-width="1"/>
+                <text x="165" y="95" font-size="12" fill="#333">d</text>
+                <text x="150" y="190" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Parallel Axis Theorem</text>
+
+
+                <!-- Perpendicular Axis Theorem -->
+                <circle cx="380" cy="100" r="50" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+                <line x1="330" y1="100" x2="430" y2="100" stroke="#D32F2F" stroke-width="2"/>
+                <text x="440" y="105" font-size="12" fill="#D32F2F">Ix</text>
+                
+                <line x1="380" y1="50" x2="380" y2="150" stroke="#1565C0" stroke-width="2"/>
+                <text x="375" y="40" font-size="12" fill="#1565C0">Iy</text>
+                
+                <circle cx="380" cy="100" r="3" fill="#333"/>
+                <text x="390" y="90" font-size="12" font-weight="bold" fill="#333">Iz (Out)</text>
+                <text x="380" y="190" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Perpendicular Axis Theorem</text>
+            </svg>
+            <div class="diagram-caption">Fig: Theorems of Moment of Inertia</div>
+        </div>
+
+        <h3>1. Parallel Axis Theorem</h3>
+        <p>I = I<sub>CM</sub> + Md<sup>2</sup> (Applicable to 1D, 2D, and 3D bodies).</p>
+
+        <h3>2. Perpendicular Axis Theorem</h3>
+        <p>I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub> (Applicable ONLY to 2D planar bodies/lamina). The x and y axes must lie in the plane of the body and intersect at the origin of the z-axis.</p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🌀 5. Rolling Motion</h2>
+        <p>Pure rolling (rolling without slipping) is a combination of translational and rotational motion.</p>
+
+        <p><strong>Condition for pure rolling:</strong> v<sub>CM</sub> = R&omega;</p>
+        <p><strong>Kinetic Energy of Rolling Body:</strong> K = K<sub>trans</sub> + K<sub>rot</sub> = &frac12;mv<sup>2</sup> + &frac12;I&omega;<sup>2</sup> = &frac12;mv<sup>2</sup> [1 + (k<sup>2</sup>/R<sup>2</sup>)]</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Rolling down an incline</div>
+            <p>When bodies of same mass and radius roll down an incline, the one with the <strong>smallest I</strong> reaches the bottom first. <br>
+            Order of reaching bottom: <strong>Solid Sphere &gt; Disc &gt; Solid Cylinder &gt; Hollow Sphere &gt; Ring.</strong></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 6 (Class 11) | Rotational Motion</span>
+    </div>
+
+</div>
+
+</body>
+</html>
+

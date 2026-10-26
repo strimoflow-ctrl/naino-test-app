@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 14: Semiconductors</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Semiconductor Electronics</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 14</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔌 1. Energy Bands and Semiconductors</h2>
+        <p>In solids, electrons are restricted to bands of energy. The highest filled band is the Valence Band (VB) and the lowest empty/partially filled band is the Conduction Band (CB). The gap between them is the Forbidden Energy Gap (E<sub>g</sub>).</p>
+        
+        <ul>
+            <li><strong>Conductors:</strong> VB and CB overlap. E<sub>g</sub> = 0. Lots of free electrons.</li>
+            <li><strong>Insulators:</strong> Large energy gap (E<sub>g</sub> &gt; 3 eV). No free electrons at room temperature.</li>
+            <li><strong>Semiconductors:</strong> Small energy gap (E<sub>g</sub> &lt; 3 eV). E.g., Silicon (1.1 eV) and Germanium (0.72 eV). At 0K, behaves as insulator. At room temp, some electrons jump to CB leaving 'holes' in VB.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚛️ 2. Types of Semiconductors</h2>
+        
+        <h3>Intrinsic Semiconductors</h3>
+        <p>Pure semiconductors (Si, Ge). Number of electrons (n<sub>e</sub>) = Number of holes (n<sub>h</sub>) = n<sub>i</sub>.</p>
+
+        <h3>Extrinsic Semiconductors</h3>
+        <p>Impure semiconductors formed by doping to increase conductivity.</p>
+        <ul>
+            <li><strong>n-type:</strong> Doped with Pentavalent impurity (P, As, Sb). Electrons are majority carriers (n<sub>e</sub> &gt;&gt; n<sub>h</sub>). Donor energy level is just below CB.</li>
+            <li><strong>p-type:</strong> Doped with Trivalent impurity (B, Al, In). Holes are majority carriers (n<sub>h</sub> &gt;&gt; n<sub>e</sub>). Acceptor energy level is just above VB.</li>
+        </ul>
+        <div class="box box-formula">
+            <div class="box-title">💡 Mass Action Law</div>
+            <p><strong>n<sub>e</sub> &times; n<sub>h</sub> = n<sub>i</sub><sup>2</sup></strong> (Valid for both intrinsic and extrinsic semiconductors in thermal equilibrium).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔋 3. p-n Junction Diode</h2>
+        <p>When a p-type semiconductor is suitably joined to an n-type semiconductor, a p-n junction is formed.</p>
+        <ul>
+            <li><strong>Depletion Region:</strong> A thin layer near the junction devoid of charge carriers, containing immobile positive (n-side) and negative (p-side) ions.</li>
+            <li><strong>Forward Bias:</strong> p connected to positive, n to negative terminal. Depletion width decreases, resistance is low, current flows easily.</li>
+            <li><strong>Reverse Bias:</strong> p connected to negative, n to positive. Depletion width increases, resistance is very high, almost zero current flows (except tiny leakage current due to minority carriers).</li>
+        </ul>
+
+        <!-- DIAGRAM: PN JUNCTION -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- p and n regions -->
+                <rect x="50" y="50" width="150" height="100" fill="#E1F5FE" stroke="#0288D1"/>
+                <rect x="300" y="50" width="150" height="100" fill="#FFEBEE" stroke="#D32F2F"/>
+                <text x="125" y="105" font-size="18" fill="#1565C0" font-weight="bold">p - type</text>
+                <text x="375" y="105" font-size="18" fill="#D32F2F" font-weight="bold">n - type</text>
+
+                <!-- Depletion Region -->
+                <rect x="200" y="50" width="100" height="100" fill="#E0E0E0" stroke="#999"/>
+                <text x="250" y="70" font-size="12" fill="#333" text-anchor="middle">Depletion</text>
+                <text x="250" y="85" font-size="12" fill="#333" text-anchor="middle">Region</text>
+                
+                <!-- Ions in depletion -->
+                <text x="220" y="120" font-size="16" fill="#1565C0" font-weight="bold">-</text>
+                <text x="220" y="140" font-size="16" fill="#1565C0" font-weight="bold">-</text>
+                
+                <text x="280" y="120" font-size="16" fill="#D32F2F" font-weight="bold">+</text>
+                <text x="280" y="140" font-size="16" fill="#D32F2F" font-weight="bold">+</text>
+
+                <line x1="280" y1="145" x2="220" y2="145" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="250" y="160" font-size="10" fill="#333" text-anchor="middle">Barrier E-Field</text>
+            </svg>
+            <div class="diagram-caption">Fig: p-n Junction showing Depletion Region and Barrier Electric Field</div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🛠️ 4. Applications of Diode</h2>
+        <p>Because a diode allows current only in one direction, it is used as a <strong>Rectifier</strong> (converts AC to DC).</p>
+        
+        <ul>
+            <li><strong>Half-Wave Rectifier:</strong> Uses 1 diode. Conducts only during positive half cycle. Efficiency &approx; 40.6%. Ripple frequency = f<sub>in</sub>.</li>
+            <li><strong>Full-Wave Rectifier:</strong> Uses 2 diodes (with center-tap transformer) or 4 diodes (bridge). Conducts during both cycles. Efficiency &approx; 81.2%. Ripple frequency = 2f<sub>in</sub>.</li>
+        </ul>
+
+        <h3>Special Purpose Diodes</h3>
+        <ul>
+            <li><strong>Zener Diode:</strong> Highly doped, operates in reverse breakdown region. Used as a <strong>Voltage Regulator</strong>.</li>
+            <li><strong>Photodiode:</strong> Operates in reverse bias. Used to detect light signals.</li>
+            <li><strong>LED (Light Emitting Diode):</strong> Operates in forward bias. Converts electrical energy into light energy.</li>
+            <li><strong>Solar Cell:</strong> A p-n junction that generates EMF when solar radiation falls on it. No external bias applied.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🧮 5. Logic Gates</h2>
+        <p>Digital circuits that follow certain logical relationships between input and output voltages.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Truth Tables</div>
+            <ul>
+                <li><strong>NOT Gate:</strong> Inverter. Y = A&prime;. (Output is opposite of input).</li>
+                <li><strong>OR Gate:</strong> Addition. Y = A + B. (High if ANY input is high).</li>
+                <li><strong>AND Gate:</strong> Multiplication. Y = A &bull; B. (High only if ALL inputs are high).</li>
+                <li><strong>NAND Gate:</strong> Universal gate. Y = (A &bull; B)&prime;.</li>
+                <li><strong>NOR Gate:</strong> Universal gate. Y = (A + B)&prime;.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 14 (Class 12) | Semiconductor Electronics</span>
+    </div>
+
+</div>
+
+</body>
+</html>

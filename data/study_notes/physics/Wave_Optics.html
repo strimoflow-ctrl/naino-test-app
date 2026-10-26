@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 10: Wave Optics</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Wave Optics</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 10</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌊 1. Huygens Principle</h2>
+        <p>Light travels in the form of waves. The locus of all particles of the medium vibrating in the same phase is called a <strong>Wavefront</strong>.</p>
+        
+        <ul>
+            <li>Point source produces <strong>Spherical Wavefront</strong>.</li>
+            <li>Line source produces <strong>Cylindrical Wavefront</strong>.</li>
+            <li>Source at infinity produces <strong>Plane Wavefront</strong>.</li>
+        </ul>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Huygens Principle</div>
+            <p>Every point on a given wavefront acts as a fresh source of new disturbance, called secondary wavelets, which travel in all directions with the velocity of light in the medium. The forward envelope of these wavelets gives the new wavefront at any later instant.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔆 2. Interference of Light</h2>
+        <p>The phenomenon of redistribution of light energy due to the superposition of light waves from two coherent sources.</p>
+        
+        <p><strong>Coherent Sources:</strong> Sources which emit light waves of same frequency and have a zero or constant phase difference. (Two independent bulbs can NEVER be coherent).</p>
+
+        <h3>Conditions for Interference:</h3>
+        <p>Resultant Intensity: I = I<sub>1</sub> + I<sub>2</sub> + 2&radic;(I<sub>1</sub>I<sub>2</sub>) cos&phi;</p>
+        <ul>
+            <li><strong>Constructive (Bright fringe):</strong> &phi; = 0, 2&pi;, 4&pi;... or path diff = n&lambda;. I<sub>max</sub> = (&radic;I<sub>1</sub> + &radic;I<sub>2</sub>)<sup>2</sup>.</li>
+            <li><strong>Destructive (Dark fringe):</strong> &phi; = &pi;, 3&pi;... or path diff = (2n-1)&lambda;/2. I<sub>min</sub> = (&radic;I<sub>1</sub> - &radic;I<sub>2</sub>)<sup>2</sup>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔬 3. Young's Double Slit Experiment (YDSE)</h2>
+        <p>Demonstrated the wave nature of light. An interference pattern of alternate bright and dark fringes is formed on the screen.</p>
+
+        <!-- DIAGRAM: YDSE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Slits -->
+                <line x1="100" y1="20" x2="100" y2="80" stroke="#333" stroke-width="4"/>
+                <line x1="100" y1="90" x2="100" y2="110" stroke="#333" stroke-width="4"/>
+                <line x1="100" y1="120" x2="100" y2="180" stroke="#333" stroke-width="4"/>
+                
+                <text x="80" y="85" font-size="12" fill="#333">S1</text>
+                <text x="80" y="125" font-size="12" fill="#333">S2</text>
+                
+                <!-- Screen -->
+                <line x1="400" y1="20" x2="400" y2="180" stroke="#1565C0" stroke-width="6"/>
+                <text x="415" y="105" font-size="12" fill="#1565C0">Central Max</text>
+
+                <!-- Light Rays -->
+                <line x1="100" y1="85" x2="400" y2="100" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="4"/>
+                <line x1="100" y1="115" x2="400" y2="100" stroke="#D32F2F" stroke-width="1.5" stroke-dasharray="4"/>
+                
+                <!-- D and d -->
+                <line x1="100" y1="190" x2="400" y2="190" stroke="#333" stroke-width="1"/>
+                <text x="250" y="205" font-size="12" fill="#333">Distance D</text>
+                
+                <path d="M 90 85 C 70 85, 70 115, 90 115" fill="none" stroke="#333" stroke-width="1"/>
+                <text x="60" y="105" font-size="12" fill="#333">d</text>
+            </svg>
+            <div class="diagram-caption">Fig: Schematic of Young's Double Slit Experiment</div>
+        </div>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Fringe Width (&beta;)</div>
+            <p>The distance between two consecutive bright or dark fringes.</p>
+            <p><strong>&beta; = &lambda; D / d</strong></p>
+            <p>If the entire YDSE apparatus is immersed in water of refractive index &mu;, wavelength becomes &lambda;/&mu;. Thus, the fringe width decreases (&beta;&prime; = &beta;/&mu;).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌈 4. Diffraction of Light</h2>
+        <p>The phenomenon of bending of light around the corners of an obstacle or aperture and its encroachment into the region of geometrical shadow. It becomes prominent when the size of the obstacle is comparable to the wavelength of light.</p>
+
+        <h3>Single Slit Diffraction</h3>
+        <p>A central bright maximum is formed, surrounded by alternate secondary minima and maxima on both sides.</p>
+        <ul>
+            <li><strong>Condition for Minima (Dark):</strong> a sin&theta; = n&lambda; (n = 1, 2, 3...)</li>
+            <li><strong>Condition for Maxima (Bright):</strong> a sin&theta; = (2n+1)&lambda;/2</li>
+        </ul>
+        <p><strong>Width of Central Maximum:</strong> W = 2&lambda;D / a. It is twice as wide as the secondary maxima.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Interference vs Diffraction</div>
+            <p>In Interference, all bright fringes have the <strong>same intensity</strong>. In Diffraction, the intensity of secondary maxima <strong>decreases rapidly</strong> as we move away from the central maximum.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🕶️ 5. Polarization</h2>
+        <p>The phenomenon of restricting the vibrations of light waves in a single plane perpendicular to the direction of propagation. This proves that light waves are <strong>transverse</strong> in nature.</p>
+
+        <ul>
+            <li><strong>Malus's Law:</strong> When completely plane-polarized light is incident on an analyzer, the intensity of emergent light varies as: <strong>I = I<sub>0</sub> cos<sup>2</sup>&theta;</strong>. (If unpolarized light of intensity I<sub>0</sub> falls on a polarizer, transmitted intensity is always I<sub>0</sub>/2).</li>
+            <li><strong>Brewster's Law:</strong> At a particular angle of incidence called polarizing angle (i<sub>p</sub>), the reflected light is completely plane-polarized. <strong>&mu; = tan(i<sub>p</sub>)</strong>. At this angle, the reflected and refracted rays are perpendicular to each other.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 10 (Class 12) | Wave Optics</span>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 11: Thermodynamics</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Thermodynamics</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 11</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔥 1. Zeroth and First Law of Thermodynamics</h2>
+        
+        <h3>Zeroth Law</h3>
+        <p>If two systems A and B are in thermal equilibrium with a third system C separately, then A and B are in thermal equilibrium with each other. This law leads to the concept of <strong>Temperature</strong>.</p>
+
+        <h3>First Law of Thermodynamics</h3>
+        <p>It is essentially the law of conservation of energy applied to a thermodynamic system.</p>
+        <div class="box box-formula">
+            <div class="box-title">💡 First Law Equation</div>
+            <p><strong>&Delta;Q = &Delta;U + &Delta;W</strong></p>
+            <p>Where &Delta;Q is heat supplied to the system, &Delta;U is change in internal energy, and &Delta;W is work done by the system.</p>
+        </div>
+
+        <p><strong>Sign Convention:</strong></p>
+        <ul>
+            <li>&Delta;Q is positive if heat is supplied <em>to</em> the system.</li>
+            <li>&Delta;W is positive if work is done <em>by</em> the system (expansion).</li>
+            <li>&Delta;U is positive if temperature <em>increases</em>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔄 2. Thermodynamic Processes</h2>
+
+        <!-- DIAGRAM: P-V DIAGRAMS -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Axes -->
+                <line x1="50" y1="200" x2="400" y2="200" stroke="#333" stroke-width="2"/>
+                <line x1="50" y1="200" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+                <text x="410" y="205" font-size="12" fill="#333">Volume (V)</text>
+                <text x="15" y="30" font-size="12" fill="#333">Pressure (P)</text>
+
+                <!-- Isobaric -->
+                <line x1="100" y1="50" x2="250" y2="50" stroke="#D32F2F" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="260" y="55" font-size="12" fill="#D32F2F">Isobaric (&Delta;P = 0)</text>
+
+                <!-- Isothermal -->
+                <path d="M 100 50 Q 150 100 250 150" fill="none" stroke="#0288D1" stroke-width="3"/>
+                <text x="260" y="155" font-size="12" fill="#0288D1">Isothermal (&Delta;T = 0)</text>
+
+                <!-- Adiabatic -->
+                <path d="M 100 50 Q 120 120 180 180" fill="none" stroke="#2E7D32" stroke-width="3"/>
+                <text x="190" y="185" font-size="12" fill="#2E7D32">Adiabatic (&Delta;Q = 0)</text>
+
+                <!-- Isochoric -->
+                <line x1="100" y1="50" x2="100" y2="150" stroke="#F57F17" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="105" y="165" font-size="12" fill="#F57F17">Isochoric (&Delta;V = 0)</text>
+            </svg>
+            <div class="diagram-caption">Fig: P-V Curves for different processes starting from same initial state</div>
+        </div>
+
+        <ul>
+            <li><strong>Isothermal:</strong> Temperature is constant (&Delta;T = 0, &Delta;U = 0). Equation: PV = constant. Work done: W = nRT ln(V<sub>2</sub>/V<sub>1</sub>).</li>
+            <li><strong>Adiabatic:</strong> No heat exchange (&Delta;Q = 0). Equation: PV<sup>&gamma;</sup> = constant. Work done: W = (P<sub>1</sub>V<sub>1</sub> - P<sub>2</sub>V<sub>2</sub>) / (&gamma; - 1).</li>
+            <li><strong>Isochoric:</strong> Volume is constant (&Delta;V = 0, &Delta;W = 0). Therefore, &Delta;Q = &Delta;U.</li>
+            <li><strong>Isobaric:</strong> Pressure is constant (&Delta;P = 0). Work done: W = P(V<sub>2</sub> - V<sub>1</sub>).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🌡️ 3. Specific Heat Capacity of Gases</h2>
+        <p>Gases have two principal specific heats:</p>
+        <ul>
+            <li><strong>C<sub>p</sub>:</strong> Molar specific heat at constant pressure.</li>
+            <li><strong>C<sub>v</sub>:</strong> Molar specific heat at constant volume.</li>
+        </ul>
+
+        <p><strong>Mayer's Formula:</strong> C<sub>p</sub> - C<sub>v</sub> = R (Universal Gas Constant).</p>
+        <p><strong>Ratio of specific heats (&gamma;):</strong> &gamma; = C<sub>p</sub> / C<sub>v</sub>.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Value of &gamma;</div>
+            <p>Monatomic gases (He, Ar): &gamma; = 5/3 = 1.67</p>
+            <p>Diatomic gases (O<sub>2</sub>, N<sub>2</sub>): &gamma; = 7/5 = 1.40</p>
+            <p>Polyatomic gases (CO<sub>2</sub>): &gamma; = 4/3 = 1.33</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>⚙️ 4. Second Law of Thermodynamics</h2>
+        <p>The First Law does not restrict the direction of heat flow. The Second Law provides this restriction.</p>
+
+        <ul>
+            <li><strong>Kelvin-Planck Statement:</strong> No process is possible whose sole result is the absorption of heat from a reservoir and the complete conversion of the heat into work. (Efficiency of a heat engine &lt; 100%).</li>
+            <li><strong>Clausius Statement:</strong> No process is possible whose sole result is the transfer of heat from a colder object to a hotter object. (Refrigerators need external work).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🚀 5. Heat Engines and Refrigerators</h2>
+
+        <h3>Heat Engine</h3>
+        <p>A device which converts heat energy into mechanical work in a cyclic process. It takes heat Q<sub>1</sub> from source at T<sub>1</sub>, does work W, and rejects heat Q<sub>2</sub> to sink at T<sub>2</sub>.</p>
+        <p><strong>Efficiency (&eta;):</strong> &eta; = W / Q<sub>1</sub> = (Q<sub>1</sub> - Q<sub>2</sub>) / Q<sub>1</sub> = 1 - (Q<sub>2</sub>/Q<sub>1</sub>).</p>
+
+        <h3>Carnot Engine</h3>
+        <p>A theoretical ideal reversible heat engine with maximum possible efficiency.</p>
+        <p><strong>Carnot Efficiency:</strong> &eta; = 1 - (T<sub>2</sub> / T<sub>1</sub>), where temperatures MUST be in Kelvin.</p>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Refrigerator (Heat Pump)</div>
+            <p>It is a heat engine working in reverse. It extracts heat Q<sub>2</sub> from cold reservoir, work W is done on it, and it rejects heat Q<sub>1</sub> to hot reservoir.</p>
+            <p><strong>Coefficient of Performance (&beta;):</strong> &beta; = Q<sub>2</sub> / W = Q<sub>2</sub> / (Q<sub>1</sub> - Q<sub>2</sub>) = T<sub>2</sub> / (T<sub>1</sub> - T<sub>2</sub>).</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 11 (Class 11) | Thermodynamics</span>
+    </div>
+
+</div>
+
+</body>
+</html>

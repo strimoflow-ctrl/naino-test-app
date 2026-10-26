@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 18: Body Fluids and Circulation</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Body Fluids and Circulation</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 18</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🩸 1. Blood and Its Components</h2>
+        <p>Blood is a special connective tissue consisting of a fluid matrix, plasma, and formed elements. Blood volume in a healthy adult is about 5 liters.</p>
+
+        <h3>Plasma</h3>
+        <p>A straw-coloured, viscous fluid constituting nearly 55% of the blood. 90-92% is water and 6-8% are proteins.</p>
+        <ul>
+            <li><strong>Fibrinogen:</strong> Needed for clotting or coagulation of blood.</li>
+            <li><strong>Globulins:</strong> Primarily involved in defense mechanisms (antibodies).</li>
+            <li><strong>Albumins:</strong> Help in maintaining osmotic balance.</li>
+            <li><em>Serum:</em> Plasma without clotting factors is called serum.</li>
+        </ul>
+
+        <h3>Formed Elements (45%)</h3>
+        <ul>
+            <li><strong>Erythrocytes (RBCs):</strong> Most abundant. Biconcave shape, devoid of nucleus in most mammals. Lifespan of 120 days. Destroyed in the <strong>spleen</strong> (graveyard of RBCs). Normal count: 5 - 5.5 millions/mm³. Contains Haemoglobin.</li>
+            <li><strong>Leucocytes (WBCs):</strong> Nucleated and relatively lesser in number (6000-8000/mm³). Short lived.
+                <ul>
+                    <li><em>Granulocytes:</em> Neutrophils (60-65%, phagocytic), Eosinophils (2-3%, resist infections/allergies), Basophils (0.5-1%, secrete histamine, serotonin, heparin - inflammatory reactions).</li>
+                    <li><em>Agranulocytes:</em> Lymphocytes (20-25%, B and T cells for immune response), Monocytes (6-8%, phagocytic).</li>
+                </ul>
+            </li>
+            <li><strong>Platelets (Thrombocytes):</strong> Cell fragments produced from megakaryocytes in bone marrow. Normal count: 1,50,000 - 3,50,000/mm³. Play a major role in blood clotting.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: WBC Abundance</div>
+            <p><strong>N</strong>ever <strong>L</strong>et <strong>M</strong>onkeys <strong>E</strong>at <strong>B</strong>ananas<br>
+            <strong>N</strong>eutrophils (most) > <strong>L</strong>ymphocytes > <strong>M</strong>onocytes > <strong>E</strong>osinophils > <strong>B</strong>asophils (least).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🅰️ 2. Blood Groups and Coagulation</h2>
+
+        <h3>ABO Grouping</h3>
+        <p>Based on the presence or absence of two surface antigens on RBCs namely A and B. The plasma of different individuals contains two natural antibodies (anti-A and anti-B).</p>
+        <ul>
+            <li><strong>O Group:</strong> No antigens on RBC. Contains both anti-A and anti-B antibodies in plasma. They are <strong>universal donors</strong>.</li>
+            <li><strong>AB Group:</strong> Has both A and B antigens. No antibodies in plasma. They are <strong>universal recipients</strong>.</li>
+        </ul>
+
+        <h3>Rh Grouping & Erythroblastosis Foetalis</h3>
+        <p>Rh antigen (similar to one present in Rhesus monkeys) is observed on RBCs of majority of humans (Rh +ve). If an Rh-ve mother carries an Rh+ve fetus, her body might produce Rh antibodies during the first delivery (when blood mixes). In subsequent Rh+ve pregnancies, these antibodies can cross placenta and destroy fetal RBCs causing <strong>erythroblastosis foetalis</strong>. Prevented by administering anti-Rh antibodies (RhoGAM) to mother immediately after first delivery.</p>
+
+        <h3>Coagulation of Blood</h3>
+        <p>A cascade process involving a series of linked enzymic reactions. At the site of injury, platelets release certain factors which initiate coagulation.</p>
+        <p><em>Prothrombin</em> -> (by Thrombokinase) -> <em>Thrombin</em>.<br>
+        <em>Fibrinogen</em> -> (by Thrombin) -> <em>Fibrin</em> (forms the mesh/clot).</p>
+        <p><strong>Calcium ions (Ca²⁺)</strong> play a very important role in clotting.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>❤️ 3. Human Circulatory System</h2>
+        <p>Consists of a muscular chambered heart, a network of closed branching blood vessels, and blood. Heart is mesodermally derived, located in the thoracic cavity between the two lungs, slightly tilted to the left.</p>
+
+        <ul>
+            <li>Protected by a double-walled membranous bag, <strong>pericardium</strong>.</li>
+            <li>Heart has four chambers: two relatively small upper atria and two larger lower ventricles.</li>
+            <li><strong>Tricuspid Valve:</strong> Between right atrium and right ventricle.</li>
+            <li><strong>Bicuspid (Mitral) Valve:</strong> Between left atrium and left ventricle.</li>
+            <li><strong>Semilunar Valves:</strong> At the opening of right/left ventricles into pulmonary artery/aorta respectively. They prevent backward flow of blood.</li>
+        </ul>
+
+        <h3>Sino-atrial Node (SAN)</h3>
+        <p>A patch of nodal tissue present in the right upper corner of the right atrium. Can generate action potentials without any external stimuli (autoexcitable). It initiates and maintains the rhythmic contractile activity of the heart. Hence called the <strong>Pacemaker</strong>.</p>
+
+        <!-- DIAGRAM: DOUBLE CIRCULATION -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 300" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                
+                <!-- Lungs Box -->
+                <rect x="150" y="20" width="100" height="40" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2" rx="5"/>
+                <text x="200" y="45" font-size="14" font-weight="bold" fill="#2E7D32" text-anchor="middle">Lungs</text>
+                
+                <!-- Pulmonary Artery (Blue, to lungs) -->
+                <path d="M 170 120 L 170 60" fill="none" stroke="#1565C0" stroke-width="4" marker-end="url(#arrow)"/>
+                
+                <!-- Pulmonary Vein (Red, from lungs) -->
+                <path d="M 230 60 L 230 120" fill="none" stroke="#D32F2F" stroke-width="4" marker-end="url(#arrow)"/>
+
+                <!-- Heart Box -->
+                <rect x="150" y="120" width="100" height="60" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" rx="10"/>
+                <text x="200" y="155" font-size="16" font-weight="bold" fill="#D32F2F" text-anchor="middle">HEART</text>
+
+                <!-- Vena Cava (Blue, to heart) -->
+                <path d="M 170 240 L 170 180" fill="none" stroke="#1565C0" stroke-width="4" marker-end="url(#arrow)"/>
+
+                <!-- Aorta (Red, from heart) -->
+                <path d="M 230 180 L 230 240" fill="none" stroke="#D32F2F" stroke-width="4" marker-end="url(#arrow)"/>
+
+                <!-- Body Organs Box -->
+                <rect x="130" y="240" width="140" height="40" fill="#FFF3E0" stroke="#EF6C00" stroke-width="2" rx="5"/>
+                <text x="200" y="265" font-size="14" font-weight="bold" fill="#EF6C00" text-anchor="middle">Body Organs</text>
+
+                <!-- Labels -->
+                <text x="80" y="90" font-size="10" fill="#1565C0">Pulm. Artery</text>
+                <text x="260" y="90" font-size="10" fill="#D32F2F">Pulm. Vein</text>
+                <text x="90" y="210" font-size="10" fill="#1565C0">Vena Cava</text>
+                <text x="260" y="210" font-size="10" fill="#D32F2F">Aorta</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Schematic Plan of Double Circulation</div>
+        </div>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Double Circulation</div>
+            <p>The blood pumped by the right ventricle enters the pulmonary artery, whereas the left ventricle pumps blood into the aorta. Since blood passes strictly twice through the heart in one complete cycle (Pulmonary and Systemic circulation), it is called <strong>Double Circulation</strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>⏱️ 4. Cardiac Cycle and ECG</h2>
+
+        <h3>Cardiac Cycle</h3>
+        <p>The sequential event in the heart which is cyclically repeated is called the cardiac cycle (consists of systole and diastole of both atria and ventricles). During a cardiac cycle, each ventricle pumps out approximately 70 mL of blood, called the <strong>Stroke Volume</strong>.</p>
+        <p><strong>Cardiac Output</strong> = Stroke Volume × Heart Rate = 70 mL × 72 beats/min ≈ 5000 mL or 5 Litres.</p>
+
+        <h3>Heart Sounds</h3>
+        <p>Two prominent sounds can be heard through a stethoscope.</p>
+        <ul>
+            <li><strong>LUB:</strong> First sound, associated with the closure of the tricuspid and bicuspid valves.</li>
+            <li><strong>DUB:</strong> Second sound, associated with the closure of the semilunar valves.</li>
+        </ul>
+
+        <h3>Electrocardiograph (ECG)</h3>
+        <p>Graphical representation of the electrical activity of the heart during a cardiac cycle.</p>
+        <ul>
+            <li><strong>P wave:</strong> Represents the electrical excitation (depolarisation) of the atria (leads to atrial contraction).</li>
+            <li><strong>QRS complex:</strong> Represents the depolarisation of the ventricles (initiates ventricular contraction).</li>
+            <li><strong>T wave:</strong> Represents the return of the ventricles from excited to normal state (repolarisation). The end of the T wave marks the end of systole.</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Counting Heart Rate from ECG</div>
+            <p>By counting the number of <strong>QRS complexes</strong> that occur in a given time period on an ECG strip, a doctor can accurately determine the heart beat rate of an individual!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 18 (Class 11) | Body Fluids and Circulation</span>
+    </div>
+
+</div>
+
+</body>
+</html>

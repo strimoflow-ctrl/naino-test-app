@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 5: Magnetism and Matter</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Magnetism and Matter</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 5</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧲 1. The Bar Magnet</h2>
+        <p>A bar magnet has two poles (North and South) of equal pole strength (m). Magnetic field lines emerge from the North pole and enter the South pole. Inside the magnet, they go from South to North, forming <strong>continuous closed loops</strong>.</p>
+        
+        <h3>Magnetic Dipole Moment (M)</h3>
+        <p><strong>M = m &times; 2l</strong></p>
+        <p>Direction: From South pole to North pole.</p>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Torque & Potential Energy</div>
+            <p>When placed in a uniform magnetic field <strong>B</strong>:</p>
+            <ul>
+                <li>Torque: <strong>&tau; = M &times; B</strong> = MB sin&theta;</li>
+                <li>Potential Energy: <strong>U = -M &bull; B</strong> = -MB cos&theta;</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌍 2. Earth's Magnetism</h2>
+        <p>The earth behaves as a huge magnet. The magnetic field of the earth is specified by three elements at any place:</p>
+        
+        <ol>
+            <li><strong>Magnetic Declination (&theta;):</strong> The angle between true geographic north and the magnetic north (direction of compass needle).</li>
+            <li><strong>Angle of Dip or Inclination (&delta;):</strong> The angle made by the earth's total magnetic field <strong>B</strong> with the horizontal direction in the magnetic meridian. At poles, &delta; = 90&deg;. At equator, &delta; = 0&deg;.</li>
+            <li><strong>Horizontal Component of Earth's Magnetic Field (B<sub>H</sub>):</strong> B<sub>H</sub> = B cos&delta;. Vertical component B<sub>V</sub> = B sin&delta;. So, tan&delta; = B<sub>V</sub> / B<sub>H</sub>.</li>
+        </ol>
+
+        <!-- DIAGRAM: EARTH MAGNETISM -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Earth -->
+                <circle cx="250" cy="100" r="80" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+                
+                <!-- Geographic Axis -->
+                <line x1="250" y1="10" x2="250" y2="190" stroke="#333" stroke-dasharray="4" stroke-width="2"/>
+                <text x="245" y="10" font-size="12" fill="#333" text-anchor="end">Geographic N</text>
+
+                <!-- Magnetic Axis -->
+                <line x1="280" y1="15" x2="220" y2="185" stroke="#D32F2F" stroke-width="2"/>
+                <text x="285" y="15" font-size="12" fill="#D32F2F">Magnetic N</text>
+
+                <!-- Equators -->
+                <line x1="170" y1="100" x2="330" y2="100" stroke="#333" stroke-dasharray="4"/>
+                <line x1="175" y1="125" x2="325" y2="75" stroke="#D32F2F" stroke-width="2"/>
+
+                <text x="120" y="190" font-size="12" fill="#1565C0">Declination ~11.3&deg;</text>
+            </svg>
+            <div class="diagram-caption">Fig: Earth's Geographic and Magnetic Axes</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧲 3. Magnetic Properties of Materials</h2>
+        <p>Materials are classified based on their response to an external magnetic field into three categories:</p>
+
+        <h3>1. Diamagnetic Materials</h3>
+        <p>Develop feeble magnetization in the opposite direction to the applied field. They are feebly repelled by magnets. Examples: Copper, Bismuth, Water, Gold.</p>
+        <p><strong>Susceptibility (&chi;):</strong> Small and negative. Independent of temperature.</p>
+
+        <h3>2. Paramagnetic Materials</h3>
+        <p>Develop feeble magnetization in the direction of the applied field. They are feebly attracted by magnets. Examples: Aluminum, Sodium, Oxygen.</p>
+        <p><strong>Susceptibility (&chi;):</strong> Small and positive. Inversely proportional to absolute temperature (Curie's Law: &chi; &propto; 1/T).</p>
+
+        <h3>3. Ferromagnetic Materials</h3>
+        <p>Develop strong magnetization in the direction of the applied field. They are strongly attracted by magnets. Examples: Iron, Cobalt, Nickel, Gadolinium.</p>
+        <p><strong>Susceptibility (&chi;):</strong> Very large and positive. Form magnetic domains. Above Curie temperature (T<sub>C</sub>), they become paramagnetic.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>📈 4. Hysteresis</h2>
+        <p>The lagging of magnetic induction (B) behind the magnetizing field (H) when a ferromagnetic material is taken through a cycle of magnetization.</p>
+
+        <ul>
+            <li><strong>Retentivity:</strong> The value of magnetic induction B left in the specimen when the magnetizing field H is reduced to zero.</li>
+            <li><strong>Coercivity:</strong> The reverse magnetizing field H required to completely destroy the residual magnetism.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Choice of Material</div>
+            <ul>
+                <li><strong>Permanent Magnets:</strong> Require High Retentivity and High Coercivity. (e.g., Steel, Alnico).</li>
+                <li><strong>Electromagnets & Transformer Cores:</strong> Require High Permeability, Low Retentivity, and Low Coercivity to minimize hysteresis loss (area of loop). (e.g., Soft Iron).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔄 5. Gauss's Law for Magnetism</h2>
+        <p>The net magnetic flux through any closed surface is always zero.</p>
+        <p><strong>&oint; B &bull; dA = 0</strong></p>
+        
+        <div class="box box-definition">
+            <div class="box-title">📘 Physical Significance</div>
+            <p>This law establishes that isolated magnetic poles (monopoles) do not exist. Magnetic poles always exist in pairs (N and S).</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 5 (Class 12) | Magnetism and Matter</span>
+    </div>
+
+</div>
+
+</body>
+</html>

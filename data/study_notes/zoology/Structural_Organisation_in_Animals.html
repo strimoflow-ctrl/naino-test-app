@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 7: Structural Organisation in Animals</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Structural Organisation in Animals</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 7</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔬 1. Animal Tissues</h2>
+        <p>In multicellular animals, a group of similar cells along with intercellular substances perform a specific function. Such an organisation is called tissue. There are four basic types of tissues in animals.</p>
+
+        <h3>1. Epithelial Tissue</h3>
+        <p>Has a free surface, which faces either a body fluid or the outside environment. Cells are compactly packed with little intercellular matrix.</p>
+        <ul>
+            <li><strong>Simple Epithelium (Single layer):</strong>
+                <ul>
+                    <li><em>Squamous:</em> Flattened cells with irregular boundaries. Found in walls of blood vessels and air sacs of lungs (diffusion boundaries).</li>
+                    <li><em>Cuboidal:</em> Cube-like cells. Found in ducts of glands and tubular parts of nephrons. Main functions: secretion and absorption. (PCT of nephron has microvilli).</li>
+                    <li><em>Columnar:</em> Tall and slender cells. Nuclei at the base. Found in lining of stomach and intestine.</li>
+                    <li><em>Ciliated:</em> If cuboidal or columnar cells bear cilia on their free surface. Move particles or mucus in a specific direction over the epithelium. Found in bronchioles and fallopian tubes.</li>
+                </ul>
+            </li>
+            <li><strong>Compound Epithelium:</strong> Multi-layered. Limited role in secretion/absorption. Main function is to provide protection against chemical and mechanical stresses. Found in dry surface of skin, moist surface of buccal cavity, pharynx.</li>
+        </ul>
+
+        <h3>Cell Junctions</h3>
+        <ul>
+            <li><strong>Tight junctions:</strong> Stop substances from leaking across a tissue.</li>
+            <li><strong>Adhering junctions:</strong> Perform cementing to keep neighboring cells together.</li>
+            <li><strong>Gap junctions:</strong> Facilitate the cells to communicate with each other by connecting the cytoplasm of adjoining cells, for rapid transfer of ions, small molecules.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🦴 2. Connective Tissue</h2>
+        <p>Most abundant and widely distributed in the body of complex animals. Except blood, the cells secrete fibres of structural proteins called collagen or elastin, which provide strength, elasticity and flexibility.</p>
+
+        <ul>
+            <li><strong>Loose Connective Tissue:</strong> Cells and fibres are loosely arranged in a semi-fluid ground substance.
+                <ul>
+                    <li><em>Areolar tissue:</em> Present beneath the skin. Serves as a support framework for epithelium. Contains fibroblasts, macrophages and mast cells.</li>
+                    <li><em>Adipose tissue:</em> Located beneath the skin. Cells are specialized to store fats.</li>
+                </ul>
+            </li>
+            <li><strong>Dense Connective Tissue:</strong> Fibres and fibroblasts are compactly packed.
+                <ul>
+                    <li><em>Dense regular:</em> Collagen fibres are present in rows between many parallel bundles of fibres. <strong>Tendons</strong> (attach skeletal muscles to bones) and <strong>Ligaments</strong> (attach one bone to another).</li>
+                    <li><em>Dense irregular:</em> Fibroblasts and many fibres that are oriented differently. Present in the skin.</li>
+                </ul>
+            </li>
+            <li><strong>Specialised Connective Tissue:</strong> Cartilage, Bone, and Blood.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Tendons vs Ligaments</div>
+            <p><strong>B-L-B</strong>: <strong>B</strong>one to <strong>L</strong>igament to <strong>B</strong>one.<br>
+            <strong>M-T-B</strong>: <strong>M</strong>uscle to <strong>T</strong>endon to <strong>B</strong>one.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>💪 3. Muscle & Neural Tissue</h2>
+
+        <h3>Muscle Tissue</h3>
+        <p>Each muscle is made of many long, cylindrical fibres arranged in parallel arrays. Fibres are composed of numerous fine fibrils, called myofibrils.</p>
+        <ul>
+            <li><strong>Skeletal Muscle:</strong> Closely attached to skeletal bones. Striated (striped). Voluntary in action. Fibres are bundled together in a parallel fashion.</li>
+            <li><strong>Smooth Muscle:</strong> Fibres taper at both ends (fusiform) and do not show striations. Involuntary. Found in walls of internal organs such as the blood vessels, stomach and intestine.</li>
+            <li><strong>Cardiac Muscle:</strong> Contractile tissue present only in the heart. Cell junctions fuse the plasma membranes of cardiac muscle cells and make them stick together. <strong>Intercalated discs</strong> (communication junctions) at some fusion points allow the cells to contract as a unit.</li>
+        </ul>
+
+        <!-- DIAGRAM: NEURON -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 200" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                <!-- Cell body -->
+                <path d="M 80 100 L 100 80 L 120 100 L 100 120 Z" fill="#BBDEFB" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="100" cy="100" r="5" fill="#1565C0"/>
+                
+                <!-- Dendrites -->
+                <line x1="80" y1="100" x2="60" y2="80" stroke="#1565C0" stroke-width="2"/>
+                <line x1="80" y1="100" x2="50" y2="110" stroke="#1565C0" stroke-width="2"/>
+                <line x1="100" y1="80" x2="90" y2="50" stroke="#1565C0" stroke-width="2"/>
+                <line x1="100" y1="120" x2="110" y2="150" stroke="#1565C0" stroke-width="2"/>
+
+                <!-- Axon -->
+                <line x1="120" y1="100" x2="280" y2="100" stroke="#1565C0" stroke-width="4"/>
+                
+                <!-- Myelin Sheath -->
+                <rect x="140" y="93" width="30" height="14" fill="#FFE082" rx="3"/>
+                <rect x="180" y="93" width="30" height="14" fill="#FFE082" rx="3"/>
+                <rect x="220" y="93" width="30" height="14" fill="#FFE082" rx="3"/>
+
+                <!-- Axon Terminals -->
+                <line x1="280" y1="100" x2="310" y2="80" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="310" cy="80" r="3" fill="#D32F2F"/>
+                
+                <line x1="280" y1="100" x2="320" y2="100" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="320" cy="100" r="3" fill="#D32F2F"/>
+
+                <line x1="280" y1="100" x2="310" y2="120" stroke="#1565C0" stroke-width="2"/>
+                <circle cx="310" cy="120" r="3" fill="#D32F2F"/>
+
+                <!-- Labels -->
+                <text x="70" y="40" font-size="12" fill="#333">Dendrites</text>
+                <text x="180" y="80" font-size="12" fill="#333">Myelin Sheath</text>
+                <text x="320" y="70" font-size="12" fill="#333">Axon Terminal</text>
+            </svg>
+            <div class="diagram-caption">Fig: A multipolar neuron with myelin sheath</div>
+        </div>
+
+        <h3>Neural Tissue</h3>
+        <p>Exerts the greatest control over the body's responsiveness to changing conditions. <strong>Neurons</strong>, the unit of neural system, are excitable cells. The <strong>neuroglial</strong> cells constitute the rest of the neural system and protect and support neurons. Neuroglia make up more than one-half the volume of neural tissue in our body.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🐸 4. Morphology & Anatomy of Frog</h2>
+        <p>Frogs are cold-blooded (poikilotherms). They can change color to hide from enemies (camouflage). This protective coloration is called mimicry. During summer and winter they shelter in deep burrows to protect themselves from extreme heat and cold (Aestivation and Hibernation).</p>
+
+        <h3>Morphology</h3>
+        <ul>
+            <li>Body is divisible into <strong>head and trunk</strong>. A neck and tail are absent.</li>
+            <li>Eyes are bulged and covered by a nictitating membrane that protects them while in water.</li>
+            <li>On either side of eyes a membranous <strong>tympanum (ear)</strong> receives sound signals.</li>
+            <li>Forelimbs have 4 digits, hind limbs have 5 digits. Hind limbs are larger and muscular (for leaping) and have webbed digits (for swimming).</li>
+            <li>Frogs exhibit sexual dimorphism. Male frogs have sound producing <strong>vocal sacs</strong> and a <strong>copulatory pad</strong> on the first digit of the forelimbs which are absent in female frogs.</li>
+        </ul>
+
+        <h3>Digestive & Respiratory System</h3>
+        <ul>
+            <li>Alimentary canal is short because frogs are carnivores and hence the length of intestine is reduced.</li>
+            <li>Frog respires on land and in the water by two different methods:
+                <ul>
+                    <li><strong>Cutaneous respiration:</strong> In water, skin acts as aquatic respiratory organ (dissolved oxygen is exchanged through skin by diffusion).</li>
+                    <li><strong>Pulmonary respiration:</strong> On land, the buccal cavity, skin and lungs act as respiratory organs.</li>
+                </ul>
+            </li>
+            <li>During aestivation and hibernation, gaseous exchange takes place strictly through skin.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Frog Excretory System</div>
+            <p>Frog is a <strong>ureotelic</strong> animal (excretes urea). Nitrogenous wastes are carried by blood into the kidney where it is separated and excreted. The frog has a special venous connection between the lower parts of the body and kidneys, called the <strong>renal portal system</strong>!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 7 (Class 11) | Structural Organisation in Animals</span>
+    </div>
+
+</div>
+
+</body>
+</html>

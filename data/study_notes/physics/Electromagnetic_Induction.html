@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 6: Electromagnetic Induction</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Electromagnetic Induction</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 6</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧲 1. Magnetic Flux and Faraday's Law</h2>
+        <p><strong>Magnetic Flux (&Phi;):</strong> The total number of magnetic field lines crossing normally through a surface area. <strong>&Phi; = B &bull; A</strong> = BA cos&theta;. Unit: Weber (Wb).</p>
+        
+        <h3>Faraday's Laws of EMI</h3>
+        <ul>
+            <li><strong>First Law:</strong> Whenever there is a change in the magnetic flux linked with a circuit, an induced electromotive force (EMF) is produced.</li>
+            <li><strong>Second Law:</strong> The magnitude of the induced EMF is directly proportional to the rate of change of magnetic flux.</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Formula</div>
+            <p><strong>e = - N (d&Phi; / dt)</strong></p>
+            <p>Where N is the number of turns. The negative sign is explained by Lenz's Law.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>↩️ 2. Lenz's Law</h2>
+        <p>The direction of the induced EMF or current is always such as to oppose the change that produces it. It is a direct consequence of the <strong>Law of Conservation of Energy</strong>.</p>
+
+        <!-- DIAGRAM: LENZ'S LAW -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Magnet -->
+                <rect x="80" y="85" width="80" height="30" fill="#D32F2F"/>
+                <rect x="80" y="85" width="40" height="30" fill="#1565C0"/>
+                <text x="95" y="105" font-size="14" fill="white" font-weight="bold">S</text>
+                <text x="135" y="105" font-size="14" fill="white" font-weight="bold">N</text>
+                
+                <!-- Movement -->
+                <line x1="170" y1="100" x2="220" y2="100" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="180" y="90" font-size="12" fill="#333">v</text>
+
+                <!-- Coil -->
+                <ellipse cx="320" cy="100" rx="30" ry="60" fill="none" stroke="#F57F17" stroke-width="4"/>
+                
+                <!-- Induced Current direction -->
+                <path d="M 315 45 Q 330 40 335 55" fill="none" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="340" y="60" font-size="12" fill="#D32F2F">I (Anti-clockwise)</text>
+                
+                <text x="320" y="105" font-size="20" fill="#D32F2F" font-weight="bold" text-anchor="middle">N</text>
+                <text x="250" y="190" font-size="12" fill="#1565C0">Face behaves as North pole to repel the incoming North pole.</text>
+            </svg>
+            <div class="diagram-caption">Fig: Illustration of Lenz's Law (Opposing the cause)</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🚄 3. Motional EMF</h2>
+        <p>The EMF induced across the ends of a conductor due to its motion in a magnetic field.</p>
+        <p>If a straight rod of length l moves with velocity v perpendicular to uniform magnetic field B, the motional EMF is:</p>
+        <p><strong>e = B l v</strong></p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Rotating Rod</div>
+            <p>If a metallic rod of length L is rotated with angular velocity &omega; in a uniform magnetic field B perpendicular to the plane of rotation, the EMF induced between its ends is:</p>
+            <p><strong>e = &frac12; B L<sup>2</sup> &omega;</strong></p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🔄 4. Self and Mutual Induction</h2>
+        
+        <h3>Self Induction (L)</h3>
+        <p>The phenomenon of production of induced EMF in a coil due to a change in current flowing through the same coil.</p>
+        <p><strong>&Phi; = L I</strong> &rArr; <strong>e = -L (dI/dt)</strong>. Unit of L: Henry (H).</p>
+        <p>Self Inductance of a long solenoid: <strong>L = &mu;<sub>0</sub> n<sup>2</sup> A l</strong></p>
+
+        <h3>Mutual Induction (M)</h3>
+        <p>The phenomenon of production of induced EMF in one coil due to a change in current in a neighboring coil.</p>
+        <p><strong>&Phi;<sub>2</sub> = M I<sub>1</sub></strong> &rArr; <strong>e<sub>2</sub> = -M (dI<sub>1</sub>/dt)</strong></p>
+        
+        <div class="box box-definition">
+            <div class="box-title">📘 Energy stored in an Inductor</div>
+            <p>Energy stored in the magnetic field of an inductor: <strong>U = &frac12; L I<sup>2</sup></strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔌 5. AC Generator</h2>
+        <p>Based on the principle of electromagnetic induction. It converts mechanical energy into electrical energy.</p>
+        <p>A coil of N turns and area A is rotated with angular velocity &omega; in a uniform magnetic field B.</p>
+        
+        <p>Flux at time t: &Phi; = NBA cos(&omega;t)<br>
+        Induced EMF: <strong>e = -d&Phi;/dt = NBA&omega; sin(&omega;t)</strong></p>
+        <p>Peak EMF: <strong>e<sub>0</sub> = NBA&omega;</strong>. Hence, e = e<sub>0</sub> sin(&omega;t).</p>
+        
+        <p><strong>Eddy Currents:</strong> Circulating currents induced in bulk pieces of metal when subjected to changing magnetic flux. They cause heating (can be minimized by using laminated cores).</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 6 (Class 12) | Electromagnetic Induction</span>
+    </div>
+
+</div>
+
+</body>
+</html>

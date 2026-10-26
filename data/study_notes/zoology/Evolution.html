@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 7: Evolution</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Evolution</h1>
+        <div class="subtitle">Class 12 Zoology | Chapter 7</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌍 1. Origin of Life</h2>
+        <p>Evolutionary Biology is the study of history of life forms on earth. The Big Bang theory attempts to explain the origin of universe (a singular huge explosion). Earth was formed about 4.5 billion years back.</p>
+
+        <h3>Oparin-Haldane Theory (Chemical Evolution)</h3>
+        <p>They proposed that the first form of life could have come from pre-existing non-living organic molecules (e.g., RNA, protein, etc.) and that formation of life was preceded by chemical evolution (formation of diverse organic molecules from inorganic constituents). Conditions on earth were: High temperature, volcanic storms, reducing atmosphere containing CH₄, NH₃, etc.</p>
+
+        <h3>Miller-Urey Experiment (1953)</h3>
+        <p>S.L. Miller created similar conditions in a laboratory scale. He created electric discharge in a closed flask containing <strong>CH₄, H₂, NH₃ and water vapour at 800°C</strong>. He observed the formation of <strong>amino acids</strong>.</p>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Theory of Panspermia</div>
+            <p>Did you know? Early Greek thinkers thought units of life called spores were transferred to different planets including earth. This 'Panspermia' theory is still a favourite idea for some astronomers!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🦴 2. Evidences for Evolution</h2>
+
+        <h3>Homologous Organs</h3>
+        <p>Organs which have the <strong>same fundamental structure but different functions</strong>. Indicates common ancestry. They are a result of <strong>Divergent Evolution</strong>.</p>
+        <ul>
+            <li>Forelimbs of Whale (swimming), Bat (flying), Cheetah (running) and Man (grasping). All have similar bones: humerus, radius, ulna, carpals, metacarpals and phalanges.</li>
+            <li>Vertebrate hearts or brains.</li>
+            <li>In plants: Thorns of Bougainvillea and tendrils of Cucurbita.</li>
+        </ul>
+
+        <!-- DIAGRAM: HOMOLOGOUS FORELIMBS -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Common Bone Structure Legend -->
+                <rect x="50" y="20" width="15" height="15" fill="#EF5350"/>
+                <text x="75" y="32" font-size="12" fill="#333">Humerus</text>
+                
+                <rect x="150" y="20" width="15" height="15" fill="#42A5F5"/>
+                <text x="175" y="32" font-size="12" fill="#333">Radius/Ulna</text>
+                
+                <rect x="260" y="20" width="15" height="15" fill="#66BB6A"/>
+                <text x="285" y="32" font-size="12" fill="#333">Carpals/Phalanges</text>
+
+                <!-- Man -->
+                <g transform="translate(50, 80)">
+                    <rect x="20" y="0" width="10" height="40" fill="#EF5350" rx="3"/>
+                    <rect x="15" y="45" width="8" height="40" fill="#42A5F5" rx="2"/>
+                    <rect x="27" y="45" width="8" height="40" fill="#42A5F5" rx="2"/>
+                    <rect x="15" y="90" width="20" height="40" fill="#66BB6A" rx="2"/>
+                    <text x="25" y="150" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Man</text>
+                </g>
+
+                <!-- Cheetah -->
+                <g transform="translate(150, 80)">
+                    <rect x="20" y="10" width="10" height="30" fill="#EF5350" rx="3"/>
+                    <rect x="15" y="45" width="8" height="45" fill="#42A5F5" rx="2"/>
+                    <rect x="27" y="45" width="8" height="45" fill="#42A5F5" rx="2"/>
+                    <rect x="20" y="95" width="10" height="35" fill="#66BB6A" rx="2"/>
+                    <text x="25" y="150" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Cheetah</text>
+                </g>
+
+                <!-- Whale -->
+                <g transform="translate(250, 80)">
+                    <rect x="20" y="15" width="12" height="25" fill="#EF5350" rx="3"/>
+                    <rect x="15" y="45" width="10" height="20" fill="#42A5F5" rx="2"/>
+                    <rect x="27" y="45" width="10" height="20" fill="#42A5F5" rx="2"/>
+                    <rect x="10" y="70" width="32" height="60" fill="#66BB6A" rx="5"/>
+                    <text x="25" y="150" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Whale</text>
+                </g>
+
+                <!-- Bat -->
+                <g transform="translate(350, 80)">
+                    <rect x="20" y="0" width="8" height="30" fill="#EF5350" rx="3"/>
+                    <rect x="16" y="35" width="6" height="50" fill="#42A5F5" rx="2"/>
+                    <rect x="26" y="35" width="6" height="50" fill="#42A5F5" rx="2"/>
+                    <path d="M 10 90 L 0 130 M 15 90 L 15 130 M 20 90 L 30 130 M 25 90 L 45 130" fill="none" stroke="#66BB6A" stroke-width="4"/>
+                    <text x="25" y="150" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Bat</text>
+                </g>
+
+            </svg>
+            <div class="diagram-caption">Fig: Homologous Organs (Divergent Evolution)</div>
+        </div>
+
+        <h3>Analogous Organs</h3>
+        <p>Organs which have <strong>different anatomical structures but perform similar functions</strong>. They are a result of <strong>Convergent Evolution</strong>.</p>
+        <ul>
+            <li>Wings of butterfly and of birds.</li>
+            <li>Eye of the octopus and of mammals.</li>
+            <li>Flippers of Penguins and Dolphins.</li>
+            <li>Sweet potato (root modification) and potato (stem modification).</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Evolution Types</div>
+            <p><strong>H D</strong> &nbsp;|&nbsp; <strong>A C</strong><br>
+            <strong>H</strong>omologous = <strong>D</strong>ivergent<br>
+            <strong>A</strong>nalogous = <strong>C</strong>onvergent</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧬 3. Adaptive Radiation</h2>
+        <p>The process of evolution of different species in a given geographical area starting from a point and literally radiating to other areas of geography (habitats) is called adaptive radiation.</p>
+
+        <ul>
+            <li><strong>Darwin's Finches:</strong> From original seed-eating features, many other forms with altered beaks arose, enabling them to become insectivorous and vegetarian finches. Found in Galapagos Islands.</li>
+            <li><strong>Australian Marsupials:</strong> A number of marsupials, each different from the other evolved from an ancestral stock, but all within the Australian island continent.</li>
+        </ul>
+        <p><em>Note:</em> When more than one adaptive radiation appeared to have occurred in an isolated geographical area (representing different habitats), one can call this Convergent Evolution (e.g., Placental mammals and Australian marsupials).</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🔬 4. Biological Evolution & Mechanism</h2>
+
+        <h3>Natural Selection (Darwin)</h3>
+        <p>The essence of Darwinian theory about evolution is natural selection. Two key concepts of Darwinian Theory of Evolution are <strong>Branching descent</strong> and <strong>Natural selection</strong>. Microbes that divide fast have the ability to multiply and become millions of individuals within hours. A colony of bacteria (say A) growing on a given medium has built-in variation in terms of ability to utilise a feed component. A change in the medium composition would bring out only that part of the population (say B) that can survive under the new conditions. Thus fitness of B is better than A under the new conditions.</p>
+
+        <h3>Mutation Theory (Hugo de Vries)</h3>
+        <p>He worked on evening primrose and brought forth the idea of mutations. He believed that it is mutation which causes evolution and not the minor variations (heritable) that Darwin talked about.</p>
+        <ul>
+            <li><strong>Darwinian variations:</strong> Small and directional. Evolution is gradual.</li>
+            <li><strong>De Vries mutations:</strong> Random and directionless. Evolution is sudden (Saltation - single step large mutation).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>📈 5. Hardy-Weinberg Principle</h2>
+        <p>This principle says that allele frequencies in a population are stable and is constant from generation to generation. The gene pool remains a constant. This is called genetic equilibrium.</p>
+        <p>Formula: <strong>p² + 2pq + q² = 1</strong><br>
+        (Where p and q represent the frequencies of allele A and allele a in a diploid).<br>
+        p² = frequency of homozygous dominant (AA)<br>
+        q² = frequency of homozygous recessive (aa)<br>
+        2pq = frequency of heterozygous (Aa).</p>
+
+        <h3>Factors Affecting Hardy-Weinberg Equilibrium</h3>
+        <p>Five factors are known to affect Hardy-Weinberg equilibrium:</p>
+        <ol>
+            <li><strong>Gene migration or gene flow</strong></li>
+            <li><strong>Genetic drift:</strong> Change in allele frequency by chance. Sometimes the change is so different in the new sample of population that they become a different species. The original drifted population becomes founders and the effect is called <strong>founder effect</strong>.</li>
+            <li><strong>Mutation</strong></li>
+            <li><strong>Genetic recombination</strong></li>
+            <li><strong>Natural selection</strong></li>
+        </ol>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Human Evolution</div>
+            <p><strong>Dryopithecus:</strong> More ape-like.<br>
+            <strong>Ramapithecus:</strong> More man-like.<br>
+            <strong>Australopithecines:</strong> Hunted with stone weapons but essentially ate fruit.<br>
+            <strong>Homo habilis:</strong> First human-like being the hominid (Brain 650-800cc). Did not eat meat.<br>
+            <strong>Homo erectus:</strong> Fossil discovered in Java (Brain 900cc). Probably ate meat.<br>
+            <strong>Neanderthal man:</strong> Brain 1400cc. Used hides to protect body and buried their dead.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 7 (Class 12) | Evolution</span>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 11: Biotechnology Principles and Processes</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Biotechnology: Principles and Processes</h1>
+        <div class="subtitle">Class 12 Zoology | Chapter 11</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧬 1. Principles of Biotechnology</h2>
+        <p>The European Federation of Biotechnology (EFB) defines biotechnology as the integration of natural science and organisms, cells, parts thereof, and molecular analogues for products and services. Two core techniques enabled birth of modern biotechnology:</p>
+        
+        <ol>
+            <li><strong>Genetic Engineering:</strong> Techniques to alter the chemistry of genetic material (DNA and RNA), to introduce these into host organisms and thus change the phenotype of the host organism.</li>
+            <li><strong>Bioprocess Engineering:</strong> Maintenance of sterile (microbial contamination-free) ambience to enable growth of only the desired microbe/eukaryotic cell in large quantities for the manufacture of biotechnological products like antibiotics, vaccines, enzymes.</li>
+        </ol>
+
+        <p>The first recombinant DNA was constructed by <strong>Stanley Cohen and Herbert Boyer in 1972</strong> by linking a gene encoding antibiotic resistance with a native plasmid of <em>Salmonella typhimurium</em>.</p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>✂️ 2. Tools of Recombinant DNA Technology</h2>
+
+        <h3>1. Restriction Enzymes (Molecular Scissors)</h3>
+        <p>In 1963, two enzymes responsible for restricting the growth of bacteriophage in E. coli were isolated. One of these added methyl groups to DNA, while the other cut DNA (restriction endonuclease).</p>
+        <ul>
+            <li><strong>Hind II:</strong> The first restriction endonuclease. It always cut DNA molecules at a particular point by recognising a specific sequence of six base pairs (recognition sequence).</li>
+            <li>Each restriction endonuclease functions by 'inspecting' the length of a DNA sequence. Once it finds its specific recognition sequence, it binds and cuts each of the two strands at specific points.</li>
+            <li>They recognise <strong>Palindromic nucleotide sequences</strong> (reads the same on the two strands when orientation of reading is kept same, e.g., MADAM or GAATTC).</li>
+        </ul>
+
+        <!-- DIAGRAM: RECOMBINANT DNA -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Vector Plasmid DNA -->
+                <circle cx="100" cy="120" r="40" fill="none" stroke="#1565C0" stroke-width="8"/>
+                <path d="M 125 90 A 40 40 0 0 1 125 150" fill="none" stroke="#fff" stroke-width="10"/> <!-- The cut in plasmid -->
+                <text x="100" y="50" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">Vector DNA</text>
+                
+                <!-- Foreign DNA -->
+                <path d="M 200 90 L 300 90" fill="none" stroke="#D32F2F" stroke-width="8"/>
+                <path d="M 200 100 L 300 100" fill="none" stroke="#D32F2F" stroke-width="8"/>
+                <text x="250" y="50" font-size="14" font-weight="bold" fill="#D32F2F" text-anchor="middle">Foreign DNA</text>
+
+                <!-- Arrow indicating joining -->
+                <path d="M 250 130 Q 250 180, 290 180" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 150 130 Q 150 180, 290 180" fill="none" stroke="#333" stroke-width="2"/>
+                <text x="220" y="150" font-size="12" fill="#333" text-anchor="middle">Ligase joins them</text>
+
+                <!-- Recombinant DNA -->
+                <circle cx="360" cy="180" r="40" fill="none" stroke="#1565C0" stroke-width="8"/>
+                <path d="M 385 150 A 40 40 0 0 1 385 210" fill="none" stroke="#D32F2F" stroke-width="8"/> <!-- Inserted DNA -->
+                <text x="360" y="240" font-size="14" font-weight="bold" fill="#2E7D32" text-anchor="middle">Recombinant DNA</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Formation of Recombinant DNA using EcoRI and Ligase</div>
+        </div>
+
+        <h3>2. Cloning Vectors (e.g., Plasmids)</h3>
+        <p>A vector must have the following features to facilitate cloning:</p>
+        <ul>
+            <li><strong>Origin of replication (ori):</strong> A sequence from where replication starts. Also controls the copy number of the linked DNA.</li>
+            <li><strong>Selectable marker:</strong> Helps in identifying and eliminating non-transformants and selectively permitting the growth of the transformants. Normally, the genes encoding resistance to antibiotics such as ampicillin, chloramphenicol, tetracycline or kanamycin are used.</li>
+            <li><strong>Cloning sites:</strong> The vector needs to have very few, preferably single, recognition sites for the commonly used restriction enzymes. (e.g., pBR322).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔬 3. Separation & Isolation of DNA (Gel Electrophoresis)</h2>
+        <p>The cutting of DNA by restriction endonucleases results in the fragments of DNA. These fragments can be separated by a technique known as <strong>gel electrophoresis</strong>.</p>
+        
+        <ul>
+            <li>Since DNA fragments are negatively charged molecules, they can be separated by forcing them to move towards the <strong>anode</strong> under an electric field through a matrix (mostly <strong>agarose</strong>, a natural polymer extracted from sea weeds).</li>
+            <li>The DNA fragments separate according to their size through sieving effect provided by the agarose gel. Hence, the <strong>smaller the fragment size, the farther it moves</strong>.</li>
+            <li>The separated DNA fragments can be visualised only after staining the DNA with a compound known as <strong>ethidium bromide</strong> followed by exposure to <strong>UV radiation</strong>. (They appear as bright orange coloured bands).</li>
+            <li>The separated bands of DNA are cut out from the agarose gel and extracted from the gel piece. This step is known as <strong>elution</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🧪 4. Polymerase Chain Reaction (PCR)</h2>
+        <p>PCR stands for Polymerase Chain Reaction. In this reaction, multiple copies of the gene of interest is synthesized in vitro using two sets of primers and the enzyme DNA polymerase.</p>
+
+        <p>The process has three steps:</p>
+        <ol>
+            <li><strong>Denaturation (94°C):</strong> The double stranded DNA is heated to separate the strands.</li>
+            <li><strong>Annealing (40-60°C):</strong> Primers bind (anneal) to the complementary sequence on the separated DNA strands.</li>
+            <li><strong>Extension (72°C):</strong> The enzyme DNA polymerase extends the primers using the nucleotides provided in the reaction. The enzyme used is <strong>Taq polymerase</strong> (isolated from a bacterium, <em>Thermus aquaticus</em>), which remains active during the high temperature induced denaturation of double stranded DNA.</li>
+        </ol>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Competent Host</div>
+            <p>Since DNA is a hydrophilic molecule, it cannot pass through cell membranes. To make bacteria "competent" to take up plasmid, they are treated with a specific concentration of a divalent cation, such as <strong>Calcium</strong>. Then incubated on ice, followed by briefly placing them at <strong>42°C (heat shock)</strong>, and then putting them back on ice. This enables bacteria to take up the recombinant DNA.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🏭 5. Bioreactors and Downstream Processing</h2>
+
+        <h3>Bioreactors</h3>
+        <p>To produce in large quantities, the development of bioreactors, where large volumes (100-1000 litres) of culture can be processed, was required. A bioreactor provides the optimal conditions for achieving the desired product by providing optimum growth conditions (temperature, pH, substrate, salts, vitamins, oxygen).</p>
+        <p>The most commonly used bioreactors are of stirring type. A <strong>stirred-tank reactor</strong> is usually cylindrical or with a curved base to facilitate the mixing of the reactor contents. The stirrer facilitates even mixing and oxygen availability.</p>
+
+        <h3>Downstream Processing</h3>
+        <p>After completion of the biosynthetic stage, the product has to be subjected through a series of processes before it is ready for marketing as a finished product.</p>
+        <ul>
+            <li>The processes include <strong>separation and purification</strong>, which are collectively referred to as downstream processing.</li>
+            <li>The product has to be formulated with suitable preservatives.</li>
+            <li>Such formulation has to undergo thorough clinical trials as in case of drugs.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Steps of Recombinant DNA Tech</div>
+            <p><strong>I C A I I</strong><br>
+            <strong>I</strong>solation of DNA<br>
+            <strong>C</strong>utting (Fragmentation) by restriction endonucleases<br>
+            <strong>A</strong>mplification using PCR<br>
+            <strong>I</strong>nsertion of recombinant DNA into host cell<br>
+            <strong>I</strong>solation of the desired product.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 11 (Class 12) | Biotechnology Principles and Processes</span>
+    </div>
+
+</div>
+
+</body>
+</html>

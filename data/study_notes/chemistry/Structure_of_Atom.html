@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Chemistry | Class 11 | Ch 2: Structure of Atom</title>
+    <style>
+        :root {
+            --primary: #F57C00; /* Orange for Chemistry */
+            --primary-light: #FFE0B2;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #E65100 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(245, 124, 0, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Structure of Atom</h1>
+        <div class="subtitle">Class 11 Chemistry | Chapter 2</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔬 1. Subatomic Particles</h2>
+        
+        <ul>
+            <li><strong>Electron (e⁻):</strong> Discovered by J.J. Thomson (Cathode Ray Experiment). Charge = -1.6 &times; 10<sup>-19</sup> C. Mass = 9.1 &times; 10<sup>-31</sup> kg.</li>
+            <li><strong>Proton (p⁺):</strong> Discovered by Goldstein (Canal Rays). Charge = +1.6 &times; 10<sup>-19</sup> C. Mass = 1.672 &times; 10<sup>-27</sup> kg.</li>
+            <li><strong>Neutron (n):</strong> Discovered by Chadwick. Neutral charge. Mass = 1.675 &times; 10<sup>-27</sup> kg (slightly heavier than proton).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Millikan's Oil Drop</div>
+            <p>R.A. Millikan performed the oil drop experiment to determine the exact charge of an electron. He found that the charge was always an integral multiple of a basic minimum value, proving the <strong>quantization of charge</strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌀 2. Bohr's Model for Hydrogen Atom</h2>
+        <p>Bohr overcame Rutherford's limitations by applying Planck's quantum theory. He postulated that electrons revolve in stationary orbits with fixed energy.</p>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Important Formulas (For Hydrogen and H-like species)</div>
+            <p><strong>Radius:</strong> r<sub>n</sub> = 52.9 &times; (n<sup>2</sup> / Z) pm</p>
+            <p><strong>Energy:</strong> E<sub>n</sub> = -2.18 &times; 10<sup>-18</sup> &times; (Z<sup>2</sup> / n<sup>2</sup>) J = -13.6 &times; (Z<sup>2</sup> / n<sup>2</sup>) eV</p>
+            <p><strong>Velocity:</strong> v<sub>n</sub> = 2.18 &times; 10<sup>6</sup> &times; (Z / n) m/s</p>
+        </div>
+
+        <p><strong>Limitations of Bohr's Model:</strong> Failed to explain the spectra of multi-electron atoms. Failed to explain the fine splitting of spectral lines in magnetic field (Zeeman effect) and electric field (Stark effect). Also violates Heisenberg's Uncertainty Principle.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🌊 3. Dual Behavior and Uncertainty Principle</h2>
+        
+        <h3>de Broglie Equation</h3>
+        <p>All material particles in motion possess wave characteristics.</p>
+        <p><strong>&lambda; = h / p = h / (mv)</strong></p>
+
+        <h3>Heisenberg's Uncertainty Principle</h3>
+        <p>It is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron.</p>
+        <p><strong>&Delta;x &times; &Delta;p &ge; h / 4&pi;</strong></p>
+        <p>Or: &Delta;x &times; (m &Delta;v) &ge; h / 4&pi;</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🎯 4. Quantum Mechanical Model</h2>
+        <p>Developed by Erwin Schrödinger. The probability of finding an electron is high in regions called <strong>Orbitals</strong>.</p>
+
+        <h3>Quantum Numbers</h3>
+        <p>A set of four numbers used to completely describe the position and energy of the electron.</p>
+
+        <ol>
+            <li><strong>Principal (n):</strong> Shell. Size and Energy. n = 1, 2, 3... (K, L, M...). Number of orbitals in a shell = n<sup>2</sup>. Max electrons = 2n<sup>2</sup>.</li>
+            <li><strong>Azimuthal/Angular Momentum (l):</strong> Subshell. Shape of orbital. l = 0 to (n-1). (l=0 is s, l=1 is p, l=2 is d, l=3 is f). Orbital angular momentum = &radic;[l(l+1)] (h/2&pi;).</li>
+            <li><strong>Magnetic (m<sub>l</sub>):</strong> Orientation of orbital. m<sub>l</sub> = -l to +l (including zero). Total values = (2l + 1).</li>
+            <li><strong>Spin (m<sub>s</sub>):</strong> Spin of electron. m<sub>s</sub> = +1/2 or -1/2.</li>
+        </ol>
+
+        <!-- DIAGRAM: ORBITALS -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 150" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- s orbital -->
+                <circle cx="100" cy="75" r="30" fill="#FFE0B2" stroke="#F57C00" stroke-width="2"/>
+                <circle cx="100" cy="75" r="3" fill="#333"/>
+                <text x="100" y="130" font-size="14" fill="#E65100" font-weight="bold" text-anchor="middle">s-orbital (l=0)</text>
+                <text x="100" y="145" font-size="12" fill="#333" text-anchor="middle">Spherical</text>
+
+                <!-- p orbital -->
+                <path d="M 250 75 C 250 20, 220 20, 250 75 C 280 20, 250 20, 250 75" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+                <path d="M 250 75 C 250 130, 220 130, 250 75 C 280 130, 250 130, 250 75" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+                <circle cx="250" cy="75" r="3" fill="#333"/>
+                <text x="250" y="130" font-size="14" fill="#1565C0" font-weight="bold" text-anchor="middle">p-orbital (l=1)</text>
+                <text x="250" y="145" font-size="12" fill="#333" text-anchor="middle">Dumbbell</text>
+
+                <!-- d orbital -->
+                <!-- simplified clover -->
+                <ellipse cx="380" cy="55" rx="15" ry="25" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" transform="rotate(45, 380, 55)"/>
+                <ellipse cx="420" cy="95" rx="15" ry="25" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" transform="rotate(45, 420, 95)"/>
+                <ellipse cx="420" cy="55" rx="15" ry="25" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" transform="rotate(-45, 420, 55)"/>
+                <ellipse cx="380" cy="95" rx="15" ry="25" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" transform="rotate(-45, 380, 95)"/>
+                <circle cx="400" cy="75" r="3" fill="#333"/>
+                <text x="400" y="130" font-size="14" fill="#D32F2F" font-weight="bold" text-anchor="middle">d-orbital (l=2)</text>
+                <text x="400" y="145" font-size="12" fill="#333" text-anchor="middle">Double Dumbbell</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Shapes of Atomic Orbitals</div>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>📝 5. Rules for Filling Electrons</h2>
+
+        <ul>
+            <li><strong>Aufbau Principle:</strong> In the ground state, orbitals are filled in order of their increasing energies (Lowest energy first). Follows the (n+l) rule.</li>
+            <li><strong>Pauli Exclusion Principle:</strong> No two electrons in an atom can have the same set of all four quantum numbers. (An orbital can hold max 2 electrons with opposite spins).</li>
+            <li><strong>Hund's Rule of Maximum Multiplicity:</strong> Pairing of electrons in the orbitals belonging to the same subshell (p, d, f) does not take place until each orbital is singly occupied.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Exceptional Configurations</div>
+            <p>Half-filled and fully-filled subshells have extra stability due to symmetry and exchange energy.</p>
+            <p><strong>Cr (Z=24):</strong> [Ar] 4s<sup>1</sup> 3d<sup>5</sup> (NOT 4s<sup>2</sup> 3d<sup>4</sup>)</p>
+            <p><strong>Cu (Z=29):</strong> [Ar] 4s<sup>1</sup> 3d<sup>10</sup> (NOT 4s<sup>2</sup> 3d<sup>9</sup>)</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Chemistry &bull; Chapter 2 (Class 11) | Structure of Atom</span>
+    </div>
+
+</div>
+
+</body>
+</html>

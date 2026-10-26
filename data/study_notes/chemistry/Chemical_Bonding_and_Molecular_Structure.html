@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Chemistry | Class 11 | Ch 4: Chemical Bonding</title>
+    <style>
+        :root {
+            --primary: #F57C00; /* Orange for Chemistry */
+            --primary-light: #FFE0B2;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #E65100 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(245, 124, 0, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Chemical Bonding and Molecular Structure</h1>
+        <div class="subtitle">Class 11 Chemistry | Chapter 4</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔗 1. Types of Chemical Bonds</h2>
+        <p>Atoms combine to achieve a stable octet (8 electrons in valence shell) and lower energy.</p>
+        
+        <ul>
+            <li><strong>Ionic Bond:</strong> Complete transfer of one or more electrons from a metal to a non-metal. (e.g., NaCl). Favored by low Ionization Enthalpy of metal and high negative Electron Gain Enthalpy of non-metal.</li>
+            <li><strong>Covalent Bond:</strong> Equal sharing of electrons between non-metals. (e.g., H<sub>2</sub>, Cl<sub>2</sub>, CH<sub>4</sub>).</li>
+            <li><strong>Coordinate (Dative) Bond:</strong> A special covalent bond where the shared pair of electrons is contributed by only one atom. (e.g., NH<sub>4</sub><sup>+</sup>, O<sub>3</sub>).</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Fajan's Rules (Covalent Character in Ionic Bonds)</div>
+            <p>An ionic bond acquires covalent character if polarization occurs. High polarizing power and high polarizability favor covalent character.</p>
+            <p><strong>Covalent character increases with:</strong></p>
+            <ul>
+                <li>Small size of cation</li>
+                <li>Large size of anion</li>
+                <li>High charge on cation or anion</li>
+                <li>Pseudo noble gas configuration of cation (e.g., Cu<sup>+</sup> is more covalent than Na<sup>+</sup>)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>📐 2. VSEPR Theory (Shapes of Molecules)</h2>
+        <p>Valence Shell Electron Pair Repulsion theory: The shape of a molecule depends on the number of valence shell electron pairs (bonded or non-bonded) around the central atom. Electron pairs repel each other to attain maximum distance and minimum energy.</p>
+        
+        <p><strong>Order of Repulsion:</strong> Lone Pair - Lone Pair (lp-lp) &gt; Lone Pair - Bond Pair (lp-bp) &gt; Bond Pair - Bond Pair (bp-bp).</p>
+
+        <!-- DIAGRAM: VSEPR SHAPES -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 150" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Linear -->
+                <circle cx="80" cy="70" r="15" fill="#F57C00"/>
+                <circle cx="40" cy="70" r="10" fill="#E0E0E0" stroke="#999"/>
+                <circle cx="120" cy="70" r="10" fill="#E0E0E0" stroke="#999"/>
+                <line x1="50" y1="70" x2="65" y2="70" stroke="#333" stroke-width="2"/>
+                <line x1="95" y1="70" x2="110" y2="70" stroke="#333" stroke-width="2"/>
+                <text x="80" y="110" font-size="12" fill="#333" text-anchor="middle">Linear (AB2)</text>
+
+                <!-- Trigonal Planar -->
+                <circle cx="250" cy="70" r="15" fill="#F57C00"/>
+                <circle cx="250" cy="30" r="10" fill="#E0E0E0" stroke="#999"/>
+                <circle cx="215" cy="90" r="10" fill="#E0E0E0" stroke="#999"/>
+                <circle cx="285" cy="90" r="10" fill="#E0E0E0" stroke="#999"/>
+                <line x1="250" y1="55" x2="250" y2="40" stroke="#333" stroke-width="2"/>
+                <line x1="238" y1="78" x2="225" y2="85" stroke="#333" stroke-width="2"/>
+                <line x1="262" y1="78" x2="275" y2="85" stroke="#333" stroke-width="2"/>
+                <text x="250" y="125" font-size="12" fill="#333" text-anchor="middle">Trigonal Planar (AB3)</text>
+
+                <!-- Tetrahedral -->
+                <circle cx="420" cy="70" r="15" fill="#F57C00"/>
+                <circle cx="420" cy="30" r="10" fill="#E0E0E0" stroke="#999"/>
+                <circle cx="390" cy="95" r="10" fill="#E0E0E0" stroke="#999"/>
+                <circle cx="450" cy="95" r="10" fill="#E0E0E0" stroke="#999"/>
+                <circle cx="420" cy="105" r="8" fill="#E0E0E0" stroke="#999" stroke-dasharray="2"/>
+                <line x1="420" y1="55" x2="420" y2="40" stroke="#333" stroke-width="2"/>
+                <line x1="408" y1="80" x2="398" y2="88" stroke="#333" stroke-width="2"/>
+                <line x1="432" y1="80" x2="442" y2="88" stroke="#333" stroke-width="2"/>
+                <line x1="420" y1="85" x2="420" y2="97" stroke="#333" stroke-width="2" stroke-dasharray="2"/>
+                <text x="420" y="140" font-size="12" fill="#333" text-anchor="middle">Tetrahedral (AB4)</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Basic VSEPR Geometries (Without Lone Pairs)</div>
+        </div>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Lone Pair Distortions</div>
+            <ul>
+                <li><strong>Ammonia (NH<sub>3</sub>):</strong> 3 bp + 1 lp &rarr; Pyramidal. Bond angle ~ 107&deg;.</li>
+                <li><strong>Water (H<sub>2</sub>O):</strong> 2 bp + 2 lp &rarr; Bent / V-shape. Bond angle ~ 104.5&deg;.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚡ 3. Hybridization</h2>
+        <p>The process of intermixing of atomic orbitals of slightly different energies to produce entirely new set of equivalent orbitals known as hybrid orbitals.</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Finding Hybridization</div>
+            <p>Steric Number (H) = Number of sigma (&sigma;) bonds + Number of lone pairs on central atom.</p>
+            <ul>
+                <li>H = 2 &rarr; <strong>sp</strong> (Linear, e.g., BeCl<sub>2</sub>, CO<sub>2</sub>)</li>
+                <li>H = 3 &rarr; <strong>sp<sup>2</sup></strong> (Trigonal planar, e.g., BF<sub>3</sub>, SO<sub>2</sub>)</li>
+                <li>H = 4 &rarr; <strong>sp<sup>3</sup></strong> (Tetrahedral, e.g., CH<sub>4</sub>, H<sub>2</sub>O)</li>
+                <li>H = 5 &rarr; <strong>sp<sup>3</sup>d</strong> (Trigonal bipyramidal, e.g., PCl<sub>5</sub>)</li>
+                <li>H = 6 &rarr; <strong>sp<sup>3</sup>d<sup>2</sup></strong> (Octahedral, e.g., SF<sub>6</sub>)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌐 4. Molecular Orbital Theory (MOT)</h2>
+        <p>Atomic orbitals combine to form molecular orbitals (MO). Number of MOs formed = Number of AOs combined.</p>
+        <ul>
+            <li><strong>Bonding MO:</strong> Lower energy, stable. Formed by addition of wave functions.</li>
+            <li><strong>Anti-bonding MO (*):</strong> Higher energy, unstable. Formed by subtraction.</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Bond Order</div>
+            <p><strong>Bond Order = &frac12; (N<sub>b</sub> - N<sub>a</sub>)</strong></p>
+            <p>Where N<sub>b</sub> = electrons in bonding MOs, N<sub>a</sub> = electrons in anti-bonding MOs.</p>
+            <p>Higher bond order &rarr; Greater Bond Dissociation Energy &rarr; Shorter Bond Length.</p>
+            <p>If Bond Order is zero or negative, the molecule does not exist (e.g., He<sub>2</sub>, Ne<sub>2</sub>).</p>
+        </div>
+
+        <p><strong>Magnetic Property:</strong> If all electrons are paired in MOs, the molecule is diamagnetic (e.g., N<sub>2</sub>, F<sub>2</sub>). If it has unpaired electrons, it is paramagnetic (e.g., O<sub>2</sub>, B<sub>2</sub>).</p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>💧 5. Hydrogen Bonding</h2>
+        <p>The electrostatic force of attraction between the covalently bonded hydrogen atom of one molecule and an electronegative atom (F, O, N) of the same or another molecule.</p>
+        
+        <ul>
+            <li><strong>Intermolecular H-bond:</strong> Formed between two different molecules. Increases boiling point and solubility in water. (e.g., HF, H<sub>2</sub>O, NH<sub>3</sub>, p-Nitrophenol).</li>
+            <li><strong>Intramolecular H-bond:</strong> Formed within the same molecule. Usually decreases boiling point. (e.g., o-Nitrophenol).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Ice floats on water</div>
+            <p>Due to extensive intermolecular hydrogen bonding, water molecules in ice form a cage-like 3D structure with a lot of empty space. This makes the density of ice less than that of liquid water, causing it to float!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Chemistry &bull; Chapter 4 (Class 11) | Chemical Bonding</span>
+    </div>
+
+</div>
+
+</body>
+</html>

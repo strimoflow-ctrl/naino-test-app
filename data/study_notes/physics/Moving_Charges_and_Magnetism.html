@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 4: Moving Charges and Magnetism</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Moving Charges and Magnetism</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 4</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🧲 1. Magnetic Force on a Moving Charge</h2>
+        <p>A charge q moving with velocity <strong>v</strong> in a magnetic field <strong>B</strong> experiences a magnetic Lorentz force.</p>
+        
+        <p><strong>F = q (v &times; B)</strong> &rArr; F = qvB sin&theta;</p>
+        <p>Force is perpendicular to both velocity and magnetic field. Hence, magnetic force does NO work (W=0) and cannot change the kinetic energy or speed of the particle. It only changes the direction.</p>
+
+        <h3>Motion in a Uniform Magnetic Field</h3>
+        <p>When &theta; = 90&deg;, the particle moves in a circular path. The necessary centripetal force is provided by the magnetic force.</p>
+        <ul>
+            <li><strong>Radius (r):</strong> r = mv / qB = p / qB = &radic;(2mK) / qB</li>
+            <li><strong>Time Period (T):</strong> T = 2&pi;m / qB (Independent of velocity and radius).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Helical Path</div>
+            <p>If the velocity has a component parallel to B (i.e., &theta; is not 0, 90, or 180), the particle moves in a helical (spiral) path. The parallel component v cos&theta; moves it forward, and perpendicular component v sin&theta; moves it in a circle. The forward distance covered in one time period is called <strong>Pitch</strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚡ 2. Magnetic Force on a Current Carrying Conductor</h2>
+        <p>A straight conductor of length L carrying current I placed in a uniform magnetic field B experiences a force:</p>
+        <p><strong>F = I (L &times; B)</strong> &rArr; F = ILB sin&theta;</p>
+
+        <h3>Force between two parallel conductors</h3>
+        <p>Two parallel conductors carrying currents I<sub>1</sub> and I<sub>2</sub> separated by distance d experience a force per unit length:</p>
+        <div class="box box-formula">
+            <div class="box-title">💡 Force Formula</div>
+            <p><strong>F/L = (&mu;<sub>0</sub> / 2&pi;) (I<sub>1</sub>I<sub>2</sub> / d)</strong></p>
+        </div>
+        <p><strong>Rule:</strong> Like currents (same direction) attract each other. Unlike currents (opposite direction) repel each other.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>📐 3. Biot-Savart Law</h2>
+        <p>Gives the magnetic field dB produced by a small current element Idl at a point having position vector r.</p>
+        <p><strong>dB = (&mu;<sub>0</sub> / 4&pi;) I (dl &times; r) / r<sup>3</sup></strong> &rArr; dB = (&mu;<sub>0</sub> / 4&pi;) I dl sin&theta; / r<sup>2</sup></p>
+
+        <h3>Applications:</h3>
+        <ul>
+            <li><strong>Center of a circular coil:</strong> B = &mu;<sub>0</sub>NI / 2R.</li>
+            <li><strong>Straight infinite wire:</strong> B = &mu;<sub>0</sub>I / 2&pi;d.</li>
+        </ul>
+
+        <!-- DIAGRAM: RIGHT HAND RULE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Wire -->
+                <line x1="250" y1="180" x2="250" y2="40" stroke="#D32F2F" stroke-width="4" marker-end="url(#arrow)"/>
+                <text x="260" y="50" font-size="16" fill="#D32F2F" font-weight="bold">Current (I)</text>
+                
+                <!-- B Field circles -->
+                <ellipse cx="250" cy="110" rx="60" ry="20" fill="none" stroke="#1565C0" stroke-width="2" stroke-dasharray="4"/>
+                <ellipse cx="250" cy="110" rx="90" ry="30" fill="none" stroke="#1565C0" stroke-width="2" stroke-dasharray="4"/>
+
+                <!-- Direction indicators -->
+                <circle cx="160" cy="110" r="4" fill="#1565C0"/>
+                <circle cx="340" cy="110" r="4" fill="#1565C0"/>
+                
+                <text x="140" y="105" font-size="12" fill="#1565C0">B (Out)</text>
+                <text x="350" y="105" font-size="12" fill="#1565C0">B (In)</text>
+                
+                <text x="250" y="195" font-size="14" fill="#333" text-anchor="middle">Right Hand Thumb Rule</text>
+            </svg>
+            <div class="diagram-caption">Fig: Magnetic field around a straight current-carrying wire</div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌀 4. Ampere's Circuital Law</h2>
+        <p>The line integral of magnetic field <strong>B</strong> around any closed path in vacuum is equal to &mu;<sub>0</sub> times the net steady current enclosed by the path.</p>
+        <p><strong>&oint; B &bull; dl = &mu;<sub>0</sub> I<sub>enclosed</sub></strong></p>
+
+        <h3>Applications:</h3>
+        <ul>
+            <li><strong>Solenoid:</strong> A long tightly wound coil. Magnetic field inside is uniform and strong. <strong>B = &mu;<sub>0</sub> n I</strong> (where n = number of turns per unit length = N/L). At the ends, B is half of the value at the center.</li>
+            <li><strong>Toroid:</strong> A hollow circular ring with wire wound around it. Inside the core: <strong>B = &mu;<sub>0</sub> n I</strong>. Outside and in the empty space: B = 0.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>⏱️ 5. Moving Coil Galvanometer</h2>
+        <p>A device used to detect small electric currents. Principle: A current carrying coil placed in a magnetic field experiences a torque.</p>
+        <p><strong>Torque: &tau; = NIAB sin&theta;</strong>. Radial magnetic field is used to make &theta; = 90&deg; always, so &tau; = NIAB.</p>
+        <p>Restoring torque of spring = k&phi;. At equilibrium: NIAB = k&phi; &rArr; &phi; &propto; I.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Conversion of Galvanometer</div>
+            <ul>
+                <li><strong>To Ammeter:</strong> Connect a low resistance (Shunt) in <strong>parallel</strong>. Shunt Resistance S = I<sub>g</sub> G / (I - I<sub>g</sub>).</li>
+                <li><strong>To Voltmeter:</strong> Connect a high resistance in <strong>series</strong>. Series Resistance R = (V / I<sub>g</sub>) - G.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 4 (Class 12) | Moving Charges and Magnetism</span>
+    </div>
+
+</div>
+
+</body>
+</html>

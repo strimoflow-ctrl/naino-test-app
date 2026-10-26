@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 1: The Living World</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition {
+            background-color: var(--info-light);
+            border-color: var(--info);
+        }
+
+        .box-neet {
+            background-color: var(--accent-light);
+            border-color: var(--accent);
+        }
+
+        .box-mnemonic {
+            background-color: var(--warning-light);
+            border-color: var(--warning);        }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+
+        tr:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Tags */
+        .tag {            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .tag-red { background: #FFCDD2; color: #B71C1C; }
+        .tag-green { background: #C8E6C9; color: #1B5E20; }
+        .tag-blue { background: #BBDEFB; color: #0D47A1; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>The Living World</h1>
+        <div class="subtitle">Class 11 Biology | Chapter 1</div>
+        <div class="badge">🎯 Target: NEET UG | NCERT 100% Coverage</div>
+    </div>
+
+    <!-- SECTION 1: WHAT IS LIVING? -->
+    <div class="card">
+        <h2>🌱 1. What is Living?</h2>
+        <p>Living phenomena are an expression of interacting chemical reactions. To identify living organisms, we study their fundamental properties.</p>
+
+        <h3>Properties of Living Organisms</h3>        <ul>
+            <li><strong>Growth:</strong> Increase in mass and increase in number of individuals (cells). 
+                <br><em>Note:</em> In plants, growth by cell division is continuous throughout life. In animals, growth is seen up to a certain age. <strong>However, non-living things also increase in mass (e.g., mountains, sand dunes).</strong></li>
+            <li><strong>Reproduction:</strong> Production of offspring similar to the parent. 
+                <br><em>Note:</em> Many non-living things can replicate (e.g., crystals), and many living organisms cannot reproduce (e.g., mules, sterile worker bees, infertile human couples). <strong>Therefore, reproduction is NOT a defining property.</strong></li>
+            <li><strong>Metabolism:</strong> Sum total of all chemical reactions occurring in our body. 
+                <br><em>Note:</em> No other non-living object is known to perform metabolism. <strong>Metabolism is a DEFINING property.</strong> (Even in a test tube, isolated metabolic reactions are living reactions, but not living things).</li>
+            <li><strong>Cellular Organization:</strong> Body is made of cells. (Found in almost all organisms, from prokaryotes to eukaryotes).</li>
+            <li><strong>Consciousness:</strong> Ability to sense environment and respond to stimuli. 
+                <br><em>Note:</em> All organisms (from prokaryotes to eukaryotes) can sense light, temperature, water, chemicals. Humans are unique because they are self-conscious. <strong>Consciousness is a DEFINING property.</strong></li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 NEET HIGH-YIELD: Defining Properties</div>
+            <p><strong>Metabolism</strong> and <strong>Consciousness</strong> are the only two <strong>DEFINING properties</strong> of living organisms. Growth and reproduction cannot be defining properties because they occur in non-living things or are absent in some living things.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: DIVERSITY & NOMENCLATURE -->
+    <div class="card">
+        <h2>🌍 2. Biodiversity & Nomenclature</h2>
+        
+        <h3>Diversity in the Living World</h3>
+        <ul>
+            <li>Number of species known and described varies between <strong>1.7 to 1.8 million</strong>.</li>
+            <li>This number refers to <strong>Biodiversity</strong> (Biological diversity).</li>
+            <li>Every local region has its own flora and fauna.</li>
+            <li><strong>IUCN Red Data Book:</strong> Keeps a record of extinct and endangered animals and plants.</li>
+        </ul>
+
+        <h3>Nomenclature</h3>
+        <p>Local names vary from region to region, causing confusion. Therefore, we need standardized, universally accepted scientific names.</p>
+        
+        <h4>Binomial Nomenclature</h4>
+        <p>Proposed by <strong>Carolus Linnaeus</strong>. Every organism has a two-word name:</p>
+        <ol>
+            <li><strong>Generic name (Genus):</strong> Starts with a capital letter.</li>
+            <li><strong>Specific epithet (Species):</strong> Starts with a small letter.</li>
+        </ol>
+        <p><em>Rules:</em> Names are derived from Latin/Greek, written in <em>Italics</em> (or underlined separately if handwritten).</p>
+
+        <div class="box box-definition">
+            <div class="box-title">📖 Key Organizations</div>
+            <ul>
+                <li><strong>ICBN:</strong> International Code of Botanical Nomenclature (for plants).</li>
+                <li><strong>ICZN:</strong> International Code of Zoological Nomenclature (for animals).</li>
+            </ul>
+        </div>
+    </div>
+    <!-- SECTION 3: TAXONOMIC CATEGORIES -->
+    <div class="card">
+        <h2>🗂️ 3. Taxonomic Categories & Hierarchy</h2>
+        <p><strong>Taxonomy:</strong> The branch of science dealing with characterization, identification, nomenclature, and classification.</p>
+
+        <h3>Taxonomic Hierarchy</h3>
+        <p>The sequence of categories in descending order:</p>
+        
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Mnemonic to Remember (Descending Order)</div>
+            <p><strong>K</strong>ing <strong>P</strong>hilip <strong>C</strong>ame <strong>O</strong>ver <strong>F</strong>or <strong>G</strong>ood <strong>S</strong>oup</p>
+            <p><strong>K</strong>ingdom ➔ <strong>P</strong>hylum/Division ➔ <strong>C</strong>lass ➔ <strong>O</strong>rder ➔ <strong>F</strong>amily ➔ <strong>G</strong>enus ➔ <strong>S</strong>pecies</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Definition / Rule</th>
+                    <th>Example (Plant)</th>
+                    <th>Example (Animal)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Species</strong></td>
+                    <td>Group of organisms with fundamental similarities; can interbreed.</td>
+                    <td><em>Rosa indica</em><br><em>Pardax tigrum</em></td>
+                    <td><em>Panthera leo</em> (Lion)<br><em>Homo sapiens</em></td>
+                </tr>
+                <tr>
+                    <td><strong>Genus</strong></td>
+                    <td>Group of related species with more characters in common.</td>
+                    <td><em>Rosa</em> (Rose)<br><em>Solanum</em></td>
+                    <td><em>Panthera</em> (Lion, Tiger)<br><em>Canis</em> (Dog, Wolf)</td>
+                </tr>
+                <tr>
+                    <td><strong>Family</strong></td>
+                    <td>Group of related genera with fewer similarities compared to genus/species.</td>
+                    <td>Solanaceae<br>Rosaceae</td>
+                    <td>Canidae<br>Hominidae</td>
+                </tr>
+                <tr>
+                    <td><strong>Order</strong></td>
+                    <td>Group of related families based on vegetative/reproductive features.</td>
+                    <td>Polymoniales<br>Rosales</td>
+                    <td>Carnivora<br>Primates</td>
+                </tr>
+                <tr>
+                    <td><strong>Phylum / Division</strong></td>                    <td>Animals: Phylum. Plants: Division. Based on major features.</td>
+                    <td>Angiospermae (Division)</td>
+                    <td>Chordata</td>
+                </tr>
+                <tr>
+                    <td><strong>Kingdom</strong></td>
+                    <td>Highest category. All plants belong to Plantae, animals to Animalia.</td>
+                    <td>Plantae</td>
+                    <td>Animalia</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 NEET TRAP: Suffixes in Taxonomy</div>
+            <p>Questions are frequently asked on the suffixes used for different categories, especially in Plants:</p>
+            <ul>
+                <li><strong>Family:</strong> Ends in <code>-aceae</code> (e.g., Solanaceae, Poaceae). Exceptions: Leguminosae, Compositae, Palmae, Cruciferae.</li>
+                <li><strong>Order:</strong> Ends in <code>-ales</code> (e.g., Polymoniales).</li>
+                <li><strong>Class:</strong> Ends in <code>-opsida</code> (e.g., Algae), <code>-phyceae</code>, <code>-ae</code> (Animals).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 4: TAXONOMICAL AIDS -->
+    <div class="card">
+        <h2>🔬 4. Taxonomical Aids</h2>
+        <p>Tools and techniques used to study, identify, and classify organisms.</p>
+
+        <h3>1. Herbarium</h3>
+        <ul>
+            <li>A storehouse of collected plant specimens that are dried, pressed, and preserved on sheets.</li>
+            <li>Sheets are arranged according to a universally accepted system of classification.</li>
+            <li>Contains a <strong>label</strong> with: Date & place of collection, English/local/botanical names, family, collector's name.</li>
+            <li>Serves as a <strong>quick referral system</strong> for taxonomic studies.</li>
+        </ul>
+
+        <h3>2. Botanical Gardens</h3>
+        <ul>
+            <li>Have collections of <strong>living plants</strong> for reference.</li>
+            <li>Plants are grown for <strong>identification purposes</strong>.</li>
+        </ul>
+        <div class="box box-definition">
+            <div class="box-title">📍 Famous Botanical Gardens (Must Memorize)</div>
+            <ul>
+                <li><strong>Indian Botanical Garden:</strong> Howrah (West Bengal).</li>
+                <li><strong>National Botanical Research Institute (NBRI):</strong> Lucknow.</li>
+                <li><strong>Royal Botanic Garden:</strong> Kew (England).</li>
+                <li><strong>Royal Botanic Garden:</strong> Edinburgh (Scotland).</li>
+            </ul>        </div>
+
+        <h3>3. Museum</h3>
+        <ul>
+            <li>Has collections of <strong>preserved plant and animal specimens</strong>.</li>
+            <li>Specimens are preserved in jars with preservative solutions or on pins/mounts.</li>
+            <li>Insects are preserved in insect boxes after killing, pinning, and drying.</li>
+            <li>Often have <strong>stuffed birds and animals</strong> and large skeletons.</li>
+        </ul>
+
+        <h3>4. Zoological Park (Zoos)</h3>
+        <ul>
+            <li>Have collections of <strong>live wild animals</strong>.</li>
+            <li>Animals are kept in conditions similar to their natural habitats.</li>
+        </ul>
+        <div class="box box-definition">
+            <div class="box-title">📍 Famous Zoological Park</div>
+            <ul>
+                <li><strong>National Zoological Park:</strong> New Delhi.</li>
+            </ul>
+        </div>
+
+        <h3>5. Key (Taxonomic Key)</h3>
+        <ul>
+            <li>Analytical tool used for <strong>identification of organisms</strong> based on similarities and dissimilarities.</li>
+            <li>Based on contrasting characters generally in a pair called a <strong>couplet</strong>.</li>
+            <li>Each statement in the key is called a <strong>lead</strong>.</li>
+            <li>Separate taxonomic keys are required for each taxonomic category (Family, Genus, Species).</li>
+        </ul>
+        
+        <h3>Other Aids (Briefly)</h3>
+        <ul>
+            <li><strong>Flora:</strong> Actual account of habitat and distribution of plants of a given area. Provides index to plant species.</li>
+            <li><strong>Manuals:</strong> Provide information for the identification of names of species found in an area.</li>
+            <li><strong>Monographs:</strong> Provide information on <strong>any one taxon</strong> (e.g., a specific family or genus).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5: QUICK REVISION / CHEAT SHEET -->
+    <div class="card">
+        <h2>⚡ 5. NEET Quick Revision Cheat Sheet</h2>
+        <ul>
+            <li><span class="tag tag-red">Defining</span> Metabolism & Consciousness are the only defining properties.</li>
+            <li><span class="tag tag-green">Growth</span> Growth is NOT a defining property (mountains grow by accumulation).</li>
+            <li><span class="tag tag-green">Reproduction</span> Reproduction is NOT a defining property (mules/sterile workers cannot reproduce; crystals replicate).</li>
+            <li><span class="tag tag-blue">Nomenclature</span> ICBN for plants, ICZN for animals. Binomial nomenclature by Carolus Linnaeus.</li>
+            <li><span class="tag tag-blue">Suffixes</span> Plant Family ends in <code>-aceae</code>. Order ends in <code>-ales</code>.</li>
+            <li><span class="tag tag-red">Herbarium</span> Dried, pressed, preserved plant specimens on sheets.</li>
+            <li><span class="tag tag-red">Botanical Garden</span> Living plants (e.g., Howrah, Kew, Lucknow).</li>
+            <li><span class="tag tag-red">Museum</span> Preserved dead specimens (jars, pins, stuffed animals).</li>            <li><span class="tag tag-red">Zoo</span> Live wild animals (e.g., National Zoological Park, Delhi).</li>
+            <li><span class="tag tag-blue">Key</span> Uses couplets and leads for identification.</li>
+            <li><span class="tag tag-blue">Monograph</span> Detailed info on ONE specific taxon.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 1 | The Living World</span>
+    </div>
+
+</div>
+
+</body>
+</html>

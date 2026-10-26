@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 1: Electric Charges and Fields</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Electric Charges and Fields</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 1</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>⚡ 1. Electric Charge</h2>
+        <p>Charge is a fundamental property of matter that causes it to experience a force when placed in an electromagnetic field. Types: Positive (due to loss of electrons) and Negative (due to gain of electrons).</p>
+        
+        <h3>Basic Properties of Charge:</h3>
+        <ul>
+            <li><strong>Quantization:</strong> Charge on any body is an integral multiple of elementary charge (e).<br>
+            <strong>q = &plusmn;ne</strong> (where n is an integer, e = 1.6 &times; 10<sup>-19</sup> C).</li>
+            <li><strong>Conservation:</strong> Total charge of an isolated system remains constant.</li>
+            <li><strong>Additivity:</strong> Total charge of a system is the algebraic sum of all individual charges located in the system.</li>
+            <li><strong>Invariance:</strong> The magnitude of charge is independent of the velocity of the body.</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Quarks</div>
+            <p>Protons and neutrons are made up of smaller particles called Quarks, which have fractional charges like &plusmn;e/3 or &plusmn;2e/3. However, quarks do not exist in a free state, so the quantization law (integral multiple of e) remains valid macroscopically.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🧲 2. Coulomb's Law</h2>
+        <p>The electrostatic force of interaction between two point charges is directly proportional to the product of charges and inversely proportional to the square of the distance between them.</p>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Formula</div>
+            <p><strong>F = k (q<sub>1</sub> q<sub>2</sub>) / r<sup>2</sup></strong></p>
+            <p>Where k = 1 / (4&pi;&epsilon;<sub>0</sub>) &approx; 9 &times; 10<sup>9</sup> N m<sup>2</sup> C<sup>-2</sup>.</p>
+            <p>&epsilon;<sub>0</sub> is the permittivity of free space = 8.854 &times; 10<sup>-12</sup> C<sup>2</sup> N<sup>-1</sup> m<sup>-2</sup>.</p>
+        </div>
+
+        <p><strong>Dielectric Constant (K or &epsilon;<sub>r</sub>):</strong> If charges are placed in a medium, the force decreases. F<sub>medium</sub> = F<sub>vacuum</sub> / K.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🌐 3. Electric Field</h2>
+        <p>The region around a charge where its electrical influence can be felt by a test charge.</p>
+        <p><strong>Electric Field Intensity (E):</strong> Force experienced by a unit positive test charge. <strong>E = F / q<sub>0</sub></strong>. Unit: N/C or V/m.</p>
+        <p>Electric Field due to a point charge q at distance r: <strong>E = k q / r<sup>2</sup></strong>.</p>
+
+        <!-- DIAGRAM: ELECTRIC FIELD LINES -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Positive Charge -->
+                <circle cx="150" cy="100" r="20" fill="#D32F2F"/>
+                <text x="150" y="105" font-size="16" font-weight="bold" fill="white" text-anchor="middle">+</text>
+                
+                <!-- Lines for + -->
+                <line x1="150" y1="75" x2="150" y2="30" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <line x1="150" y1="125" x2="150" y2="170" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <line x1="125" y1="100" x2="80" y2="100" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <line x1="175" y1="100" x2="220" y2="100" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="150" y="195" font-size="14" fill="#333" text-anchor="middle">Radially Outward</text>
+
+                <!-- Negative Charge -->
+                <circle cx="350" cy="100" r="20" fill="#1565C0"/>
+                <text x="350" y="105" font-size="16" font-weight="bold" fill="white" text-anchor="middle">-</text>
+
+                <!-- Lines for - -->
+                <line x1="350" y1="30" x2="350" y2="70" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                <line x1="350" y1="170" x2="350" y2="130" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                <line x1="280" y1="100" x2="320" y2="100" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                <line x1="420" y1="100" x2="380" y2="100" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                <text x="350" y="195" font-size="14" fill="#333" text-anchor="middle">Radially Inward</text>
+            </svg>
+            <div class="diagram-caption">Fig: Electric Field Lines for isolated point charges</div>
+        </div>
+
+        <h3>Properties of Electric Field Lines:</h3>
+        <ul>
+            <li>They start from positive charge and end at negative charge.</li>
+            <li>Tangent to the field line at any point gives the direction of electric field at that point.</li>
+            <li>Two field lines can never intersect each other.</li>
+            <li>They never form closed loops (conservative nature of electric field).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>↔️ 4. Electric Dipole</h2>
+        <p>A system of two equal and opposite charges (+q and -q) separated by a small distance (2a).</p>
+        <p><strong>Dipole Moment (p):</strong> <strong>p = q &times; 2a</strong>. It is a vector quantity directed from negative to positive charge.</p>
+
+        <h3>Electric Field due to Dipole:</h3>
+        <ul>
+            <li><strong>Axial point:</strong> E<sub>axial</sub> = 2kp / r<sup>3</sup> (Direction: along p).</li>
+            <li><strong>Equatorial point:</strong> E<sub>eq</sub> = kp / r<sup>3</sup> (Direction: opposite to p).</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Dipole in Uniform Field</div>
+            <p>Net Force = 0 (always).<br>
+            Torque: <strong>&tau; = pE sin&theta;</strong> or <strong>&tau; = p &times; E</strong>.<br>
+            Potential Energy: <strong>U = -pE cos&theta;</strong> or <strong>U = -p &bull; E</strong>.</p>
+            <p>Stable equilibrium: &theta; = 0&deg; (U = min). Unstable equilibrium: &theta; = 180&deg; (U = max).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>📦 5. Gauss's Law</h2>
+        <p>Total electric flux (&Phi;) through any closed surface is equal to 1/&epsilon;<sub>0</sub> times the net charge enclosed by the surface.</p>
+        <p><strong>&Phi; = &oint; E &bull; dA = q<sub>enclosed</sub> / &epsilon;<sub>0</sub></strong></p>
+
+        <h3>Applications of Gauss's Law:</h3>
+        <ul>
+            <li><strong>Infinitely long straight charged wire:</strong> E = &lambda; / (2&pi;&epsilon;<sub>0</sub>r)</li>
+            <li><strong>Infinite plane sheet of charge:</strong> E = &sigma; / (2&epsilon;<sub>0</sub>) [Independent of distance r]</li>
+            <li><strong>Thin spherical shell:</strong>
+                <ul>
+                    <li>Outside (r &gt; R): E = kq / r<sup>2</sup></li>
+                    <li>On surface (r = R): E = kq / R<sup>2</sup></li>
+                    <li>Inside (r &lt; R): <strong>E = 0</strong></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Cube Problem</div>
+            <p>If charge q is placed at:<br>
+            Center of cube: Flux through one face = q / 6&epsilon;<sub>0</sub><br>
+            Corner of cube: Enclosed charge = q/8. Total flux = q / 8&epsilon;<sub>0</sub>. Flux through one non-touching face = q / 24&epsilon;<sub>0</sub>.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 1 (Class 12) | Electric Charges and Fields</span>
+    </div>
+
+</div>
+
+</body>
+</html>

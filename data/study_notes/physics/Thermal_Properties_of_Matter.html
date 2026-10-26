@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 10: Thermal Properties</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Thermal Properties of Matter</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 10</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌡️ 1. Temperature and Heat</h2>
+        <p><strong>Heat</strong> is the form of energy transferred between two systems or a system and its surroundings by virtue of temperature difference. Unit: Joule (J) or Calorie (cal). 1 cal = 4.186 J.</p>
+        <p><strong>Temperature</strong> is the degree of hotness or coldness of a body. It determines the direction of heat flow.</p>
+
+        <h3>Temperature Scales</h3>
+        <p>Relation between different temperature scales:</p>
+        <p><strong>(C - 0)/100 = (F - 32)/180 = (K - 273.15)/100</strong></p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Unique Points</div>
+            <ul>
+                <li>At <strong>-40&deg;</strong>, the Celsius and Fahrenheit scales show the same reading (-40&deg;C = -40&deg;F).</li>
+                <li>Absolute zero is 0 K or -273.15&deg;C. It is the lowest possible temperature.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>📏 2. Thermal Expansion</h2>
+        <p>Increase in the dimensions of a body due to an increase in its temperature is called thermal expansion.</p>
+
+        <ul>
+            <li><strong>Linear Expansion:</strong> &Delta;L = &alpha; L &Delta;T (for 1D, like wires).</li>
+            <li><strong>Areal/Superficial Expansion:</strong> &Delta;A = &beta; A &Delta;T (for 2D, like sheets).</li>
+            <li><strong>Volume Expansion:</strong> &Delta;V = &gamma; V &Delta;T (for 3D, like blocks).</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Relation between &alpha;, &beta;, &gamma;</div>
+            <p>For isotropic solids: <strong>&alpha; : &beta; : &gamma; = 1 : 2 : 3</strong>. <br>Hence, &beta; = 2&alpha; and &gamma; = 3&alpha;.</p>
+        </div>
+
+        <h3>Anomalous Expansion of Water</h3>
+        <p>Water exhibits anomalous behavior: it contracts on heating between 0&deg;C and 4&deg;C. Thus, <strong>density of water is maximum at 4&deg;C</strong>. This helps aquatic life survive in frozen lakes.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔥 3. Calorimetry</h2>
+        <p>Calorimetry is the measurement of heat. Principle: Heat lost by hot body = Heat gained by cold body.</p>
+
+        <h3>Specific Heat Capacity (s or c)</h3>
+        <p>Amount of heat required to raise the temperature of unit mass of a substance by 1&deg;C.<br>
+        <strong>Q = mc&Delta;T</strong></p>
+
+        <h3>Latent Heat (L)</h3>
+        <p>Amount of heat required to change the state of unit mass of a substance at constant temperature.<br>
+        <strong>Q = mL</strong></p>
+        <ul>
+            <li><strong>Latent heat of fusion:</strong> Solid to Liquid (e.g., Ice to Water). For ice, L<sub>f</sub> &approx; 80 cal/g.</li>
+            <li><strong>Latent heat of vaporization:</strong> Liquid to Gas (e.g., Water to Steam). For water, L<sub>v</sub> &approx; 540 cal/g.</li>
+        </ul>
+
+        <!-- DIAGRAM: HEATING CURVE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Axes -->
+                <line x1="50" y1="220" x2="450" y2="220" stroke="#333" stroke-width="2"/>
+                <line x1="50" y1="220" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+                <text x="400" y="240" font-size="12" fill="#333">Heat Added (Q)</text>
+                <text x="10" y="30" font-size="12" fill="#333">Temp (T)</text>
+
+                <!-- Curve -->
+                <!-- Solid warming -->
+                <line x1="50" y1="220" x2="100" y2="160" stroke="#0288D1" stroke-width="3"/>
+                <!-- Melting (Latent heat) -->
+                <line x1="100" y1="160" x2="200" y2="160" stroke="#D32F2F" stroke-width="3"/>
+                <text x="120" y="150" font-size="10" fill="#D32F2F">Melting (0&deg;C)</text>
+                <!-- Liquid warming -->
+                <line x1="200" y1="160" x2="280" y2="80" stroke="#0288D1" stroke-width="3"/>
+                <!-- Boiling (Latent heat) -->
+                <line x1="280" y1="80" x2="400" y2="80" stroke="#D32F2F" stroke-width="3"/>
+                <text x="310" y="70" font-size="10" fill="#D32F2F">Boiling (100&deg;C)</text>
+                <!-- Gas warming -->
+                <line x1="400" y1="80" x2="430" y2="30" stroke="#0288D1" stroke-width="3"/>
+
+                <text x="250" y="240" font-size="14" fill="#1565C0" text-anchor="middle">Heating Curve of Water</text>
+            </svg>
+            <div class="diagram-caption">Fig: Temperature vs Heat graph showing sensible and latent heat.</div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌊 4. Heat Transfer</h2>
+        <p>Heat can be transferred from one place to another by three modes:</p>
+
+        <ol>
+            <li><strong>Conduction:</strong> Transfer of heat through material medium without actual movement of particles. Governed by Fourier's Law: <strong>dQ/dt = -KA(dT/dx)</strong>, where K is thermal conductivity.</li>
+            <li><strong>Convection:</strong> Transfer of heat by actual bodily movement of the heated fluid particles. (e.g., boiling water, sea breeze).</li>
+            <li><strong>Radiation:</strong> Transfer of heat in the form of electromagnetic waves without requiring any material medium.</li>
+        </ol>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Thermal Resistance (R)</div>
+            <p>Similar to electrical resistance, thermal resistance R = L / KA. Heat current H = &Delta;T / R.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>☀️ 5. Radiation Laws</h2>
+
+        <ul>
+            <li><strong>Stefan-Boltzmann Law:</strong> The total radiant energy emitted per second per unit surface area of a perfectly black body is proportional to the fourth power of its absolute temperature.<br>
+            <strong>E = &sigma;T<sup>4</sup></strong> (where &sigma; is Stefan's constant).</li>
+            
+            <li><strong>Wien's Displacement Law:</strong> The wavelength (&lambda;<sub>m</sub>) corresponding to maximum energy emission by a black body is inversely proportional to its absolute temperature.<br>
+            <strong>&lambda;<sub>m</sub>T = b</strong> (where b is Wien's constant).</li>
+            
+            <li><strong>Newton's Law of Cooling:</strong> The rate of cooling of a body is directly proportional to the temperature difference between the body and its surroundings (for small temperature differences).<br>
+            <strong>-dT/dt = k(T - T<sub>0</sub>)</strong></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 10 (Class 11) | Thermal Properties of Matter</span>
+    </div>
+
+</div>
+
+</body>
+</html>

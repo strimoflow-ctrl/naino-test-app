@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 4: Reproductive Health</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Reproductive Health</h1>
+        <div class="subtitle">Class 12 Zoology | Chapter 4</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌍 1. Problems and Strategies</h2>
+        <p>According to the WHO, reproductive health means a total well-being in all aspects of reproduction, i.e., physical, emotional, behavioural and social.</p>
+        
+        <ul>
+            <li><strong>India</strong> was amongst the first countries in the world to initiate action plans and programmes at a national level to attain total reproductive health as a social goal. These programmes called <strong>'family planning'</strong> were initiated in <strong>1951</strong>.</li>
+            <li>Presently these are operating under the popular name <strong>Reproductive and Child Health Care (RCH)</strong> programmes.</li>
+            <li><strong>Amniocentesis:</strong> A fetal sex determination test based on the chromosomal pattern in the amniotic fluid surrounding the developing embryo. There is a statutory ban on it to legally check female foeticides. (It is meant to test for genetic disorders like Down syndrome, haemophilia, etc.).</li>
+        </ul>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Definition: Population Explosion</div>
+            <p>A rapid decline in death rate, maternal mortality rate (MMR) and infant mortality rate (IMR) as well as an increase in number of people in reproducible age are probable reasons for the rapid increase in population.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🛡️ 2. Contraceptive Methods</h2>
+        <p>An ideal contraceptive should be user-friendly, easily available, effective and reversible with no or least side-effects.</p>
+
+        <h3>Natural / Traditional Methods</h3>
+        <p>Work on the principle of avoiding chances of ovum and sperms meeting.</p>
+        <ul>
+            <li><strong>Periodic abstinence:</strong> Couples avoid coitus from day 10 to 17 of the menstrual cycle when ovulation could be expected.</li>
+            <li><strong>Withdrawal or coitus interruptus:</strong> Male partner withdraws his penis from the vagina just before ejaculation.</li>
+            <li><strong>Lactational amenorrhea:</strong> Absence of menstruation due to intense lactation following parturition. Effective up to a maximum of 6 months.</li>
+        </ul>
+
+        <h3>Barrier Methods</h3>
+        <p>Ovum and sperms are prevented from physically meeting with the help of barriers. E.g., <strong>Condoms</strong> (also protect from STIs/AIDS). Diaphragms, cervical caps, and vaults (for females).</p>
+
+        <h3>Intra Uterine Devices (IUDs)</h3>
+        <p>Inserted by doctors or expert nurses in the uterus through vagina. Widely accepted method in India.</p>
+        <ul>
+            <li><strong>Non-medicated IUDs:</strong> E.g., Lippes loop. They increase phagocytosis of sperms within the uterus.</li>
+            <li><strong>Copper releasing IUDs:</strong> E.g., CuT, Cu7, Multiload 375. Cu ions suppress sperm motility and the fertilising capacity of sperms.</li>
+            <li><strong>Hormone releasing IUDs:</strong> E.g., Progestasert, LNG-20. Make the uterus unsuitable for implantation and the cervix hostile to the sperms.</li>
+        </ul>
+
+        <!-- DIAGRAM: COPPER T -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 200 200" width="100%" style="max-width: 250px; font-family: sans-serif;">
+                <!-- Uterus Outline -->
+                <path d="M 50 50 C 50 10, 150 10, 150 50 L 130 150 L 70 150 Z" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" opacity="0.5"/>
+                
+                <!-- Copper T Device -->
+                <!-- Vertical Stem -->
+                <line x1="100" y1="60" x2="100" y2="120" stroke="#FF9800" stroke-width="6" stroke-linecap="round"/>
+                <!-- Horizontal Arms -->
+                <path d="M 70 50 Q 100 70 130 50" fill="none" stroke="#FF9800" stroke-width="6" stroke-linecap="round"/>
+                
+                <!-- Copper wire wrapped around stem -->
+                <path d="M 94 70 L 106 75 M 94 80 L 106 85 M 94 90 L 106 95 M 94 100 L 106 105" fill="none" stroke="#BCAAA4" stroke-width="2"/>
+
+                <!-- Threads -->
+                <path d="M 100 120 Q 90 140 100 160 Q 110 180 100 190" fill="none" stroke="#1565C0" stroke-width="2"/>
+
+                <text x="100" y="30" font-size="14" font-weight="bold" fill="#D32F2F" text-anchor="middle">Copper-T inside Uterus</text>
+            </svg>
+            <div class="diagram-caption">Fig: Cu-T (Copper releasing IUD)</div>
+        </div>
+
+        <h3>Oral Pills & Implants</h3>
+        <p>Oral administration of small doses of either progestogens or progestogen-estrogen combinations. They inhibit ovulation and implantation as well as alter the quality of cervical mucus. <strong>Saheli</strong> is a new oral pill (non-steroidal, once-a-week pill) developed by CDRI, Lucknow.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>✂️ 3. Surgical Methods (Sterilisation)</h2>
+        <p>Terminal methods to prevent any more pregnancies. Highly effective but reversibility is very poor.</p>
+        
+        <ul>
+            <li><strong>Vasectomy:</strong> In males. A small part of the vas deferens is removed or tied up through a small incision on the scrotum.</li>
+            <li><strong>Tubectomy:</strong> In females. A small part of the fallopian tube is removed or tied up through a small incision in the abdomen or through vagina.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: MTP (Medical Termination of Pregnancy)</div>
+            <p>Intentional or voluntary termination of pregnancy before full term is called MTP or induced abortion. Government of India legalised MTP in <strong>1971</strong> with some strict conditions to avoid its misuse (especially female foeticides). MTPs are considered relatively safe during the <strong>first trimester</strong> (upto 12 weeks of pregnancy).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🦠 4. Sexually Transmitted Infections (STIs)</h2>
+        <p>Infections or diseases which are transmitted through sexual intercourse are collectively called STIs or Venereal Diseases (VD) or Reproductive Tract Infections (RTI).</p>
+
+        <ul>
+            <li><strong>Examples:</strong> Gonorrhoea, syphilis, genital herpes, chlamydiasis, genital warts, trichomoniasis, hepatitis-B, and of course HIV leading to AIDS.</li>
+            <li><strong>Incurable STIs:</strong> Hepatitis-B, Genital Herpes and HIV infections are <strong>NOT completely curable</strong>. (All other diseases are completely curable if detected early and treated properly).</li>
+            <li><strong>Complications:</strong> If not treated properly, they can lead to Pelvic Inflammatory Diseases (PID), abortions, still births, ectopic pregnancies, infertility or even cancer of the reproductive tract.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Incurable STIs</div>
+            <p><strong>3 H's</strong> are incurable:<br>
+            <strong>H</strong>epatitis-B<br>
+            <strong>H</strong>erpes (Genital)<br>
+            <strong>H</strong>IV / AIDS</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🍼 5. Infertility and ART</h2>
+        <p>Inability to conceive or produce children even after two years of unprotected sexual cohabitation. Treated using Assisted Reproductive Technologies (ART).</p>
+
+        <h3>In vitro fertilisation (IVF)</h3>
+        <p>Fertilisation outside the body in almost similar conditions as that in the body. Commonly known as the <strong>Test tube baby programme</strong>.</p>
+        <ul>
+            <li><strong>ZIFT (Zygote Intra Fallopian Transfer):</strong> Zygote or early embryos (upto 8 blastomeres) are transferred into the fallopian tube.</li>
+            <li><strong>IUT (Intra Uterine Transfer):</strong> Embryos with more than 8 blastomeres are transferred directly into the uterus.</li>
+        </ul>
+
+        <h3>In vivo fertilisation</h3>
+        <p>Fertilisation within the female body.</p>
+        <ul>
+            <li><strong>GIFT (Gamete Intra Fallopian Transfer):</strong> Transfer of an ovum collected from a donor into the fallopian tube of another female who cannot produce one, but can provide suitable environment for fertilisation.</li>
+            <li><strong>Artificial Insemination (AI):</strong> Semen collected from husband or healthy donor is artificially introduced into vagina or the uterus (IUI - Intra Uterine Insemination) of the female. Very useful for cases where sperm count is very low.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 4 (Class 12) | Reproductive Health</span>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 7: Alternating Current</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Alternating Current</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 7</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>⚡ 1. RMS and Mean Values of AC</h2>
+        <p>An alternating current changes its magnitude continuously and reverses its direction periodically. I = I<sub>0</sub> sin(&omega;t).</p>
+
+        <ul>
+            <li><strong>Mean (Average) Value:</strong> Over one complete cycle, I<sub>avg</sub> = 0.<br>
+            Over half cycle, I<sub>avg</sub> = 2I<sub>0</sub> / &pi; &approx; 0.637 I<sub>0</sub>.</li>
+            <li><strong>RMS (Root Mean Square) Value:</strong> The value of steady current which would generate the same heat in a resistor as is generated by the AC in the same time.<br>
+            <strong>I<sub>rms</sub> = I<sub>0</sub> / &radic;2 &approx; 0.707 I<sub>0</sub></strong>.</li>
+        </ul>
+        <p><em>Note: All AC meters measure RMS values. The household supply 220V refers to the RMS voltage. The peak voltage is 220&radic;2 &approx; 311V, which is why AC is more dangerous than DC of the same voltage.</em></p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔌 2. AC Circuits with R, L, and C</h2>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Reactance & Phase Difference</div>
+            <table>
+                <tr>
+                    <th>Circuit Component</th>
+                    <th>Reactance / Resistance</th>
+                    <th>Phase of Current w.r.t Voltage</th>
+                </tr>
+                <tr>
+                    <td>Resistor (R)</td>
+                    <td>R</td>
+                    <td>In phase (&phi; = 0)</td>
+                </tr>
+                <tr>
+                    <td>Inductor (L)</td>
+                    <td>X<sub>L</sub> = &omega;L</td>
+                    <td>Current Lags by 90&deg; (&pi;/2)</td>
+                </tr>
+                <tr>
+                    <td>Capacitor (C)</td>
+                    <td>X<sub>C</sub> = 1 / &omega;C</td>
+                    <td>Current Leads by 90&deg; (&pi;/2)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Trick: ELI the ICE man</div>
+            <p><strong>E L I</strong>: In an Inductor (<strong>L</strong>), Voltage (<strong>E</strong>) leads Current (<strong>I</strong>).<br>
+            <strong>I C E</strong>: In a Capacitor (<strong>C</strong>), Current (<strong>I</strong>) leads Voltage (<strong>E</strong>).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>📻 3. Series LCR Circuit and Resonance</h2>
+        <p>When L, C, and R are connected in series to an AC source:</p>
+        <p><strong>Impedance (Z):</strong> Z = &radic;[R<sup>2</sup> + (X<sub>L</sub> - X<sub>C</sub>)<sup>2</sup>]</p>
+        <p>Phase angle (&phi;): tan&phi; = (X<sub>L</sub> - X<sub>C</sub>) / R</p>
+
+        <h3>Electrical Resonance</h3>
+        <p>Occurs when X<sub>L</sub> = X<sub>C</sub>. In this condition:</p>
+        <ul>
+            <li>Impedance Z is minimum (Z = R).</li>
+            <li>Current I is maximum (I<sub>max</sub> = V/R).</li>
+            <li>Resonant frequency: <strong>f<sub>r</sub> = 1 / (2&pi;&radic;LC)</strong>.</li>
+            <li>Voltage and Current are in phase (&phi; = 0).</li>
+        </ul>
+        
+        <p><strong>Quality Factor (Q-factor):</strong> Determines the sharpness of tuning at resonance. Q = (1/R) &radic;(L/C).</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🔋 4. Power in AC Circuits</h2>
+        <p>The average power dissipated in an AC circuit over a complete cycle is:</p>
+        <p><strong>P<sub>avg</sub> = V<sub>rms</sub> I<sub>rms</sub> cos&phi;</strong></p>
+        
+        <p>Where <strong>cos&phi;</strong> is called the <em>Power Factor</em>. cos&phi; = R / Z.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Wattless Current</div>
+            <p>For purely inductive or purely capacitive circuits, &phi; = 90&deg;, so cos&phi; = 0. Therefore, P<sub>avg</sub> = 0.<br>
+            The current in such a circuit is called <strong>Wattless Current</strong> (Idle current) because it dissipates no average power.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>⚡ 5. Transformers</h2>
+        <p>A device used to increase (step-up) or decrease (step-down) the alternating voltage based on <strong>Mutual Induction</strong>.</p>
+        
+        <p><strong>Transformation Ratio (k):</strong><br>
+        V<sub>s</sub> / V<sub>p</sub> = N<sub>s</sub> / N<sub>p</sub> = I<sub>p</sub> / I<sub>s</sub> = k</p>
+        
+        <ul>
+            <li><strong>Step-Up Transformer:</strong> N<sub>s</sub> &gt; N<sub>p</sub>. Voltage increases, current decreases.</li>
+            <li><strong>Step-Down Transformer:</strong> N<sub>s</sub> &lt; N<sub>p</sub>. Voltage decreases, current increases.</li>
+        </ul>
+
+        <p><strong>Energy Losses:</strong> Copper loss (Joule heating), Iron loss (Eddy currents - minimized by laminated core), Hysteresis loss, Flux leakage.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 7 (Class 12) | Alternating Current</span>
+    </div>
+
+</div>
+
+</body>
+</html>

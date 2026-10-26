@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 13: Oscillations</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Oscillations</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 13</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>⏱️ 1. Periodic and Oscillatory Motion</h2>
+        <ul>
+            <li><strong>Periodic Motion:</strong> A motion that repeats itself at regular intervals of time. (e.g., Earth revolving around the Sun).</li>
+            <li><strong>Oscillatory Motion:</strong> A periodic motion in which a body moves to and fro about a fixed point (mean position). (e.g., Simple Pendulum).</li>
+        </ul>
+        <p><em>Note: All oscillatory motions are periodic, but all periodic motions are not oscillatory.</em></p>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Simple Harmonic Motion (SHM)</div>
+            <p>SHM is the simplest form of oscillatory motion. In SHM, the restoring force is directly proportional to the displacement from the mean position and is always directed towards the mean position.</p>
+            <p><strong>F = -kx</strong> &rArr; a = -&omega;<sup>2</sup>x</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌊 2. Equations of SHM</h2>
+        <p>The displacement of a particle executing SHM at any instant t is given by:</p>
+        <p><strong>x(t) = A sin(&omega;t + &phi;)</strong></p>
+        <p>Where:<br>
+        A = Amplitude (maximum displacement)<br>
+        &omega; = Angular frequency = 2&pi;/T = &radic;(k/m)<br>
+        &phi; = Initial phase or epoch (depends on initial position and velocity).</p>
+
+        <h3>Velocity and Acceleration</h3>
+        <ul>
+            <li><strong>Velocity (v):</strong> v = dx/dt = A&omega; cos(&omega;t + &phi;).<br>
+            In terms of displacement: <strong>v = &omega;&radic;(A<sup>2</sup> - x<sup>2</sup>)</strong>.<br>
+            Velocity is maximum at mean position (x = 0): v<sub>max</sub> = A&omega;.<br>
+            Velocity is zero at extreme positions (x = &plusmn;A).</li>
+            
+            <li><strong>Acceleration (a):</strong> a = dv/dt = -A&omega;<sup>2</sup> sin(&omega;t + &phi;).<br>
+            In terms of displacement: <strong>a = -&omega;<sup>2</sup>x</strong>.<br>
+            Acceleration is zero at mean position.<br>
+            Acceleration is maximum at extreme positions: a<sub>max</sub> = &omega;<sup>2</sup>A.</li>
+        </ul>
+
+        <!-- DIAGRAM: SHM KINEMATICS -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Axis -->
+                <line x1="50" y1="100" x2="450" y2="100" stroke="#333" stroke-width="2"/>
+                <line x1="250" y1="80" x2="250" y2="120" stroke="#999" stroke-width="2" stroke-dasharray="4"/>
+                
+                <circle cx="250" cy="100" r="15" fill="#E65100"/>
+                
+                <text x="250" y="140" font-size="12" fill="#333" text-anchor="middle">Mean Position (x=0)</text>
+                <text x="250" y="155" font-size="12" fill="#1565C0" text-anchor="middle">v = max, a = 0</text>
+                <text x="250" y="170" font-size="12" fill="#D32F2F" text-anchor="middle">KE = max, PE = min</text>
+
+                <!-- Extremes -->
+                <line x1="100" y1="90" x2="100" y2="110" stroke="#333" stroke-width="2"/>
+                <text x="100" y="140" font-size="12" fill="#333" text-anchor="middle">Extreme (x = -A)</text>
+                <text x="100" y="155" font-size="12" fill="#1565C0" text-anchor="middle">v = 0, a = max</text>
+
+                <line x1="400" y1="90" x2="400" y2="110" stroke="#333" stroke-width="2"/>
+                <text x="400" y="140" font-size="12" fill="#333" text-anchor="middle">Extreme (x = +A)</text>
+                <text x="400" y="155" font-size="12" fill="#1565C0" text-anchor="middle">v = 0, a = max</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Kinematics of Simple Harmonic Motion</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>⚡ 3. Energy in SHM</h2>
+        <p>A particle executing SHM possesses both kinetic and potential energy.</p>
+
+        <ul>
+            <li><strong>Kinetic Energy (K):</strong> K = &frac12;mv<sup>2</sup> = &frac12;m&omega;<sup>2</sup>(A<sup>2</sup> - x<sup>2</sup>) = &frac12;k(A<sup>2</sup> - x<sup>2</sup>).</li>
+            <li><strong>Potential Energy (U):</strong> U = &frac12;kx<sup>2</sup> = &frac12;m&omega;<sup>2</sup>x<sup>2</sup>.</li>
+            <li><strong>Total Energy (E):</strong> E = K + U = <strong>&frac12;kA<sup>2</sup> = &frac12;m&omega;<sup>2</sup>A<sup>2</sup></strong>.</li>
+        </ul>
+        <p>Total energy in SHM remains constant and is proportional to the square of the amplitude.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Frequency of Energy</div>
+            <p>If the frequency of a particle executing SHM is <em>f</em>, then the frequency of oscillation of its Kinetic Energy and Potential Energy is <strong>2f</strong>. (Because they complete two cycles for every one cycle of displacement).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🕰️ 4. Systems Executing SHM</h2>
+
+        <h3>Simple Pendulum</h3>
+        <p>A heavy point mass suspended by a weightless, inextensible, and perfectly flexible string.</p>
+        <p><strong>Time Period: T = 2&pi; &radic;(L/g)</strong></p>
+        <p>Note: Time period is independent of the mass of the bob and the amplitude (for small angular displacements).</p>
+
+        <h3>Spring-Mass System</h3>
+        <p><strong>Time Period: T = 2&pi; &radic;(m/k)</strong></p>
+        
+        <div class="box box-formula">
+            <div class="box-title">💡 Combination of Springs</div>
+            <ul>
+                <li><strong>Series:</strong> 1/k<sub>eq</sub> = 1/k<sub>1</sub> + 1/k<sub>2</sub></li>
+                <li><strong>Parallel:</strong> k<sub>eq</sub> = k<sub>1</sub> + k<sub>2</sub></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔉 5. Damped and Forced Oscillations</h2>
+
+        <ul>
+            <li><strong>Damped Oscillations:</strong> The amplitude of oscillation decreases exponentially with time due to dissipative forces like friction or viscous drag. E(t) = E<sub>0</sub> e<sup>-bt/m</sup>.</li>
+            <li><strong>Forced Oscillations:</strong> The body is maintained in oscillation by an external periodic force. The body oscillates with the frequency of the external force, not its natural frequency.</li>
+            <li><strong>Resonance:</strong> A special case of forced oscillation where the frequency of the external periodic force matches the natural frequency of the body. The amplitude of oscillation becomes very large.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 13 (Class 11) | Oscillations</span>
+    </div>
+
+</div>
+
+</body>
+</html>

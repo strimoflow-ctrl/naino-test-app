@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 3: Current Electricity</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Current Electricity</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 3</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔌 1. Electric Current and Drift Velocity</h2>
+        <p>Electric current is the rate of flow of electric charge. <strong>I = dq / dt</strong>.</p>
+        
+        <h3>Drift Velocity (v<sub>d</sub>)</h3>
+        <p>The average velocity with which free electrons get drifted towards the positive end of the conductor under the influence of an external electric field.</p>
+        <p><strong>v<sub>d</sub> = (eE / m) &tau;</strong> (where &tau; is relaxation time)</p>
+        
+        <div class="box box-formula">
+            <div class="box-title">💡 Relation between I and v<sub>d</sub></div>
+            <p><strong>I = n e A v<sub>d</sub></strong></p>
+            <p>Where n = number density of free electrons, A = Area of cross section. Mobility (&mu;) = v<sub>d</sub> / E.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚡ 2. Ohm's Law and Resistance</h2>
+        <p>At constant temperature, the current flowing through a conductor is directly proportional to the potential difference across its ends. <strong>V &propto; I &rArr; V = IR</strong>.</p>
+        
+        <p><strong>Resistance (R):</strong> R = &rho; L / A. (where &rho; is resistivity).<br>
+        Also, R = m L / (n e<sup>2</sup> &tau; A), so &rho; = m / (n e<sup>2</sup> &tau;).</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Stretching a Wire</div>
+            <p>If a wire is stretched to 'n' times its original length (volume constant):<br>
+            New Length L&prime; = nL, New Area A&prime; = A/n.<br>
+            New Resistance <strong>R&prime; = n<sup>2</sup> R</strong>.</p>
+        </div>
+
+        <h3>Temperature Dependence of Resistance</h3>
+        <p>R<sub>T</sub> = R<sub>0</sub> [1 + &alpha;(T - T<sub>0</sub>)], where &alpha; is the temperature coefficient of resistance. For metals, &alpha; is positive. For semiconductors, &alpha; is negative.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔋 3. Cells, EMF, and Internal Resistance</h2>
+        <p><strong>Electromotive Force (EMF, E):</strong> The potential difference across the terminals of a cell when no current is drawn from it.</p>
+        <p><strong>Internal Resistance (r):</strong> Resistance offered by the electrolyte of the cell.</p>
+
+        <p>Terminal Voltage (V): <strong>V = E - Ir</strong> (during discharging).<br>
+        During charging: <strong>V = E + Ir</strong>.</p>
+
+        <h3>Grouping of Cells</h3>
+        <ul>
+            <li><strong>Series:</strong> E<sub>eq</sub> = E<sub>1</sub> + E<sub>2</sub>, r<sub>eq</sub> = r<sub>1</sub> + r<sub>2</sub>. Max current when R &gt;&gt; r<sub>eq</sub>.</li>
+            <li><strong>Parallel:</strong> E<sub>eq</sub> = (E<sub>1</sub>/r<sub>1</sub> + E<sub>2</sub>/r<sub>2</sub>) / (1/r<sub>1</sub> + 1/r<sub>2</sub>). Max current when r<sub>eq</sub> &gt;&gt; R.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>⚖️ 4. Kirchhoff's Laws</h2>
+        
+        <!-- DIAGRAM: KIRCHHOFF -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Junction -->
+                <circle cx="250" cy="100" r="6" fill="#333"/>
+                <text x="260" y="90" font-size="14" fill="#333" font-weight="bold">Node</text>
+
+                <!-- Wires -->
+                <line x1="100" y1="50" x2="250" y2="100" stroke="#0288D1" stroke-width="3"/>
+                <line x1="100" y1="150" x2="250" y2="100" stroke="#0288D1" stroke-width="3"/>
+                <line x1="250" y1="100" x2="400" y2="100" stroke="#D32F2F" stroke-width="3"/>
+
+                <!-- Arrows -->
+                <polygon points="175,75 165,65 160,80" fill="#0288D1"/>
+                <text x="140" y="60" font-size="14" fill="#0288D1">I1</text>
+
+                <polygon points="175,125 160,120 165,135" fill="#0288D1"/>
+                <text x="140" y="145" font-size="14" fill="#0288D1">I2</text>
+
+                <polygon points="325,100 315,95 315,105" fill="#D32F2F"/>
+                <text x="315" y="85" font-size="14" fill="#D32F2F">I3 = I1 + I2</text>
+            </svg>
+            <div class="diagram-caption">Fig: Kirchhoff's Current Law (Junction Rule)</div>
+        </div>
+
+        <ul>
+            <li><strong>Junction Rule (KCL):</strong> The algebraic sum of currents meeting at a junction is zero (&Sigma;I = 0). Based on <strong>Conservation of Charge</strong>.</li>
+            <li><strong>Loop Rule (KVL):</strong> The algebraic sum of changes in potential around any closed loop is zero (&Sigma;&Delta;V = 0). Based on <strong>Conservation of Energy</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🌉 5. Wheatstone Bridge and Instruments</h2>
+        <p>An arrangement of four resistances used to measure an unknown resistance.</p>
+        <p><strong>Balanced condition:</strong> No current flows through the galvanometer. <strong>P / Q = R / S</strong>.</p>
+
+        <h3>Meter Bridge</h3>
+        <p>Practical application of Wheatstone bridge. Works on the principle of balanced Wheatstone bridge.<br>
+        Unknown resistance S = R [ (100 - l) / l ].</p>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Potentiometer (Often skipped but useful concept)</div>
+            <p>Measures EMF accurately because it draws no current from the cell at the null point.<br>
+            Comparison of EMFs: E<sub>1</sub> / E<sub>2</sub> = l<sub>1</sub> / l<sub>2</sub>.<br>
+            Internal Resistance: r = R [ (l<sub>1</sub> - l<sub>2</sub>) / l<sub>2</sub> ].</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 3 (Class 12) | Current Electricity</span>
+    </div>
+
+</div>
+
+</body>
+</html>

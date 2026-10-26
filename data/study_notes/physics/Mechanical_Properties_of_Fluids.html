@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 9: Mechanical Properties of Fluids</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Mechanical Properties of Fluids</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 9</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>💧 1. Pressure and Pascal's Law</h2>
+        
+        <p><strong>Pressure:</strong> The normal force exerted by a fluid per unit area. P = F/A. Unit: Pascal (Pa) or N/m&sup2;.</p>
+        <p>Atmospheric Pressure: 1 atm = 1.013 &times; 10&sup5; Pa. Gauge pressure: P - P<sub>a</sub> = &rho;gh.</p>
+
+        <h3>Pascal's Law</h3>
+        <p>A change in pressure applied to an enclosed incompressible fluid is transmitted undiminished to every portion of the fluid and to the walls of its container.</p>
+
+        <!-- DIAGRAM: HYDRAULIC LIFT -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- U-tube Container -->
+                <path d="M 50 50 L 50 200 L 450 200 L 450 100 L 350 100 L 350 150 L 150 150 L 150 50 Z" fill="#E1F5FE" stroke="#0288D1" stroke-width="3"/>
+                
+                <!-- Fluid -->
+                <path d="M 50 100 L 150 100 L 150 150 L 350 150 L 350 100 L 450 100 L 450 200 L 50 200 Z" fill="#81D4FA" opacity="0.6"/>
+
+                <!-- Piston 1 -->
+                <rect x="50" y="85" width="100" height="15" fill="#78909C"/>
+                <line x1="100" y1="20" x2="100" y2="85" stroke="#D32F2F" stroke-width="4" marker-end="url(#arrow)"/>
+                <text x="110" y="50" font-size="14" font-weight="bold" fill="#D32F2F">F1</text>
+                <text x="60" y="130" font-size="12" fill="#1565C0">Area A1</text>
+
+                <!-- Piston 2 -->
+                <rect x="350" y="85" width="100" height="15" fill="#78909C"/>
+                <line x1="400" y1="85" x2="400" y2="20" stroke="#D32F2F" stroke-width="4" marker-end="url(#arrow)"/>
+                <text x="410" y="50" font-size="14" font-weight="bold" fill="#D32F2F">F2</text>
+                <text x="360" y="130" font-size="12" fill="#1565C0">Area A2</text>
+
+                <text x="250" y="180" font-size="14" fill="#1565C0" text-anchor="middle">P1 = P2 &rArr; F1/A1 = F2/A2</text>
+            </svg>
+            <div class="diagram-caption">Fig: Principle of Hydraulic Lift (Pascal's Law)</div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌊 2. Archimedes' Principle</h2>
+        <p>When a body is wholly or partially immersed in a fluid, it experiences an upward buoyant force equal to the weight of the fluid displaced by it.</p>
+
+        <p><strong>Buoyant Force (F<sub>b</sub>) = V<sub>immersed</sub> &times; &rho;<sub>fluid</sub> &times; g</strong></p>
+
+        <h3>Law of Floatation</h3>
+        <p>A body will float in a liquid if the weight of the liquid displaced by the immersed part of the body is equal to the weight of the body. (i.e., &rho;<sub>body</sub> &le; &rho;<sub>fluid</sub>).</p>
+        <p>Fraction of volume immersed: V<sub>in</sub> / V<sub>total</sub> = &rho;<sub>body</sub> / &rho;<sub>fluid</sub>.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>💨 3. Fluid Dynamics</h2>
+        
+        <h3>Equation of Continuity</h3>
+        <p>Based on the conservation of mass. For an incompressible and non-viscous fluid flowing through a tube of varying cross-section, the product of cross-sectional area and fluid velocity is constant.</p>
+        <p><strong>A<sub>1</sub>v<sub>1</sub> = A<sub>2</sub>v<sub>2</sub></strong> (or Av = constant).</p>
+        <p>The product Av is the <em>Volume flow rate</em>.</p>
+
+        <h3>Bernoulli's Principle</h3>
+        <p>Based on the conservation of energy. It states that for a streamline flow of an ideal fluid, the sum of pressure energy, kinetic energy, and potential energy per unit volume remains constant.</p>
+        <div class="box box-formula">
+            <div class="box-title">💡 Bernoulli's Equation</div>
+            <p><strong>P + &frac12;&rho;v&sup2; + &rho;gh = Constant</strong></p>
+        </div>
+
+        <p><strong>Applications:</strong></p>
+        <ul>
+            <li><strong>Torricelli's Law (Velocity of Efflux):</strong> v = &radic;(2gh).</li>
+            <li><strong>Venturimeter:</strong> Device used to measure the rate of flow of a liquid.</li>
+            <li><strong>Aerofoil (Airplane Lift):</strong> Velocity is higher above the wing, so pressure is lower. Velocity is lower below the wing, so pressure is higher. This pressure difference creates an upward lift.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🍯 4. Viscosity</h2>
+        <p>Viscosity is the internal friction in a fluid. It is the property by virtue of which a fluid opposes relative motion between its different layers.</p>
+
+        <p><strong>Newton's Law of Viscous Force:</strong> F = -&eta; A (dv/dx)<br>
+        Where &eta; is the coefficient of viscosity, A is the area of layers in contact, and dv/dx is the velocity gradient.</p>
+
+        <h3>Stokes' Law & Terminal Velocity</h3>
+        <p>When a spherical body of radius r falls through a viscous medium, the viscous drag force is given by Stokes' law: <strong>F = 6&pi;&eta;rv</strong>.</p>
+        <p><strong>Terminal Velocity (v<sub>t</sub>):</strong> The maximum constant velocity acquired by the body when the net force on it becomes zero (Weight = Buoyant Force + Viscous Drag).</p>
+        <p><strong>v<sub>t</sub> = [2r&sup2;(&rho; - &sigma;)g] / 9&eta;</strong></p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>💧 5. Surface Tension</h2>
+        <p>Surface tension (S) is the property of a liquid surface at rest to shrink into the minimum surface area possible. It acts tangentially to the liquid surface. S = Force / Length.</p>
+
+        <ul>
+            <li><strong>Surface Energy:</strong> Work done to increase the surface area of a liquid film by unity. W = S &times; &Delta;A.</li>
+            <li><strong>Excess Pressure inside a Liquid Drop:</strong> P<sub>ex</sub> = 2S / R.</li>
+            <li><strong>Excess Pressure inside a Soap Bubble:</strong> P<sub>ex</sub> = 4S / R (since soap bubble has two surfaces in contact with air).</li>
+        </ul>
+
+        <h3>Capillarity</h3>
+        <p>The phenomenon of rise or fall of a liquid in a capillary tube.</p>
+        <div class="box box-formula">
+            <div class="box-title">💡 Ascent Formula</div>
+            <p>Height of capillary rise: <strong>h = 2S cos&theta; / (r&rho;g)</strong></p>
+            <p>Where &theta; is the angle of contact. If &theta; &lt; 90&deg; (acute), liquid rises (meniscus concave). If &theta; &gt; 90&deg; (obtuse), liquid falls (meniscus convex).</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 9 (Class 11) | Mechanical Properties of Fluids</span>
+    </div>
+
+</div>
+
+</body>
+</html>

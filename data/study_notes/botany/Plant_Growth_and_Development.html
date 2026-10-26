@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 15: Plant Growth and Development</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Plant Growth and Development</h1>
+        <div class="subtitle">Class 11 Biology | Chapter 15</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌱 1. Growth Rates</h2>
+        <p>Growth is defined as an irreversible permanent increase in size of an organ or its parts or even of an individual cell. Plant growth is generally indeterminate because of the presence of meristems.</p>
+
+        <h3>Types of Growth Rates</h3>
+        <ul>
+            <li><strong>Arithmetic Growth:</strong> Following mitotic cell division, only one daughter cell continues to divide while the other differentiates and matures. Plotting length against time gives a <strong>linear curve</strong>. (L<sub>t</sub> = L<sub>0</sub> + rt).</li>
+            <li><strong>Geometric Growth:</strong> Both daughter cells following mitotic cell division retain the ability to divide and continue to do so. In most systems, the initial growth is slow (lag phase), and it increases rapidly thereafter at an exponential rate (log phase).</li>
+        </ul>
+
+        <!-- DIAGRAM: SIGMOID CURVE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 300" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Axes -->
+                <line x1="50" y1="250" x2="450" y2="250" stroke="#333" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="30" stroke="#333" stroke-width="2"/>
+                
+                <!-- Axis Labels -->
+                <text x="240" y="280" font-size="14" fill="#333">Time</text>
+                <text x="20" y="150" font-size="14" fill="#333" transform="rotate(-90 20,150)">Size / Weight</text>
+                
+                <!-- Sigmoid Curve -->
+                <path d="M 50 240 C 150 240, 200 60, 350 50 C 400 48, 430 48, 450 48" fill="none" stroke="#2E7D32" stroke-width="4"/>
+                
+                <!-- Phases -->
+                <line x1="120" y1="250" x2="120" y2="220" stroke="#666" stroke-dasharray="4,4"/>
+                <text x="60" y="220" font-size="12" fill="#666">Lag Phase</text>
+
+                <line x1="280" y1="250" x2="280" y2="80" stroke="#666" stroke-dasharray="4,4"/>
+                <text x="160" y="100" font-size="12" fill="#D32F2F" font-weight="bold">Log/Exponential Phase</text>
+
+                <text x="330" y="70" font-size="12" fill="#1565C0" font-weight="bold">Stationary Phase</text>
+            </svg>
+            <div class="diagram-caption">Fig: An idealized sigmoid growth curve typical of cells in culture, and many higher plants</div>
+        </div>
+        
+        <p>The exponential growth can be expressed as: <strong>W₁ = W₀e<sup>rt</sup></strong></p>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Differentiation, Dedifferentiation and Redifferentiation</div>
+            <p><strong>Differentiation:</strong> Cells from root/shoot apical meristems mature to perform specific functions.<br>
+            <strong>Dedifferentiation:</strong> Living differentiated cells (e.g., parenchyma) regain the capacity to divide (e.g., formation of cork cambium).<br>
+            <strong>Redifferentiation:</strong> Dedifferentiated cells divide and produce cells that once again lose the capacity to divide but mature to perform specific functions (e.g., secondary xylem/phloem).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>💧 2. Conditions for Growth</h2>
+        <p>The plant needs several environmental factors to grow properly:</p>
+        <ul>
+            <li><strong>Water:</strong> Cell enlargement requires water (turgidity helps in extension growth). Water also provides the medium for enzymatic activities.</li>
+            <li><strong>Oxygen:</strong> Helps in releasing metabolic energy essential for growth activities.</li>
+            <li><strong>Nutrients:</strong> Macro and micro essential elements are required for synthesis of protoplasm and as source of energy.</li>
+            <li><strong>Temperature:</strong> Every plant has an optimum temperature range.</li>
+            <li><strong>Light and Gravity:</strong> Affect certain phases/stages of growth.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧪 3. Plant Growth Regulators (PGRs)</h2>
+        <p>PGRs are small, simple molecules of diverse chemical composition. They can be broadly divided into two groups: Growth Promoters and Growth Inhibitors.</p>
+
+        <h3>1. Auxins</h3>
+        <ul>
+            <li>First isolated from human urine. Synthesized in growing apices of stems and roots.</li>
+            <li><strong>Natural:</strong> IAA (Indole Acetic Acid) and IBA (Indole Butyric Acid).</li>
+            <li><strong>Synthetic:</strong> NAA (Naphthalene Acetic Acid) and 2,4-D (2,4-dichlorophenoxyacetic acid).</li>
+            <li><strong>Functions:</strong> Apical dominance (inhibits lateral buds), promotes root initiation in stem cuttings, induces parthenocarpy (seedless tomatoes), 2,4-D is widely used to kill dicot weeds (weedicide).</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Apical Dominance in Tea Gardens</div>
+            <p>Why do gardeners regularly trim tea plants and hedges? Because removing the shoot tips (decapitation) removes the source of <strong>Auxin</strong>. This breaks apical dominance and allows lateral (side) buds to grow, making the plant dense and bushy!</p>
+        </div>
+
+        <h3>2. Gibberellins (GAs)</h3>
+        <ul>
+            <li>Discovered due to 'bakane' (foolish seedling) disease of rice caused by a fungal pathogen <em>Gibberella fujikuroi</em>.</li>
+            <li><strong>Functions:</strong> Increase in length of axis (used to increase length of grape stalks), elongates and improves shape of apple. Delays senescence so fruits can be left on the tree longer. Speeds up malting process in brewing industry. Causes bolting (internode elongation just prior to flowering) in beet, cabbages.</li>
+        </ul>
+
+        <h3>3. Cytokinins</h3>
+        <ul>
+            <li>Discovered as kinetin (a modified adenine/purine) from autoclaved herring sperm DNA. Zeatin was isolated from corn-kernels and coconut milk.</li>
+            <li>Synthesized in regions where rapid cell division occurs (root apices, developing shoot buds, young fruits).</li>
+            <li><strong>Functions:</strong> Help overcome apical dominance, promote nutrient mobilization which helps in the delay of leaf senescence.</li>
+        </ul>
+
+        <h3>4. Ethylene</h3>
+        <ul>
+            <li>A simple gaseous PGR. Synthesized in large amounts by tissues undergoing senescence and ripening fruits.</li>
+            <li><strong>Functions:</strong> Promotes senescence and abscission of plant organs (leaves, flowers). Highly effective in fruit ripening (enhances respiration rate - respiratory climactic). Breaks seed and bud dormancy. Induces root hair formation. Most widely used PGR in agriculture (as Ethephon).</li>
+        </ul>
+
+        <h3>5. Abscisic Acid (ABA)</h3>
+        <ul>
+            <li>Acts as a general plant growth inhibitor and an inhibitor of plant metabolism.</li>
+            <li><strong>Functions:</strong> Inhibits seed germination. Stimulates the closure of stomata and increases the tolerance of plants to various kinds of stresses (hence called <strong>stress hormone</strong>). Plays an important role in seed development, maturation, and dormancy.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Auxin vs Cytokinin</div>
+            <p><strong>A</strong>uxin = <strong>A</strong>pical dominance (keeps the plant growing tall, stops sides).<br>
+            <strong>C</strong>ytokinin = <strong>C</strong>ells dividing (creates bushy sides, overcomes apical dominance).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌙 4. Photoperiodism & Vernalisation</h2>
+        
+        <h3>Photoperiodism</h3>
+        <p>The response of plants to periods of day/night. It's the mechanism plants use to determine when to flower.</p>
+        <ul>
+            <li><strong>Long Day Plants:</strong> Require exposure to light for a period exceeding a well defined critical duration (e.g., Radish, Wheat).</li>
+            <li><strong>Short Day Plants:</strong> Must be exposed to light for a period less than the critical duration (e.g., Tobacco, Soyabean).</li>
+            <li><strong>Day Neutral Plants:</strong> No correlation between exposure to light duration and induction of flowering response (e.g., Tomato, Sunflower).</li>
+        </ul>
+        <p>The site of perception of light/dark duration are the <strong>leaves</strong>. It's hypothesized that a hormonal substance (florigen) migrates from leaves to shoot apices to induce flowering.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Vernalisation</div>
+            <p>There are plants for which flowering is either quantitatively or qualitatively dependent on exposure to <strong>low temperature</strong>. This phenomenon is termed vernalisation. It prevents precocious reproductive development late in the growing season, and enables the plant to have sufficient time to reach maturity.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 15 | Plant Growth and Development</span>
+    </div>
+
+</div>
+
+</body>
+</html>

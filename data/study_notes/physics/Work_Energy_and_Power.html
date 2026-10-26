@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 11 | Ch 5: Work, Energy and Power</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Work, Energy and Power</h1>
+        <div class="subtitle">Class 11 Physics | Chapter 5</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🛠️ 1. Work</h2>
+        <p>Work is said to be done by a force when the body is displaced actually through some distance in the direction of the applied force.</p>
+
+        <p><strong>Formula:</strong> W = <b>F</b> &bull; <b>d</b> = F d cos&theta;</p>
+        <ul>
+            <li><strong>Positive Work:</strong> If 0&deg; &le; &theta; &lt; 90&deg;. Example: Work done by gravity on a freely falling body.</li>
+            <li><strong>Negative Work:</strong> If 90&deg; &lt; &theta; &le; 180&deg;. Example: Work done by friction.</li>
+            <li><strong>Zero Work:</strong> If &theta; = 90&deg; or d = 0. Example: Work done by centripetal force is zero because force is perpendicular to velocity.</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Work done by Variable Force</div>
+            <p>Work done by a variable force is given by the integral of force over the displacement: <strong>W = &int; F(x) dx</strong>. Geometrically, it is the <strong>area under the Force-Displacement graph</strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>⚡ 2. Energy & Work-Energy Theorem</h2>
+        <p>Energy is the capacity to do work. It is a scalar quantity and its SI unit is Joule (J).</p>
+
+        <h3>Kinetic Energy (K)</h3>
+        <p>Energy possessed by a body by virtue of its motion. K = &frac12;mv<sup>2</sup>.</p>
+        <p>Relation between Kinetic Energy and Momentum (p): <strong>K = p<sup>2</sup> / 2m</strong>.</p>
+
+        <h3>Work-Energy Theorem</h3>
+        <p>The net work done by all the forces (conservative and non-conservative) on a body is equal to the change in its kinetic energy.</p>
+        <p><strong>W<sub>net</sub> = K<sub>final</sub> - K<sub>initial</sub> = &Delta;K</strong></p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Conservative Forces</div>
+            <p>Work done by a conservative force (like gravity, spring force, electrostatic force) depends <strong>only on initial and final positions</strong> and is independent of the path taken. Work done by a conservative force in a closed loop is zero.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔋 3. Potential Energy</h2>
+        <p>Energy possessed by a body by virtue of its position or configuration. It is defined only for conservative forces. Change in potential energy &Delta;U = - W<sub>conservative</sub>.</p>
+
+        <ul>
+            <li><strong>Gravitational Potential Energy:</strong> U = mgh (near Earth's surface).</li>
+            <li><strong>Elastic Potential Energy of a Spring:</strong> U = &frac12;kx<sup>2</sup> (where k is spring constant and x is extension or compression).</li>
+        </ul>
+
+        <h3>Law of Conservation of Mechanical Energy</h3>
+        <p>If only conservative forces are doing work on a system, the total mechanical energy (K + U) remains constant. E<sub>initial</sub> = E<sub>final</sub>.</p>
+
+        <!-- DIAGRAM: SPRING MASS SYSTEM -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Wall -->
+                <rect x="50" y="50" width="20" height="100" fill="#B0BEC5"/>
+                
+                <!-- Floor -->
+                <line x1="50" y1="150" x2="450" y2="150" stroke="#333" stroke-width="3"/>
+                
+                <!-- Spring -->
+                <path d="M 70 120 Q 80 100 90 120 T 110 120 T 130 120 T 150 120 T 170 120 T 190 120 T 210 120" fill="none" stroke="#1565C0" stroke-width="3"/>
+                
+                <!-- Block -->
+                <rect x="210" y="90" width="60" height="60" fill="#FFCC80" stroke="#E65100" stroke-width="2"/>
+                <text x="240" y="125" font-size="16" fill="#333" text-anchor="middle">m</text>
+                
+                <!-- Mean Position line -->
+                <line x1="210" y1="80" x2="210" y2="180" stroke="#999" stroke-width="2" stroke-dasharray="4"/>
+                <text x="210" y="195" font-size="12" fill="#555" text-anchor="middle">x = 0</text>
+                
+                <!-- Extension line -->
+                <line x1="270" y1="100" x2="350" y2="100" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="310" y="90" font-size="12" fill="#D32F2F" text-anchor="middle">Displacement x</text>
+
+                <!-- Restoring Force -->
+                <line x1="210" y1="140" x2="130" y2="140" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="170" y="160" font-size="12" fill="#2E7D32" text-anchor="middle">F = -kx</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Spring-Mass System (Elastic Potential Energy U = &frac12;kx&sup2;)</div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>💥 4. Collisions</h2>
+        <p>A strong interaction between bodies that occurs for a short time interval. Total momentum is conserved in all types of collisions.</p>
+
+        <h3>Elastic Collision</h3>
+        <p>Both momentum and kinetic energy are conserved. The forces involved are conservative.</p>
+        <p>In a 1-D elastic collision, velocity of separation equals velocity of approach: <strong>v<sub>2</sub> - v<sub>1</sub> = u<sub>1</sub> - u<sub>2</sub></strong>.</p>
+        
+        <div class="box box-formula">
+            <div class="box-title">💡 Velocities after 1D Elastic Collision</div>
+            <p>v<sub>1</sub> = [(m<sub>1</sub> - m<sub>2</sub>)/(m<sub>1</sub> + m<sub>2</sub>)]u<sub>1</sub> + [2m<sub>2</sub>/(m<sub>1</sub> + m<sub>2</sub>)]u<sub>2</sub><br>
+            If masses are equal (m<sub>1</sub> = m<sub>2</sub>), the bodies simply <strong>exchange their velocities</strong>.</p>
+        </div>
+
+        <h3>Inelastic Collision</h3>
+        <p>Momentum is conserved but kinetic energy is NOT conserved (some is lost as heat/sound). Perfectly inelastic collision: the bodies stick together after impact and move with a common velocity.</p>
+
+        <h3>Coefficient of Restitution (e)</h3>
+        <p>e = (Relative velocity of separation) / (Relative velocity of approach).<br>
+        For perfect elastic: e = 1.<br>
+        For perfect inelastic: e = 0.<br>
+        For inelastic: 0 &lt; e &lt; 1.</p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>⏱️ 5. Power</h2>
+        <p>Power is defined as the time rate at which work is done or energy is transferred.</p>
+
+        <ul>
+            <li><strong>Average Power:</strong> P<sub>avg</sub> = W / t.</li>
+            <li><strong>Instantaneous Power:</strong> P = dW/dt. Since dW = <b>F</b> &bull; <b>dr</b>, we get <strong>P = <b>F</b> &bull; <b>v</b></strong> (dot product of force and velocity).</li>
+        </ul>
+        <p>Unit of power is Watt (W). 1 HP (Horse Power) = 746 W.</p>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Relation K and p</div>
+            <p>If kinetic energy increases by x%, use the exact formula for momentum change. But if the change is very small (&lt; 5%), use the error approximation: <strong>% change in p = &frac12; &times; (% change in K)</strong>.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 5 (Class 11) | Work, Energy and Power</span>
+    </div>
+
+</div>
+
+</body>
+</html>
+

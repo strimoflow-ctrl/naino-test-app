@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 12: Biotechnology and its Applications</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Biotechnology and its Applications</h1>
+        <div class="subtitle">Class 12 Zoology | Chapter 12</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌽 1. Biotechnological Applications in Agriculture</h2>
+        <p>Plants, bacteria, fungi and animals whose genes have been altered by manipulation are called Genetically Modified Organisms (GMO). Genetic modification has made crops more tolerant to abiotic stresses (cold, drought, salt, heat) and reduced reliance on chemical pesticides (pest-resistant crops).</p>
+
+        <h3>Bt Cotton</h3>
+        <p>Some strains of <em>Bacillus thuringiensis</em> produce proteins that kill certain insects such as lepidopterans (tobacco budworm, armyworm), coleopterans (beetles) and dipterans (flies, mosquitoes).</p>
+        <ul>
+            <li><em>B. thuringiensis</em> forms protein crystals during a particular phase of their growth. These crystals contain a toxic insecticidal protein.</li>
+            <li>The Bt toxin protein exists as inactive protoxins but once an insect ingest the inactive toxin, it is converted into an active form of toxin due to the <strong>alkaline pH of the gut</strong> which solubilises the crystals.</li>
+            <li>The activated toxin binds to the surface of midgut epithelial cells and create pores that cause cell swelling and lysis and eventually cause death of the insect.</li>
+            <li>Specific Bt toxin genes were isolated from Bacillus thuringiensis and incorporated into the several crop plants such as cotton. The toxin is coded by a gene named <strong>cry</strong>. (e.g., cryIAc and cryIIAb control the cotton bollworms, that of cryIAb controls corn borer).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>💊 2. Biotechnological Applications in Medicine</h2>
+
+        <h3>Genetically Engineered Insulin</h3>
+        <p>Insulin used for diabetes was earlier extracted from pancreas of slaughtered cattle and pigs. Insulin consists of two short polypeptide chains: chain A and chain B, that are linked together by <strong>disulphide bridges</strong>.</p>
+        <p>In mammals, including humans, insulin is synthesised as a pro-hormone which contains an extra stretch called the <strong>C peptide</strong>. This C peptide is not present in the mature insulin.</p>
+        <p>In 1983, <strong>Eli Lilly</strong> an American company prepared two DNA sequences corresponding to A and B, chains of human insulin and introduced them in plasmids of E. coli to produce insulin chains. Chains A and B were produced separately, extracted and combined by creating disulfide bonds to form human insulin (<strong>Humulin</strong>).</p>
+
+        <!-- DIAGRAM: INSULIN -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 200" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                
+                <!-- Proinsulin -->
+                <path d="M 50 100 Q 100 50, 150 100" fill="none" stroke="#2E7D32" stroke-width="8"/> <!-- C Peptide -->
+                <line x1="50" y1="100" x2="50" y2="150" stroke="#1565C0" stroke-width="8"/> <!-- A Chain -->
+                <line x1="150" y1="100" x2="150" y2="150" stroke="#D32F2F" stroke-width="8"/> <!-- B Chain -->
+                
+                <text x="100" y="70" font-size="12" font-weight="bold" fill="#2E7D32" text-anchor="middle">C Peptide (Free)</text>
+                <text x="100" y="170" font-size="14" fill="#333" text-anchor="middle">Pro-insulin</text>
+
+                <!-- Arrow -->
+                <path d="M 180 125 L 220 125" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- Mature Insulin -->
+                <line x1="250" y1="100" x2="350" y2="100" stroke="#1565C0" stroke-width="8"/> <!-- A Chain -->
+                <line x1="250" y1="140" x2="350" y2="140" stroke="#D32F2F" stroke-width="8"/> <!-- B Chain -->
+                
+                <!-- Disulfide bridges -->
+                <line x1="280" y1="100" x2="280" y2="140" stroke="#000" stroke-width="2"/>
+                <line x1="320" y1="100" x2="320" y2="140" stroke="#000" stroke-width="2"/>
+                <text x="300" y="125" font-size="10" fill="#000" text-anchor="middle">S-S</text>
+
+                <text x="300" y="170" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">Mature Insulin</text>
+                <text x="300" y="85" font-size="12" fill="#1565C0" text-anchor="middle">A Chain</text>
+                <text x="300" y="155" font-size="12" fill="#D32F2F" text-anchor="middle">B Chain</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Maturation of pro-insulin into insulin</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🧬 3. Gene Therapy & Molecular Diagnosis</h2>
+
+        <h3>Gene Therapy</h3>
+        <p>A collection of methods that allows correction of a gene defect that has been diagnosed in a child/embryo. The first clinical gene therapy was given in <strong>1990</strong> to a 4-year old girl with <strong>Adenosine deaminase (ADA) deficiency</strong>. This enzyme is crucial for the immune system to function (causes SCID). In gene therapy, lymphocytes from the blood of the patient are grown in a culture, and a functional ADA cDNA is then introduced into these lymphocytes using a retroviral vector, which are subsequently returned to the patient.</p>
+
+        <h3>Molecular Diagnosis</h3>
+        <p>Early detection is not possible with conventional methods (serum and urine analysis, etc.).</p>
+        <ul>
+            <li><strong>PCR (Polymerase Chain Reaction):</strong> Amplifies DNA. Used to detect HIV in suspected AIDS patients and to detect mutations in genes in suspected cancer patients.</li>
+            <li><strong>ELISA (Enzyme Linked Immuno-sorbent Assay):</strong> Based on the principle of antigen-antibody interaction. Infection by pathogen can be detected by the presence of antigens (proteins, glycoproteins, etc.) or by detecting the antibodies synthesised against the pathogen.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🐭 4. Transgenic Animals</h2>
+        <p>Animals that have had their DNA manipulated to possess and express an extra (foreign) gene are known as transgenic animals. Over 95% of all existing transgenic animals are <strong>mice</strong>.</p>
+        
+        <p>Why are these animals being produced?</p>
+        <ul>
+            <li><strong>Normal physiology and development:</strong> Designed to allow the study of how genes are regulated, and how they affect the normal functions of the body.</li>
+            <li><strong>Study of disease:</strong> Many transgenic animals are designed to increase our understanding of how genes contribute to the development of disease (cancer, cystic fibrosis, rheumatoid arthritis and Alzheimer's).</li>
+            <li><strong>Biological products:</strong> Transgenic animals that produce useful biological products can be created by the introduction of the portion of DNA which codes for a particular product such as human protein <strong>alpha-1-antitrypsin</strong> used to treat emphysema. The first transgenic cow, <strong>Rosie</strong> (1997), produced human protein-enriched milk (alpha-lactalbumin).</li>
+            <li><strong>Vaccine safety:</strong> Transgenic mice are being developed for use in testing the safety of vaccines before they are used on humans (e.g., polio vaccine).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>⚖️ 5. Ethical Issues and Biopiracy</h2>
+
+        <h3>Ethical Issues</h3>
+        <p>The Indian Government has set up organisations such as <strong>GEAC (Genetic Engineering Approval Committee)</strong>, which will make decisions regarding the validity of GM research and the safety of introducing GM-organisms for public services.</p>
+
+        <h3>Biopiracy</h3>
+        <p>The term used to refer to the use of bio-resources by multinational companies and other organisations without proper authorisation from the countries and people concerned without compensatory payment. Industrialised nations are rich financially but poor in biodiversity and traditional knowledge, whereas developing nations are rich in biodiversity.</p>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Basmati Rice Patent</div>
+            <p>Did you know? In 1997, an American company got patent rights on <strong>Basmati rice</strong> through the US Patent and Trademark Office! This allowed the company to sell a 'new' variety of Basmati, even though it was actually derived from Indian farmer's varieties. This is a classic example of biopiracy.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 12 (Class 12) | Biotechnology and its Applications</span>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 3: Plant Kingdom</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition {
+            background-color: var(--info-light);
+            border-color: var(--info);
+        }
+
+        .box-neet {
+            background-color: var(--accent-light);
+            border-color: var(--accent);
+        }
+
+        .box-mnemonic {
+            background-color: var(--warning-light);
+            border-color: var(--warning);
+        }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+
+        tr:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .tag-red { background: #FFCDD2; color: #B71C1C; }
+        .tag-green { background: #C8E6C9; color: #1B5E20; }
+        .tag-blue { background: #BBDEFB; color: #0D47A1; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Plant Kingdom</h1>
+        <div class="subtitle">Class 11 Biology | Chapter 3</div>
+        <div class="badge">🎯 Target: NEET UG | NCERT 100% Coverage</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌿 1. Systems of Classification</h2>
+        <p>In Kingdom Plantae, the classification systems have evolved over time.</p>
+
+        <h3>Artificial System of Classification</h3>
+        <ul>
+            <li>Given by <strong>Linnaeus</strong>.</li>
+            <li>Based on a few easily observable morphological characters (e.g., habit, colour, number, shape of leaves, etc.).</li>
+            <li>Based mainly on vegetative characters or on the <strong>androecium structure</strong>.</li>
+            <li><em>Drawback:</em> Separated closely related species because it was based on a few characteristics. Also, it gave equal weightage to vegetative and sexual characteristics (vegetative characters are easily affected by environment).</li>
+        </ul>
+
+        <h3>Natural System of Classification</h3>
+        <ul>
+            <li>Given by <strong>George Bentham and Joseph Dalton Hooker</strong>.</li>
+            <li>Based on natural affinities among organisms.</li>
+            <li>Considers not only external features but also internal features like ultrastructure, anatomy, embryology, and phytochemistry.</li>
+        </ul>
+
+        <h3>Phylogenetic Classification Systems</h3>
+        <ul>
+            <li>Based on evolutionary relationships between various organisms.</li>
+            <li>Assumes that organisms belonging to the same taxa have a common ancestor.</li>
+            <li>(e.g., Engler and Prantl, Hutchinson, Takhtajan).</li>
+        </ul>
+
+        <div class="box box-definition">
+            <div class="box-title">📘 Numerical, Cytotaxonomy, Chemotaxonomy</div>
+            <p><strong>Numerical Taxonomy:</strong> Uses computers, assigns numbers/codes to all characters. Hundreds of characters can be evaluated at the same time.<br>
+            <strong>Cytotaxonomy:</strong> Based on cytological information like chromosome number, structure, and behavior.<br>
+            <strong>Chemotaxonomy:</strong> Uses the chemical constituents of the plant to resolve confusions.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌱 2. Algae</h2>
+        <p>Algae are chlorophyll-bearing, simple, thalloid, autotrophic, and largely aquatic (both fresh water and marine) organisms. They reproduce vegetatively by fragmentation, asexually by zoospores, and sexually by isogamous, anisogamous, or oogamous methods.</p>
+
+        <h3>Classes of Algae</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Common Name</th>
+                    <th>Major Pigments</th>
+                    <th>Stored Food</th>
+                    <th>Cell Wall</th>
+                    <th>Flagellar Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Chlorophyceae</strong></td>
+                    <td>Green Algae</td>
+                    <td>Chlorophyll <em>a, b</em></td>
+                    <td>Starch</td>
+                    <td>Cellulose</td>
+                    <td>2-8, equal, apical</td>
+                </tr>
+                <tr>
+                    <td><strong>Phaeophyceae</strong></td>
+                    <td>Brown Algae</td>
+                    <td>Chlorophyll <em>a, c</em>, Fucoxanthin</td>
+                    <td>Mannitol, Laminarin</td>
+                    <td>Cellulose + Algin</td>
+                    <td>2, unequal, lateral</td>
+                </tr>
+                <tr>
+                    <td><strong>Rhodophyceae</strong></td>
+                    <td>Red Algae</td>
+                    <td>Chlorophyll <em>a, d</em>, Phycoerythrin</td>
+                    <td>Floridean Starch</td>
+                    <td>Cellulose, Pectin, Polysulphate esters</td>
+                    <td>Absent</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 NEET HIGH-YIELD: Economic Importance</div>
+            <p><strong>Agar:</strong> Obtained from <em>Gelidium</em> and <em>Gracilaria</em> (Red Algae) - used to grow microbes and in ice-creams/jellies.<br>
+            <strong>Algin & Carrageen:</strong> Water-holding substances (hydrocolloids). Algin (from Brown algae), Carrageen (from Red algae).<br>
+            <strong>Food:</strong> <em>Porphyra, Laminaria, Sargassum</em> are edible marine algae.<br>
+            <strong>Space Food:</strong> <em>Chlorella</em> (unicellular green alga rich in proteins).</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🍃 3. Bryophytes (Amphibians of Plant Kingdom)</h2>
+        <p>Bryophytes include various mosses and liverworts found commonly in moist shaded areas in the hills. They are called amphibians of the plant kingdom because they can live in soil but are dependent on water for sexual reproduction.</p>
+
+        <h3>Characteristics</h3>
+        <ul>
+            <li>Plant body is thallus-like and prostrate or erect, attached to substratum by unicellular or multicellular <strong>rhizoids</strong>.</li>
+            <li>Lack true roots, stems, or leaves.</li>
+            <li>Main plant body is haploid (gametophyte). It produces gametes.</li>
+            <li>Male sex organ: <strong>Antheridium</strong> (produces biflagellate antherozoids).</li>
+            <li>Female sex organ: <strong>Archegonium</strong> (flask-shaped, produces single egg).</li>
+            <li>Zygote produces a multicellular body called a <strong>sporophyte</strong>, which is attached to and dependent on the gametophyte.</li>
+        </ul>
+
+        <h3>Liverworts vs Mosses</h3>
+        <ul>
+            <li><strong>Liverworts:</strong> Thalloid body (e.g., <em>Marchantia</em>). Asexual reproduction by fragmentation or specialized structures called <strong>gemmae</strong> (green, multicellular, asexual buds).</li>
+            <li><strong>Mosses:</strong> Gametophyte has two stages: Protonema stage (creeping, green, branched) and Leafy stage. Vegetative reproduction by fragmentation and budding in secondary protonema. Examples: <em>Funaria, Polytrichum, Sphagnum</em>.</li>
+        </ul>
+        
+        <p><em>Note:</em> <strong>Sphagnum</strong> (a moss) provides peat that has long been used as fuel, and as packing material for trans-shipment of living material because of its capacity to hold water.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌿 4. Pteridophytes</h2>
+        <p>Includes horsetails and ferns. They are the first terrestrial plants to possess vascular tissues (xylem and phloem).</p>
+
+        <h3>Characteristics</h3>
+        <ul>
+            <li>Main plant body is a <strong>sporophyte</strong> (diploid) which is differentiated into true root, stem, and leaves.</li>
+            <li>Leaves can be microphylls (small, e.g., <em>Selaginella</em>) or macrophylls (large, e.g., ferns).</li>
+            <li>Sporophytes bear sporangia that are subtended by leaf-like appendages called <strong>sporophylls</strong>. In some cases, sporophylls form distinct compact structures called <strong>strobili</strong> or cones (<em>Selaginella, Equisetum</em>).</li>
+            <li>Spores germinate to give rise to inconspicuous, small, multicellular, free-living, mostly photosynthetic thalloid gametophytes called <strong>prothallus</strong>.</li>
+            <li>Requires cool, damp, shady places to grow. Need water for fertilization.</li>
+        </ul>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 NEET HIGH-YIELD: Heterospory and Seed Habit</div>
+            <p>Majority of pteridophytes produce similar kind of spores (Homosporous). Genera like <strong>Selaginella</strong> and <strong>Salvinia</strong> produce two kinds of spores (macro and micro) and are called <strong>Heterosporous</strong>. This event is a precursor to the seed habit, considered an important step in evolution.</p>
+        </div>
+        
+        <h3>Four Classes of Pteridophytes:</h3>
+        <ul>
+            <li><strong>Psilopsida:</strong> <em>Psilotum</em></li>
+            <li><strong>Lycopsida:</strong> <em>Selaginella, Lycopodium</em></li>
+            <li><strong>Sphenopsida:</strong> <em>Equisetum</em> (Horsetail)</li>
+            <li><strong>Pteropsida:</strong> <em>Dryopteris, Pteris, Adiantum</em></li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🌲 5. Gymnosperms</h2>
+        <p>Gymnosperms (gymnos = naked, sperma = seeds) are plants in which the ovules are not enclosed by any ovary wall and remain exposed, both before and after fertilization. The seeds are naked.</p>
+
+        <h3>Characteristics</h3>
+        <ul>
+            <li>Include medium-sized trees or tall trees and shrubs. <em>Sequoia</em> (giant redwood) is one of the tallest tree species.</li>
+            <li>Roots are generally tap roots. Roots in some have fungal association in the form of <strong>mycorrhiza</strong> (<em>Pinus</em>), while in some others (<em>Cycas</em>) small specialized roots called <strong>coralloid roots</strong> are associated with N₂-fixing cyanobacteria.</li>
+            <li>Stems: Unbranched (<em>Cycas</em>) or branched (<em>Pinus, Cedrus</em>).</li>
+            <li>Leaves are well-adapted to withstand extremes of temperature, humidity, and wind. In conifers, needle-like leaves reduce surface area; thick cuticle and sunken stomata reduce water loss.</li>
+            <li>All are <strong>heterosporous</strong>. Microspores develop into highly reduced male gametophyte called pollen grain. Megaspore mother cell divides meiothetically to form four megaspores, one develops into multicellular female gametophyte.</li>
+        </ul>
+        <p><em>Note:</em> Unlike bryophytes and pteridophytes, in gymnosperms the male and female gametophytes do not have an independent free-living existence. They remain within the sporangia retained on the sporophyte.</p>
+    </div>
+    
+    <!-- SECTION 6 -->
+    <div class="card">
+        <h2>🌸 6. Angiosperms</h2>
+        <p>In the angiosperms or flowering plants, the pollen grains and ovules are developed in specialised structures called flowers. The seeds are enclosed in fruits.</p>
+
+        <ul>
+            <li>Divided into two classes: <strong>Dicotyledons</strong> and <strong>Monocotyledons</strong>.</li>
+            <li>Male sex organ: Stamen (has slender filament with an anther at the tip).</li>
+            <li>Female sex organ: Pistil (has an ovary enclosing ovules, style, and stigma).</li>
+            <li><strong>Double Fertilization:</strong> Unique event to angiosperms! One male gamete fuses with the egg cell (syngamy) to form diploid zygote. The other male gamete fuses with the diploid secondary nucleus to produce triploid Primary Endosperm Nucleus (PEN).</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 3 | Plant Kingdom</span>
+    </div>
+
+</div>
+
+</body>
+</html>

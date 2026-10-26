@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 12 | Ch 15: Biodiversity and Conservation</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Biodiversity and Conservation</h1>
+        <div class="subtitle">Class 12 Biology | Chapter 15</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🌿 1. What is Biodiversity?</h2>
+        <p>The term 'Biodiversity' was popularized by the sociobiologist <strong>Edward Wilson</strong> to describe the combined diversity at all the levels of biological organisation.</p>
+
+        <h3>Levels of Biodiversity</h3>
+        <ol>
+            <li><strong>Genetic Diversity:</strong> A single species might show high diversity at the genetic level over its distributional range. (e.g., India has >50,000 genetically different strains of rice, and >1,000 varieties of mango). Medicinal plant <em>Rauwolfia vomitoria</em> shows variation in terms of the potency and concentration of the active chemical (reserpine) it produces.</li>
+            <li><strong>Species Diversity:</strong> Diversity at the species level. For example, the Western Ghats have a greater amphibian species diversity than the Eastern Ghats.</li>
+            <li><strong>Ecological Diversity:</strong> At the ecosystem level. India, with its deserts, rain forests, mangroves, coral reefs, wetlands, estuaries, and alpine meadows has a greater ecosystem diversity than a Scandinavian country like Norway.</li>
+        </ol>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Estimated Species</div>
+            <p>According to the IUCN (2004), the total number of plant and animal species described so far is slightly more than 1.5 million. However, Robert May places the global species diversity at about <strong>7 million</strong>. This means we have only discovered about 22% of species on Earth!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>📊 2. Global Biodiversity Status</h2>
+        <p>Animals constitute more than 70% of all recorded species, while plants (including algae, fungi, bryophytes, gymnosperms, angiosperms) comprise no more than 22%.</p>
+        <p>Among animals, <strong>Insects</strong> are the most species-rich taxonomic group, making up more than 70% of the total. (Out of every 10 animals on this planet, 7 are insects!).</p>
+
+        <!-- DIAGRAM: PIE CHART -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 400" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                <circle cx="200" cy="200" r="150" fill="#E0E0E0"/>
+                
+                <!-- Insects (70%) -->
+                <path d="M 200 200 L 200 50 A 150 150 0 1 1 57.3 246.3 Z" fill="#FFC107" stroke="#fff" stroke-width="2"/>
+                <text x="250" y="250" font-size="20" font-weight="bold" fill="#333">Insects</text>
+
+                <!-- Other animal groups (15%) -->
+                <path d="M 200 200 L 57.3 246.3 A 150 150 0 0 1 112 78 Z" fill="#FF5722" stroke="#fff" stroke-width="2"/>
+                <text x="70" y="150" font-size="12" fill="#fff" font-weight="bold">Other Animal Groups</text>
+
+                <!-- Molluscs (10%) -->
+                <path d="M 200 200 L 112 78 A 150 150 0 0 1 170 53 Z" fill="#03A9F4" stroke="#fff" stroke-width="2"/>
+                <text x="120" y="60" font-size="12" fill="#000" font-weight="bold">Molluscs</text>
+
+                <!-- Crustaceans (5%) -->
+                <path d="M 200 200 L 170 53 A 150 150 0 0 1 200 50 Z" fill="#8BC34A" stroke="#fff" stroke-width="2"/>
+                
+            </svg>
+            <div class="diagram-caption">Fig: Representation of Global Invertebrate Biodiversity</div>
+        </div>
+
+        <h3>Biodiversity in India</h3>
+        <p>India has only 2.4% of the world's land area, but its share of the global species diversity is an impressive <strong>8.1%</strong>. This makes India one of the 12 mega diversity countries of the world.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>📉 3. Loss of Biodiversity</h2>
+        <p>Extinction is a natural process, but the current rate of extinction is estimated to be 100 to 1,000 times faster than in the pre-human times.</p>
+
+        <h3>The Evil Quartet (Causes of Biodiversity Loss)</h3>
+        <ol>
+            <li><strong>Habitat Loss and Fragmentation:</strong> The most important cause driving animals and plants to extinction. (e.g., Amazon rain forest - the 'lungs of the planet' - is being cut down for cultivating soya beans or for beef cattle). When large habitats are broken into small fragments, mammals and birds requiring large territories are badly affected.</li>
+            <li><strong>Over-exploitation:</strong> When 'need' turns to 'greed'. Examples of recent extinctions: Steller's sea cow, Passenger pigeon.</li>
+            <li><strong>Alien Species Invasions:</strong> When alien species are introduced unintentionally or deliberately, they turn invasive and cause decline of indigenous species. (e.g., Nile perch introduced in Lake Victoria led to extinction of >200 species of cichlid fish. Water hyacinth in India).</li>
+            <li><strong>Co-extinctions:</strong> When a species becomes extinct, the plant and animal species associated with it in an obligatory way also become extinct. (e.g., Plant-pollinator mutualism).</li>
+        </ol>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Recent Extinctions</div>
+            <p>Some recent extinctions you must remember for NEET:<br>
+            - <strong>Dodo</strong> (Mauritius)<br>
+            - <strong>Quagga</strong> (Africa)<br>
+            - <strong>Thylacine</strong> (Australia)<br>
+            - <strong>Steller's Sea Cow</strong> (Russia)<br>
+            - Three subspecies of Tiger: <strong>Bali, Javan, Caspian</strong>.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🛡️ 4. Biodiversity Conservation</h2>
+        <p>We should conserve biodiversity for three reasons: Narrowly utilitarian (direct economic benefits), Broadly utilitarian (ecosystem services like oxygen, pollination), and Ethical (intrinsic value of every species).</p>
+
+        <h3>1. In situ Conservation (On site)</h3>
+        <p>Conservation of flora and fauna in their natural habitat.</p>
+        <ul>
+            <li><strong>Biodiversity Hotspots:</strong> Regions with very high levels of species richness and high degree of <strong>endemism</strong> (species confined to that region and not found anywhere else). Globally there are 34 hotspots. Three cover India: Western Ghats and Sri Lanka, Indo-Burma, and Himalaya.</li>
+            <li><strong>Protected Areas:</strong> Biosphere reserves, National parks, and Sanctuaries.</li>
+            <li><strong>Sacred Groves:</strong> Tracts of forest were set aside, and all the trees and wildlife within were venerated and given total protection. (e.g., Khasi and Jaintia Hills in Meghalaya, Aravalli Hills of Rajasthan).</li>
+        </ul>
+
+        <h3>2. Ex situ Conservation (Off site)</h3>
+        <p>Threatened animals and plants are taken out from their natural habitat and placed in special setting where they can be protected and given special care.</p>
+        <ul>
+            <li>Zoological parks, botanical gardens, and wildlife safari parks.</li>
+            <li><strong>Cryopreservation:</strong> Gametes of threatened species can be preserved in viable and fertile condition for long periods using liquid nitrogen (-196°C).</li>
+            <li>Seed banks for preserving seeds of different genetic strains.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🌐 5. International Initiatives</h2>
+        <ul>
+            <li><strong>The Earth Summit (Rio de Janeiro, 1992):</strong> Historic convention on Biological Diversity. Called upon all nations to take appropriate measures for conservation of biodiversity and sustainable utilization of its benefits.</li>
+            <li><strong>The World Summit on Sustainable Development (Johannesburg, South Africa, 2002):</strong> 190 countries pledged their commitment to achieve by 2010 a significant reduction in the current rate of biodiversity loss at global, regional, and local levels.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 15 (Class 12) | Biodiversity and Conservation</span>
+    </div>
+
+</div>
+
+</body>
+</html>

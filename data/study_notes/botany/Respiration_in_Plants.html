@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 14: Respiration in Plants</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #E8F5E9;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:nth-child(even) { background-color: #F9F9F9; }
+        tr:hover { background-color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Respiration in Plants</h1>
+        <div class="subtitle">Class 11 Biology | Chapter 14</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🔬 1. Introduction to Respiration</h2>
+        <p>Cellular respiration is the mechanism of breakdown of food materials within the cell to release energy, and the trapping of this energy for synthesis of ATP. Plants do not have specialized organs for gaseous exchange but have <strong>stomata and lenticels</strong>.</p>
+        
+        <p>Complete combustion of glucose produces CO₂ and H₂O as end products and yields energy, most of which is given out as heat. But the cell breaks down glucose in multiple steps to trap this energy as ATP.</p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🔄 2. Glycolysis (EMP Pathway)</h2>
+        <p>The term glycolysis has originated from the Greek words, <em>glycos</em> for sugar, and <em>lysis</em> for splitting. Given by Gustav <strong>E</strong>mbden, Otto <strong>M</strong>eyerhof, and J. <strong>P</strong>arnas.</p>
+        
+        <ul>
+            <li>Occurs in the <strong>cytoplasm</strong> of the cell and is present in all living organisms.</li>
+            <li>In this process, glucose undergoes partial oxidation to form two molecules of pyruvic acid.</li>
+            <li>In plants, glucose is derived from sucrose (end product of photosynthesis). Sucrose is converted into glucose and fructose by the enzyme <strong>invertase</strong>.</li>
+        </ul>
+
+        <!-- DIAGRAM: RESPIRATION OVERVIEW -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 350" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                
+                <!-- Glycolysis Box -->
+                <rect x="150" y="20" width="200" height="60" fill="#E3F2FD" stroke="#1565C0" stroke-width="2" rx="10"/>
+                <text x="250" y="45" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">Glucose (6C)</text>
+                <text x="250" y="65" font-size="12" fill="#555" text-anchor="middle">Glycolysis (Cytoplasm)</text>
+                
+                <path d="M 250 80 L 250 120" fill="none" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+                
+                <!-- Pyruvate -->
+                <rect x="150" y="120" width="200" height="40" fill="#FFF8E1" stroke="#F57F17" stroke-width="2" rx="10"/>
+                <text x="250" y="145" font-size="14" font-weight="bold" fill="#F57F17" text-anchor="middle">2 Pyruvic Acid (3C)</text>
+
+                <!-- Arrows splitting -->
+                <path d="M 250 160 L 120 220" fill="none" stroke="#D32F2F" stroke-width="3"/>
+                <text x="110" y="180" font-size="12" fill="#D32F2F" font-weight="bold">O₂ Absent</text>
+                
+                <path d="M 250 160 L 380 220" fill="none" stroke="#2E7D32" stroke-width="3"/>
+                <text x="350" y="180" font-size="12" fill="#2E7D32" font-weight="bold">O₂ Present</text>
+
+                <!-- Fermentation Box -->
+                <rect x="20" y="220" width="180" height="80" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2" rx="10"/>
+                <text x="110" y="245" font-size="14" font-weight="bold" fill="#D32F2F" text-anchor="middle">Fermentation</text>
+                <text x="110" y="265" font-size="12" fill="#555" text-anchor="middle">Lactic Acid OR</text>
+                <text x="110" y="285" font-size="12" fill="#555" text-anchor="middle">Ethanol + CO₂</text>
+
+                <!-- Aerobic Box -->
+                <rect x="300" y="220" width="180" height="80" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2" rx="10"/>
+                <text x="390" y="245" font-size="14" font-weight="bold" fill="#2E7D32" text-anchor="middle">Aerobic Respiration</text>
+                <text x="390" y="265" font-size="12" fill="#555" text-anchor="middle">(Mitochondria)</text>
+                <text x="390" y="285" font-size="12" fill="#555" text-anchor="middle">CO₂ + H₂O + ATP</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Fate of Pyruvic Acid based on Oxygen availability</div>
+        </div>
+
+        <h3>Energy Yield of Glycolysis</h3>
+        <ul>
+            <li>Net gain of ATP directly synthesized = <strong>2 ATP</strong>.</li>
+            <li>Net production of NADH = <strong>2 NADH</strong>.</li>
+            <li>Key regulatory enzyme: <strong>Phosphofructokinase (PFK)</strong> (Pacemaker enzyme of glycolysis).</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🍾 3. Fermentation (Anaerobic)</h2>
+        <p>Incomplete oxidation of glucose under anaerobic conditions.</p>
+        <ul>
+            <li><strong>Alcoholic Fermentation:</strong> Occurs in yeast. Pyruvic acid is converted to ethanol and CO₂. Enzymes: Pyruvic acid decarboxylase and alcohol dehydrogenase.</li>
+            <li><strong>Lactic Acid Fermentation:</strong> Occurs in some bacteria and muscle cells under anaerobic conditions. Pyruvic acid is reduced to lactic acid by lactate dehydrogenase.</li>
+        </ul>
+        <p>In both types, not much energy is released (less than 7% of energy in glucose is released and not all of it is trapped as high energy bonds of ATP).</p>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Yeast Poisoning</div>
+            <p>Did you know? Yeasts poison themselves to death when the concentration of alcohol reaches about <strong>13 percent</strong>. This is why naturally fermented beverages cannot have an alcohol content higher than this without distillation!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌬️ 4. Aerobic Respiration</h2>
+        <p>Takes place within the mitochondria. Final product of glycolysis (pyruvate) is transported from cytoplasm into the mitochondria.</p>
+
+        <h3>Link Reaction</h3>
+        <p>Pyruvate undergoes oxidative decarboxylation catalyzed by <strong>pyruvate dehydrogenase</strong>. It produces <strong>Acetyl CoA</strong>, NADH, and CO₂.</p>
+
+        <h3>Krebs Cycle (TCA Cycle)</h3>
+        <p>Discovered by Hans Krebs. Occurs in mitochondrial matrix.</p>
+        <ul>
+            <li>First stable product: Citric Acid (6C).</li>
+            <li>The cycle involves condensation of Acetyl CoA (2C) with Oxaloacetic Acid (OAA - 4C) and water to yield citric acid.</li>
+            <li>At 3 points in the cycle, NAD⁺ is reduced to NADH. At 1 point, FAD⁺ is reduced to FADH₂.</li>
+            <li>One molecule of GTP (ATP) is synthesized directly via substrate-level phosphorylation when succinyl-CoA is converted to succinic acid.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: Intermediates of Krebs Cycle</div>
+            <p><strong>C</strong>an <strong>I</strong> <strong>K</strong>eep <strong>S</strong>elling <strong>S</strong>eashells <strong>F</strong>or <strong>M</strong>oney, <strong>O</strong>fficer?<br>
+            <strong>C</strong>itrate, <strong>I</strong>socitrate, α-<strong>K</strong>etoglutarate, <strong>S</strong>uccinyl-CoA, <strong>S</strong>uccinate, <strong>F</strong>umarate, <strong>M</strong>alate, <strong>O</strong>xaloacetate.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>⚡ 5. Electron Transport System (ETS)</h2>
+        <p>The metabolic pathway through which the electron passes from one carrier to another, located on the inner mitochondrial membrane.</p>
+
+        <ul>
+            <li><strong>Complex I:</strong> NADH dehydrogenase.</li>
+            <li><strong>Complex II:</strong> Succinate dehydrogenase.</li>
+            <li><strong>Complex III:</strong> Cytochrome bc₁ complex.</li>
+            <li><strong>Complex IV:</strong> Cytochrome c oxidase complex (containing cytochromes a and a₃, and two copper centers).</li>
+            <li><strong>Complex V:</strong> ATP synthase.</li>
+        </ul>
+        <p><strong>Role of Oxygen:</strong> O₂ acts as the final hydrogen acceptor. The whole process of oxygen driving the synthesis of ATP is called <strong>Oxidative Phosphorylation</strong>.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: ATP Yield</div>
+            <p>Oxidation of 1 molecule of NADH gives rise to <strong>3 molecules of ATP</strong>.<br>
+            Oxidation of 1 molecule of FADH₂ produces <strong>2 molecules of ATP</strong>.<br>
+            Total net gain of ATP from 1 glucose molecule during aerobic respiration is roughly <strong>38 ATP</strong> (or 36 ATP depending on the shuttle system).</p>
+        </div>
+        
+        <h3>Amphibolic Pathway</h3>
+        <p>Respiratory pathway is involved in both anabolism (synthesis) and catabolism (breakdown), hence it is better considered an <strong>amphibolic pathway</strong> rather than purely catabolic.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Botany &bull; Chapter 14 | Respiration in Plants</span>
+    </div>
+
+</div>
+
+</body>
+</html>

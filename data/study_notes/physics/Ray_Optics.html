@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Physics | Class 12 | Ch 9: Ray Optics</title>
+    <style>
+        :root {
+            --primary: #0288D1; /* Light Blue for Physics */
+            --primary-light: #E1F5FE;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #1565C0;
+            --info-light: #E3F2FD;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #01579B 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(2, 136, 209, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-formula { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-formula .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Ray Optics and Optical Instruments</h1>
+        <div class="subtitle">Class 12 Physics | Chapter 9</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🪞 1. Reflection of Light</h2>
+        <p>The bouncing back of light into the same medium when it strikes a surface. Laws of Reflection: Angle of incidence (i) = Angle of reflection (r). The incident ray, reflected ray, and normal lie in the same plane.</p>
+
+        <h3>Spherical Mirrors</h3>
+        <ul>
+            <li><strong>Concave Mirror:</strong> Converging mirror. Real focus. Can form both real and virtual images.</li>
+            <li><strong>Convex Mirror:</strong> Diverging mirror. Virtual focus. Always forms virtual, erect, and diminished images. (Used as rear-view mirrors in vehicles).</li>
+        </ul>
+
+        <div class="box box-formula">
+            <div class="box-title">💡 Mirror Formula & Magnification</div>
+            <p><strong>1/f = 1/v + 1/u</strong></p>
+            <p>Linear Magnification: <strong>m = h&prime; / h = -v / u</strong></p>
+            <p>Note: Focus f = R / 2. Sign convention is strictly required: distances measured in the direction of incident light are positive.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🌊 2. Refraction of Light</h2>
+        <p>The bending of light when it passes from one transparent medium to another due to a change in the speed of light.</p>
+        
+        <p><strong>Snell's Law:</strong> &mu;<sub>1</sub> sin(i) = &mu;<sub>2</sub> sin(r).<br>
+        Refractive Index: &mu; = c / v.</p>
+
+        <h3>Apparent Depth</h3>
+        <p>A coin in a tank of water appears raised. Apparent depth = Real depth / &mu;.</p>
+
+        <!-- DIAGRAM: TIR -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 250" width="100%" style="max-width: 450px; font-family: sans-serif;">
+                <!-- Medium boundary -->
+                <line x1="50" y1="125" x2="450" y2="125" stroke="#333" stroke-width="2"/>
+                <rect x="50" y="125" width="400" height="125" fill="#E1F5FE"/>
+                <text x="350" y="230" font-size="14" fill="#1565C0">Denser Medium (&mu;)</text>
+                <text x="350" y="30" font-size="14" fill="#333">Rarer Medium (Air)</text>
+
+                <!-- Normal lines -->
+                <line x1="150" y1="50" x2="150" y2="200" stroke="#999" stroke-dasharray="4"/>
+                <line x1="250" y1="50" x2="250" y2="200" stroke="#999" stroke-dasharray="4"/>
+                <line x1="350" y1="50" x2="350" y2="200" stroke="#999" stroke-dasharray="4"/>
+
+                <!-- Rays -->
+                <circle cx="250" cy="220" r="5" fill="#F57F17"/>
+                
+                <!-- Ray 1: Refracted -->
+                <line x1="250" y1="220" x2="150" y2="125" stroke="#D32F2F" stroke-width="2"/>
+                <line x1="150" y1="125" x2="100" y2="50" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                
+                <!-- Ray 2: Critical -->
+                <line x1="250" y1="220" x2="250" y2="125" stroke="#D32F2F" stroke-width="2"/>
+                <line x1="250" y1="125" x2="300" y2="125" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="260" y="145" font-size="12" fill="#333">i = C</text>
+
+                <!-- Ray 3: TIR -->
+                <line x1="250" y1="220" x2="350" y2="125" stroke="#D32F2F" stroke-width="2"/>
+                <line x1="350" y1="125" x2="420" y2="200" stroke="#D32F2F" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="360" y="145" font-size="12" fill="#333">i &gt; C (TIR)</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Total Internal Reflection (TIR) from denser to rarer medium</div>
+        </div>
+
+        <h3>Total Internal Reflection (TIR)</h3>
+        <p>When light travels from denser to rarer medium and the angle of incidence is greater than the critical angle (C), it is completely reflected back into the denser medium.</p>
+        <p><strong>Critical Angle:</strong> sin(C) = 1 / &mu;</p>
+        <p>Applications: Optical fibers, mirage in deserts, brilliance of diamond.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>🔍 3. Lenses</h2>
+        
+        <p><strong>Lens Maker's Formula:</strong><br>
+        1/f = (&mu; - 1) [1/R<sub>1</sub> - 1/R<sub>2</sub>]</p>
+
+        <p><strong>Thin Lens Formula:</strong><br>
+        1/f = 1/v - 1/u</p>
+
+        <p><strong>Power of a Lens (P):</strong> P = 1 / f(in meters). Unit: Diopter (D). Convex lens has positive power, concave has negative.</p>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Lens immersed in liquid</div>
+            <p>If a lens of refractive index &mu;<sub>g</sub> is immersed in a liquid of refractive index &mu;<sub>l</sub>:</p>
+            <ul>
+                <li>If &mu;<sub>l</sub> &lt; &mu;<sub>g</sub> (e.g., glass in water): Focal length increases, power decreases, but nature remains the same.</li>
+                <li>If &mu;<sub>l</sub> = &mu;<sub>g</sub>: Lens becomes invisible, f = infinity (acts as a plane glass plate).</li>
+                <li>If &mu;<sub>l</sub> &gt; &mu;<sub>g</sub> (e.g., glass in CS<sub>2</sub>): Nature of lens reverses (convex acts as concave).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>🌈 4. Prism</h2>
+        <p>When light passes through a prism, it suffers refraction at two faces. The angle of deviation (&delta;) depends on angle of incidence, angle of prism (A), and refractive index.</p>
+        <p><strong>&delta; = i + e - A</strong></p>
+        
+        <p>At minimum deviation (&delta;<sub>m</sub>): i = e, and r<sub>1</sub> = r<sub>2</sub> = A/2. The refracted ray inside the prism is parallel to its base.</p>
+        <p><strong>Prism Formula:</strong> &mu; = sin[(A + &delta;<sub>m</sub>)/2] / sin(A/2)</p>
+
+        <p><strong>Dispersion:</strong> The splitting of white light into its constituent colors (VIBGYOR). Violet deviates the most, Red deviates the least.</p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🔬 5. Optical Instruments</h2>
+        
+        <ul>
+            <li><strong>Simple Microscope (Magnifying Glass):</strong> A convex lens of short focal length. Magnifying power M = 1 + D/f (image at near point) or M = D/f (image at infinity).</li>
+            <li><strong>Compound Microscope:</strong> Uses objective and eyepiece lenses. M = m<sub>o</sub> &times; m<sub>e</sub>. M &approx; (L/f<sub>o</sub>) &times; (D/f<sub>e</sub>).</li>
+            <li><strong>Astronomical Telescope:</strong> Used for viewing distant heavenly bodies. M = f<sub>o</sub> / f<sub>e</sub> (in normal adjustment). To increase M, f<sub>o</sub> should be large and f<sub>e</sub> small.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Physics &bull; Chapter 9 (Class 12) | Ray Optics and Optical Instruments</span>
+    </div>
+
+</div>
+
+</body>
+</html>

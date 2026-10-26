@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Biology | Class 11 | Ch 19: Excretory Products and their Elimination</title>
+    <style>
+        :root {
+            --primary: #1565C0; /* Blue for Zoology */
+            --primary-light: #E3F2FD;
+            --accent: #D32F2F;
+            --accent-light: #FFEBEE;
+            --info: #2E7D32;
+            --info-light: #E8F5E9;
+            --warning: #F57F17;
+            --warning-light: #FFF8E1;
+            --fun: #8E24AA;
+            --fun-light: #F3E5F5;
+            --text: #212121;
+            --text-light: #555555;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D47A1 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(21, 101, 192, 0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        h4 {
+            color: var(--info);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+        }
+
+        /* Highlight Boxes */
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .box-definition { background-color: var(--info-light); border-color: var(--info); }
+        .box-neet { background-color: var(--accent-light); border-color: var(--accent); }
+        .box-mnemonic { background-color: var(--warning-light); border-color: var(--warning); }
+        .box-funfact { background-color: var(--fun-light); border-color: var(--fun); }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .box-neet .box-title { color: var(--accent); }
+        .box-mnemonic .box-title { color: var(--warning); }
+        .box-definition .box-title { color: var(--info); }
+        .box-funfact .box-title { color: var(--fun); }
+
+        /* Diagrams */
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 1px dashed #B0BEC5;
+        }
+        .diagram-caption {
+            font-size: 0.9rem;
+            color: #78909C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Excretory Products and their Elimination</h1>
+        <div class="subtitle">Class 11 Zoology | Chapter 19</div>
+        <div class="badge">🎯 Target: NEET UG | Fully NCERT Based</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>🗑️ 1. Modes of Excretion</h2>
+        <p>Animals accumulate ammonia, urea, uric acid, carbon dioxide, water, and ions like Na⁺, K⁺, Cl⁻, phosphate, sulphate, etc. Ammonia, urea, and uric acid are the major forms of nitrogenous wastes.</p>
+
+        <ul>
+            <li><strong>Ammonotelic:</strong> Excrete ammonia. Most toxic, requires large amount of water for elimination. Generally excreted by diffusion across body surfaces or gill surfaces as ammonium ions. Examples: Many bony fishes, aquatic amphibians, and aquatic insects.</li>
+            <li><strong>Ureotelic:</strong> Excrete urea. Ammonia produced by metabolism is converted into urea in the <strong>liver</strong> and released into blood to be excreted by kidneys. Examples: Mammals, many terrestrial amphibians, and marine fishes.</li>
+            <li><strong>Uricotelic:</strong> Excrete uric acid in the form of pellet or paste with a minimum loss of water. Least toxic. Examples: Reptiles, birds, land snails, and insects.</li>
+        </ul>
+
+        <div class="box box-funfact">
+            <div class="box-title">🤯 Amazing Info: Shark Kidneys</div>
+            <p>Did you know? Sharks and other marine cartilaginous fishes actually retain a large amount of <strong>urea</strong> in their blood to maintain an osmotic balance with the salty ocean water! This prevents them from drying out.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>🧑‍⚕️ 2. Human Excretory System</h2>
+        <p>Consists of a pair of kidneys, one pair of ureters, a urinary bladder, and a urethra.</p>
+
+        <h3>Kidneys</h3>
+        <p>Reddish brown, bean-shaped structures situated between the levels of last thoracic and third lumbar vertebra. Each kidney has nearly one million complex tubular structures called <strong>nephrons</strong> (the functional units).</p>
+        <p>Internally, kidney is divided into an outer <strong>cortex</strong> and an inner <strong>medulla</strong>. The medulla is divided into a few conical masses (medullary pyramids) projecting into the calyces. The cortex extends in between the medullary pyramids as renal columns called <strong>Columns of Bertini</strong>.</p>
+
+        <h3>The Nephron</h3>
+        <p>Each nephron has two parts: the glomerulus and the renal tubule.</p>
+        <ul>
+            <li><strong>Glomerulus:</strong> A tuft of capillaries formed by the afferent arteriole. Blood from the glomerulus is carried away by an efferent arteriole.</li>
+            <li><strong>Bowman's Capsule:</strong> A double-walled cup-like structure that encloses the glomerulus. Glomerulus along with Bowman's capsule is called the <strong>Malpighian body or renal corpuscle</strong>.</li>
+            <li><strong>Renal Tubule:</strong> Consists of Proximal Convoluted Tubule (PCT), Henle's loop (descending and ascending limbs), and Distal Convoluted Tubule (DCT). The DCTs of many nephrons open into a straight tube called the <strong>collecting duct</strong>.</li>
+        </ul>
+
+        <!-- DIAGRAM: MALPIGHIAN CORPUSCLE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 300" width="100%" style="max-width: 350px; font-family: sans-serif;">
+                
+                <!-- Bowman's Capsule -->
+                <path d="M 120 180 C 60 180, 50 100, 150 50 C 250 100, 240 180, 180 180 L 180 250 L 120 250 Z" fill="#E3F2FD" stroke="#1565C0" stroke-width="3"/>
+                <circle cx="150" cy="120" r="40" fill="#FFF" stroke="#1565C0" stroke-width="3"/>
+                
+                <!-- Afferent and Efferent Arterioles -->
+                <path d="M 20 100 Q 80 80, 120 120" fill="none" stroke="#D32F2F" stroke-width="12"/>
+                <path d="M 280 90 Q 200 70, 170 110" fill="none" stroke="#D32F2F" stroke-width="8"/>
+                
+                <!-- Glomerulus Capillaries -->
+                <path d="M 120 120 Q 150 100, 160 130 Q 130 150, 140 110 Q 160 90, 170 110" fill="none" stroke="#D32F2F" stroke-width="5"/>
+
+                <!-- Labels -->
+                <text x="20" y="80" font-size="12" fill="#D32F2F" font-weight="bold">Afferent Arteriole (Wider)</text>
+                <text x="260" y="70" font-size="12" fill="#D32F2F" font-weight="bold">Efferent Arteriole (Narrow)</text>
+                <text x="150" y="160" font-size="12" fill="#1565C0" font-weight="bold" text-anchor="middle">Bowman's Capsule</text>
+                <text x="150" y="180" font-size="12" fill="#1565C0" text-anchor="middle">(Podocytes)</text>
+                
+                <text x="150" y="270" font-size="14" fill="#1565C0" font-weight="bold" text-anchor="middle">To PCT</text>
+
+            </svg>
+            <div class="diagram-caption">Fig: Malpighian Body (Glomerulus + Bowman's Capsule)</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>💧 3. Urine Formation</h2>
+        <p>Involves three main processes:</p>
+        
+        <ol>
+            <li><strong>Glomerular Filtration:</strong> First step. Occurs through 3 layers (endothelium of capillaries, epithelium of Bowman's capsule, and basement membrane). Epithelial cells (<strong>podocytes</strong>) leave minute spaces called filtration slits. It is an ultrafiltration. GFR in a healthy individual is approx. <strong>125 ml/minute</strong> (180 litres/day).</li>
+            <li><strong>Reabsorption:</strong> Out of 180 L of filtrate formed per day, only 1.5 L of urine is released. This means nearly 99% of filtrate is reabsorbed by the renal tubules. PCT is lined by simple cuboidal brush border epithelium which increases surface area. Nearly all essential nutrients, and 70-80% of electrolytes and water are reabsorbed in PCT.</li>
+            <li><strong>Secretion:</strong> Tubular cells secrete substances like H⁺, K⁺ and ammonia into the filtrate to maintain ionic and acid-base balance of body fluids.</li>
+        </ol>
+
+        <div class="box box-neet">
+            <div class="box-title">🚨 Exam Facts: Loop of Henle</div>
+            <p><strong>Descending limb:</strong> Permeable to water but almost impermeable to electrolytes. Concentrates the filtrate as it moves down.<br>
+            <strong>Ascending limb:</strong> Impermeable to water but allows transport of electrolytes. Dilutes the filtrate as it moves up.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>⚖️ 4. Regulation of Kidney Function</h2>
+        
+        <ul>
+            <li><strong>Hypothalamus (ADH):</strong> Osmoreceptors in the body are activated by changes in blood volume. An excessive loss of fluid stimulates the hypothalamus to release ADH (Antidiuretic Hormone) or Vasopressin from the neurohypophysis. ADH facilitates water reabsorption from DCT and collecting duct, preventing diuresis.</li>
+            <li><strong>JGA (Renin-Angiotensin mechanism):</strong> A fall in glomerular blood pressure activates the JG cells to release <strong>Renin</strong>. Renin converts angiotensinogen in blood to angiotensin I and further to angiotensin II. Angiotensin II is a powerful vasoconstrictor and also activates the adrenal cortex to release <strong>Aldosterone</strong> (causes reabsorption of Na⁺ and water from distal parts).</li>
+            <li><strong>Heart (ANF):</strong> An increase in blood flow to the atria of the heart can cause the release of Atrial Natriuretic Factor (ANF). ANF causes vasodilation and thereby decreases blood pressure. It acts as a check on the renin-angiotensin mechanism.</li>
+        </ul>
+
+        <div class="box box-mnemonic">
+            <div class="box-title">💡 Short Trick: RAAS System</div>
+            <p><strong>R</strong>enin converts <strong>A</strong>ngiotensinogen to <strong>A</strong>ngiotensin, which stimulates <strong>S</strong>ecretion of Aldosterone! (RAAS)</p>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>🚑 5. Disorders of Excretory System</h2>
+        
+        <ul>
+            <li><strong>Uremia:</strong> Accumulation of urea in blood due to malfunctioning of kidneys. Highly harmful and may lead to kidney failure. Treated by <strong>Hemodialysis</strong>.</li>
+            <li><strong>Renal Calculi:</strong> Stone or insoluble mass of crystallised salts (e.g., oxalates) formed within the kidney.</li>
+            <li><strong>Glomerulonephritis:</strong> Inflammation of glomeruli of kidney.</li>
+        </ul>
+        <p>In uremia patients, blood drained from a convenient artery is pumped into a dialysing unit containing a coiled cellophane tube suspended in a dialysing fluid. The porous cellophane membrane allows passage of molecules based on concentration gradient.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Knowledge Curiosity. All rights reserved.<br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">Zoology &bull; Chapter 19 (Class 11) | Excretory Products and their Elimination</span>
+    </div>
+
+</div>
+
+</body>
+</html>
