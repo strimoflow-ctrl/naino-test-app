@@ -57,11 +57,39 @@ try {
   console.error('Error loading database:', err);
 }
 
+const imgManifestPaths = [
+  path.join(__dirname, 'image_manifest.json'),
+  path.join(__dirname, 'data', 'image_manifest.json'),
+  path.join(__dirname, '..', 'data', 'image_manifest.json')
+];
+let imageManifest = {};
+export const loadImageManifest = () => {
+  for (const p of imgManifestPaths) {
+    if (fs.existsSync(p)) {
+      try {
+        imageManifest = JSON.parse(fs.readFileSync(p, 'utf8'));
+        break;
+      } catch (_) {}
+    }
+  }
+};
+loadImageManifest();
+
 export function resolveImageUrl(img, type = 'questions', req) {
   if (!img) return null;
   if (img.startsWith('http://') || img.startsWith('https://')) return img;
   let filename = img.trim();
   if (!filename.includes('.')) filename += '.png';
+
+  // Check 3rd party cloud CDN manifest
+  if (imageManifest[filename] && imageManifest[filename].url) {
+    return imageManifest[filename].url;
+  }
+  const cleanName = filename.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+  if (imageManifest[cleanName] && imageManifest[cleanName].url) {
+    return imageManifest[cleanName].url;
+  }
+
   const baseUrl = process.env.R2_PUBLIC_URL || `${req.protocol}://${req.get('host')}/media/${type}`;
   return `${baseUrl}/${filename}`;
 }
