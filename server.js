@@ -11,6 +11,7 @@ import pyqsRouter from './routes/pyqs.js';
 import libraryRouter from './routes/library.js';
 import mistakesRouter from './routes/mistakes.js';
 import userRouter from './routes/user.js';
+import configRouter from './routes/config.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -94,6 +95,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // 3. Mount Modular Routes
+app.use('/api', configRouter);           // /api/app-config, /api/home-layout, /api/dynamic-chapters, /api/study-materials
 app.use('/api', testsRouter);            // /api/daily-test, /api/chapters, /api/dpp, /api/diagrams
 app.use('/api/pyq', pyqsRouter);         // /api/pyq/papers, /api/pyq/paper/:year
 app.use('/api', libraryRouter);          // /api/notes, /api/library/books
