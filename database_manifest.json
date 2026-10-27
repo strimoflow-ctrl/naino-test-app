@@ -1,0 +1,97 @@
+{
+  "by_category/mock_tests/all_mock_tests.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/mock_tests/all_mock_tests.json",
+    "size_bytes": 1019,
+    "uploaded_at": "2026-10-27 14:20:51"
+  },
+  "catalog_audit_report.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/catalog_audit_report.json",
+    "size_bytes": 29093,
+    "uploaded_at": "2026-10-27 14:20:51"
+  },
+  "by_category/mock_tests/mock_1.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/mock_tests/mock_1.json",
+    "size_bytes": 84765,
+    "uploaded_at": "2026-10-27 14:20:54"
+  },
+  "by_category/mock_tests/mock_2.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/mock_tests/mock_2.json",
+    "size_bytes": 107029,
+    "uploaded_at": "2026-10-27 14:20:55"
+  },
+  "by_category/challenger_mode/numericals.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/challenger_mode/numericals.json",
+    "size_bytes": 254855,
+    "uploaded_at": "2026-10-27 14:20:58"
+  },
+  "library_catalog.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/library_catalog.json",
+    "size_bytes": 107488,
+    "uploaded_at": "2026-10-27 14:21:07"
+  },
+  "by_category/mock_tests/mock_3.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/mock_tests/mock_3.json",
+    "size_bytes": 107030,
+    "uploaded_at": "2026-10-27 14:21:08"
+  },
+  "by_category/challenger_mode/tough_questions.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/challenger_mode/tough_questions.json",
+    "size_bytes": 508545,
+    "uploaded_at": "2026-10-27 14:21:10"
+  },
+  "by_category/diagrams/diagram_questions.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/diagrams/diagram_questions.json",
+    "size_bytes": 501492,
+    "uploaded_at": "2026-10-27 14:21:12"
+  },
+  "by_category/pyq_papers/neet_papers_2015_2024.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/pyq_papers/neet_papers_2015_2024.json",
+    "size_bytes": 1153990,
+    "uploaded_at": "2026-10-27 14:21:20"
+  },
+  "by_category/repeated_pyqs/repeated_pyqs.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/repeated_pyqs/repeated_pyqs.json",
+    "size_bytes": 477164,
+    "uploaded_at": "2026-10-27 14:21:26"
+  },
+  "by_subject/zoology_master.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_subject/zoology_master.json",
+    "size_bytes": 1881748,
+    "uploaded_at": "2026-10-27 14:21:30"
+  },
+  "by_category/chapterwise/chapterwise_pyqs.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/chapterwise/chapterwise_pyqs.json",
+    "size_bytes": 1130731,
+    "uploaded_at": "2026-10-27 14:21:31"
+  },
+  "by_subject/botany_master.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_subject/botany_master.json",
+    "size_bytes": 2162589,
+    "uploaded_at": "2026-10-27 14:25:45"
+  },
+  "by_subject/physics_master.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_subject/physics_master.json",
+    "size_bytes": 3855051,
+    "uploaded_at": "2026-10-27 14:25:51"
+  },
+  "by_subject/biology_master.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_subject/biology_master.json",
+    "size_bytes": 2706674,
+    "uploaded_at": "2026-10-27 14:29:53"
+  },
+  "by_subject/chemistry_master.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_subject/chemistry_master.json",
+    "size_bytes": 3705699,
+    "uploaded_at": "2026-10-27 14:29:53"
+  },
+  "by_category/chapterwise/chapterwise_all.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/chapterwise/chapterwise_all.json",
+    "size_bytes": 4345808,
+    "uploaded_at": "2026-10-27 14:29:59"
+  },
+  "by_category/daily_20_questions/daily_20_questions_pool.json": {
+    "url": "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/database/by_category/daily_20_questions/daily_20_questions_pool.json",
+    "size_bytes": 6018213,
+    "uploaded_at": "2026-10-27 14:30:01"
+  }
+}
