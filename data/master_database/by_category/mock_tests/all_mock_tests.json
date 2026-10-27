@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mock_1",
+    "title": "All India NEET Grand Mock Test 1",
+    "subtitle": "NTA Official Pattern (180 Qs - 720 Marks)",
+    "durationMinutes": 200,
+    "totalQuestions": 180,
+    "marks": 720,
+    "subjects": [
+      "Physics (45 Qs)",
+      "Chemistry (45 Qs)",
+      "Botany (45 Qs)",
+      "Zoology (45 Qs)"
+    ]
+  },
+  {
+    "id": "mock_2",
+    "title": "All India NEET Grand Mock Test 2",
+    "subtitle": "Full Syllabus Diagnostic (180 Qs - 720 Marks)",
+    "durationMinutes": 200,
+    "totalQuestions": 180,
+    "marks": 720,
+    "subjects": [
+      "Physics (45 Qs)",
+      "Chemistry (45 Qs)",
+      "Botany (45 Qs)",
+      "Zoology (45 Qs)"
+    ]
+  },
+  {
+    "id": "mock_3",
+    "title": "NEET Rank Predictor Grand Mock 3",
+    "subtitle": "High-Yield AIR Challenger (180 Qs - 720 Marks)",
+    "durationMinutes": 200,
+    "totalQuestions": 180,
+    "marks": 720,
+    "subjects": [
+      "Physics (45 Qs)",
+      "Chemistry (45 Qs)",
+      "Botany (45 Qs)",
+      "Zoology (45 Qs)"
+    ]
+  }
+]

@@ -1,10 +1,11 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { DOWNLOADS_DIR, masterBySubject } from './db.js';
+import { DOWNLOADS_DIR, masterBySubject, connectMongo, isMongoConnected } from './db.js';
 import testsRouter from './routes/tests.js';
 import pyqsRouter from './routes/pyqs.js';
 import libraryRouter from './routes/library.js';
@@ -54,12 +55,39 @@ if (fs.existsSync(DOWNLOADS_DIR)) {
   app.use('/media/solutions', express.static(path.join(DOWNLOADS_DIR, 'solution_images')));
 }
 
-// 2. Health & System Check
+// 2. Health & 24/7 Uptime Keep-Alive Check (Supports HEAD & GET for UptimeRobot / Cron pings)
+app.head('/', (req, res) => res.status(200).end());
+app.get('/', (req, res) => res.send('Naino NEET API is online and running 24/7!'));
+app.head('/ping', (req, res) => res.status(200).end());
+app.get('/ping', (req, res) => res.status(200).send('pong'));
+
+// Dedicated /status route for UptimeRobot / Better Uptime
+app.head('/status', (req, res) => res.status(200).end());
+app.get('/status', (req, res) => {
+  const total = Object.values(masterBySubject).reduce((acc, curr) => acc + curr.length, 0);
+  const uptimeSeconds = Math.floor(process.uptime());
+  const hours = Math.floor(uptimeSeconds / 3600);
+  const minutes = Math.floor((uptimeSeconds % 3600) / 60);
+  const seconds = uptimeSeconds % 60;
+  
+  res.status(200).json({
+    status: 'ONLINE',
+    app: 'Naino NEET Backend API',
+    uptimeSeconds,
+    uptimeFormatted: `${hours}h ${minutes}m ${seconds}s`,
+    database: isMongoConnected() ? 'MONGODB_ATLAS' : 'LOCAL_IN_MEMORY',
+    totalQuestions: total,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.head('/api/health', (req, res) => res.status(200).end());
 app.get('/api/health', (req, res) => {
   const total = Object.values(masterBySubject).reduce((acc, curr) => acc + curr.length, 0);
   res.json({
     status: 'ONLINE',
     app: 'Naino – NEET Tests & PYQs API (Modular Architecture)',
+    database: isMongoConnected() ? 'MONGODB_ATLAS' : 'LOCAL_IN_MEMORY',
     totalQuestions: total,
     timestamp: new Date().toISOString()
   });
@@ -76,9 +104,13 @@ app.use('/api/user', userRouter);        // /api/user/streak, /api/user/profile,
 app.use('/api', userRouter);
 
 // 4. Start Server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', async () => {
   console.log(`\n=================================================`);
   console.log(`NAINO NEET MODULAR BACKEND SERVER RUNNING ON PORT ${PORT}`);
-  console.log(`Local Access: http://localhost:${PORT}/api/health`);
+  console.log(`Local Status: http://localhost:${PORT}/status`);
+  console.log(`Local Health: http://localhost:${PORT}/api/health`);
   console.log(`=================================================\n`);
+  
+  // Connect to MongoDB Atlas if MONGODB_URI is provided in environment
+  await connectMongo();
 });

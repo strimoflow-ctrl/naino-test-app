@@ -2,8 +2,48 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import { MongoClient } from 'mongodb';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// MongoDB Atlas Client and State
+let mongoClient = null;
+let mongoDb = null;
+let mongoReady = false;
+
+export async function connectMongo() {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    console.log('[Database] No MONGODB_URI in environment. Operating with high-speed in-memory JSON.');
+    return null;
+  }
+  try {
+    console.log('[Database] Connecting to MongoDB Atlas...');
+    mongoClient = new MongoClient(uri, {
+      serverSelectionTimeoutMS: 8000,
+      connectTimeoutMS: 10000
+    });
+    await mongoClient.connect();
+    const dbName = process.env.MONGODB_DB_NAME || 'naino_neet_db';
+    mongoDb = mongoClient.db(dbName);
+    mongoReady = true;
+    console.log(`[Database] Successfully connected to MongoDB Atlas database: ${dbName}!`);
+    return mongoDb;
+  } catch (err) {
+    console.warn(`[Database] MongoDB Atlas connection error (${err.message}). Seamlessly using in-memory JSON fallback.`);
+    mongoReady = false;
+    return null;
+  }
+}
+
+export function getMongoDb() {
+  return mongoDb;
+}
+
+export function isMongoConnected() {
+  return mongoReady;
+}
 
 export const DATA_DIR = path.join(__dirname, 'data', 'master_database');
 export const NOTES_DIR = path.join(__dirname, 'data', 'study_notes');
@@ -39,12 +79,18 @@ try {
   }
 
   const catFiles = {
-    dpp: path.join(DATA_DIR, 'by_category', 'dpp', 'dpp_all.json'),
+    daily_pool: path.join(DATA_DIR, 'by_category', 'daily_20_questions', 'daily_20_questions_pool.json'),
     chapterwise: path.join(DATA_DIR, 'by_category', 'chapterwise', 'chapterwise_all.json'),
     chapterwise_pyqs: path.join(DATA_DIR, 'by_category', 'chapterwise', 'chapterwise_pyqs.json'),
     neet_papers: path.join(DATA_DIR, 'by_category', 'pyq_papers', 'neet_papers_2015_2024.json'),
     diagrams: path.join(DATA_DIR, 'by_category', 'diagrams', 'diagram_questions.json'),
     repeated_pyqs: path.join(DATA_DIR, 'by_category', 'repeated_pyqs', 'repeated_pyqs.json'),
+    numericals: path.join(DATA_DIR, 'by_category', 'challenger_mode', 'numericals.json'),
+    tough: path.join(DATA_DIR, 'by_category', 'challenger_mode', 'tough_questions.json'),
+    mock_summary: path.join(DATA_DIR, 'by_category', 'mock_tests', 'all_mock_tests.json'),
+    mock_1: path.join(DATA_DIR, 'by_category', 'mock_tests', 'mock_1.json'),
+    mock_2: path.join(DATA_DIR, 'by_category', 'mock_tests', 'mock_2.json'),
+    mock_3: path.join(DATA_DIR, 'by_category', 'mock_tests', 'mock_3.json'),
   };
 
   for (const [k, fPath] of Object.entries(catFiles)) {
@@ -52,6 +98,8 @@ try {
       masterByCategory[k] = JSON.parse(fs.readFileSync(fPath, 'utf-8'));
     }
   }
+  // Alias dpp to daily_pool for backward compatibility
+  masterByCategory.dpp = masterByCategory.daily_pool || [];
   console.log('Master Database Ready!');
 } catch (err) {
   console.error('Error loading database:', err);

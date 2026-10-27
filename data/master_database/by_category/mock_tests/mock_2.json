@@ -1,0 +1,3430 @@
+{
+  "id": "mock_2",
+  "title": "All India NEET Grand Mock Test 2",
+  "subtitle": "Full Syllabus Diagnostic (180 Qs - 720 Marks)",
+  "durationMinutes": 200,
+  "totalQuestions": 180,
+  "marks": 720,
+  "questions": [
+    {
+      "id": "mock_2_q1",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Assertion (A): Cyanobacteria (Blue-green algae) are classified under Kingdom Monera.\nReason (R): They possess a prokaryotic cell structure with photosynthetic pigments such as chlorophyll 'a'.",
+      "questionImg": null,
+      "options": [
+        "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+        "Both (A) and (R) are true but (R) is not the correct explanation of (A)",
+        "(A) is true but (R) is false",
+        "Both (A) and (R) are false"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cyanobacteria are prokaryotes containing chlorophyll 'a' and are classified under Kingdom Monera.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q2",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which of the following algae produces Agar-agar used in culture media and ice-creams?",
+      "questionImg": null,
+      "options": [
+        "Gelidium and Gracilaria",
+        "Volvox and Spirogyra",
+        "Sargassum and Fucus",
+        "Ectocarpus and Dictyota"
+      ],
+      "correctIndex": 0,
+      "explanation": "Agar is a hydrocolloid obtained from red algae Gelidium and Gracilaria.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q3",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Match Column-I with Column-II:\nColumn I: A. Chlorophyceae, B. Phaeophyceae, C. Rhodophyceae, D. Cyanophyceae\nColumn II: i. Fucoxanthin, ii. Phycoerythrin, iii. Chlorophyll a & b, iv. Phycocyanin",
+      "questionImg": null,
+      "options": [
+        "A-iii, B-i, C-ii, D-iv",
+        "A-i, B-iii, C-ii, D-iv",
+        "A-iii, B-ii, C-i, D-iv",
+        "A-iv, B-i, C-ii, D-iii"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chlorophyceae contains chlorophyll a&b, Phaeophyceae has fucoxanthin, Rhodophyceae has r-phycoerythrin, Cyanophyceae has phycocyanin.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q4",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "The dominant phase in the life cycle of a bryophyte is the:",
+      "questionImg": null,
+      "options": [
+        "Free-living haploid gametophyte",
+        "Dependent diploid sporophyte",
+        "Free-living diploid sporophyte",
+        "Dependent haploid gametophyte"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bryophytes have a dominant, photosynthetic, free-living haploid gametophyte stage.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q5",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In angiosperms, double fertilization involves:",
+      "questionImg": null,
+      "options": [
+        "Syngamy and Triple fusion",
+        "Syngamy and Apomixis",
+        "Triple fusion and Parthenocarpy",
+        "Two syngamy events"
+      ],
+      "correctIndex": 0,
+      "explanation": "Double fertilization consists of Syngamy (egg + male gamete -> zygote) and Triple Fusion (2 polar nuclei + male gamete -> PEN).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q6",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which floral family is characterized by bicarpellary syncarpous gynoecium with swollen placenta and oblique septum?",
+      "questionImg": null,
+      "options": [
+        "Solanaceae",
+        "Fabaceae",
+        "Liliaceae",
+        "Brassicaceae"
+      ],
+      "correctIndex": 0,
+      "explanation": "Solanaceae possesses bicarpellary syncarpous ovary with oblique septum and swollen placenta carrying many ovules.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q7",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Vascular bundles in dicot stems are described as:",
+      "questionImg": null,
+      "options": [
+        "Conjoint, collateral, open with endarch xylem",
+        "Conjoint, collateral, closed with exarch xylem",
+        "Radial, open with exarch xylem",
+        "Conjoint, bicollateral, closed with endarch xylem"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dicot stem vascular bundles are conjoint, collateral, open (having cambium), with endarch protoxylem.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q8",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Fluid Mosaic Model of cell membrane was proposed by Singer and Nicolson in:",
+      "questionImg": null,
+      "options": [
+        "1972",
+        "1950",
+        "1839",
+        "1965"
+      ],
+      "correctIndex": 0,
+      "explanation": "Singer and Nicolson proposed the widely accepted Fluid Mosaic Model of plasma membrane in 1972.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q9",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "During which sub-stage of Prophase-I of meiosis does crossing over take place?",
+      "questionImg": null,
+      "options": [
+        "Pachytene",
+        "Leptotene",
+        "Zygotene",
+        "Diplotene"
+      ],
+      "correctIndex": 0,
+      "explanation": "Crossing over between non-sister chromatids of homologous chromosomes occurs during Pachytene stage catalyzed by recombinase enzyme.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q10",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Synaptonemal complex dissolves during which sub-phase of Meiosis-I?",
+      "questionImg": null,
+      "options": [
+        "Diplotene",
+        "Pachytene",
+        "Zygotene",
+        "Diakinesis"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dissolution of synaptonemal complex occurs at Diplotene, making X-shaped Chiasmata visible.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q11",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Primary CO2 acceptor in C4 plants during Hatch and Slack pathway is:",
+      "questionImg": null,
+      "options": [
+        "Phosphoenolpyruvate (PEP)",
+        "Ribulose-1,5-bisphosphate (RuBP)",
+        "Oxaloacetic acid (OAA)",
+        "Phosphoglyceric acid (PGA)"
+      ],
+      "correctIndex": 0,
+      "explanation": "PEP (3-carbon molecule) present in mesophyll cells is the primary CO2 acceptor in C4 plants.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q12",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "First stable product of Calvin Cycle (C3 pathway) is:",
+      "questionImg": null,
+      "options": [
+        "3-Phosphoglyceric acid (3-PGA)",
+        "Oxaloacetic acid (OAA)",
+        "Glucose",
+        "RuBP"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fixation of CO2 by RuBisCO produces two molecules of 3-Phosphoglyceric acid (3-carbon compound).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q13",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "How many ATP and NADPH molecules are required for the synthesis of one molecule of Glucose in C3 cycle?",
+      "questionImg": null,
+      "options": [
+        "18 ATP and 12 NADPH",
+        "12 ATP and 18 NADPH",
+        "30 ATP and 12 NADPH",
+        "24 ATP and 12 NADPH"
+      ],
+      "correctIndex": 0,
+      "explanation": "Synthesis of 1 Glucose (6 CO2 fixed) requires 6 x 3 = 18 ATP and 6 x 2 = 12 NADPH.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q14",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme converts Glucose to Glucose-6-phosphate in the first step of Glycolysis?",
+      "questionImg": null,
+      "options": [
+        "Hexokinase",
+        "Phosphofructokinase",
+        "Pyruvate kinase",
+        "Enolase"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hexokinase phosphorylates glucose into glucose-6-phosphate using 1 ATP.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q15",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Respiratory Quotient (RQ) for pure tripalmitin (fat) is approximately:",
+      "questionImg": null,
+      "options": [
+        "0.7",
+        "1.0",
+        "0.9",
+        "4.0"
+      ],
+      "correctIndex": 0,
+      "explanation": "RQ = CO2 evolved / O2 consumed. For fats like tripalmitin, RQ = 102 CO2 / 145 O2 ≈ 0.7.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q16",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Gaseous plant hormone responsible for respiratory climacteric in ripening fruits is:",
+      "questionImg": null,
+      "options": [
+        "Ethylene",
+        "Abscisic acid (ABA)",
+        "Gibberellic acid (GA3)",
+        "Zeatin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ethylene enhances rate of respiration during fruit ripening, termed respiratory climacteric.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q17",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Stress hormone in plants that induces stomatal closure during water deficit is:",
+      "questionImg": null,
+      "options": [
+        "Abscisic Acid (ABA)",
+        "Auxin (IAA)",
+        "Cytokinin",
+        "Gibberellin"
+      ],
+      "correctIndex": 0,
+      "explanation": "ABA stimulates stomatal closure to minimize transpiration loss under drought conditions.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q18",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Functional megaspore in an angiosperm embryo sac develops into:",
+      "questionImg": null,
+      "options": [
+        "Female gametophyte (Embryo sac)",
+        "Male gametophyte",
+        "Endosperm",
+        "Zygote"
+      ],
+      "correctIndex": 0,
+      "explanation": "Monosporic development: Functional megaspore undergoes 3 mitotic divisions to form 7-celled, 8-nucleate embryo sac.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q19",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Transfer of pollen grains from anther to stigma of another flower of the same plant is called:",
+      "questionImg": null,
+      "options": [
+        "Geitonogamy",
+        "Autogamy",
+        "Xenogamy",
+        "Cleistogamy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Geitonogamy is functionally cross-pollination (involving pollinator) but genetically autogamy.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q20",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In a dihybrid cross between AaBb x AaBb, what is the phenotypic ratio of offspring?",
+      "questionImg": null,
+      "options": [
+        "9 : 3 : 3 : 1",
+        "1 : 2 : 1",
+        "3 : 1",
+        "9 : 7"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mendelian dihybrid phenotypic ratio is 9 (DOM/DOM) : 3 (DOM/rec) : 3 (rec/DOM) : 1 (rec/rec).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q21",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "A human female with Turner's Syndrome has which of the following karyotypes?",
+      "questionImg": null,
+      "options": [
+        "45 with XO",
+        "47 with XXY",
+        "47 with trisomy 21",
+        "47 with XXX"
+      ],
+      "correctIndex": 0,
+      "explanation": "Turner's syndrome is caused by absence of one X chromosome (44 autosomes + XO = 45 chromosomes).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q22",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "According to Chargaff's rule for double-stranded DNA:",
+      "questionImg": null,
+      "options": [
+        "A + G = T + C (Purines = Pyrimidines)",
+        "A + T = G + C",
+        "A / G = 1",
+        "A + C = T + G is false"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chargaff rule states [A]=[T] and [G]=[C], hence [A]+[G] = [T]+[C].",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q23",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In Lac Operon of E. coli, lac z gene encodes for which enzyme?",
+      "questionImg": null,
+      "options": [
+        "Beta-galactosidase",
+        "Permease",
+        "Transacetylase",
+        "RNA Polymerase"
+      ],
+      "correctIndex": 0,
+      "explanation": "lac z codes for β-galactosidase which hydrolyzes lactose into glucose and galactose.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q24",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme unzips double-stranded DNA during replication by breaking hydrogen bonds?",
+      "questionImg": null,
+      "options": [
+        "DNA Helicase",
+        "DNA Ligase",
+        "DNA Polymerase III",
+        "Topoisomerase"
+      ],
+      "correctIndex": 0,
+      "explanation": "Helicase unwinds the double helix at replication fork by breaking hydrogen bonds between base pairs.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q25",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Initiation codon for protein synthesis in eukaryotes is:",
+      "questionImg": null,
+      "options": [
+        "AUG (coding for Methionine)",
+        "UAA",
+        "UAG",
+        "UGA"
+      ],
+      "correctIndex": 0,
+      "explanation": "AUG is the universal start codon coding for Methionine (Formyl-methionine in prokaryotes).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q26",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which restriction enzyme produces blunt ends instead of sticky ends?",
+      "questionImg": null,
+      "options": [
+        "EcoRV",
+        "EcoRI",
+        "HindIII",
+        "BamHI"
+      ],
+      "correctIndex": 0,
+      "explanation": "EcoRV cuts at GAT|ATC producing blunt (flush) ends.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q27",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In Polymerase Chain Reaction (PCR), correct order of steps in one cycle is:",
+      "questionImg": null,
+      "options": [
+        "Denaturation -> Annealing -> Extension",
+        "Annealing -> Extension -> Denaturation",
+        "Extension -> Denaturation -> Annealing",
+        "Denaturation -> Extension -> Annealing"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCR steps: 1. Denaturation (~94°C), 2. Annealing (~54°C), 3. Extension (~72°C using Taq polymerase).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q28",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Ti plasmid used as a cloning vector for transforming plant cells is isolated from:",
+      "questionImg": null,
+      "options": [
+        "Agrobacterium tumefaciens",
+        "Escherichia coli",
+        "Bacillus thuringiensis",
+        "Thermus aquaticus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Agrobacterium tumefaciens contains Tumor-inducing (Ti) plasmid naturally transferring T-DNA to plant cells.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q29",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Bt toxin protein produced by Bacillus thuringiensis is converted into active toxin in insect gut due to:",
+      "questionImg": null,
+      "options": [
+        "Alkaline pH of insect midgut",
+        "Acidic pH of insect stomach",
+        "Body temperature of insect",
+        "Enzymes in salivary glands"
+      ],
+      "correctIndex": 0,
+      "explanation": "Inactive protoxin is solubilized and activated in the alkaline pH of insect midgut, forming pores.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q30",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "RNA interference (RNAi) technology used to control nematode Meloidogyne incognita involves silencing of specific mRNA using:",
+      "questionImg": null,
+      "options": [
+        "Double-stranded RNA (dsRNA)",
+        "Single-stranded DNA",
+        "Transfer RNA (tRNA)",
+        "Ribosomal RNA"
+      ],
+      "correctIndex": 0,
+      "explanation": "RNAi uses complementary dsRNA to bind and silence specific target mRNA via RISC complex.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q31",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Pyramid of biomass in a deep aquatic (sea) ecosystem is generally:",
+      "questionImg": null,
+      "options": [
+        "Inverted",
+        "Upright",
+        "Spindle-shaped",
+        "Square"
+      ],
+      "correctIndex": 0,
+      "explanation": "Biomass of fishes far exceeds biomass of short-lived phytoplankton, making aquatic biomass pyramid inverted.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q32",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which of the following is an In-situ conservation strategy for biodiversity?",
+      "questionImg": null,
+      "options": [
+        "National Parks and Biosphere Reserves",
+        "Botanical Gardens",
+        "Zoological Parks",
+        "Cryopreservation of gametes"
+      ],
+      "correctIndex": 0,
+      "explanation": "In-situ conservation protects species within natural habitats (National Parks, Wildlife Sanctuaries, Biosphere Reserves).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q33",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "High Biological Oxygen Demand (BOD) value of a water body indicates that:",
+      "questionImg": null,
+      "options": [
+        "Water is highly polluted with organic matter",
+        "Water is pure and potable",
+        "Dissolved oxygen content is extremely high",
+        "Aquatic life is thriving"
+      ],
+      "correctIndex": 0,
+      "explanation": "High BOD means microbes consume high oxygen to decompose heavy organic pollution.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q34",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gas contributed maximum (60%) to total global warming?",
+      "questionImg": null,
+      "options": [
+        "Carbon dioxide (CO2)",
+        "Methane (CH4)",
+        "CFCs",
+        "Nitrous oxide (N2O)"
+      ],
+      "correctIndex": 0,
+      "explanation": "CO2 contributes 60%, CH4 20%, CFCs 14%, and N2O 6% to total global warming.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q35",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Kranz anatomy is a characteristic feature of leaves of:",
+      "questionImg": null,
+      "options": [
+        "C4 plants (Maize, Sugarcane)",
+        "C3 plants (Wheat, Rice)",
+        "CAM plants (Cactus)",
+        "Hydrophytes (Hydrilla)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kranz anatomy (wreath-like bundle sheath cells around vascular bundles) is present in C4 plants.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q36",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Movement of water through apoplast pathway occurs through:",
+      "questionImg": null,
+      "options": [
+        "Cell walls and intercellular spaces without crossing cell membranes",
+        "Plasmodesmata",
+        "Cytoplasm",
+        "Vacuoles"
+      ],
+      "correctIndex": 0,
+      "explanation": "Apoplast is non-living continuous system of cell walls and intercellular spaces.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q37",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Enzyme nitrogenase responsible for biological nitrogen fixation is highly sensitive to:",
+      "questionImg": null,
+      "options": [
+        "Molecular Oxygen (O2)",
+        "Nitrogen (N2)",
+        "Carbon dioxide",
+        "Hydrogen"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nitrogenase is poisoned by O2; leghemoglobin acts as an oxygen scavenger to create anaerobic environment.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q38",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which plant tissue consists of dead cells with heavily lignified walls and narrow lumen?",
+      "questionImg": null,
+      "options": [
+        "Sclerenchyma",
+        "Parenchyma",
+        "Collenchyma",
+        "Aerenchyma"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sclerenchyma cells are dead at maturity with thick lignified walls providing mechanical support.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q39",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Pollen grains are well preserved as fossils due to the presence of extremely resistant organic material:",
+      "questionImg": null,
+      "options": [
+        "Sporopollenin",
+        "Pectin",
+        "Cellulose",
+        "Lignin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Exine layer of pollen wall contains sporopollenin, resistant to high temp, strong acids, and alkalis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q40",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Number of chromosomes in endosperm of a maize plant (diploid 2n = 20) is:",
+      "questionImg": null,
+      "options": [
+        "30",
+        "20",
+        "10",
+        "40"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angiosperm endosperm is triploid (3n). Since 2n = 20 => n = 10 => 3n = 30.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q41",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Who experimentally proved that DNA replication is Semi-Conservative in E. coli using N15 isotope?",
+      "questionImg": null,
+      "options": [
+        "Meselson and Stahl",
+        "Hershey and Chase",
+        "Watson and Crick",
+        "Avery, MacLeod, and McCarty"
+      ],
+      "correctIndex": 0,
+      "explanation": "Matthew Meselson and Franklin Stahl (1958) proved semi-conservative DNA replication using 15N isotope.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q42",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Sequence of bases on mRNA synthesized from template DNA strand 3'-ATCGGCTA-5' is:",
+      "questionImg": null,
+      "options": [
+        "5'-UAGCCGAU-3'",
+        "5'-TAGCCGAT-3'",
+        "5'-AUCGGCUA-3'",
+        "3'-UAGCCGAU-5'"
+      ],
+      "correctIndex": 0,
+      "explanation": "Transcription complementary base pairing: A->U, T->A, C->G, G->C in 5' to 3' direction.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q43",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "A gene showing multiple phenotypic effects is called a:",
+      "questionImg": null,
+      "options": [
+        "Pleiotropic gene",
+        "Polygenic gene",
+        "Codominant gene",
+        "Epistatic gene"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pleiotropy occurs when a single gene influences multiple phenotypic traits (e.g. Phenylketonuria).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q44",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of human brain controls body temperature, urge for eating and drinking?",
+      "questionImg": null,
+      "options": [
+        "Hypothalamus",
+        "Thalamus",
+        "Cerebellum",
+        "Medulla oblongata"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hypothalamus contains centers for thermoregulation, hunger, thirst, and satiety.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q45",
+      "subject": "Botany",
+      "category": "mock_2",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "EcoRI restriction enzyme cuts DNA at which specific palindromic sequence?",
+      "questionImg": null,
+      "options": [
+        "5'-GAATTC-3'",
+        "5'-GATATC-3'",
+        "5'-AAGCTT-3'",
+        "5'-GGATCC-3'"
+      ],
+      "correctIndex": 0,
+      "explanation": "EcoRI recognizes 5'-GAATTC-3' and cuts between G and A.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q46",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which animal phylum exhibits bilateral symmetry in larvae but radial symmetry in adults?",
+      "questionImg": null,
+      "options": [
+        "Echinodermata",
+        "Coelenterata",
+        "Annelida",
+        "Mollusca"
+      ],
+      "correctIndex": 0,
+      "explanation": "Echinoderms have free-swimming bilaterally symmetrical larvae and pentamerous radially symmetrical adults.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q47",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Excretory structures in Cockroach (Periplaneta americana) are:",
+      "questionImg": null,
+      "options": [
+        "Malpighian tubules",
+        "Nephridia",
+        "Flame cells",
+        "Green glands"
+      ],
+      "correctIndex": 0,
+      "explanation": "Malpighian tubules located at junction of midgut and hindgut extract uric acid from hemolymph.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q48",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which epithelial tissue lines inner surfaces of fallopian tubes and bronchioles to move particles?",
+      "questionImg": null,
+      "options": [
+        "Ciliated epithelium",
+        "Squamous epithelium",
+        "Cuboidal epithelium",
+        "Compound epithelium"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ciliated epithelium possesses cilia whose rhythmic beating moves mucus and ova in specific direction.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q49",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Competitive inhibitor of succinate dehydrogenase enzyme in respiration is:",
+      "questionImg": null,
+      "options": [
+        "Malonate",
+        "Oxaloacetate",
+        "Malate",
+        "Fumarate"
+      ],
+      "correctIndex": 0,
+      "explanation": "Malonate closely resembles substrate succinate and acts as competitive inhibitor of succinate dehydrogenase.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q50",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which component of gastric juice protects stomach mucosa from excoriation by HCl?",
+      "questionImg": null,
+      "options": [
+        "Mucus and Bicarbonates",
+        "Pepsinogen",
+        "Intrinsic factor",
+        "Gastrin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mucus and sodium bicarbonate form a protective alkaline gel barrier lining stomach epithelium.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q51",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Volume of air remaining in lungs even after a forcible expiration is called:",
+      "questionImg": null,
+      "options": [
+        "Residual Volume (RV ~1100-1200 mL)",
+        "Tidal Volume",
+        "Expiratory Reserve Volume",
+        "Vital Capacity"
+      ],
+      "correctIndex": 0,
+      "explanation": "Residual Volume (RV) cannot be measured by simple spirometry and keeps alveoli inflated.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q52",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "P-wave in a standard ECG represents:",
+      "questionImg": null,
+      "options": [
+        "Depolarization (excitation) of Atria",
+        "Depolarization of Ventricles",
+        "Repolarization of Ventricles",
+        "Repolarization of Atria"
+      ],
+      "correctIndex": 0,
+      "explanation": "P-wave represents atrial depolarization leading to contraction of both atria.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q53",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Glomerular Filtration Rate (GFR) in a healthy human adult is approximately:",
+      "questionImg": null,
+      "options": [
+        "125 mL/min (180 Liters/day)",
+        "125 Liters/min",
+        "50 mL/min",
+        "180 mL/day"
+      ],
+      "correctIndex": 0,
+      "explanation": "GFR is ~125 mL/min, yielding ~180 L of filtrate per day, of which 99% is reabsorbed.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q54",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Functional unit of muscle contraction bounded between two adjacent Z-lines is called:",
+      "questionImg": null,
+      "options": [
+        "Sarcomere",
+        "Sarcolemma",
+        "Sarcoplasm",
+        "Myofibril"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sarcomere is the structural and functional unit of myofibril between two consecutive Z-discs.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q55",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Resting membrane potential of a neuron (-70 mV) is maintained primarily by:",
+      "questionImg": null,
+      "options": [
+        "Na+/K+ ATPase pump (3 Na+ out, 2 K+ in)",
+        "Passive diffusion of Na+",
+        "Ca2+ influx",
+        "Cl- efflux"
+      ],
+      "correctIndex": 0,
+      "explanation": "Na+/K+ pump actively transports 3 Na+ outwards for every 2 K+ inside using ATP.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q56",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone stimulates ovulation and maintenance of Corpus Luteum?",
+      "questionImg": null,
+      "options": [
+        "Luteinizing Hormone (LH)",
+        "Follicle Stimulating Hormone (FSH)",
+        "Prolactin",
+        "Oxytocin"
+      ],
+      "correctIndex": 0,
+      "explanation": "LH surge around day 14 triggers rupture of Graafian follicle (ovulation) and forms corpus luteum.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q57",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Spermatogenesis is initiated at puberty due to significant increase in secretion of:",
+      "questionImg": null,
+      "options": [
+        "Gonadotropin Releasing Hormone (GnRH)",
+        "Progesterone",
+        "Estrogen",
+        "Oxytocin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hypothalamic GnRH stimulates anterior pituitary to release LH and FSH, initiating spermatogenesis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q58",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Surgical sterilization procedure in human males involving cutting and tying of vas deferens is:",
+      "questionImg": null,
+      "options": [
+        "Vasectomy",
+        "Tubectomy",
+        "Castration",
+        "MTP"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vasectomy blocks transport of sperm into semen by severing vas deferens.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q59",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which Assisted Reproductive Technology (ART) involves transferring an embryo up to 8 blastomeres into fallopian tube?",
+      "questionImg": null,
+      "options": [
+        "ZIFT (Zygote Intra Fallopian Transfer)",
+        "GIFT",
+        "IUI",
+        "ICSI"
+      ],
+      "correctIndex": 0,
+      "explanation": "ZIFT transfers early embryo (up to 8 blastomeres) into fallopian tube.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q60",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Industrial Melanism observed in Peppered Moth (Biston betularia) in England is an example of:",
+      "questionImg": null,
+      "options": [
+        "Natural Selection (Directional selection)",
+        "Artificial Selection",
+        "Genetic Drift",
+        "Mutation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Post-industrialization dark melanic moths had camouflage advantage against soot-covered trees, illustrating directional natural selection.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q61",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Fossils of Homo habilis revealed brain capacity of approximately:",
+      "questionImg": null,
+      "options": [
+        "650 - 800 cc",
+        "1400 cc",
+        "900 cc",
+        "1600 cc"
+      ],
+      "correctIndex": 0,
+      "explanation": "Homo habilis (handy man) had cranial capacity between 650 - 800 cc.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q62",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which class of Immunoglobulin (Antibody) can cross the placenta to provide passive immunity to fetus?",
+      "questionImg": null,
+      "options": [
+        "IgG",
+        "IgA",
+        "IgM",
+        "IgE"
+      ],
+      "correctIndex": 0,
+      "explanation": "IgG is the only antibody class capable of crossing placental barrier.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q63",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "IgA antibody is predominantly present in:",
+      "questionImg": null,
+      "options": [
+        "Colostrum (mother's early milk) and secretions",
+        "Blood plasma during secondary response",
+        "Mast cell surfaces during allergy",
+        "Basophils"
+      ],
+      "correctIndex": 0,
+      "explanation": "Colostrum is rich in IgA antibodies providing passive immunity to newborn.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q64",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Malignant malaria caused by which Plasmodium species is most fatal?",
+      "questionImg": null,
+      "options": [
+        "Plasmodium falciparum",
+        "Plasmodium vivax",
+        "Plasmodium malariae",
+        "Plasmodium ovale"
+      ],
+      "correctIndex": 0,
+      "explanation": "Plasmodium falciparum causes cerebral malignant malaria which can be fatal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q65",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Morphine and Heroin opiates are extracted from latex of which plant?",
+      "questionImg": null,
+      "options": [
+        "Papaver somniferum (Opium poppy)",
+        "Cannabis sativa",
+        "Erythroxylum coca",
+        "Atropa belladonna"
+      ],
+      "correctIndex": 0,
+      "explanation": "Heroin (diacetylmorphine) is obtained by acetylation of morphine from latex of Papaver somniferum.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q66",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of human ear contains organ of Corti located on basilar membrane?",
+      "questionImg": null,
+      "options": [
+        "Cochlea (Inner ear)",
+        "Tympanic membrane",
+        "Eustachian tube",
+        "Semi-circular canals"
+      ],
+      "correctIndex": 0,
+      "explanation": "Organ of Corti containing hair cells (auditory receptors) rests on basilar membrane inside cochlear duct.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q67",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone decreases blood calcium level (Hypocalcemic hormone)?",
+      "questionImg": null,
+      "options": [
+        "Thyrocalcitonin (TCT)",
+        "Parathyroid Hormone (PTH)",
+        "Thyroxine (T4)",
+        "Aldosterone"
+      ],
+      "correctIndex": 0,
+      "explanation": "TCT secreted by thyroid parafollicular cells lowers blood Ca2+ by promoting bone deposition.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q68",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Aldosterone (mineralocorticoid) acts mainly at renal tubules to stimulate:",
+      "questionImg": null,
+      "options": [
+        "Reabsorption of Na+ and water, excretion of K+",
+        "Excretion of Na+",
+        "Reabsorption of K+",
+        "Excretion of water"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aldosterone promotes Na+ and water reabsorption at distal tubules, maintaining blood pressure.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q69",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Master endocrine gland controlled by Hypothalamic releasing hormones is:",
+      "questionImg": null,
+      "options": [
+        "Pituitary Gland",
+        "Thyroid Gland",
+        "Adrenal Gland",
+        "Pancreas"
+      ],
+      "correctIndex": 0,
+      "explanation": "Anterior pituitary gland synthesizes tropic hormones under direct control of hypothalamic releasing/inhibiting factors.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q70",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which blood vessel carries oxygenated blood from lungs to left atrium of heart?",
+      "questionImg": null,
+      "options": [
+        "Pulmonary Vein",
+        "Pulmonary Artery",
+        "Vena Cava",
+        "Aorta"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pulmonary veins (4 in number) carry freshly oxygenated blood from lungs to left atrium.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q71",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "T-waves in normal ECG represent:",
+      "questionImg": null,
+      "options": [
+        "Ventricular Repolarization (return to resting state)",
+        "Ventricular Depolarization",
+        "Atrial Depolarization",
+        "Atrial Repolarization"
+      ],
+      "correctIndex": 0,
+      "explanation": "T-wave marks ventricular repolarization.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q72",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Presence of Glucose (Glycosuria) and Ketone bodies (Ketonuria) in urine is indicative of:",
+      "questionImg": null,
+      "options": [
+        "Diabetes Mellitus",
+        "Diabetes Insipidus",
+        "Uremia",
+        "Bright's disease"
+      ],
+      "correctIndex": 0,
+      "explanation": "Insulin deficiency in Diabetes Mellitus leads to hyperglycemia, glycosuria, and ketonuria.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q73",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Myasthenia gravis is an autoimmune disorder affecting:",
+      "questionImg": null,
+      "options": [
+        "Neuromuscular junction leading to fatigue and paralysis of skeletal muscle",
+        "Smooth muscles",
+        "Joint cartilage",
+        "Bones"
+      ],
+      "correctIndex": 0,
+      "explanation": "Autoantibodies attack ACh receptors at neuromuscular junction in Myasthenia gravis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q74",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Joint between Atlas and Axis vertebrae is a:",
+      "questionImg": null,
+      "options": [
+        "Pivot joint",
+        "Hinge joint",
+        "Gliding joint",
+        "Saddle joint"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pivot joint allows rotational movement of head ('no' movement).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q75",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Corpus callosum is a tract of nerve fibers connecting:",
+      "questionImg": null,
+      "options": [
+        "Left and right cerebral hemispheres",
+        "Cerebellum to brainstem",
+        "Pons to medulla",
+        "Thalamus to hypothalamus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Corpus callosum connects two cerebral hemispheres for interhemispheric communication.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q76",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Blind spot in human eye is the area where:",
+      "questionImg": null,
+      "options": [
+        "Optic nerve leaves eye and photoreceptors (rods & cones) are absent",
+        "Cones are densely packed",
+        "Rods are maximum",
+        "Light intensity is highest"
+      ],
+      "correctIndex": 0,
+      "explanation": "Blind spot lacks rods and cones, making it insensitive to light.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q77",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone uses secondary messengers like cyclic AMP (cAMP) or Ca2+?",
+      "questionImg": null,
+      "options": [
+        "Peptide/Protein hormones (e.g. FSH, LH, Insulin)",
+        "Steroid hormones (Estrogen, Progesterone)",
+        "Thyroid hormones (T3, T4)",
+        "Cortisol"
+      ],
+      "correctIndex": 0,
+      "explanation": "Water-soluble peptide hormones bind cell membrane receptors, generating second messengers inside cell.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q78",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "First milk produced by mother after parturition containing essential antibodies is called:",
+      "questionImg": null,
+      "options": [
+        "Colostrum",
+        "Lactogen",
+        "Secretion",
+        "Mucus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Colostrum is yellow fluid rich in IgA antibodies conferring passive immunity to newborn.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q79",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Implantation of blastocyst into endometrium of uterus occurs around how many days after fertilization?",
+      "questionImg": null,
+      "options": [
+        "6 to 7 days",
+        "14 days",
+        "1 day",
+        "28 days"
+      ],
+      "correctIndex": 0,
+      "explanation": "Blastocyst implants into uterine endometrium 6-7 days post fertilization.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q80",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which contraceptive method prevents ovulation and alters cervical mucus quality?",
+      "questionImg": null,
+      "options": [
+        "Oral Contraceptive Pills (e.g. Saheli)",
+        "Condoms",
+        "Tubectomy",
+        "Copper-T"
+      ],
+      "correctIndex": 0,
+      "explanation": "Oral pills contain progestogens/estrogen inhibiting ovulation and thickening cervical mucus.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q81",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Saheli, a non-steroidal oral contraceptive pill developed at CDRI Lucknow, is taken:",
+      "questionImg": null,
+      "options": [
+        "Once a week",
+        "Daily",
+        "Once a month",
+        "Before intercourse"
+      ],
+      "correctIndex": 0,
+      "explanation": "Saheli contains centchroman and is a once-a-week pill with high contraceptive value and few side effects.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q82",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Analogous structures which indicate Convergent Evolution are:",
+      "questionImg": null,
+      "options": [
+        "Wings of Butterfly and Wings of Bird",
+        "Forelimbs of Whale and Human",
+        "Thorn of Bougainvillea and Tendril of Cucurbita",
+        "Flipper of Seal and Forelimb of Horse"
+      ],
+      "correctIndex": 0,
+      "explanation": "Butterfly and bird wings have different anatomical origins but perform same flying function (Convergent Evolution).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q83",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Hardy-Weinberg equilibrium equation for allele frequencies in a population is:",
+      "questionImg": null,
+      "options": [
+        "p^2 + 2pq + q^2 = 1",
+        "p + q = 2",
+        "p^2 + q^2 = 1",
+        "(p+q)^3 = 1"
+      ],
+      "correctIndex": 0,
+      "explanation": "Genotypic frequency distribution p^2 (AA) + 2pq (Aa) + q^2 (aa) = 1.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q84",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Human evolutionary ancestor known as 'Handy Man' who first made stone tools was:",
+      "questionImg": null,
+      "options": [
+        "Homo habilis",
+        "Australopithecus",
+        "Homo erectus",
+        "Neanderthal man"
+      ],
+      "correctIndex": 0,
+      "explanation": "Homo habilis was the first human-like hominid tool-maker.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q85",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Humoral immune response is mediated by:",
+      "questionImg": null,
+      "options": [
+        "B-Lymphocytes (producing antibodies)",
+        "T-Lymphocytes",
+        "Macrophage engulfment",
+        "NK cells"
+      ],
+      "correctIndex": 0,
+      "explanation": "B-cells produce circulating antibodies in body fluids (humors).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q86",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Cell-mediated immunity (CMI) responsible for graft/organ transplant rejection is mediated by:",
+      "questionImg": null,
+      "options": [
+        "T-Lymphocytes",
+        "B-Lymphocytes",
+        "Neutrophils",
+        "Eosinophils"
+      ],
+      "correctIndex": 0,
+      "explanation": "T-cells recognize non-self MHC molecules on transplanted organs, causing graft rejection.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q87",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In HIV infection, the virus primarily attacks and destroys which host cells?",
+      "questionImg": null,
+      "options": [
+        "Helper T-cells (CD4+ T-lymphocytes)",
+        "Cytotoxic T-cells",
+        "Red Blood Cells",
+        "B-cells"
+      ],
+      "correctIndex": 0,
+      "explanation": "HIV infects Helper T-cells, causing progressive decline in CD4 count and immune deficiency.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q88",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Infective stage of Plasmodium parasite transmitted to human body by female Anopheles mosquito bite is:",
+      "questionImg": null,
+      "options": [
+        "Sporozoite",
+        "Trophozoite",
+        "Merozoite",
+        "Gametocyte"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mosquito injects sporozoites into human bloodstream during blood meal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q89",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme synthesized by retroviruses converts viral RNA into complementary DNA (cDNA)?",
+      "questionImg": null,
+      "options": [
+        "Reverse Transcriptase",
+        "DNA Polymerase",
+        "RNA Polymerase",
+        "Restriction Endonuclease"
+      ],
+      "correctIndex": 0,
+      "explanation": "Reverse transcriptase transcribes viral ssRNA into dsDNA inside host cell.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q90",
+      "subject": "Zoology",
+      "category": "mock_2",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Normal cellular genes that can transform into cancer-causing oncogenes upon mutation are:",
+      "questionImg": null,
+      "options": [
+        "Proto-oncogenes",
+        "Tumor suppressor genes",
+        "Transposons",
+        "Silencer genes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Proto-oncogenes regulate normal cell growth; oncogenic transformation causes uncontrolled cancer division.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q91",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Dimensional formula of Planck's Constant (h) is:",
+      "questionImg": null,
+      "options": [
+        "[M^1 L^2 T^-1]",
+        "[M^1 L^1 T^-1]",
+        "[M^1 L^2 T^-2]",
+        "[M^0 L^2 T^-1]"
+      ],
+      "correctIndex": 0,
+      "explanation": "E = h ν => h = E / ν = [M L^2 T^-2] / [T^-1] = [M L^2 T^-1].",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q92",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "A car accelerates uniformly from rest to 30 m/s in 10 seconds. Distance covered in this time is:",
+      "questionImg": null,
+      "options": [
+        "150 m",
+        "300 m",
+        "100 m",
+        "200 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "a = (30-0)/10 = 3 m/s^2. s = 1/2 a t^2 = 0.5 * 3 * 100 = 150 m.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q93",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "A projectile is thrown with velocity 20 m/s at 30° with horizontal. Maximum height attained is: (g = 10 m/s^2)",
+      "questionImg": null,
+      "options": [
+        "5 m",
+        "10 m",
+        "15 m",
+        "20 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hmax = (u^2 sin^2 θ) / 2g = (400 * 0.25) / 20 = 100 / 20 = 5 m.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q94",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Two vectors A and B are perpendicular to each other if their dot product A · B is:",
+      "questionImg": null,
+      "options": [
+        "0",
+        "1",
+        "Mag(A)*Mag(B)",
+        "-1"
+      ],
+      "correctIndex": 0,
+      "explanation": "A · B = |A||B| cos 90° = 0.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q95",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Momentum of a 2 kg body is 10 kg m/s. Its Kinetic Energy is:",
+      "questionImg": null,
+      "options": [
+        "25 J",
+        "50 J",
+        "100 J",
+        "12.5 J"
+      ],
+      "correctIndex": 0,
+      "explanation": "KE = p^2 / 2m = 100 / 4 = 25 J.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q96",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Work done by centripetal force on a body moving in a circle of radius R is:",
+      "questionImg": null,
+      "options": [
+        "Zero",
+        "F * R",
+        "F * 2πR",
+        "1/2 m v^2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Centripetal force is perpendicular to instantaneous displacement vector (θ = 90°), so W = F d cos 90° = 0.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q97",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Moment of Inertia of a uniform thin rod of mass M and length L about an axis through its center perpendicular to length is:",
+      "questionImg": null,
+      "options": [
+        "M L^2 / 12",
+        "M L^2 / 3",
+        "M L^2 / 2",
+        "M L^2 / 4"
+      ],
+      "correctIndex": 0,
+      "explanation": "I_center = 1/12 M L^2.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q98",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Acceleration due to gravity at height h = R above Earth's surface (radius R) is:",
+      "questionImg": null,
+      "options": [
+        "g / 4",
+        "g / 2",
+        "g / 9",
+        "zero"
+      ],
+      "correctIndex": 0,
+      "explanation": "g' = g (R / (R+h))^2 = g (R / 2R)^2 = g / 4.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q99",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Escape velocity from Earth's surface is 11.2 km/s. Escape velocity from a planet having twice the radius and same density as Earth is:",
+      "questionImg": null,
+      "options": [
+        "22.4 km/s",
+        "11.2 km/s",
+        "5.6 km/s",
+        "44.8 km/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "vesc ∝ R. If R doubles, escape velocity doubles to 2 * 11.2 = 22.4 km/s.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q100",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Young's modulus of elasticity of a perfectly rigid body is:",
+      "questionImg": null,
+      "options": [
+        "Infinite",
+        "Zero",
+        "1",
+        "100"
+      ],
+      "correctIndex": 0,
+      "explanation": "For rigid body, strain = 0 => Young's modulus Y = Stress / 0 = Infinite.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q101",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Terminal velocity of a spherical rain drop falling in air varies with radius r as:",
+      "questionImg": null,
+      "options": [
+        "r^2",
+        "r",
+        "1/r",
+        "r^3"
+      ],
+      "correctIndex": 0,
+      "explanation": "Stokes' law: vt = 2/9 r^2 (ρ-σ)g / η => vt ∝ r^2.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q102",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In an adiabatic process of an ideal gas, work done W is equal to:",
+      "questionImg": null,
+      "options": [
+        "- ΔU (Decrease in internal energy)",
+        "Zero",
+        "Q",
+        "P ΔV"
+      ],
+      "correctIndex": 0,
+      "explanation": "First law ΔQ = ΔU + W. In adiabatic ΔQ = 0 => W = -ΔU.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q103",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Efficiency of a Carnot engine operating between 27°C (300 K) and 327°C (600 K) is:",
+      "questionImg": null,
+      "options": [
+        "50%",
+        "25%",
+        "75%",
+        "33%"
+      ],
+      "correctIndex": 0,
+      "explanation": "η = 1 - T2/T1 = 1 - 300/600 = 0.5 = 50%.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q104",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Time period of a simple pendulum of length L = 1 m is approximately: (g = π^2 ≈ 9.8 m/s^2)",
+      "questionImg": null,
+      "options": [
+        "2 seconds",
+        "1 second",
+        "4 seconds",
+        "0.5 seconds"
+      ],
+      "correctIndex": 0,
+      "explanation": "T = 2π √(L/g) = 2π √(1/π^2) = 2 seconds (Second's pendulum).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q105",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Distance between a node and adjacent antinode in a standing wave of wavelength λ is:",
+      "questionImg": null,
+      "options": [
+        "λ / 4",
+        "λ / 2",
+        "λ",
+        "2 λ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Distance between consecutive node and antinode = λ / 4.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q106",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Electric field intensity at distance r from a point charge q in vacuum is:",
+      "questionImg": null,
+      "options": [
+        "1/(4πε0) * q/r^2",
+        "1/(4πε0) * q/r",
+        "q r / (4πε0)",
+        "q / r^3"
+      ],
+      "correctIndex": 0,
+      "explanation": "E = k q / r^2 = 1/(4πε0) * q / r^2.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q107",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Two parallel plate capacitors of capacitances 6 μF and 12 μF are connected in series. Equivalent capacitance is:",
+      "questionImg": null,
+      "options": [
+        "4 μF",
+        "18 μF",
+        "9 μF",
+        "2 μF"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ceq = (C1 * C2) / (C1 + C2) = (6 * 12) / (6 + 12) = 72 / 18 = 4 μF.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q108",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Equivalent resistance between opposite corners of a square formed by 4 identical wires of 4 Ω each is:",
+      "questionImg": null,
+      "options": [
+        "2 Ω",
+        "4 Ω",
+        "8 Ω",
+        "1 Ω"
+      ],
+      "correctIndex": 0,
+      "explanation": "Two parallel arms of 8 Ω each (4+4). Req = 8 / 2 = 4 Ω. Between opposite corners (2 sides parallel to 2 sides): 8 || 8 = 4 Ω. Wait! If square has 4 sides of 4Ω each, opposite corners split into two branches of (4+4)=8Ω in parallel. Req = 8/2 = 4 Ω.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q109",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Resistivity of a metallic wire depends on:",
+      "questionImg": null,
+      "options": [
+        "Material and Temperature",
+        "Length",
+        "Area of cross section",
+        "Shape"
+      ],
+      "correctIndex": 0,
+      "explanation": "Resistivity ρ is an intrinsic material property depending on nature of material and temperature.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q110",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "A cell of EMF 2.0 V delivers current 0.5 A across 3.5 Ω external resistor. Internal resistance r of cell is:",
+      "questionImg": null,
+      "options": [
+        "0.5 Ω",
+        "1.0 Ω",
+        "0.2 Ω",
+        "0.1 Ω"
+      ],
+      "correctIndex": 0,
+      "explanation": "I = E / (R + r) => 0.5 = 2.0 / (3.5 + r) => 3.5 + r = 4.0 => r = 0.5 Ω.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q111",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Magnetic field at center of a long solenoid carrying current I with n turns per unit length is:",
+      "questionImg": null,
+      "options": [
+        "μ0 n I",
+        "μ0 N I / 2",
+        "μ0 I / (2π r)",
+        "Zero"
+      ],
+      "correctIndex": 0,
+      "explanation": "B_solenoid = μ0 n I inside long solenoid.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q112",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Force per unit length between two long straight parallel conductors separated by 1 m carrying 1 A current each is:",
+      "questionImg": null,
+      "options": [
+        "2 x 10^-7 N/m",
+        "10^-7 N/m",
+        "4π x 10^-7 N/m",
+        "1 N/m"
+      ],
+      "correctIndex": 0,
+      "explanation": "f = μ0 I1 I2 / (2π d) = (4π x 10^-7 * 1 * 1) / (2π * 1) = 2 x 10^-7 N/m (Definition of Ampere).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q113",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "If current in a coil of self-inductance L = 2 H changes from 5 A to 0 in 0.1 s, induced EMF is:",
+      "questionImg": null,
+      "options": [
+        "100 V",
+        "50 V",
+        "10 V",
+        "20 V"
+      ],
+      "correctIndex": 0,
+      "explanation": "e = L |di/dt| = 2 * (5 / 0.1) = 2 * 50 = 100 V.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q114",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In a series LCR circuit at resonance, phase angle between current and voltage is:",
+      "questionImg": null,
+      "options": [
+        "0° (in phase)",
+        "90°",
+        "180°",
+        "45°"
+      ],
+      "correctIndex": 0,
+      "explanation": "At resonance XL = XC => Z = R, so V and I are in phase (φ = 0°).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q115",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which electromagnetic wave has shortest wavelength?",
+      "questionImg": null,
+      "options": [
+        "Gamma rays",
+        "X-rays",
+        "Ultraviolet rays",
+        "Radio waves"
+      ],
+      "correctIndex": 0,
+      "explanation": "Gamma rays have highest frequency and shortest wavelength (< 10^-11 m).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q116",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Critical angle for light traveling from glass (n = 1.5) to air is sin^-1 of:",
+      "questionImg": null,
+      "options": [
+        "2 / 3",
+        "1 / 2",
+        "3 / 4",
+        "1 / 3"
+      ],
+      "correctIndex": 0,
+      "explanation": "sin ic = 1 / n = 1 / 1.5 = 2 / 3 => ic = sin^-1(2/3).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q117",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Power of a thin concave lens of focal length 20 cm (-0.2 m) is:",
+      "questionImg": null,
+      "options": [
+        "-5.0 D",
+        "+5.0 D",
+        "-2.0 D",
+        "+2.0 D"
+      ],
+      "correctIndex": 0,
+      "explanation": "P = 1 / f(m) = 1 / (-0.2) = -5.0 D.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q118",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "In Young's double slit experiment, if slit separation d is halved and screen distance D is doubled, fringe width β becomes:",
+      "questionImg": null,
+      "options": [
+        "4 times original",
+        "2 times",
+        "Half",
+        "Same"
+      ],
+      "correctIndex": 0,
+      "explanation": "β = λ D / d. New β' = λ (2D) / (d/2) = 4 (λ D / d) = 4 β.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q119",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Polarizing angle (Brewster's angle ip) for glass with refractive index n = √3 is:",
+      "questionImg": null,
+      "options": [
+        "60°",
+        "30°",
+        "45°",
+        "90°"
+      ],
+      "correctIndex": 0,
+      "explanation": "tan ip = n = √3 => ip = tan^-1(√3) = 60°.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q120",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Work function of a metal is 2.0 eV. Threshold frequency ν0 is approximately: (h = 4.14 x 10^-15 eV s)",
+      "questionImg": null,
+      "options": [
+        "4.8 x 10^14 Hz",
+        "6.2 x 10^14 Hz",
+        "2.4 x 10^14 Hz",
+        "1.2 x 10^15 Hz"
+      ],
+      "correctIndex": 0,
+      "explanation": "ν0 = W0 / h = 2.0 / (4.14 x 10^-15) ≈ 4.8 x 10^14 Hz.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q121",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "De Broglie wavelength of an electron accelerated through potential difference V = 100 V is:",
+      "questionImg": null,
+      "options": [
+        "1.227 Å (0.123 nm)",
+        "12.27 Å",
+        "0.012 Å",
+        "122.7 Å"
+      ],
+      "correctIndex": 0,
+      "explanation": "λ = 12.27 / √V = 12.27 / √100 = 1.227 Angstroms.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q122",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Radius of 1st Bohr orbit of Hydrogen atom is 0.53 Å. Radius of 2nd orbit (n = 2) is:",
+      "questionImg": null,
+      "options": [
+        "2.12 Å",
+        "1.06 Å",
+        "4.24 Å",
+        "0.53 Å"
+      ],
+      "correctIndex": 0,
+      "explanation": "rn = r1 * n^2 = 0.53 * 4 = 2.12 Angstroms.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q123",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Total energy of electron in 1st orbit of Hydrogen atom is -13.6 eV. Its Kinetic Energy is:",
+      "questionImg": null,
+      "options": [
+        "+13.6 eV",
+        "-13.6 eV",
+        "+27.2 eV",
+        "-27.2 eV"
+      ],
+      "correctIndex": 0,
+      "explanation": "KE = - Total Energy = -(-13.6 eV) = +13.6 eV.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q124",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Half-life of a radioactive nucleus is 10 days. Fraction remaining after 30 days is:",
+      "questionImg": null,
+      "options": [
+        "1 / 8",
+        "1 / 4",
+        "1 / 16",
+        "1 / 2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Number of half-lives n = 30/10 = 3. Remaining fraction = (1/2)^3 = 1/8.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q125",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Depletion layer of a p-n junction under reverse bias condition:",
+      "questionImg": null,
+      "options": [
+        "Widens and barrier potential increases",
+        "Narrows",
+        "Disappears",
+        "Remains unchanged"
+      ],
+      "correctIndex": 0,
+      "explanation": "Reverse bias pulls majority carriers away from junction, widening depletion layer and barrier height.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q126",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Truth table output Y = 0 only when both inputs A = 0 and B = 0 belongs to:",
+      "questionImg": null,
+      "options": [
+        "OR gate",
+        "AND gate",
+        "NAND gate",
+        "NOR gate"
+      ],
+      "correctIndex": 0,
+      "explanation": "OR gate Y = A + B is 0 only when A=0 and B=0.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q127",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Zener diode is heavily doped and used primarily as a:",
+      "questionImg": null,
+      "options": [
+        "Voltage Regulator",
+        "Rectifier",
+        "Amplifier",
+        "Oscillator"
+      ],
+      "correctIndex": 0,
+      "explanation": "Zener diode maintains constant breakdown voltage across output.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q128",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "A force F = (5 i + 3 j) N acts on a particle displacing it through s = (2 i + 4 j) m. Work done is:",
+      "questionImg": null,
+      "options": [
+        "22 J",
+        "10 J",
+        "12 J",
+        "30 J"
+      ],
+      "correctIndex": 0,
+      "explanation": "W = F · s = (5*2) + (3*4) = 10 + 12 = 22 Joules.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q129",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Refractive index of diamond is 2.42. Speed of light in diamond is approximately:",
+      "questionImg": null,
+      "options": [
+        "1.24 x 10^8 m/s",
+        "2.0 x 10^8 m/s",
+        "3.0 x 10^8 m/s",
+        "1.5 x 10^8 m/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "v = c / n = (3 x 10^8) / 2.42 ≈ 1.24 x 10^8 m/s.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q130",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Current gain β of a transistor in common emitter configuration is 50. Base current Ib = 20 μA. Collector current Ic is:",
+      "questionImg": null,
+      "options": [
+        "1.0 mA (1000 μA)",
+        "0.5 mA",
+        "2.0 mA",
+        "5.0 mA"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ic = β * Ib = 50 * 20 μA = 1000 μA = 1.0 mA.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q131",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Self-inductance of a solenoid of length L, cross-sectional area A, and total turns N is:",
+      "questionImg": null,
+      "options": [
+        "μ0 N^2 A / L",
+        "μ0 N A / L",
+        "μ0 N^2 L / A",
+        "μ0 N A L"
+      ],
+      "correctIndex": 0,
+      "explanation": "L = μ0 n^2 A l = μ0 (N/L)^2 A L = μ0 N^2 A / L.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q132",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Angle of deviation δ produced by a thin prism of refractive index n and angle A is:",
+      "questionImg": null,
+      "options": [
+        "δ = (n - 1) A",
+        "δ = (n + 1) A",
+        "δ = n A",
+        "δ = A / (n - 1)"
+      ],
+      "correctIndex": 0,
+      "explanation": "For thin prism (A < 10°), minimum deviation δ ≈ (n - 1) A.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q133",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Work done in charging a 10 μF capacitor to a potential of 100 V is:",
+      "questionImg": null,
+      "options": [
+        "0.05 J",
+        "0.10 J",
+        "0.50 J",
+        "0.01 J"
+      ],
+      "correctIndex": 0,
+      "explanation": "W = 1/2 C V^2 = 0.5 * (10 x 10^-6) * 10000 = 0.05 Joules.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q134",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Threshold wavelength λ0 for photoelectric emission from a surface is 500 nm. Work function W0 is: (hc = 1240 eV nm)",
+      "questionImg": null,
+      "options": [
+        "2.48 eV",
+        "4.96 eV",
+        "1.24 eV",
+        "3.10 eV"
+      ],
+      "correctIndex": 0,
+      "explanation": "W0 = hc / λ0 = 1240 / 500 = 2.48 eV.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q135",
+      "subject": "Physics",
+      "category": "mock_2",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Common base current gain α of a transistor is 0.98. Common emitter current gain β is:",
+      "questionImg": null,
+      "options": [
+        "49",
+        "98",
+        "50",
+        "100"
+      ],
+      "correctIndex": 0,
+      "explanation": "β = α / (1 - α) = 0.98 / (1 - 0.98) = 0.98 / 0.02 = 49.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q136",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Number of moles of solute present in 1 Liter of solution is defined as:",
+      "questionImg": null,
+      "options": [
+        "Molarity (M)",
+        "Molality (m)",
+        "Normality (N)",
+        "Mole fraction"
+      ],
+      "correctIndex": 0,
+      "explanation": "Molarity M = moles of solute / Volume of solution in Liters.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q137",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Quantum numbers n = 3, l = 2 represent which subshell?",
+      "questionImg": null,
+      "options": [
+        "3d subshell",
+        "3p subshell",
+        "3s subshell",
+        "4d subshell"
+      ],
+      "correctIndex": 0,
+      "explanation": "For l = 0(s), 1(p), 2(d), 3(f). n=3, l=2 is 3d subshell.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q138",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which molecule has trigonal bipyramidal geometry and sp3d hybridization?",
+      "questionImg": null,
+      "options": [
+        "PCl5",
+        "SF6",
+        "BF3",
+        "CH4"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCl5 has 5 bond pairs (sp3d hybridization) arranged in trigonal bipyramidal shape.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q139",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Bond order of Oxygen molecule (O2) according to Molecular Orbital Theory is:",
+      "questionImg": null,
+      "options": [
+        "2.0",
+        "1.5",
+        "2.5",
+        "3.0"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bond order = 1/2 (Nb - Na) = 1/2 (10 - 6) = 2.0.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q140",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "According to Le Chatelier's principle, increasing pressure on exothermic reaction N2(g) + 3H2(g) ⇌ 2NH3(g) shifts equilibrium to:",
+      "questionImg": null,
+      "options": [
+        "Forward direction (towards NH3)",
+        "Backward direction",
+        "No change",
+        "Stops reaction"
+      ],
+      "correctIndex": 0,
+      "explanation": "Increasing pressure shifts equilibrium towards fewer moles of gas (4 moles -> 2 moles, forward direction).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q141",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "pH of 10^-3 M HCl solution in water is:",
+      "questionImg": null,
+      "options": [
+        "3.0",
+        "11.0",
+        "7.0",
+        "4.0"
+      ],
+      "correctIndex": 0,
+      "explanation": "[H+] = 10^-3 M => pH = -log(10^-3) = 3.0.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q142",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Solubility product expression (Ksp) for AgCl (s) ⇌ Ag+ (aq) + Cl- (aq) with solubility S mol/L is:",
+      "questionImg": null,
+      "options": [
+        "Ksp = S^2",
+        "Ksp = 4 S^3",
+        "Ksp = S",
+        "Ksp = 27 S^4"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ksp = [Ag+][Cl-] = (S)(S) = S^2.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q143",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Oxidation state of Cr in Potassium Dichromate (K2Cr2O7) is:",
+      "questionImg": null,
+      "options": [
+        "+6",
+        "+3",
+        "+7",
+        "+4"
+      ],
+      "correctIndex": 0,
+      "explanation": "2(+1) + 2x + 7(-2) = 0 => 2x - 12 = 0 => 2x = 12 => x = +6.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q144",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Standard electrode potential of Standard Hydrogen Electrode (SHE) is assigned a value of:",
+      "questionImg": null,
+      "options": [
+        "0.00 V",
+        "1.00 V",
+        "-0.76 V",
+        "1.10 V"
+      ],
+      "correctIndex": 0,
+      "explanation": "By convention, SHE E° = 0.00 V at all temperatures.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q145",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of rate constant (k) for a FIRST-ORDER reaction is:",
+      "questionImg": null,
+      "options": [
+        "s^-1 (or min^-1)",
+        "mol L^-1 s^-1",
+        "L mol^-1 s^-1",
+        "L^2 mol^-2 s^-1"
+      ],
+      "correctIndex": 0,
+      "explanation": "For n-th order, unit of k = (mol/L)^(1-n) s^-1. For n=1, unit is s^-1.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q146",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Half-life period (t1/2) of a first-order reaction is independent of:",
+      "questionImg": null,
+      "options": [
+        "Initial concentration of reactant",
+        "Temperature",
+        "Rate constant k",
+        "Catalyst"
+      ],
+      "correctIndex": 0,
+      "explanation": "t1/2 = 0.693 / k, independent of initial reactant concentration [A]0.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q147",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Tyndall effect (scattering of light) is shown by:",
+      "questionImg": null,
+      "options": [
+        "Colloidal solutions",
+        "True solutions",
+        "Suspensions",
+        "Gases"
+      ],
+      "correctIndex": 0,
+      "explanation": "Colloidal particles have sizes between 1-1000 nm, scattering light beams (Tyndall effect).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q148",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Purification method for refining Nickel based on formation of volatile carbonyl complex Ni(CO)4 is:",
+      "questionImg": null,
+      "options": [
+        "Mond's Process",
+        "van Arkel Process",
+        "Zone Refining",
+        "Liquation"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ni + 4CO -> Ni(CO)4 (volatile), which decomposes at higher temp to yield pure Ni (Mond's process).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q149",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which halide of Nitrogen is STABLE?",
+      "questionImg": null,
+      "options": [
+        "NF3",
+        "NCl3",
+        "NBr3",
+        "NI3"
+      ],
+      "correctIndex": 0,
+      "explanation": "NF3 is exothermic and stable due to strong N-F bonds and small size of both atoms.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q150",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Basicity of Orthophosphoric acid (H3PO4) is:",
+      "questionImg": null,
+      "options": [
+        "3 (Tribasic)",
+        "2 (Dibasic)",
+        "1 (Monobasic)",
+        "0"
+      ],
+      "correctIndex": 0,
+      "explanation": "H3PO4 has 3 P-OH bonds, releasing 3 H+ ions in aqueous solution.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q151",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Lanthanoid contraction is responsible for the fact that:",
+      "questionImg": null,
+      "options": [
+        "Zr and Hf have almost identical atomic radii",
+        "Zr and Y have same radius",
+        "La and Lu have same radius",
+        "Zn and Cd have same radius"
+      ],
+      "correctIndex": 0,
+      "explanation": "Imperfect shielding of 4f electrons causes progressive atomic size contraction, making 4d (Zr) and 5d (Hf) radii almost equal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q152",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "IUPAC name of Coordination Complex [Co(NH3)6]Cl3 is:",
+      "questionImg": null,
+      "options": [
+        "Hexaamminecobalt(III) chloride",
+        "Hexaamine cobalt chloride",
+        "Cobalt(III) hexaammine chloride",
+        "Hexaamminecobalt(II) chloride"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cation complex named first: Hexaamminecobalt(III) followed by anion chloride.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q153",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which complex shows Linkage Isomerism?",
+      "questionImg": null,
+      "options": [
+        "[Co(NH3)5(NO2)]Cl2",
+        "[Co(NH3)6]Cl3",
+        "[Fe(H2O)6]Cl3",
+        "[Pt(NH3)2Cl2]"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ambidentate ligand NO2- can bind via N (nitro) or O (nitrito), giving linkage isomerism.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q154",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Hyperconjugation effect involves delocalization of electrons of:",
+      "questionImg": null,
+      "options": [
+        "sigma (σ) C-H bond of alkyl group directly attached to unsaturated system",
+        "pi (π) electrons",
+        "lone pair",
+        "d-orbitals"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hyperconjugation (no-bond resonance) involves σ C-H electrons delocalization into adjacent empty p or π orbital.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q155",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Ozonolysis of 2-Methylbut-2-ene followed by Zn/H2O yields:",
+      "questionImg": null,
+      "options": [
+        "Propanone and Ethanal",
+        "Ethanal and Methanal",
+        "Propanal and Ethanal",
+        "Two molecules of Propanone"
+      ],
+      "correctIndex": 0,
+      "explanation": "CH3-C(CH3)=CH-CH3 + O3/Zn -> CH3-CO-CH3 (Propanone) + CH3-CHO (Ethanal).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q156",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "According to Markovnikov's rule, addition of HBr to Propene yields primary product:",
+      "questionImg": null,
+      "options": [
+        "2-Bromopropane",
+        "1-Bromopropane",
+        "1,2-Dibromopropane",
+        "Propane"
+      ],
+      "correctIndex": 0,
+      "explanation": "H+ adds to carbon with more hydrogens, forming more stable 2° carbocation -> 2-Bromopropane.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q157",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "SN2 reaction of alkyl halides proceeds with:",
+      "questionImg": null,
+      "options": [
+        "Complete Inversion of Configuration (Walden Inversion)",
+        "Racemization",
+        "Retention of configuration",
+        "Carbocation formation"
+      ],
+      "correctIndex": 0,
+      "explanation": "SN2 involves backside nucleophilic attack on 1° alkyl halide in single step, leading to Walden inversion.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q158",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Lucas Reagent used to distinguish 1°, 2°, and 3° Alcohols is a mixture of:",
+      "questionImg": null,
+      "options": [
+        "Anhydrous ZnCl2 and Concentrated HCl",
+        "Dilute HCl and Zn",
+        "Concentrated H2SO4 and HNO3",
+        "KMnO4 and KOH"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lucas reagent (Anhydrous ZnCl2 + conc. HCl) reacts instantaneously with 3° alcohols forming cloudy turbidity.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q159",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Phenol reacts with Chloroform and KOH to form Salicylaldehyde in:",
+      "questionImg": null,
+      "options": [
+        "Reimer-Tiemann Reaction",
+        "Kolbe's Reaction",
+        "Williamson Synthesis",
+        "Friedel-Crafts Reaction"
+      ],
+      "correctIndex": 0,
+      "explanation": "Reimer-Tiemann reaction introduces -CHO group at ortho position of phenol via dichlorocarbene intermediate.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q160",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Williamson Ether Synthesis involves reaction between:",
+      "questionImg": null,
+      "options": [
+        "Alkyl halide and Sodium alkoxide",
+        "Alcohol and conc. H2SO4",
+        "Phenol and Benzene",
+        "Aldehyde and Alcohol"
+      ],
+      "correctIndex": 0,
+      "explanation": "R-X + R'-ONa -> R-O-R' + NaX via SN2 mechanism.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q161",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Aldehydes lacking alpha-hydrogen atoms (e.g. Formaldehyde, Benzaldehyde) undergo self oxidation-reduction on heating with conc. KOH in:",
+      "questionImg": null,
+      "options": [
+        "Cannizzaro Reaction",
+        "Aldol Condensation",
+        "Clemmensen Reduction",
+        "Wolff-Kishner Reduction"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cannizzaro reaction yields one molecule of alcohol (reduced) and one molecule of carboxylic acid salt (oxidized).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q162",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Tollens' Reagent used to test for Aldehydes is:",
+      "questionImg": null,
+      "options": [
+        "Ammoniacal Silver Nitrate solution [Ag(NH3)2]+",
+        "Alkaline Copper Sulfate solution",
+        "Acidified K2Cr2O7",
+        "Neutral FeCl3"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tollens' reagent oxidizes aldehydes to carboxylate ions while forming a silver mirror.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q163",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Conversion of an Amide into a primary amine containing one less carbon atom using Br2 and NaOH is:",
+      "questionImg": null,
+      "options": [
+        "Hofmann Bromamide Degradation",
+        "Gabriel Phthalimide Synthesis",
+        "Stephen Reduction",
+        "Etard Reaction"
+      ],
+      "correctIndex": 0,
+      "explanation": "R-CONH2 + Br2 + 4NaOH -> R-NH2 + Na2CO3 + 2NaBr + 2H2O.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q164",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which test is used to distinguish Primary Amines from secondary and tertiary amines by forming foul-smelling Isocyanides?",
+      "questionImg": null,
+      "options": [
+        "Carbylamine Test (Isocyanide test)",
+        "Hinsberg Test",
+        "Biuret Test",
+        "Xanthoproteic Test"
+      ],
+      "correctIndex": 0,
+      "explanation": "Primary aliphatic/aromatic amines heated with CHCl3 and KOH produce offensive smelling isocyanides (R-NC).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q165",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Glucose on prolonged heating with HI yields:",
+      "questionImg": null,
+      "options": [
+        "n-Hexane",
+        "Gluconic acid",
+        "Saccharic acid",
+        "Hexanoic acid"
+      ],
+      "correctIndex": 0,
+      "explanation": "Prolonged heating of glucose with HI proves all 6 carbon atoms are linked in a straight chain (n-hexane).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q166",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which Vitamin deficiency causes Scurvy (bleeding gums)?",
+      "questionImg": null,
+      "options": [
+        "Vitamin C (Ascorbic acid)",
+        "Vitamin A",
+        "Vitamin B12",
+        "Vitamin D"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vitamin C deficiency causes Scurvy.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q167",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Monomers of Nylon-6,6 are:",
+      "questionImg": null,
+      "options": [
+        "Adipic acid and Hexamethylenediamine",
+        "Caprolactam",
+        "Terephthalic acid and Ethylene glycol",
+        "Styrene and 1,3-Butadiene"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nylon-6,6 is a condensation polymer of Adipic acid and Hexamethylenediamine.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q168",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Buna-S synthetic rubber is a copolymer of:",
+      "questionImg": null,
+      "options": [
+        "1,3-Butadiene and Styrene",
+        "1,3-Butadiene and Acrylonitrile",
+        "Chloroprene",
+        "Isoprene"
+      ],
+      "correctIndex": 0,
+      "explanation": "Buna-S (Bu = Butadiene, Na = Sodium catalyst, S = Styrene).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q169",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which of the following is an Antipyretic and Analgesic drug?",
+      "questionImg": null,
+      "options": [
+        "Paracetamol (4-Acetamidophenol)",
+        "Penicillin",
+        "Chloramphenicol",
+        "Ranitidine"
+      ],
+      "correctIndex": 0,
+      "explanation": "Paracetamol reduces fever (antipyretic) and relieves pain (analgesic).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q170",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Antiseptic dettol is a mixture of:",
+      "questionImg": null,
+      "options": [
+        "Chloroxylenol and Terpineol",
+        "Bithionol",
+        "Phenol and Iodine",
+        "Tincture of Iodine"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dettol contains Chloroxylenol and Terpineol dissolved in water.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q171",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Molar conductivity of electrolyte solution increases with dilution because:",
+      "questionImg": null,
+      "options": [
+        "Total volume containing 1 mole electrolyte increases and degree of dissociation increases",
+        "Number of ions per unit volume increases",
+        "Viscosity increases",
+        "Ionic mobility decreases"
+      ],
+      "correctIndex": 0,
+      "explanation": "Upon dilution, interionic attraction decreases and weak electrolyte dissociation increases, raising molar conductivity.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q172",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "For a zero-order reaction A -> Products, integrated rate equation for concentration [A] at time t is:",
+      "questionImg": null,
+      "options": [
+        "[A] = [A]0 - k t",
+        "[A] = [A]0 e^(-kt)",
+        "ln[A] = ln[A]0 - kt",
+        "1/[A] = 1/[A]0 + kt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Zero order: -d[A]/dt = k => [A] = [A]0 - k t.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q173",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which oxide of Nitrogen is a neutral gas?",
+      "questionImg": null,
+      "options": [
+        "Nitrous oxide (N2O) and Nitric oxide (NO)",
+        "Nitrogen dioxide (NO2)",
+        "Dinitrogen trioxide (N2O3)",
+        "Dinitrogen pentoxide (N2O5)"
+      ],
+      "correctIndex": 0,
+      "explanation": "N2O and NO are neutral oxides of nitrogen; NO2, N2O3, N2O5 are acidic.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q174",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Hybridization of Xenon in XeF4 (Xenon tetrafluoride) molecule is:",
+      "questionImg": null,
+      "options": [
+        "sp3d2 (Square planar shape)",
+        "sp3d",
+        "sp3",
+        "d2sp3"
+      ],
+      "correctIndex": 0,
+      "explanation": "XeF4 has 4 bond pairs and 2 lone pairs (total 6 electron pairs = sp3d2), giving square planar geometry.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q175",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "According to Werner's Coordination Theory, secondary valency of central metal ion corresponds to its:",
+      "questionImg": null,
+      "options": [
+        "Coordination Number",
+        "Oxidation state",
+        "Ionic charge",
+        "Group number"
+      ],
+      "correctIndex": 0,
+      "explanation": "Primary valency = oxidation state (ionizable). Secondary valency = coordination number (non-ionizable, directional).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q176",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Spin-only magnetic moment formula μ is given by: (where n = number of unpaired electrons)",
+      "questionImg": null,
+      "options": [
+        "μ = √(n(n + 2)) BM",
+        "μ = √(n(n + 1)) BM",
+        "μ = n(n + 2) BM",
+        "μ = 2n + 1 BM"
+      ],
+      "correctIndex": 0,
+      "explanation": "μ = √(n(n + 2)) Bohr Magnetons.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q177",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Friedel-Crafts Alkylation of Benzene with CH3Cl in presence of Anhydrous AlCl3 yields:",
+      "questionImg": null,
+      "options": [
+        "Toluene",
+        "Chlorobenzene",
+        "Nitrobenzene",
+        "Benzene sulfonic acid"
+      ],
+      "correctIndex": 0,
+      "explanation": "C6H6 + CH3Cl --(Anhydrous AlCl3)--> C6H5-CH3 (Toluene) + HCl.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q178",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Victor Meyer test gives RED color for which type of alcohol?",
+      "questionImg": null,
+      "options": [
+        "Primary alcohol (1°)",
+        "Secondary alcohol (2°)",
+        "Tertiary alcohol (3°)",
+        "Phenol"
+      ],
+      "correctIndex": 0,
+      "explanation": "Victor Meyer test colors: 1° Alcohol = RED (Nitrolic acid), 2° = BLUE (Pseudonitrol), 3° = COLORLESS.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q179",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which reaction converts Acetyl chloride (CH3COCl) into Acetaldehyde (CH3CHO) using H2/Pd-BaSO4?",
+      "questionImg": null,
+      "options": [
+        "Rosenmund Reduction",
+        "Stephen Reduction",
+        "Clemmensen Reduction",
+        "Etard Reaction"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rosenmund reduction uses Lindlar catalyst (Pd on BaSO4 poisoned with sulfur/quinoline) to stop reduction at aldehyde.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_2_q180",
+      "subject": "Chemistry",
+      "category": "mock_2",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which amino acid is OPTICALLY INACTIVE?",
+      "questionImg": null,
+      "options": [
+        "Glycine",
+        "Alanine",
+        "Valine",
+        "Leucine"
+      ],
+      "correctIndex": 0,
+      "explanation": "Glycine (H2N-CH2-COOH) lacks an asymmetric chiral carbon, making it optically inactive.",
+      "explanationImg": null
+    }
+  ]
+}

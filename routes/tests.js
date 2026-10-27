@@ -24,10 +24,18 @@ router.get('/daily-test', (req, res) => {
     return results;
   };
 
-  const phyQs = pickQuestions(masterBySubject.Physics, 5, 101);
-  const chemQs = pickQuestions(masterBySubject.Chemistry, 5, 202);
-  const botQs = pickQuestions(masterBySubject.Botany, 5, 303);
-  const zooQs = pickQuestions(masterBySubject.Zoology, 5, 404);
+  const pool = masterByCategory.daily_pool || [];
+  const poolBySub = {
+    Physics: pool.filter(q => q.subject === 'Physics'),
+    Chemistry: pool.filter(q => q.subject === 'Chemistry'),
+    Botany: pool.filter(q => q.subject === 'Botany' || q.subject === 'Biology'),
+    Zoology: pool.filter(q => q.subject === 'Zoology' || q.subject === 'Biology')
+  };
+
+  const phyQs = pickQuestions(poolBySub.Physics.length ? poolBySub.Physics : masterBySubject.Physics, 5, 101);
+  const chemQs = pickQuestions(poolBySub.Chemistry.length ? poolBySub.Chemistry : masterBySubject.Chemistry, 5, 202);
+  const botQs = pickQuestions(poolBySub.Botany.length ? poolBySub.Botany : masterBySubject.Botany, 5, 303);
+  const zooQs = pickQuestions(poolBySub.Zoology.length ? poolBySub.Zoology : masterBySubject.Zoology, 5, 404);
 
   const testQuestions = [...phyQs, ...chemQs, ...botQs, ...zooQs];
 
@@ -116,6 +124,89 @@ router.get('/diagrams', (req, res) => {
     totalAvailable: diagrams.length,
     totalQuestions: Math.min(diagrams.length, limit),
     questions: diagrams.slice(0, limit).map(q => formatQuestion(q, req))
+  });
+});
+
+// 6. Grand Mock Tests Summary List (Mock 1, Mock 2, Mock 3)
+router.get('/mocks', (req, res) => {
+  const summary = masterByCategory.mock_summary || [];
+  res.json({
+    totalMocks: summary.length,
+    mocks: summary
+  });
+});
+
+// 7. Single Full Mock Test Questions (180 Qs)
+router.get('/mocks/:id', (req, res) => {
+  const { id } = req.params;
+  const mockData = masterByCategory[id];
+  if (!mockData) {
+    return res.status(404).json({ error: 'Mock test not found' });
+  }
+
+  const formattedQuestions = (mockData.questions || []).map(q => formatQuestion(q, req));
+  res.json({
+    id: mockData.id,
+    title: mockData.title,
+    subtitle: mockData.subtitle,
+    durationMinutes: mockData.durationMinutes || 200,
+    totalQuestions: formattedQuestions.length,
+    marks: formattedQuestions.length * 4,
+    questions: formattedQuestions
+  });
+});
+
+// 8. Challenger Mode: Numericals (400 Qs)
+router.get('/challenger/numericals', (req, res) => {
+  const list = masterByCategory.numericals || [];
+  const subject = req.query.subject;
+  const limit = parseInt(req.query.limit) || 30;
+
+  let filtered = list;
+  if (subject && subject.toLowerCase() !== 'all') {
+    filtered = list.filter(q => (q.subject || '').toLowerCase() === subject.toLowerCase());
+  }
+
+  res.json({
+    category: 'Physics & Chemistry Numericals',
+    totalAvailable: filtered.length,
+    questions: filtered.slice(0, limit).map(q => formatQuestion(q, req))
+  });
+});
+
+// 9. Challenger Mode: Tough Questions (400 Qs)
+router.get('/challenger/tough', (req, res) => {
+  const list = masterByCategory.tough || [];
+  const subject = req.query.subject;
+  const limit = parseInt(req.query.limit) || 30;
+
+  let filtered = list;
+  if (subject && subject.toLowerCase() !== 'all') {
+    filtered = list.filter(q => (q.subject || '').toLowerCase() === subject.toLowerCase());
+  }
+
+  res.json({
+    category: 'High-Yield Tough Questions',
+    totalAvailable: filtered.length,
+    questions: filtered.slice(0, limit).map(q => formatQuestion(q, req))
+  });
+});
+
+// 10. Most Repeated PYQs (531 Qs)
+router.get('/repeated-pyqs', (req, res) => {
+  const list = masterByCategory.repeated_pyqs || [];
+  const subject = req.query.subject;
+  const limit = parseInt(req.query.limit) || 40;
+
+  let filtered = list;
+  if (subject && subject.toLowerCase() !== 'all') {
+    filtered = list.filter(q => (q.subject || '').toLowerCase() === subject.toLowerCase());
+  }
+
+  res.json({
+    category: 'Most Repeated NEET PYQs',
+    totalAvailable: filtered.length,
+    questions: filtered.slice(0, limit).map(q => formatQuestion(q, req))
   });
 });
 

@@ -1,0 +1,3430 @@
+{
+  "id": "mock_1",
+  "title": "All India NEET Grand Mock Test 1",
+  "subtitle": "NTA Official Pattern (180 Qs - 720 Marks)",
+  "durationMinutes": 200,
+  "totalQuestions": 180,
+  "marks": 720,
+  "questions": [
+    {
+      "id": "mock_1_q1",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which pigment is primarily responsible for photosynthesis?",
+      "questionImg": null,
+      "options": [
+        "Chlorophyll a",
+        "Chlorophyll b",
+        "Carotene",
+        "Xanthophyll"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chlorophyll a is the primary pigment involved in photosynthesis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q2",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organelle is known as the powerhouse of the cell?",
+      "questionImg": null,
+      "options": [
+        "Nucleus",
+        "Chloroplast",
+        "Mitochondria",
+        "Ribosome"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mitochondria produce ATP, hence called the powerhouse of the cell.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q3",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which plant hormone promotes cell elongation?",
+      "questionImg": null,
+      "options": [
+        "Cytokinin",
+        "Auxin",
+        "Ethylene",
+        "ABA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Auxin promotes cell elongation in plants.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q4",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Opening and closing of stomata is controlled by:",
+      "questionImg": null,
+      "options": [
+        "Guard cells",
+        "Mesophyll cells",
+        "Epidermal cells",
+        "Xylem"
+      ],
+      "correctIndex": 0,
+      "explanation": "Guard cells regulate stomatal movement.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q5",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which process converts glucose into pyruvate?",
+      "questionImg": null,
+      "options": [
+        "Photosynthesis",
+        "Glycolysis",
+        "Krebs cycle",
+        "Fermentation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Glycolysis breaks glucose into pyruvate.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q6",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which tissue transports water in plants?",
+      "questionImg": null,
+      "options": [
+        "Phloem",
+        "Xylem",
+        "Parenchyma",
+        "Collenchyma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xylem transports water and minerals.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q7",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which plant hormone is responsible for fruit ripening?",
+      "questionImg": null,
+      "options": [
+        "Auxin",
+        "Cytokinin",
+        "Ethylene",
+        "Gibberellin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ethylene promotes fruit ripening.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q8",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which phase is longest in cell cycle?",
+      "questionImg": null,
+      "options": [
+        "G1",
+        "S",
+        "G2",
+        "M"
+      ],
+      "correctIndex": 0,
+      "explanation": "G1 phase is usually the longest phase.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q9",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure is absent in prokaryotic cells?",
+      "questionImg": null,
+      "options": [
+        "Cell wall",
+        "Ribosome",
+        "Nucleus",
+        "Plasma membrane"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prokaryotes lack a true nucleus.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q10",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme fixes CO2 in Calvin cycle?",
+      "questionImg": null,
+      "options": [
+        "PEP carboxylase",
+        "RuBisCO",
+        "ATP synthase",
+        "DNA polymerase"
+      ],
+      "correctIndex": 1,
+      "explanation": "RuBisCO fixes CO2 in Calvin cycle.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q11",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which mineral is part of chlorophyll?",
+      "questionImg": null,
+      "options": [
+        "Iron",
+        "Magnesium",
+        "Calcium",
+        "Potassium"
+      ],
+      "correctIndex": 1,
+      "explanation": "Magnesium is central atom in chlorophyll.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q12",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which type of RNA carries amino acids?",
+      "questionImg": null,
+      "options": [
+        "mRNA",
+        "tRNA",
+        "rRNA",
+        "snRNA"
+      ],
+      "correctIndex": 1,
+      "explanation": "tRNA carries amino acids to ribosome.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q13",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure stores genetic material?",
+      "questionImg": null,
+      "options": [
+        "Golgi body",
+        "Nucleus",
+        "Mitochondria",
+        "Lysosome"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nucleus contains DNA.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q14",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is a C4 plant?",
+      "questionImg": null,
+      "options": [
+        "Wheat",
+        "Rice",
+        "Maize",
+        "Barley"
+      ],
+      "correctIndex": 2,
+      "explanation": "Maize is a C4 plant.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q15",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which vitamin is synthesized by plants?",
+      "questionImg": null,
+      "options": [
+        "Vitamin C",
+        "Vitamin D",
+        "Vitamin B12",
+        "Vitamin K"
+      ],
+      "correctIndex": 0,
+      "explanation": "Plants synthesize Vitamin C.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q16",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gas is released during photosynthesis?",
+      "questionImg": null,
+      "options": [
+        "CO2",
+        "O2",
+        "N2",
+        "H2"
+      ],
+      "correctIndex": 1,
+      "explanation": "Oxygen is released in photosynthesis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q17",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure forms spindle fibers?",
+      "questionImg": null,
+      "options": [
+        "Centrosome",
+        "Nucleus",
+        "Golgi",
+        "Ribosome"
+      ],
+      "correctIndex": 0,
+      "explanation": "Centrosome forms spindle fibers.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q18",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which type of reproduction involves one parent?",
+      "questionImg": null,
+      "options": [
+        "Sexual",
+        "Asexual",
+        "Binary fission",
+        "Meiosis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asexual reproduction involves one parent.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q19",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme unwinds DNA?",
+      "questionImg": null,
+      "options": [
+        "Ligase",
+        "Helicase",
+        "Polymerase",
+        "Topoisomerase"
+      ],
+      "correctIndex": 1,
+      "explanation": "Helicase unwinds DNA strands.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q20",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure protects plant cells?",
+      "questionImg": null,
+      "options": [
+        "Cell membrane",
+        "Cell wall",
+        "Cytoplasm",
+        "Vacuole"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cell wall provides protection.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q21",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which phase involves chromosome alignment?",
+      "questionImg": null,
+      "options": [
+        "Prophase",
+        "Metaphase",
+        "Anaphase",
+        "Telophase"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chromosomes align at equator in metaphase.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q22",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which element is essential for nitrogen fixation?",
+      "questionImg": null,
+      "options": [
+        "Iron",
+        "Molybdenum",
+        "Calcium",
+        "Sulfur"
+      ],
+      "correctIndex": 1,
+      "explanation": "Molybdenum is required for nitrogenase enzyme.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q23",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which plant tissue is dead?",
+      "questionImg": null,
+      "options": [
+        "Phloem",
+        "Xylem",
+        "Parenchyma",
+        "Collenchyma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xylem consists of dead cells.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q24",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organelle modifies proteins?",
+      "questionImg": null,
+      "options": [
+        "Ribosome",
+        "Golgi apparatus",
+        "Mitochondria",
+        "Chloroplast"
+      ],
+      "correctIndex": 1,
+      "explanation": "Golgi modifies and packages proteins.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q25",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part absorbs water in plants?",
+      "questionImg": null,
+      "options": [
+        "Stem",
+        "Leaves",
+        "Root hairs",
+        "Xylem"
+      ],
+      "correctIndex": 2,
+      "explanation": "Root hairs absorb water.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q26",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which molecule stores energy?",
+      "questionImg": null,
+      "options": [
+        "DNA",
+        "RNA",
+        "ATP",
+        "Glucose"
+      ],
+      "correctIndex": 2,
+      "explanation": "ATP is energy currency of cell.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q27",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which kingdom includes algae?",
+      "questionImg": null,
+      "options": [
+        "Plantae",
+        "Fungi",
+        "Protista",
+        "Monera"
+      ],
+      "correctIndex": 2,
+      "explanation": "Algae belong to Protista.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q28",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure synthesizes proteins?",
+      "questionImg": null,
+      "options": [
+        "Golgi",
+        "Ribosome",
+        "Mitochondria",
+        "Lysosome"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ribosomes synthesize proteins.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q29",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is the unit of inheritance?",
+      "questionImg": null,
+      "options": [
+        "Chromosome",
+        "Gene",
+        "DNA",
+        "RNA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gene is basic unit of inheritance.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q30",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone inhibits growth?",
+      "questionImg": null,
+      "options": [
+        "Auxin",
+        "Cytokinin",
+        "ABA",
+        "Gibberellin"
+      ],
+      "correctIndex": 2,
+      "explanation": "ABA inhibits growth.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q31",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which cycle produces NADH and FADH2?",
+      "questionImg": null,
+      "options": [
+        "Calvin cycle",
+        "Krebs cycle",
+        "Glycolysis",
+        "ETS"
+      ],
+      "correctIndex": 1,
+      "explanation": "Krebs cycle produces NADH and FADH2.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q32",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which plant shows double fertilization?",
+      "questionImg": null,
+      "options": [
+        "Gymnosperms",
+        "Angiosperms",
+        "Algae",
+        "Fungi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Double fertilization occurs in angiosperms.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q33",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which type of venation in monocots?",
+      "questionImg": null,
+      "options": [
+        "Reticulate",
+        "Parallel",
+        "Dichotomous",
+        "None"
+      ],
+      "correctIndex": 1,
+      "explanation": "Monocots show parallel venation.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q34",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme synthesizes DNA?",
+      "questionImg": null,
+      "options": [
+        "Helicase",
+        "Ligase",
+        "DNA polymerase",
+        "Primase"
+      ],
+      "correctIndex": 2,
+      "explanation": "DNA polymerase synthesizes DNA.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q35",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which pigment protects from photooxidation?",
+      "questionImg": null,
+      "options": [
+        "Chlorophyll",
+        "Carotenoids",
+        "Phycoerythrin",
+        "Phycocyanin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Carotenoids protect from photooxidation.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q36",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part is edible in potato?",
+      "questionImg": null,
+      "options": [
+        "Root",
+        "Stem",
+        "Leaf",
+        "Flower"
+      ],
+      "correctIndex": 1,
+      "explanation": "Potato is modified stem.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q37",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which transport is against gradient?",
+      "questionImg": null,
+      "options": [
+        "Passive",
+        "Active",
+        "Diffusion",
+        "Osmosis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Active transport moves against gradient.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q38",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which tissue conducts food?",
+      "questionImg": null,
+      "options": [
+        "Xylem",
+        "Phloem",
+        "Cambium",
+        "Epidermis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phloem transports food.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q39",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is site of photosynthesis?",
+      "questionImg": null,
+      "options": [
+        "Mitochondria",
+        "Chloroplast",
+        "Nucleus",
+        "Golgi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Photosynthesis occurs in chloroplast.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q40",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is a living tissue?",
+      "questionImg": null,
+      "options": [
+        "Xylem",
+        "Phloem",
+        "Sclerenchyma",
+        "Cork"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phloem is living tissue.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q41",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which phase has DNA duplication?",
+      "questionImg": null,
+      "options": [
+        "G1",
+        "S",
+        "G2",
+        "M"
+      ],
+      "correctIndex": 1,
+      "explanation": "DNA replicates in S phase.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q42",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is unit membrane?",
+      "questionImg": null,
+      "options": [
+        "Trilaminar",
+        "Bilayer",
+        "Single layer",
+        "None"
+      ],
+      "correctIndex": 1,
+      "explanation": "Membrane is lipid bilayer.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q43",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which plant hormone delays senescence?",
+      "questionImg": null,
+      "options": [
+        "Ethylene",
+        "ABA",
+        "Cytokinin",
+        "Auxin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cytokinin delays aging.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q44",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organelle contains enzymes for digestion?",
+      "questionImg": null,
+      "options": [
+        "Lysosome",
+        "Golgi",
+        "Ribosome",
+        "ER"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lysosomes contain digestive enzymes.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q45",
+      "subject": "Botany",
+      "category": "mock_1",
+      "chapter": "Botany Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which cycle is light independent?",
+      "questionImg": null,
+      "options": [
+        "Light reaction",
+        "Calvin cycle",
+        "ETS",
+        "Glycolysis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Calvin cycle is light independent.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q46",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which vitamin is essential for blood clotting?",
+      "questionImg": null,
+      "options": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin K",
+        "Vitamin D"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vitamin K is essential for synthesis of clotting factors.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q47",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of brain controls balance?",
+      "questionImg": null,
+      "options": [
+        "Cerebrum",
+        "Cerebellum",
+        "Medulla",
+        "Hypothalamus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cerebellum maintains posture and balance.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q48",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which blood cells carry oxygen?",
+      "questionImg": null,
+      "options": [
+        "WBC",
+        "RBC",
+        "Platelets",
+        "Plasma"
+      ],
+      "correctIndex": 1,
+      "explanation": "RBCs contain hemoglobin which carries oxygen.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q49",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Functional unit of kidney is:",
+      "questionImg": null,
+      "options": [
+        "Neuron",
+        "Nephron",
+        "Alveoli",
+        "Glomerulus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nephron is the functional unit of kidney.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q50",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone regulates blood sugar?",
+      "questionImg": null,
+      "options": [
+        "Insulin",
+        "Thyroxine",
+        "Adrenaline",
+        "Estrogen"
+      ],
+      "correctIndex": 0,
+      "explanation": "Insulin regulates blood glucose levels.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q51",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme digests proteins in stomach?",
+      "questionImg": null,
+      "options": [
+        "Amylase",
+        "Pepsin",
+        "Lipase",
+        "Trypsin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pepsin digests proteins in acidic medium.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q52",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organ produces bile?",
+      "questionImg": null,
+      "options": [
+        "Pancreas",
+        "Liver",
+        "Gall bladder",
+        "Stomach"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liver produces bile.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q53",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure filters blood in kidney?",
+      "questionImg": null,
+      "options": [
+        "Loop of Henle",
+        "Glomerulus",
+        "Ureter",
+        "Tubule"
+      ],
+      "correctIndex": 1,
+      "explanation": "Glomerulus filters blood.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q54",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone controls metamorphosis in frog?",
+      "questionImg": null,
+      "options": [
+        "Insulin",
+        "Thyroxine",
+        "Testosterone",
+        "Estrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thyroxine controls metamorphosis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q55",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gas is transported by hemoglobin?",
+      "questionImg": null,
+      "options": [
+        "CO2",
+        "O2",
+        "N2",
+        "H2"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hemoglobin mainly transports oxygen.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q56",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which type of immunity is inherited?",
+      "questionImg": null,
+      "options": [
+        "Acquired",
+        "Innate",
+        "Active",
+        "Passive"
+      ],
+      "correctIndex": 1,
+      "explanation": "Innate immunity is present from birth.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q57",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of neuron receives impulses?",
+      "questionImg": null,
+      "options": [
+        "Axon",
+        "Dendrite",
+        "Cell body",
+        "Synapse"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dendrites receive impulses.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q58",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which vitamin deficiency causes rickets?",
+      "questionImg": null,
+      "options": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vitamin D deficiency causes rickets.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q59",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gland secretes growth hormone?",
+      "questionImg": null,
+      "options": [
+        "Thyroid",
+        "Pituitary",
+        "Adrenal",
+        "Pancreas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pituitary gland secretes growth hormone.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q60",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of heart pumps oxygenated blood?",
+      "questionImg": null,
+      "options": [
+        "Right atrium",
+        "Right ventricle",
+        "Left atrium",
+        "Left ventricle"
+      ],
+      "correctIndex": 3,
+      "explanation": "Left ventricle pumps oxygenated blood.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q61",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organ helps in excretion of nitrogenous waste?",
+      "questionImg": null,
+      "options": [
+        "Lungs",
+        "Kidney",
+        "Skin",
+        "Liver"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kidneys remove nitrogenous wastes.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q62",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which molecule carries genetic information?",
+      "questionImg": null,
+      "options": [
+        "Protein",
+        "DNA",
+        "Lipid",
+        "Carbohydrate"
+      ],
+      "correctIndex": 1,
+      "explanation": "DNA carries genetic information.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q63",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which blood group is universal donor?",
+      "questionImg": null,
+      "options": [
+        "A",
+        "B",
+        "AB",
+        "O"
+      ],
+      "correctIndex": 3,
+      "explanation": "O blood group is universal donor.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q64",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme digests starch?",
+      "questionImg": null,
+      "options": [
+        "Pepsin",
+        "Amylase",
+        "Lipase",
+        "Trypsin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Amylase digests starch.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q65",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of eye controls light entry?",
+      "questionImg": null,
+      "options": [
+        "Lens",
+        "Cornea",
+        "Iris",
+        "Retina"
+      ],
+      "correctIndex": 2,
+      "explanation": "Iris regulates amount of light.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q66",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which cell organelle produces ATP?",
+      "questionImg": null,
+      "options": [
+        "Nucleus",
+        "Mitochondria",
+        "Golgi",
+        "ER"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mitochondria produce ATP.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q67",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone is called emergency hormone?",
+      "questionImg": null,
+      "options": [
+        "Insulin",
+        "Adrenaline",
+        "Thyroxine",
+        "Progesterone"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adrenaline prepares body for emergency.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q68",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part connects muscles to bones?",
+      "questionImg": null,
+      "options": [
+        "Ligament",
+        "Tendon",
+        "Cartilage",
+        "Joint"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tendons connect muscles to bones.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q69",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is smallest bone in human body?",
+      "questionImg": null,
+      "options": [
+        "Femur",
+        "Stapes",
+        "Humerus",
+        "Radius"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stapes is smallest bone.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q70",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which blood cells help in clotting?",
+      "questionImg": null,
+      "options": [
+        "RBC",
+        "WBC",
+        "Platelets",
+        "Plasma"
+      ],
+      "correctIndex": 2,
+      "explanation": "Platelets help in clotting.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q71",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which vitamin deficiency causes scurvy?",
+      "questionImg": null,
+      "options": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vitamin C deficiency causes scurvy.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q72",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organ is responsible for detoxification?",
+      "questionImg": null,
+      "options": [
+        "Kidney",
+        "Liver",
+        "Heart",
+        "Lungs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liver detoxifies harmful substances.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q73",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of ear maintains balance?",
+      "questionImg": null,
+      "options": [
+        "Cochlea",
+        "Semicircular canals",
+        "Eardrum",
+        "Ossicles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semicircular canals maintain balance.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q74",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which process forms gametes?",
+      "questionImg": null,
+      "options": [
+        "Mitosis",
+        "Meiosis",
+        "Binary fission",
+        "Budding"
+      ],
+      "correctIndex": 1,
+      "explanation": "Meiosis produces gametes.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q75",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone regulates calcium?",
+      "questionImg": null,
+      "options": [
+        "Insulin",
+        "Parathormone",
+        "Thyroxine",
+        "Estrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Parathormone regulates calcium levels.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q76",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organ pumps blood?",
+      "questionImg": null,
+      "options": [
+        "Lungs",
+        "Heart",
+        "Liver",
+        "Kidney"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heart pumps blood.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q77",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part absorbs nutrients?",
+      "questionImg": null,
+      "options": [
+        "Stomach",
+        "Small intestine",
+        "Large intestine",
+        "Esophagus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Small intestine absorbs nutrients.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q78",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is respiratory pigment?",
+      "questionImg": null,
+      "options": [
+        "Melanin",
+        "Hemoglobin",
+        "Keratin",
+        "Collagen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hemoglobin carries oxygen.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q79",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gland controls metabolism?",
+      "questionImg": null,
+      "options": [
+        "Pituitary",
+        "Thyroid",
+        "Adrenal",
+        "Pancreas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thyroid regulates metabolism.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q80",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which nerve carries impulse away?",
+      "questionImg": null,
+      "options": [
+        "Sensory",
+        "Motor",
+        "Mixed",
+        "Reflex"
+      ],
+      "correctIndex": 1,
+      "explanation": "Motor neuron carries impulse away from CNS.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q81",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which structure is basic unit of life?",
+      "questionImg": null,
+      "options": [
+        "Tissue",
+        "Organ",
+        "Cell",
+        "System"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cell is basic unit of life.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q82",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which vitamin helps in vision?",
+      "questionImg": null,
+      "options": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vitamin A is important for vision.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q83",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organ stores urine?",
+      "questionImg": null,
+      "options": [
+        "Kidney",
+        "Bladder",
+        "Ureter",
+        "Liver"
+      ],
+      "correctIndex": 1,
+      "explanation": "Urinary bladder stores urine.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q84",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which hormone regulates water balance?",
+      "questionImg": null,
+      "options": [
+        "ADH",
+        "Insulin",
+        "Thyroxine",
+        "Adrenaline"
+      ],
+      "correctIndex": 0,
+      "explanation": "ADH controls water reabsorption.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q85",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part protects brain?",
+      "questionImg": null,
+      "options": [
+        "Skull",
+        "Rib",
+        "Spine",
+        "Pelvis"
+      ],
+      "correctIndex": 0,
+      "explanation": "Skull protects brain.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q86",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which blood vessel carries oxygenated blood?",
+      "questionImg": null,
+      "options": [
+        "Vein",
+        "Artery",
+        "Capillary",
+        "Venule"
+      ],
+      "correctIndex": 1,
+      "explanation": "Arteries carry oxygenated blood.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q87",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which enzyme digests fats?",
+      "questionImg": null,
+      "options": [
+        "Amylase",
+        "Lipase",
+        "Pepsin",
+        "Trypsin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lipase digests fats.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q88",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which organ controls body temperature?",
+      "questionImg": null,
+      "options": [
+        "Heart",
+        "Brain",
+        "Skin",
+        "Liver"
+      ],
+      "correctIndex": 2,
+      "explanation": "Skin helps regulate temperature.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q89",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which system transports oxygen?",
+      "questionImg": null,
+      "options": [
+        "Digestive",
+        "Respiratory",
+        "Circulatory",
+        "Nervous"
+      ],
+      "correctIndex": 2,
+      "explanation": "Circulatory system transports oxygen.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q90",
+      "subject": "Zoology",
+      "category": "mock_1",
+      "chapter": "Zoology Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which part of brain controls involuntary actions like breathing?",
+      "questionImg": null,
+      "options": [
+        "Cerebrum",
+        "Cerebellum",
+        "Medulla oblongata",
+        "Hypothalamus"
+      ],
+      "correctIndex": 2,
+      "explanation": "Medulla oblongata controls involuntary functions such as breathing and heartbeat.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q91",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "SI unit of force is:",
+      "questionImg": null,
+      "options": [
+        "Newton",
+        "Joule",
+        "Watt",
+        "Pascal"
+      ],
+      "correctIndex": 0,
+      "explanation": "Force is measured in Newton (N).",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q92",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Velocity is a:",
+      "questionImg": null,
+      "options": [
+        "Scalar",
+        "Vector",
+        "Constant",
+        "Unit"
+      ],
+      "correctIndex": 1,
+      "explanation": "Velocity has both magnitude and direction, so it is a vector.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q93",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Acceleration due to gravity on Earth is:",
+      "questionImg": null,
+      "options": [
+        "9.8 m/s²",
+        "10 m/s",
+        "8.9 m/s²",
+        "9 m/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "Standard value of g is 9.8 m/s².",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q94",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Work done formula is:",
+      "questionImg": null,
+      "options": [
+        "F/d",
+        "F×d",
+        "d/F",
+        "F+d"
+      ],
+      "correctIndex": 1,
+      "explanation": "Work = Force × displacement.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q95",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of power is:",
+      "questionImg": null,
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Volt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Power is measured in Watt.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q96",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which law states F=ma?",
+      "questionImg": null,
+      "options": [
+        "Newton’s 1st law",
+        "Newton’s 2nd law",
+        "Newton’s 3rd law",
+        "Law of gravitation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Newton’s second law states F=ma.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q97",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Momentum is product of:",
+      "questionImg": null,
+      "options": [
+        "Mass & velocity",
+        "Force & time",
+        "Mass & acceleration",
+        "Force & velocity"
+      ],
+      "correctIndex": 0,
+      "explanation": "Momentum = mass × velocity.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q98",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of energy is:",
+      "questionImg": null,
+      "options": [
+        "Newton",
+        "Joule",
+        "Watt",
+        "Pascal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Energy is measured in Joules.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q99",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Kinetic energy formula is:",
+      "questionImg": null,
+      "options": [
+        "1/2 mv²",
+        "mv",
+        "mgh",
+        "F×d"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kinetic energy = 1/2 mv².",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q100",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Potential energy depends on:",
+      "questionImg": null,
+      "options": [
+        "Mass only",
+        "Height only",
+        "Mass & height",
+        "Velocity"
+      ],
+      "correctIndex": 2,
+      "explanation": "PE = mgh depends on mass and height.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q101",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of pressure is:",
+      "questionImg": null,
+      "options": [
+        "Newton",
+        "Pascal",
+        "Joule",
+        "Watt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pressure is measured in Pascal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q102",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Density formula is:",
+      "questionImg": null,
+      "options": [
+        "m×v",
+        "m/v",
+        "v/m",
+        "mv²"
+      ],
+      "correctIndex": 1,
+      "explanation": "Density = mass/volume.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q103",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Speed of light is:",
+      "questionImg": null,
+      "options": [
+        "3×10^8 m/s",
+        "3×10^6 m/s",
+        "3×10^5 m/s",
+        "3×10^7 m/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "Speed of light in vacuum is 3×10^8 m/s.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q104",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Ohm’s law is:",
+      "questionImg": null,
+      "options": [
+        "V=IR",
+        "P=VI",
+        "E=mc²",
+        "F=ma"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ohm’s law states V=IR.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q105",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of resistance is:",
+      "questionImg": null,
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Resistance is measured in Ohm.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q106",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Current is flow of:",
+      "questionImg": null,
+      "options": [
+        "Electrons",
+        "Protons",
+        "Neutrons",
+        "Atoms"
+      ],
+      "correctIndex": 0,
+      "explanation": "Electric current is flow of electrons.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q107",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of current is:",
+      "questionImg": null,
+      "options": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Current is measured in Ampere.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q108",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Magnetic field is produced by:",
+      "questionImg": null,
+      "options": [
+        "Charge at rest",
+        "Moving charge",
+        "Neutron",
+        "Proton"
+      ],
+      "correctIndex": 1,
+      "explanation": "Moving charges produce magnetic field.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q109",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Lens used to correct myopia:",
+      "questionImg": null,
+      "options": [
+        "Convex",
+        "Concave",
+        "Plane",
+        "Cylindrical"
+      ],
+      "correctIndex": 1,
+      "explanation": "Concave lens corrects myopia.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q110",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of frequency is:",
+      "questionImg": null,
+      "options": [
+        "Hertz",
+        "Newton",
+        "Joule",
+        "Volt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Frequency is measured in Hertz.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q111",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Time period formula is:",
+      "questionImg": null,
+      "options": [
+        "1/f",
+        "f",
+        "f²",
+        "2f"
+      ],
+      "correctIndex": 0,
+      "explanation": "Time period = 1/frequency.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q112",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Wave speed formula is:",
+      "questionImg": null,
+      "options": [
+        "v=fλ",
+        "v=f/λ",
+        "v=λ/f",
+        "v=f²λ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Wave speed = frequency × wavelength.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q113",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of charge is:",
+      "questionImg": null,
+      "options": [
+        "Coulomb",
+        "Ampere",
+        "Volt",
+        "Ohm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Charge is measured in Coulomb.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q114",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Capacitor stores:",
+      "questionImg": null,
+      "options": [
+        "Charge",
+        "Energy",
+        "Both",
+        "None"
+      ],
+      "correctIndex": 2,
+      "explanation": "Capacitor stores charge and energy.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q115",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Mirror formula is:",
+      "questionImg": null,
+      "options": [
+        "1/f=1/v+1/u",
+        "f=uv",
+        "v=u+f",
+        "f=u/v"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mirror formula relates object and image distances.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q116",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Refractive index is:",
+      "questionImg": null,
+      "options": [
+        "c/v",
+        "v/c",
+        "c×v",
+        "c+v"
+      ],
+      "correctIndex": 0,
+      "explanation": "Refractive index = speed of light in vacuum/speed in medium.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q117",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of electric field is:",
+      "questionImg": null,
+      "options": [
+        "N/C",
+        "J",
+        "W",
+        "V"
+      ],
+      "correctIndex": 0,
+      "explanation": "Electric field is measured in N/C.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q118",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of capacitance is:",
+      "questionImg": null,
+      "options": [
+        "Farad",
+        "Ohm",
+        "Volt",
+        "Ampere"
+      ],
+      "correctIndex": 0,
+      "explanation": "Capacitance is measured in Farad.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q119",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Transformer works on:",
+      "questionImg": null,
+      "options": [
+        "AC",
+        "DC",
+        "Both",
+        "None"
+      ],
+      "correctIndex": 0,
+      "explanation": "Transformer works only with AC.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q120",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which law explains conservation of charge?",
+      "questionImg": null,
+      "options": [
+        "Ohm’s law",
+        "Kirchhoff’s law",
+        "Newton’s law",
+        "Faraday’s law"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kirchhoff’s law is based on conservation of charge.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q121",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of magnetic field is:",
+      "questionImg": null,
+      "options": [
+        "Tesla",
+        "Weber",
+        "Henry",
+        "Volt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Magnetic field is measured in Tesla.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q122",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Energy of photon is:",
+      "questionImg": null,
+      "options": [
+        "hf",
+        "mc²",
+        "mv²",
+        "F×d"
+      ],
+      "correctIndex": 0,
+      "explanation": "Photon energy = h×frequency.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q123",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Photoelectric effect was explained by:",
+      "questionImg": null,
+      "options": [
+        "Newton",
+        "Einstein",
+        "Bohr",
+        "Maxwell"
+      ],
+      "correctIndex": 1,
+      "explanation": "Einstein explained photoelectric effect.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q124",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Bohr model applies to:",
+      "questionImg": null,
+      "options": [
+        "Hydrogen atom",
+        "All atoms",
+        "Molecules",
+        "Solids"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bohr model is valid for hydrogen-like atoms.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q125",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of work is:",
+      "questionImg": null,
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "correctIndex": 0,
+      "explanation": "Work is measured in Joule.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q126",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is scalar quantity?",
+      "questionImg": null,
+      "options": [
+        "Force",
+        "Velocity",
+        "Speed",
+        "Acceleration"
+      ],
+      "correctIndex": 2,
+      "explanation": "Speed has only magnitude.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q127",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which device measures current?",
+      "questionImg": null,
+      "options": [
+        "Voltmeter",
+        "Ammeter",
+        "Galvanometer",
+        "Thermometer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ammeter measures current.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q128",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which device measures voltage?",
+      "questionImg": null,
+      "options": [
+        "Ammeter",
+        "Voltmeter",
+        "Ohmmeter",
+        "Barometer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Voltmeter measures voltage.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q129",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of inductance is:",
+      "questionImg": null,
+      "options": [
+        "Henry",
+        "Tesla",
+        "Weber",
+        "Farad"
+      ],
+      "correctIndex": 0,
+      "explanation": "Inductance is measured in Henry.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q130",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which phenomenon causes rainbow?",
+      "questionImg": null,
+      "options": [
+        "Reflection",
+        "Refraction",
+        "Dispersion",
+        "Diffraction"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rainbow is due to dispersion of light.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q131",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which force acts at a distance?",
+      "questionImg": null,
+      "options": [
+        "Friction",
+        "Normal",
+        "Gravitational",
+        "Tension"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gravitational force acts without contact.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q132",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Unit of angular velocity is:",
+      "questionImg": null,
+      "options": [
+        "rad/s",
+        "m/s",
+        "Hz",
+        "s"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angular velocity is measured in rad/s.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q133",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Escape velocity depends on:",
+      "questionImg": null,
+      "options": [
+        "Mass only",
+        "Radius only",
+        "Mass & radius",
+        "Height"
+      ],
+      "correctIndex": 2,
+      "explanation": "Escape velocity depends on mass and radius of planet.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q134",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which wave needs medium?",
+      "questionImg": null,
+      "options": [
+        "Light",
+        "Sound",
+        "Radio",
+        "X-ray"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sound waves need medium to travel.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q135",
+      "subject": "Physics",
+      "category": "mock_1",
+      "chapter": "Physics Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which quantity remains conserved in collision?",
+      "questionImg": null,
+      "options": [
+        "Energy only",
+        "Momentum",
+        "Velocity",
+        "Force"
+      ],
+      "correctIndex": 1,
+      "explanation": "Momentum is always conserved.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q136",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Atomic number represents:",
+      "questionImg": null,
+      "options": [
+        "Number of neutrons",
+        "Number of protons",
+        "Number of electrons + neutrons",
+        "Mass number"
+      ],
+      "correctIndex": 1,
+      "explanation": "Atomic number equals number of protons.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q137",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "pH of neutral solution is:",
+      "questionImg": null,
+      "options": [
+        "0",
+        "7",
+        "14",
+        "1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Neutral solution has pH 7.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q138",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Avogadro number is:",
+      "questionImg": null,
+      "options": [
+        "6.022×10^23",
+        "3×10^8",
+        "1.6×10^-19",
+        "9.8"
+      ],
+      "correctIndex": 0,
+      "explanation": "Avogadro number is 6.022×10^23.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q139",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which bond is strongest?",
+      "questionImg": null,
+      "options": [
+        "Ionic",
+        "Covalent",
+        "Hydrogen",
+        "Van der Waals"
+      ],
+      "correctIndex": 1,
+      "explanation": "Covalent bonds are strongest among given options.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q140",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "SI unit of concentration is:",
+      "questionImg": null,
+      "options": [
+        "mol/L",
+        "mol/kg",
+        "mol/m³",
+        "g/L"
+      ],
+      "correctIndex": 2,
+      "explanation": "SI unit is mol/m³.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q141",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gas is ideal?",
+      "questionImg": null,
+      "options": [
+        "O2",
+        "H2",
+        "N2",
+        "None"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ideal gas is hypothetical, no real gas is perfectly ideal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q142",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Oxidation is:",
+      "questionImg": null,
+      "options": [
+        "Gain of electrons",
+        "Loss of electrons",
+        "Gain of proton",
+        "Loss of neutron"
+      ],
+      "correctIndex": 1,
+      "explanation": "Oxidation is loss of electrons.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q143",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Reduction is:",
+      "questionImg": null,
+      "options": [
+        "Loss of electrons",
+        "Gain of electrons",
+        "Loss of proton",
+        "Gain of neutron"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reduction is gain of electrons.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q144",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which element has highest electronegativity?",
+      "questionImg": null,
+      "options": [
+        "Oxygen",
+        "Fluorine",
+        "Chlorine",
+        "Nitrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fluorine is most electronegative.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q145",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is strongest acid?",
+      "questionImg": null,
+      "options": [
+        "HCl",
+        "H2SO4",
+        "HNO3",
+        "HF"
+      ],
+      "correctIndex": 1,
+      "explanation": "H2SO4 is strongest among given.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q146",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is a noble gas?",
+      "questionImg": null,
+      "options": [
+        "Oxygen",
+        "Nitrogen",
+        "Helium",
+        "Hydrogen"
+      ],
+      "correctIndex": 2,
+      "explanation": "Helium is noble gas.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q147",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which orbital has highest energy?",
+      "questionImg": null,
+      "options": [
+        "s",
+        "p",
+        "d",
+        "f"
+      ],
+      "correctIndex": 3,
+      "explanation": "Energy increases from s to f.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q148",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Molarity is:",
+      "questionImg": null,
+      "options": [
+        "mol/kg",
+        "mol/L",
+        "g/L",
+        "mol/m³"
+      ],
+      "correctIndex": 1,
+      "explanation": "Molarity = moles per liter.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q149",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which law states PV=nRT?",
+      "questionImg": null,
+      "options": [
+        "Boyle's law",
+        "Charles law",
+        "Ideal gas law",
+        "Dalton law"
+      ],
+      "correctIndex": 2,
+      "explanation": "PV=nRT is ideal gas equation.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q150",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is reducing agent?",
+      "questionImg": null,
+      "options": [
+        "Gains electrons",
+        "Loses electrons",
+        "Gains proton",
+        "Loses neutron"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reducing agent donates electrons.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q151",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which compound shows hydrogen bonding?",
+      "questionImg": null,
+      "options": [
+        "CH4",
+        "NH3",
+        "CO2",
+        "HCl"
+      ],
+      "correctIndex": 1,
+      "explanation": "NH3 forms hydrogen bonds.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q152",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which metal is liquid at room temp?",
+      "questionImg": null,
+      "options": [
+        "Iron",
+        "Mercury",
+        "Sodium",
+        "Copper"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mercury is liquid metal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q153",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gas is used in photosynthesis?",
+      "questionImg": null,
+      "options": [
+        "O2",
+        "CO2",
+        "N2",
+        "H2"
+      ],
+      "correctIndex": 1,
+      "explanation": "CO2 is used in photosynthesis.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q154",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which element is most abundant?",
+      "questionImg": null,
+      "options": [
+        "Oxygen",
+        "Hydrogen",
+        "Carbon",
+        "Nitrogen"
+      ],
+      "correctIndex": 0,
+      "explanation": "Oxygen is most abundant in Earth's crust.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q155",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is amphoteric oxide?",
+      "questionImg": null,
+      "options": [
+        "Na2O",
+        "CaO",
+        "Al2O3",
+        "CO2"
+      ],
+      "correctIndex": 2,
+      "explanation": "Al2O3 shows amphoteric nature.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q156",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which process is exothermic?",
+      "questionImg": null,
+      "options": [
+        "Melting",
+        "Evaporation",
+        "Combustion",
+        "Sublimation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Combustion releases heat.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q157",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is endothermic?",
+      "questionImg": null,
+      "options": [
+        "Combustion",
+        "Freezing",
+        "Photosynthesis",
+        "Condensation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Photosynthesis absorbs energy.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q158",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is strongest base?",
+      "questionImg": null,
+      "options": [
+        "NaOH",
+        "KOH",
+        "NH4OH",
+        "Ca(OH)2"
+      ],
+      "correctIndex": 1,
+      "explanation": "KOH is strongest among given.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q159",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which has highest boiling point?",
+      "questionImg": null,
+      "options": [
+        "H2O",
+        "NH3",
+        "HF",
+        "CH4"
+      ],
+      "correctIndex": 0,
+      "explanation": "Water has highest BP due to strong H-bonding.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q160",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which element is halogen?",
+      "questionImg": null,
+      "options": [
+        "Oxygen",
+        "Fluorine",
+        "Nitrogen",
+        "Sulfur"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fluorine is halogen.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q161",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is alkali metal?",
+      "questionImg": null,
+      "options": [
+        "Na",
+        "Mg",
+        "Al",
+        "Ca"
+      ],
+      "correctIndex": 0,
+      "explanation": "Na is alkali metal.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q162",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which bond involves electron sharing?",
+      "questionImg": null,
+      "options": [
+        "Ionic",
+        "Covalent",
+        "Metallic",
+        "Hydrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Covalent bond involves sharing.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q163",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which has highest ionization energy?",
+      "questionImg": null,
+      "options": [
+        "Na",
+        "Mg",
+        "Cl",
+        "Ne"
+      ],
+      "correctIndex": 3,
+      "explanation": "Noble gases have highest IE.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q164",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which compound is organic?",
+      "questionImg": null,
+      "options": [
+        "NaCl",
+        "CO2",
+        "CH4",
+        "H2O"
+      ],
+      "correctIndex": 2,
+      "explanation": "CH4 is organic compound.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q165",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which functional group is alcohol?",
+      "questionImg": null,
+      "options": [
+        "-COOH",
+        "-OH",
+        "-NH2",
+        "-CHO"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alcohol contains -OH group.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q166",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is saturated hydrocarbon?",
+      "questionImg": null,
+      "options": [
+        "Alkene",
+        "Alkyne",
+        "Alkane",
+        "Benzene"
+      ],
+      "correctIndex": 2,
+      "explanation": "Alkanes are saturated.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q167",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which reaction is addition?",
+      "questionImg": null,
+      "options": [
+        "Substitution",
+        "Elimination",
+        "Addition",
+        "Redox"
+      ],
+      "correctIndex": 2,
+      "explanation": "Addition adds atoms to molecule.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q168",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is aromatic compound?",
+      "questionImg": null,
+      "options": [
+        "Methane",
+        "Ethene",
+        "Benzene",
+        "Ethyne"
+      ],
+      "correctIndex": 2,
+      "explanation": "Benzene is aromatic.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q169",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is isomerism?",
+      "questionImg": null,
+      "options": [
+        "Same formula different structure",
+        "Different formula same structure",
+        "Same structure",
+        "None"
+      ],
+      "correctIndex": 0,
+      "explanation": "Isomers have same formula but different structures.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q170",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which acid is organic?",
+      "questionImg": null,
+      "options": [
+        "HCl",
+        "H2SO4",
+        "CH3COOH",
+        "HNO3"
+      ],
+      "correctIndex": 2,
+      "explanation": "Acetic acid is organic.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q171",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which polymer is natural?",
+      "questionImg": null,
+      "options": [
+        "Nylon",
+        "PVC",
+        "Protein",
+        "Polythene"
+      ],
+      "correctIndex": 2,
+      "explanation": "Proteins are natural polymers.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q172",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is biodegradable?",
+      "questionImg": null,
+      "options": [
+        "Plastic",
+        "Glass",
+        "Paper",
+        "Metal"
+      ],
+      "correctIndex": 2,
+      "explanation": "Paper is biodegradable.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q173",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is electrolyte?",
+      "questionImg": null,
+      "options": [
+        "Sugar",
+        "NaCl",
+        "Urea",
+        "Glucose"
+      ],
+      "correctIndex": 1,
+      "explanation": "NaCl ionizes in solution.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q174",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which solution conducts electricity?",
+      "questionImg": null,
+      "options": [
+        "Sugar",
+        "Alcohol",
+        "Salt solution",
+        "Distilled water"
+      ],
+      "correctIndex": 2,
+      "explanation": "Salt solution conducts electricity.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q175",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is buffer solution?",
+      "questionImg": null,
+      "options": [
+        "Strong acid",
+        "Strong base",
+        "Weak acid + salt",
+        "Strong acid + base"
+      ],
+      "correctIndex": 2,
+      "explanation": "Buffer resists pH change.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q176",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is catalyst?",
+      "questionImg": null,
+      "options": [
+        "Consumed",
+        "Increases rate",
+        "Decreases rate",
+        "None"
+      ],
+      "correctIndex": 1,
+      "explanation": "Catalyst increases reaction rate.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q177",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is oxidation number of O?",
+      "questionImg": null,
+      "options": [
+        "-2",
+        "-1",
+        "+1",
+        "+2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Oxygen usually has -2 oxidation state.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q178",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which is strongest oxidizing agent?",
+      "questionImg": null,
+      "options": [
+        "Cl2",
+        "F2",
+        "Br2",
+        "I2"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fluorine is strongest oxidizer.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q179",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which gas is greenhouse gas?",
+      "questionImg": null,
+      "options": [
+        "O2",
+        "CO2",
+        "N2",
+        "H2"
+      ],
+      "correctIndex": 1,
+      "explanation": "CO2 contributes to greenhouse effect.",
+      "explanationImg": null
+    },
+    {
+      "id": "mock_1_q180",
+      "subject": "Chemistry",
+      "category": "mock_1",
+      "chapter": "Chemistry Mock",
+      "topic": null,
+      "year": null,
+      "questionText": "Which element forms maximum bonds?",
+      "questionImg": null,
+      "options": [
+        "Carbon",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "correctIndex": 0,
+      "explanation": "Carbon shows tetravalency.",
+      "explanationImg": null
+    }
+  ]
+}
