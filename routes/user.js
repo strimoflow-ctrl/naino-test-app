@@ -160,6 +160,7 @@ router.get('/performance', async (req, res) => {
   const userId = req.query.userId || 'guest_user';
 
   let records = [];
+  let mongoLoaded = false;
   if (isMongoConnected()) {
     try {
       const db = getMongoDb();
@@ -167,9 +168,10 @@ router.get('/performance', async (req, res) => {
         .find({ userId })
         .sort({ submittedAt: -1 })
         .toArray();
+      mongoLoaded = true;
     } catch (_) {}
   }
-  if (!records || records.length === 0) {
+  if (!mongoLoaded) {
     records = localTestRecords.filter(r => r.userId === userId || !r.userId);
   }
 
@@ -199,34 +201,34 @@ router.get('/performance', async (req, res) => {
     }
   });
 
-  const avgScore = totalTests > 0 ? Math.round(totalScore / totalTests) : 620;
-  const avgAccuracy = totalTests > 0 ? Math.round(totalAccuracy / totalTests) : 85;
+  const avgScore = totalTests > 0 ? Math.round(totalScore / totalTests) : 0;
+  const avgAccuracy = totalTests > 0 ? Math.round(totalAccuracy / totalTests) : 0;
   const recentScores = records.slice(0, 6).map(r => r.score || 0).reverse();
-  const rank = totalTests > 0 ? calculateRank(avgScore, totalTests) : 'AIR #142';
+  const rank = totalTests > 0 ? calculateRank(avgScore, totalTests) : 'Unranked';
 
   res.json({
     userId,
     rank,
-    totalTestsTaken: totalTests > 0 ? totalTests : 14,
+    totalTestsTaken: totalTests,
     avgScore,
     accuracy: avgAccuracy,
     streak: streakData.currentStreak,
     bestStreak: streakData.bestStreak,
-    recentScores: recentScores.length >= 2 ? recentScores : [560, 585, 610, 630, 615, 650],
+    recentScores,
     subjectBreakdown: {
       physics: {
         name: 'Physics',
-        accuracy: phyCount > 0 ? Math.round(phyAcc / phyCount) : 78,
+        accuracy: phyCount > 0 ? Math.round(phyAcc / phyCount) : 0,
         color: '#0284C7'
       },
       chemistry: {
         name: 'Chemistry',
-        accuracy: chemCount > 0 ? Math.round(chemAcc / chemCount) : 84,
+        accuracy: chemCount > 0 ? Math.round(chemAcc / chemCount) : 0,
         color: '#8B5CF6'
       },
       biology: {
         name: 'Biology',
-        accuracy: bioCount > 0 ? Math.round(bioAcc / bioCount) : 92,
+        accuracy: bioCount > 0 ? Math.round(bioAcc / bioCount) : 0,
         color: '#10B981'
       }
     }
@@ -297,6 +299,7 @@ router.post('/test-record', async (req, res) => {
 router.get('/test-history', async (req, res) => {
   const userId = req.query.userId || 'guest_user';
   let records = [];
+  let mongoLoaded = false;
 
   if (isMongoConnected()) {
     try {
@@ -306,16 +309,37 @@ router.get('/test-history', async (req, res) => {
         .sort({ submittedAt: -1 })
         .limit(25)
         .toArray();
+      mongoLoaded = true;
     } catch (_) {}
   }
 
-  if (!records || records.length === 0) {
+  if (!mongoLoaded) {
     records = localTestRecords.filter(r => r.userId === userId || !r.userId).slice(0, 25);
   }
 
   res.json({
     totalRecords: records.length,
     records
+  });
+});
+
+// 5.5 POST /api/user/clear-history
+router.post('/clear-history', async (req, res) => {
+  const userId = req.body.userId || 'guest_user';
+  localTestRecords = localTestRecords.filter(r => r.userId && r.userId !== userId);
+  saveLocalRecordsToDisk();
+
+  if (isMongoConnected()) {
+    try {
+      const db = getMongoDb();
+      await db.collection('user_test_records').deleteMany({ userId });
+      await db.collection('user_profiles').deleteMany({ userId });
+    } catch (_) {}
+  }
+
+  res.json({
+    success: true,
+    message: 'User test history cleared successfully'
   });
 });
 
