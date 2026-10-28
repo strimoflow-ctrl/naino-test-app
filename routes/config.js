@@ -22,19 +22,6 @@ const DEFAULT_APP_CONFIG = {
 
 const DEFAULT_HOME_SECTIONS = [
   {
-    card_id: "daily_challenge",
-    title: "Daily 7 PM Live Test",
-    subtitle: "20 Questions • 20 Mins",
-    category: "live",
-    badge: "DAILY LIVE",
-    icon_name: "bolt",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/daily.png",
-    gradient: ["#10B981", "#059669"],
-    route_key: "/daily-test",
-    sort_order: 1,
-    is_active: true
-  },
-  {
     card_id: "grand_mocks",
     title: "Grand Mock Tests",
     subtitle: "180 Qs • Full Syllabus",
@@ -44,7 +31,7 @@ const DEFAULT_HOME_SECTIONS = [
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/mock.png",
     gradient: ["#059669", "#047857"],
     route_key: "/grand-mocks",
-    sort_order: 2,
+    sort_order: 1,
     is_active: true
   },
   {
