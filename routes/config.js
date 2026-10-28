@@ -230,7 +230,7 @@ const DEFAULT_PREMIUM_DESKS = [
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/units_and_measurements.jpg",
     fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
     slidesCount: 20,
-    size: "17.1 MB",
+    size: "1.8 MB",
     gradient: ["#0284C7", "#0369A1"]
   },
   {
@@ -246,7 +246,7 @@ const DEFAULT_PREMIUM_DESKS = [
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/basic_concepts_of_chemistry.jpg",
     fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf",
     slidesCount: 15,
-    size: "14.3 MB",
+    size: "1.5 MB",
     gradient: ["#D97706", "#B45309"]
   },
   {
@@ -262,7 +262,7 @@ const DEFAULT_PREMIUM_DESKS = [
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/human_health_and_disease.jpg",
     fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/human_health_and_disease.pdf",
     slidesCount: 20,
-    size: "27.4 MB",
+    size: "2.5 MB",
     gradient: ["#059669", "#047857"]
   },
   {
@@ -278,7 +278,7 @@ const DEFAULT_PREMIUM_DESKS = [
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/structure_of_atom.jpg",
     fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/structure_of_atom.pdf",
     slidesCount: 15,
-    size: "20.2 MB",
+    size: "1.8 MB",
     gradient: ["#7C3AED", "#6D28D9"]
   },
   {
@@ -294,7 +294,7 @@ const DEFAULT_PREMIUM_DESKS = [
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/the_living_world.jpg",
     fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf",
     slidesCount: 10,
-    size: "13.1 MB",
+    size: "0.9 MB",
     gradient: ["#10B981", "#047857"]
   }
 ];
