@@ -142,18 +142,35 @@ export function resolveImageUrl(img, type = 'questions', req) {
   return `${baseUrl}/${filename}`;
 }
 
+export function sanitizeLatex(str) {
+  if (!str || typeof str !== 'string') return str;
+  let text = str.trim();
+  text = text.replace(/^\$\$([\s\S]*)\$\$$/, '$1').replace(/^\$([\s\S]*)\$$/, '$1');
+  text = text.replace(/\$/g, '');
+  text = text.replace(/\\*(?:text|mathrm|mathbf|textit)\{([^}]+)\}/g, '$1');
+  const subMap = {'0':'₀','1':'₁','2':'₂','3':'₃','4':'₄','5':'₅','6':'₆','7':'₇','8':'₈','9':'₉','+':'₊','-':'₋','=':'₌','(':'₍',')':'₎','a':'ₐ','e':'ₑ','i':'ᵢ','o':'ₒ','u':'ᵤ','r':'ᵣ','x':'ₓ'};
+  text = text.replace(/_\{([^}]+)\}/g, (_, inner) => inner.split('').map(c => subMap[c] || c).join(''));
+  text = text.replace(/_([0-9\+\-\(\)a-zA-Z])/g, (_, c) => subMap[c] || c);
+  const supMap = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','+':'⁺','-':'⁻','=':'⁼','(':'⁽',')':'⁾','n':'ⁿ','x':'ˣ','y':'ʸ'};
+  text = text.replace(/\^\{([^}]+)\}/g, (_, inner) => inner.split('').map(c => supMap[c] || c).join(''));
+  text = text.replace(/\^([0-9\+\-\(\)a-zA-Z])/g, (_, c) => supMap[c] || c);
+  text = text.replace(/\\/g, '');
+  return text.trim();
+}
+
 export function formatQuestion(q, req) {
+  const rawOptions = Array.isArray(q.options) && q.options.length > 0 ? q.options : ['Option A', 'Option B', 'Option C', 'Option D'];
   return {
     id: q.id,
     subject: q.subject || 'NEET',
     chapter: q.chapter || 'General',
     category: q.category || 'practice',
     year: q.year || null,
-    question: q.questionText || '',
+    question: sanitizeLatex(q.questionText || ''),
     questionImage: resolveImageUrl(q.questionImg, 'questions', req),
-    options: Array.isArray(q.options) && q.options.length > 0 ? q.options : ['Option A', 'Option B', 'Option C', 'Option D'],
+    options: rawOptions.map(opt => sanitizeLatex(String(opt))),
     answer: typeof q.correctIndex === 'number' ? q.correctIndex : 0,
-    explanation: q.explanation || '',
+    explanation: sanitizeLatex(q.explanation || ''),
     explanationImage: resolveImageUrl(q.explanationImg, 'solutions', req)
   };
 }

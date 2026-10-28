@@ -111,6 +111,19 @@ const DEFAULT_HOME_SECTIONS = [
     route_key: "/repeated-pyqs",
     sort_order: 8,
     is_active: true
+  },
+  {
+    card_id: "premium_desk",
+    title: "Premium Desk",
+    subtitle: "Slide Decks & PPTs",
+    category: "library",
+    badge: "PPT & PDF",
+    icon_name: "slideshow",
+    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/slides.png",
+    gradient: ["#0284C7", "#0369A1"],
+    route_key: "/premium-desk",
+    sort_order: 9,
+    is_active: true
   }
 ];
 
@@ -197,9 +210,185 @@ router.get('/study-materials', async (req, res) => {
       });
     }
   } catch (err) {
-    console.warn('Error fetching study_materials from MongoDB:', err.message);
+    console.warn('Error fetching study_materials:', err.message);
   }
   res.json({ totalMaterials: 0, materials: [] });
+});
+
+// 5. Premium Desk & PPT Slide Decks System
+const DEFAULT_PREMIUM_DESKS = [
+  {
+    id: "desk_1",
+    title: "Units and Measurements",
+    subtitle: "Target NEET Physics • Masterclass Formula Deck",
+    subject: "Physics",
+    chapter: "Units and Measurements",
+    type: "Slide Desk",
+    badge: "TRENDING #1",
+    isTrending: true,
+    order: 1,
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/units_and_measurements.jpg",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
+    slidesCount: 20,
+    size: "17.1 MB",
+    gradient: ["#0284C7", "#0369A1"]
+  },
+  {
+    id: "desk_2",
+    title: "Some Basic Concepts of Chemistry",
+    subtitle: "Target NEET Chemistry • Mole Concept & Stoichiometry Deck",
+    subject: "Chemistry",
+    chapter: "Some Basic Concepts of Chemistry",
+    type: "Slide Desk",
+    badge: "HIGH YIELD",
+    isTrending: true,
+    order: 2,
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/basic_concepts_of_chemistry.jpg",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf",
+    slidesCount: 15,
+    size: "14.3 MB",
+    gradient: ["#D97706", "#B45309"]
+  },
+  {
+    id: "desk_3",
+    title: "Human Health and Disease",
+    subtitle: "Visual Mindmaps: Immunity, Diseases & Paradigm of Health",
+    subject: "Biology",
+    chapter: "Human Health and Disease",
+    type: "PPT",
+    badge: "DIAGRAM MASTER",
+    isTrending: true,
+    order: 3,
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/human_health_and_disease.jpg",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/human_health_and_disease.pdf",
+    slidesCount: 20,
+    size: "27.4 MB",
+    gradient: ["#059669", "#047857"]
+  },
+  {
+    id: "desk_4",
+    title: "Structure of Atom",
+    subtitle: "Tracing the Electron: Dual Nature to Quantum Mechanics Model",
+    subject: "Chemistry",
+    chapter: "Structure of Atom",
+    type: "PPT",
+    badge: "EXAM BOOSTER",
+    isTrending: true,
+    order: 4,
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/structure_of_atom.jpg",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/structure_of_atom.pdf",
+    slidesCount: 15,
+    size: "20.2 MB",
+    gradient: ["#7C3AED", "#6D28D9"]
+  },
+  {
+    id: "desk_5",
+    title: "The Living World",
+    subtitle: "NEET Biology • Conceptual Notes & Taxonomy Slides",
+    subject: "Biology",
+    chapter: "The Living World",
+    type: "Slide Desk",
+    badge: "NCERT CRACKER",
+    isTrending: true,
+    order: 5,
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/the_living_world.jpg",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf",
+    slidesCount: 10,
+    size: "13.1 MB",
+    gradient: ["#10B981", "#047857"]
+  }
+];
+
+let inMemoryPremiumDesks = [...DEFAULT_PREMIUM_DESKS];
+
+// GET /api/premium-desk (Fetches desks sorted by admin order)
+router.get('/premium-desk', async (req, res) => {
+  const { subject, trendingOnly } = req.query;
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const query = {};
+      if (subject && subject !== 'All') query.subject = new RegExp(`^${subject}$`, 'i');
+      if (trendingOnly === 'true') query.isTrending = true;
+
+      const items = await db.collection('premium_desks')
+        .find(query)
+        .sort({ order: 1 })
+        .toArray();
+
+      if (items && items.length > 0) {
+        return res.json({
+          total: items.length,
+          trending: items.filter(d => d.isTrending).sort((a, b) => (a.order || 99) - (b.order || 99)),
+          desks: items
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB premium_desks error, using in-memory:', err.message);
+  }
+
+  // In-memory fallback
+  let list = inMemoryPremiumDesks.sort((a, b) => (a.order || 99) - (b.order || 99));
+  if (subject && subject !== 'All') {
+    list = list.filter(d => d.subject.toLowerCase() === subject.toLowerCase());
+  }
+
+  const trending = inMemoryPremiumDesks
+    .filter(d => d.isTrending)
+    .sort((a, b) => (a.order || 99) - (b.order || 99));
+
+  res.json({
+    total: list.length,
+    trending,
+    desks: list
+  });
+});
+
+// POST /api/admin/premium-desk (Allows admin to set order, toggle trending, add new desks)
+router.post('/admin/premium-desk', async (req, res) => {
+  const deskData = req.body;
+  if (!deskData || !deskData.title) {
+    return res.status(400).json({ error: 'Title is required for slide desk' });
+  }
+
+  const id = deskData.id || `desk_${Date.now()}`;
+  const newItem = {
+    ...deskData,
+    id,
+    order: typeof deskData.order === 'number' ? deskData.order : 99,
+    isTrending: deskData.isTrending !== undefined ? deskData.isTrending : true,
+    updatedAt: new Date().toISOString()
+  };
+
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('premium_desks').updateOne(
+        { id },
+        { $set: newItem },
+        { upsert: true }
+      );
+    }
+  } catch (err) {
+    console.warn('MongoDB admin update error:', err.message);
+  }
+
+  // Update in-memory
+  const existingIdx = inMemoryPremiumDesks.findIndex(d => d.id === id);
+  if (existingIdx >= 0) {
+    inMemoryPremiumDesks[existingIdx] = newItem;
+  } else {
+    inMemoryPremiumDesks.push(newItem);
+  }
+
+  inMemoryPremiumDesks.sort((a, b) => (a.order || 99) - (b.order || 99));
+
+  res.json({
+    success: true,
+    message: 'Premium desk saved successfully!',
+    item: newItem
+  });
 });
 
 export default router;
