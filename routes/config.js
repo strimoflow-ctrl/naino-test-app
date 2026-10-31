@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Default Fallback Configurations
 const DEFAULT_APP_CONFIG = {
-  header_target_text: "NEET 2026",
+  header_target_text: "NEET 2027",
   header_subtext: "Mission 720/720",
   header_badge: "Live Test Series",
   daily_challenge: {
@@ -16,7 +16,7 @@ const DEFAULT_APP_CONFIG = {
     total_questions: 20,
     is_enabled: true
   },
-  announcement_ticker: "Welcome to Naino NEET 2026 Test Series! Daily Live Test opens at 7:00 PM IST.",
+  announcement_ticker: "Welcome to Naino NEET 2027 Test Series! Daily Live Test opens at 7:00 PM IST.",
   is_maintenance: false
 };
 
@@ -26,25 +26,12 @@ const DEFAULT_HOME_SECTIONS = [
     title: "Grand Mock Tests",
     subtitle: "180 Qs • Full Syllabus",
     category: "mock",
-    badge: "ALL INDIA",
+    badge: "720 MARKS",
     icon_name: "timer",
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/mock.png",
-    gradient: ["#059669", "#047857"],
+    gradient: ["#2563EB", "#1D4ED8"],
     route_key: "/grand-mocks",
     sort_order: 1,
-    is_active: true
-  },
-  {
-    card_id: "challenger_mode",
-    title: "Challenger Mode",
-    subtitle: "Numericals & Tough Qs",
-    category: "practice",
-    badge: "RANK BOOSTER",
-    icon_name: "psychology",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/challenger.png",
-    gradient: ["#047857", "#065F46"],
-    route_key: "/challenger-mode",
-    sort_order: 3,
     is_active: true
   },
   {
@@ -52,12 +39,25 @@ const DEFAULT_HOME_SECTIONS = [
     title: "Chapter-Wise Tests",
     subtitle: "Physics, Chem & Bio",
     category: "tests",
-    badge: "NCERT",
-    icon_name: "menu_book",
+    badge: "159+ CH",
+    icon_name: "auto_stories",
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/chapter.png",
-    gradient: ["#10B981", "#047857"],
+    gradient: ["#0284C7", "#0369A1"],
     route_key: "/chapterwise-tests",
-    sort_order: 4,
+    sort_order: 2,
+    is_active: true
+  },
+  {
+    card_id: "challenger_mode",
+    title: "Challenger Mode",
+    subtitle: "Numericals & Tough Qs",
+    category: "practice",
+    badge: "30s BLITZ",
+    icon_name: "bolt",
+    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/challenger.png",
+    gradient: ["#DC2626", "#B91C1C"],
+    route_key: "/challenger-mode",
+    sort_order: 3,
     is_active: true
   },
   {
@@ -68,22 +68,9 @@ const DEFAULT_HOME_SECTIONS = [
     badge: "10 YEARS",
     icon_name: "history_edu",
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/pyq.png",
-    gradient: ["#059669", "#064E3B"],
+    gradient: ["#7C3AED", "#6D28D9"],
     route_key: "/pyq-papers",
-    sort_order: 5,
-    is_active: true
-  },
-  {
-    card_id: "study_library",
-    title: "Study Library & PDFs",
-    subtitle: "590+ PDFs & Notes",
-    category: "library",
-    badge: "HIGH YIELD",
-    icon_name: "auto_stories",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/library.png",
-    gradient: ["#047857", "#064E3B"],
-    route_key: "/study-library",
-    sort_order: 6,
+    sort_order: 4,
     is_active: true
   },
   {
@@ -94,9 +81,9 @@ const DEFAULT_HOME_SECTIONS = [
     badge: "VISUAL",
     icon_name: "image",
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/diagram.png",
-    gradient: ["#059669", "#065F46"],
+    gradient: ["#0D9488", "#0F766E"],
     route_key: "/diagram-tests",
-    sort_order: 7,
+    sort_order: 5,
     is_active: true
   },
   {
@@ -107,9 +94,22 @@ const DEFAULT_HOME_SECTIONS = [
     badge: "V.IMP",
     icon_name: "star",
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/repeated.png",
-    gradient: ["#10B981", "#047857"],
+    gradient: ["#D97706", "#B45309"],
     route_key: "/repeated-pyqs",
-    sort_order: 8,
+    sort_order: 6,
+    is_active: true
+  },
+  {
+    card_id: "study_library",
+    title: "Study Library & PDFs",
+    subtitle: "590+ PDFs & Notes",
+    category: "library",
+    badge: "HIGH YIELD",
+    icon_name: "auto_stories",
+    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/library.png",
+    gradient: ["#059669", "#047857"],
+    route_key: "/study-library",
+    sort_order: 7,
     is_active: true
   },
   {
@@ -117,12 +117,12 @@ const DEFAULT_HOME_SECTIONS = [
     title: "Premium Desk",
     subtitle: "Slide Decks & PPTs",
     category: "library",
-    badge: "PPT & PDF",
+    badge: "SLIDES & PPT",
     icon_name: "slideshow",
     icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/slides.png",
-    gradient: ["#0284C7", "#0369A1"],
+    gradient: ["#EA580C", "#C2410C"],
     route_key: "/premium-desk",
-    sort_order: 9,
+    sort_order: 8,
     is_active: true
   }
 ];
@@ -389,6 +389,294 @@ router.post('/admin/premium-desk', async (req, res) => {
     message: 'Premium desk saved successfully!',
     item: newItem
   });
+});
+
+// 6. Batches System (Video Courses + Study Materials)
+const DEFAULT_BATCHES = [
+  {
+    id: "batch_neet_2027_conqueror",
+    title: "Target NEET 2027: Conqueror Batch",
+    subtitle: "Complete Physics, Chemistry & Biology by Bhaiya",
+    educator: "Bhaiya (4 Yrs NEET Ground Experience)",
+    badge: "FLAGSHIP BATCH",
+    rating: 4.9,
+    studentsCount: 2450,
+    price: 0,
+    originalPrice: 2999,
+    discount: "100% FREE (Early Access)",
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/human_health_and_disease.jpg",
+    description: "Designed specifically for NEET 2026/2027 aspirants. Learn the exact exam tricks, high-yield NCERT pointers, and 4-year battle-tested problem-solving techniques directly from Bhaiya.",
+    features: [
+      "120+ Video Lectures by Bhaiya (Physics, Chem, Bio)",
+      "Premium NCERT Mindmap PDFs & Handbooks included",
+      "25 Full Syllabus NEET Mocks with AI Rank",
+      "Direct 1-on-1 Mentor Doubt Support",
+      "Valid till NEET 2027 Exam Date"
+    ],
+    demoVideoId: "dQw4w9WgXcQ",
+    lectures: [
+      {
+        id: "lec_1",
+        title: "How to Score 680+ in NEET: Bhaiya's 4-Year Strategy",
+        subject: "Strategy",
+        duration: "24:15",
+        isDemo: true,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        id: "lec_2",
+        title: "Units & Dimensions: 10-Second Calculation Shortcuts",
+        subject: "Physics",
+        duration: "45:30",
+        isDemo: true,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        id: "lec_3",
+        title: "Mole Concept & Stoichiometry Formula Tricks",
+        subject: "Chemistry",
+        duration: "52:10",
+        isDemo: false,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        id: "lec_4",
+        title: "Cell The Unit of Life: Line by Line NCERT Decode",
+        subject: "Biology",
+        duration: "58:40",
+        isDemo: false,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        id: "lec_5",
+        title: "Human Health & Disease: Immunity Diagrams & Traps",
+        subject: "Biology",
+        duration: "48:15",
+        isDemo: false,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      }
+    ],
+    materials: [
+      {
+        id: "mat_1",
+        title: "Units & Measurements Master Formula Deck",
+        subject: "Physics",
+        size: "1.8 MB",
+        isDemo: true,
+        fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf"
+      },
+      {
+        id: "mat_2",
+        title: "Some Basic Concepts of Chemistry Deck",
+        subject: "Chemistry",
+        size: "1.5 MB",
+        isDemo: true,
+        fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf"
+      },
+      {
+        id: "mat_3",
+        title: "Human Health & Disease Visual Mindmaps",
+        subject: "Biology",
+        size: "2.5 MB",
+        isDemo: false,
+        fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/human_health_and_disease.pdf"
+      },
+      {
+        id: "mat_4",
+        title: "Structure of Atom Quick Notes & PPT",
+        subject: "Chemistry",
+        size: "1.8 MB",
+        isDemo: false,
+        fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/structure_of_atom.pdf"
+      },
+      {
+        id: "mat_5",
+        title: "The Living World High-Yield Slides",
+        subject: "Biology",
+        size: "0.9 MB",
+        isDemo: false,
+        fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf"
+      }
+    ]
+  },
+  {
+    id: "batch_neet_crash_course",
+    title: "NEET 90-Day High-Yield Crash Course",
+    subtitle: "Top 100 Most Repeated Chapters with Question Bank",
+    educator: "Bhaiya & Expert Team",
+    badge: "CRASH COURSE",
+    rating: 4.8,
+    studentsCount: 1820,
+    price: 0,
+    originalPrice: 1999,
+    discount: "100% FREE (Early Access)",
+    thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/basic_concepts_of_chemistry.jpg",
+    description: "Rapid revision batch focused solely on high-frequency questions and formula applications to boost your score by 150+ marks.",
+    features: [
+      "60 Targeted Fast-Paced Video Lectures",
+      "Formula Formula Booster Handbook PDF",
+      "15 High-Yield Mock Test Series",
+      "Daily Doubt Clearing Support"
+    ],
+    demoVideoId: "dQw4w9WgXcQ",
+    lectures: [
+      {
+        id: "lec_c1",
+        title: "Crash Strategy: Which 40 Chapters Give 550+ Marks",
+        subject: "Strategy",
+        duration: "18:40",
+        isDemo: true,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        id: "lec_c2",
+        title: "Kinematics & Projectile in 1 Shot",
+        subject: "Physics",
+        duration: "55:00",
+        isDemo: false,
+        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      }
+    ],
+    materials: [
+      {
+        id: "mat_c1",
+        title: "Top 100 Most Repeated Formulas Handbook",
+        subject: "Physics & Chemistry",
+        size: "1.8 MB",
+        isDemo: true,
+        fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf"
+      }
+    ]
+  }
+];
+
+let inMemoryBatches = [...DEFAULT_BATCHES];
+
+// GET /api/batches
+router.get('/batches', async (req, res) => {
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const batches = await db.collection('batches').find({}).toArray();
+      if (batches && batches.length > 0) {
+        return res.json({ total: batches.length, batches });
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB batches error:', err.message);
+  }
+  res.json({ total: inMemoryBatches.length, batches: inMemoryBatches });
+});
+
+// GET /api/batches/:id
+router.get('/batches/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const batch = await db.collection('batches').findOne({ id });
+      if (batch) return res.json(batch);
+    }
+  } catch (err) {
+    console.warn('MongoDB batch single error:', err.message);
+  }
+  const found = inMemoryBatches.find(b => b.id === id);
+  if (found) return res.json(found);
+  res.status(404).json({ error: 'Batch not found' });
+});
+
+// 7. Test Packs API
+router.get('/test-packs', async (req, res) => {
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const packs = await db.collection('test_packs').find({}).toArray();
+      if (packs && packs.length > 0) {
+        return res.json({ total: packs.length, packs });
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB test_packs error:', err.message);
+  }
+  res.json({
+    total: 3,
+    packs: [
+      {
+        id: "test_pack_grand_mocks",
+        title: "All-India Grand Mock Test Series 2027",
+        subtitle: "Full 720-marks simulation with All-India Rank & Weak Area Analytics",
+        badge: "720 MARKS",
+        badgeColor: "#2563EB",
+        price: 0,
+        originalPrice: 1499,
+        discount: "100% FREE",
+        rating: 4.9,
+        testsCount: 20,
+        thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/units_and_measurements.jpg",
+        description: "20 Full Length All-India Grand Mock Tests strictly adhering to the latest NTA NEET UG pattern. Includes timer, negative marking simulation, answer keys with detailed video solutions and rank predictor.",
+        highlights: [
+          "20 Full Length 720-Mark Simulation Papers",
+          "Real NTA CBT Interface with timer & section switches",
+          "Instant AI Performance & Weak Area Analytics",
+          "All-India Percentile & Projected Rank Predictor"
+        ]
+      },
+      {
+        id: "test_pack_pyq_10yr",
+        title: "NEET 10-Year (2015-2024) Solved PYQ Test Pack",
+        subtitle: "Practice authentic past exam papers in real test engine",
+        badge: "10 YEARS",
+        badgeColor: "#7C3AED",
+        price: 0,
+        originalPrice: 999,
+        discount: "100% FREE",
+        rating: 4.8,
+        testsCount: 14,
+        thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/structure_of_atom.jpg",
+        description: "Authentic questions from past 10 NEET UG examinations (2015 to 2024) organized year-by-year as interactive time-bound tests with step-by-step explanations.",
+        highlights: [
+          "Official NTA & CBSE NEET UG Question Papers",
+          "Detailed explanations for Physics, Chemistry & Biology",
+          "Filter questions by chapter and repeated frequency",
+          "Re-attempt facility with instant score comparison"
+        ]
+      },
+      {
+        id: "test_pack_biology_diagram",
+        title: "NCERT Biology 500+ Diagram & Traps Test Series",
+        subtitle: "Visual NEET questions based exclusively on NCERT Diagrams",
+        badge: "VISUAL NEET",
+        badgeColor: "#059669",
+        price: 0,
+        originalPrice: 699,
+        discount: "100% FREE",
+        rating: 4.9,
+        testsCount: 10,
+        thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/human_health_and_disease.jpg",
+        description: "Dedicated visual test series targeting labeling, flowcharts, histology slides and cycle diagrams from NCERT Class 11 and 12 Biology.",
+        highlights: [
+          "500+ High-Yield NCERT Diagram based questions",
+          "Anatomy, Morphology, Genetics & Physiology special mocks",
+          "Zero typing error with verified scientific keys"
+        ]
+      }
+    ]
+  });
+});
+
+// GET /api/test-packs/:id
+router.get('/test-packs/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const pack = await db.collection('test_packs').findOne({ id });
+      if (pack) return res.json(pack);
+    }
+  } catch (err) {
+    console.warn('MongoDB test_pack single error:', err.message);
+  }
+  res.status(404).json({ error: 'Test pack not found' });
 });
 
 export default router;

@@ -9,7 +9,6 @@ import { DOWNLOADS_DIR, masterBySubject, connectMongo, isMongoConnected } from '
 import testsRouter from './routes/tests.js';
 import pyqsRouter from './routes/pyqs.js';
 import libraryRouter from './routes/library.js';
-import mistakesRouter from './routes/mistakes.js';
 import userRouter from './routes/user.js';
 import configRouter from './routes/config.js';
 
@@ -99,7 +98,6 @@ app.use('/api', configRouter);           // /api/app-config, /api/home-layout, /
 app.use('/api', testsRouter);            // /api/daily-test, /api/chapters, /api/dpp, /api/diagrams
 app.use('/api/pyq', pyqsRouter);         // /api/pyq/papers, /api/pyq/paper/:year
 app.use('/api', libraryRouter);          // /api/notes, /api/library/books
-app.use('/api/mistakes', mistakesRouter);// /api/mistakes (GET, POST, DELETE)
 app.use('/api/user', userRouter);        // /api/user/streak, /api/user/profile, /api/user/bookmarks
 
 // Compatibility fallback for /api/bookmarks
