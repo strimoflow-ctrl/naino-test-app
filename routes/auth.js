@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import rateLimit from 'express-rate-limit';
 import { getMongoDb, isMongoConnected } from '../db.js';
 import { verifyToken } from '../middleware/auth.js';
+import nodemailer from 'nodemailer';
 
 const router = express.Router();
 
@@ -418,6 +419,210 @@ router.post('/logout', async (req, res) => {
       success: false,
       error: 'Error logging out.'
     });
+  }
+});
+
+/**
+ * 6. FORGOT PASSWORD: Send 6-Digit OTP to User's Email
+ * POST /api/auth/forgot-password
+ */
+router.post('/forgot-password', authLimiter, async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ success: false, error: 'Email is required.' });
+    }
+
+    const cleanEmail = email.trim().toLowerCase();
+    const db = getMongoDb();
+    if (!db) {
+      return res.status(503).json({ success: false, error: 'Database currently offline.' });
+    }
+
+    const user = await db.collection('users').findOne({ email: cleanEmail });
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: 'No account found with this email address.'
+      });
+    }
+
+    // Generate secure 6-digit numeric OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    // Store in password_resets collection
+    await db.collection('password_resets').updateOne(
+      { email: cleanEmail },
+      {
+        $set: {
+          email: cleanEmail,
+          otp,
+          expiresAt,
+          verified: false,
+          updatedAt: new Date()
+        }
+      },
+      { upsert: true }
+    );
+
+    // Send email via nodemailer if SMTP credentials exist in env
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+
+    if (smtpUser && smtpPass) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: smtpUser,
+            pass: smtpPass
+          }
+        });
+
+        await transporter.sendMail({
+          from: `"Naino NEET" <${smtpUser}>`,
+          to: cleanEmail,
+          subject: `${otp} is your Naino NEET Password Reset Code`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; borderRadius: 12px; background: #ffffff;">
+              <h2 style="color: #0b3523; margin-top: 0;">Naino NEET</h2>
+              <p style="color: #334155; font-size: 15px;">Hello <strong>${user.name || 'Future Doctor'}</strong>,</p>
+              <p style="color: #475569; font-size: 14px;">We received a request to reset your password for your Naino NEET account. Use the 6-digit code below to proceed:</p>
+              <div style="text-align: center; margin: 28px 0;">
+                <span style="display: inline-block; font-size: 32px; font-weight: 800; letter-spacing: 6px; color: #0b3523; background: #e8f5e9; padding: 14px 28px; border-radius: 8px; border: 1px dashed #10b981;">
+                  ${otp}
+                </span>
+              </div>
+              <p style="color: #64748b; font-size: 13px;">This code is valid for <strong>10 minutes</strong>. If you did not request this, please ignore this email.</p>
+              <hr style="border: none; border-top: 1px solid #f1f5f9; margin: 24px 0;" />
+              <p style="color: #94a3b8; font-size: 11px; text-align: center;">Naino NEET — Your Companion for NEET 2026</p>
+            </div>
+          `
+        });
+        console.log(`[Auth:ForgotPassword] Email sent with OTP to ${cleanEmail}`);
+      } catch (mailErr) {
+        console.error('[Auth:ForgotPassword] Email delivery failed:', mailErr.message);
+      }
+    } else {
+      // Development mode fallback: Log OTP prominently in server console
+      console.log(`\n======================================================`);
+      console.log(`[DEV OTP NOTIFICATION] Password Reset for: ${cleanEmail}`);
+      console.log(`>>> YOUR 6-DIGIT OTP IS: ${otp} <<<`);
+      console.log(`Valid for 10 minutes.`);
+      console.log(`(To send real emails, set SMTP_USER and SMTP_PASS in backend .env)`);
+      console.log(`======================================================\n`);
+    }
+
+    res.json({
+      success: true,
+      message: 'A 6-digit verification code has been sent to your email.',
+      // devOtp is included so local testing works seamlessly before SMTP credentials are added
+      ...(smtpUser ? {} : { devOtp: otp })
+    });
+  } catch (err) {
+    console.error('[Auth:ForgotPassword] Error:', err);
+    res.status(500).json({ success: false, error: 'Failed to process password reset request.' });
+  }
+});
+
+/**
+ * 7. VERIFY RESET OTP
+ * POST /api/auth/verify-reset-otp
+ */
+router.post('/verify-reset-otp', authLimiter, async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+    if (!email || !otp) {
+      return res.status(400).json({ success: false, error: 'Email and OTP code are required.' });
+    }
+
+    const cleanEmail = email.trim().toLowerCase();
+    const db = getMongoDb();
+    if (!db) {
+      return res.status(503).json({ success: false, error: 'Database offline.' });
+    }
+
+    const record = await db.collection('password_resets').findOne({ email: cleanEmail });
+
+    if (!record || record.otp !== otp.trim()) {
+      return res.status(400).json({ success: false, error: 'Invalid verification code. Please check and try again.' });
+    }
+
+    if (new Date() > new Date(record.expiresAt)) {
+      return res.status(400).json({ success: false, error: 'Verification code has expired. Please request a new one.' });
+    }
+
+    // Mark as verified
+    await db.collection('password_resets').updateOne(
+      { email: cleanEmail },
+      { $set: { verified: true } }
+    );
+
+    res.json({
+      success: true,
+      message: 'Code verified successfully. You can now set a new password.'
+    });
+  } catch (err) {
+    console.error('[Auth:VerifyOTP] Error:', err);
+    res.status(500).json({ success: false, error: 'Failed to verify code.' });
+  }
+});
+
+/**
+ * 8. RESET PASSWORD: Save New Password in MongoDB
+ * POST /api/auth/reset-password
+ */
+router.post('/reset-password', authLimiter, async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+    if (!email || !otp || !newPassword) {
+      return res.status(400).json({ success: false, error: 'Email, OTP, and new password are required.' });
+    }
+
+    if (newPassword.length < 6) {
+      return res.status(400).json({ success: false, error: 'Password must be at least 6 characters long.' });
+    }
+
+    const cleanEmail = email.trim().toLowerCase();
+    const db = getMongoDb();
+    if (!db) {
+      return res.status(503).json({ success: false, error: 'Database offline.' });
+    }
+
+    const record = await db.collection('password_resets').findOne({ email: cleanEmail });
+    if (!record || record.otp !== otp.trim()) {
+      return res.status(400).json({ success: false, error: 'Invalid or missing OTP verification.' });
+    }
+
+    if (new Date() > new Date(record.expiresAt)) {
+      return res.status(400).json({ success: false, error: 'Verification code has expired.' });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update user in MongoDB
+    await db.collection('users').updateOne(
+      { email: cleanEmail },
+      {
+        $set: {
+          password: hashedPassword,
+          updatedAt: new Date()
+        }
+      }
+    );
+
+    // Delete the reset record after successful reset
+    await db.collection('password_resets').deleteOne({ email: cleanEmail });
+
+    res.json({
+      success: true,
+      message: 'Password has been reset successfully! You can now log in with your new password.'
+    });
+  } catch (err) {
+    console.error('[Auth:ResetPassword] Error:', err);
+    res.status(500).json({ success: false, error: 'Failed to reset password.' });
   }
 });
 
