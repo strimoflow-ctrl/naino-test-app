@@ -4,8 +4,8 @@ export const ENV = {
   PORT: process.env.PORT || 5000,
   NODE_ENV: process.env.NODE_ENV || 'production',
 
-  // MongoDB Atlas
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb+srv://pankajkushwaha20093_db_user:N96BNSgzTD99kqLO@nainoneettest.wtw6lru.mongodb.net/?retryWrites=true&w=majority',
+  // MongoDB Atlas (Loaded securely from Environment Variables on Render / .env)
+  MONGODB_URI: process.env.MONGODB_URI || '',
   MONGODB_DB_NAME: process.env.MONGODB_DB_NAME || 'naino_neet_db',
 
   // Dual-Token JWT Configuration
@@ -34,3 +34,4 @@ export function getClientIp(req) {
   }
   return req.ip || req.socket?.remoteAddress || 'unknown';
 }
+

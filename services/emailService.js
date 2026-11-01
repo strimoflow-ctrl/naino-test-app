@@ -109,3 +109,4 @@ export async function sendPasswordResetOtpEmail(toEmail, otp, recipientName) {
   console.log(`======================================================\n`);
   return { success: false, provider: 'console_fallback' };
 }
+

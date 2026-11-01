@@ -217,3 +217,4 @@ export async function resetPassword(req, res) {
     res.status(500).json({ success: false, error: 'Failed to reset password.' });
   }
 }
+

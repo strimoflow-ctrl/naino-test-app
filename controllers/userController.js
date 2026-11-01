@@ -113,3 +113,4 @@ export async function updateProfile(req, res) {
     res.status(500).json({ success: false, error: 'Failed to update profile.' });
   }
 }
+
