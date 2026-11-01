@@ -425,6 +425,108 @@ router.post('/logout', async (req, res) => {
 });
 
 /**
+ * Sends OTP Email via HTTPS API (Port 443 - Resend / Brevo) with fallback to SMTP
+ */
+async function sendOtpEmail(toEmail, otp, recipientName) {
+  const htmlContent = `
+    <div style="font-family: Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff;">
+      <h2 style="color: #0b3523; margin-top: 0;">Naino NEET</h2>
+      <p style="color: #334155; font-size: 15px;">Hello <strong>${recipientName || 'Future Doctor'}</strong>,</p>
+      <p style="color: #475569; font-size: 14px;">We received a request to reset your password for your Naino NEET account. Use the 6-digit code below to proceed:</p>
+      <div style="text-align: center; margin: 28px 0;">
+        <span style="display: inline-block; font-size: 32px; font-weight: 800; letter-spacing: 6px; color: #0b3523; background: #e8f5e9; padding: 14px 28px; border-radius: 8px; border: 1px dashed #10b981;">
+          ${otp}
+        </span>
+      </div>
+      <p style="color: #64748b; font-size: 13px;">This code is valid for <strong>10 minutes</strong>. If you did not request this, please ignore this email.</p>
+      <hr style="border: none; border-top: 1px solid #f1f5f9; margin: 24px 0;" />
+      <p style="color: #94a3b8; font-size: 11px; text-align: center;">Naino NEET — Your Companion for NEET 2026</p>
+    </div>
+  `;
+
+  // 1. Resend HTTPS API (Port 443 - Never blocked on Cloud hosts)
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY.trim()}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'Naino NEET <onboarding@resend.dev>',
+          to: [toEmail],
+          subject: `${otp} is your Naino NEET Password Reset Code`,
+          html: htmlContent
+        })
+      });
+      const data = await response.json();
+      console.log('[Auth:Resend] Email dispatch result:', data);
+      return true;
+    } catch (e) {
+      console.error('[Auth:Resend] Failed to send via HTTPS:', e.message);
+    }
+  }
+
+  // 2. Brevo HTTPS API (Port 443 - 300 free emails/day)
+  if (process.env.BREVO_API_KEY) {
+    try {
+      const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: {
+          'api-key': process.env.BREVO_API_KEY.trim(),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          sender: { name: 'Naino NEET', email: process.env.SMTP_USER || 'nainoneet@gmail.com' },
+          to: [{ email: toEmail }],
+          subject: `${otp} is your Naino NEET Password Reset Code`,
+          htmlContent: htmlContent
+        })
+      });
+      const data = await response.json();
+      console.log('[Auth:Brevo] Email dispatch result:', data);
+      return true;
+    } catch (e) {
+      console.error('[Auth:Brevo] Failed to send via HTTPS:', e.message);
+    }
+  }
+
+  // 3. Nodemailer SMTP Fallback with 3-second non-blocking timeout
+  const smtpUser = process.env.SMTP_USER ? process.env.SMTP_USER.trim() : null;
+  const smtpPass = process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s+/g, '') : null;
+
+  if (smtpUser && smtpPass) {
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: { user: smtpUser, pass: smtpPass },
+        connectionTimeout: 3000,
+        greetingTimeout: 3000,
+        socketTimeout: 3000
+      });
+      await transporter.sendMail({
+        from: `"Naino NEET" <${smtpUser}>`,
+        to: toEmail,
+        subject: `${otp} is your Naino NEET Password Reset Code`,
+        html: htmlContent
+      });
+      console.log(`[Auth:SMTP] Email delivered to ${toEmail}`);
+      return true;
+    } catch (mailErr) {
+      console.warn('[Auth:SMTP] SMTP delivery error (Render free tier blocks port 465):', mailErr.message);
+    }
+  }
+
+  console.log(`\n======================================================`);
+  console.log(`[OTP NOTIFICATION] Password Reset for: ${toEmail}`);
+  console.log(`>>> YOUR 6-DIGIT OTP IS: ${otp} <<<`);
+  console.log(`Valid for 10 minutes.`);
+  console.log(`======================================================\n`);
+  return false;
+}
+
+/**
  * 6. FORGOT PASSWORD: Send 6-Digit OTP to User's Email
  * POST /api/auth/forgot-password
  */
@@ -468,59 +570,14 @@ router.post('/forgot-password', authLimiter, async (req, res) => {
       { upsert: true }
     );
 
-    // Send email via nodemailer if SMTP credentials exist in env
-    const smtpUser = process.env.SMTP_USER ? process.env.SMTP_USER.trim() : null;
-    const smtpPass = process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s+/g, '') : null;
-
-    if (smtpUser && smtpPass) {
-      try {
-        const transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: smtpUser,
-            pass: smtpPass
-          }
-        });
-
-        await transporter.sendMail({
-          from: `"Naino NEET" <${smtpUser}>`,
-          to: cleanEmail,
-          subject: `${otp} is your Naino NEET Password Reset Code`,
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; borderRadius: 12px; background: #ffffff;">
-              <h2 style="color: #0b3523; margin-top: 0;">Naino NEET</h2>
-              <p style="color: #334155; font-size: 15px;">Hello <strong>${user.name || 'Future Doctor'}</strong>,</p>
-              <p style="color: #475569; font-size: 14px;">We received a request to reset your password for your Naino NEET account. Use the 6-digit code below to proceed:</p>
-              <div style="text-align: center; margin: 28px 0;">
-                <span style="display: inline-block; font-size: 32px; font-weight: 800; letter-spacing: 6px; color: #0b3523; background: #e8f5e9; padding: 14px 28px; border-radius: 8px; border: 1px dashed #10b981;">
-                  ${otp}
-                </span>
-              </div>
-              <p style="color: #64748b; font-size: 13px;">This code is valid for <strong>10 minutes</strong>. If you did not request this, please ignore this email.</p>
-              <hr style="border: none; border-top: 1px solid #f1f5f9; margin: 24px 0;" />
-              <p style="color: #94a3b8; font-size: 11px; text-align: center;">Naino NEET — Your Companion for NEET 2026</p>
-            </div>
-          `
-        });
-        console.log(`[Auth:ForgotPassword] Email sent with OTP to ${cleanEmail}`);
-      } catch (mailErr) {
-        console.error('[Auth:ForgotPassword] Email delivery failed:', mailErr.message);
-      }
-    } else {
-      // Development mode fallback: Log OTP prominently in server console
-      console.log(`\n======================================================`);
-      console.log(`[DEV OTP NOTIFICATION] Password Reset for: ${cleanEmail}`);
-      console.log(`>>> YOUR 6-DIGIT OTP IS: ${otp} <<<`);
-      console.log(`Valid for 10 minutes.`);
-      console.log(`(To send real emails, set SMTP_USER and SMTP_PASS in backend .env)`);
-      console.log(`======================================================\n`);
-    }
+    // Send email non-blocking in background over HTTPS Port 443 / SMTP
+    sendOtpEmail(cleanEmail, otp, user.name || 'Future Doctor').catch(e => {
+      console.error('[Auth:ForgotPassword] Background email error:', e.message);
+    });
 
     res.json({
       success: true,
-      message: 'A 6-digit verification code has been sent to your email.',
-      // devOtp is included so local testing works seamlessly before SMTP credentials are added
-      ...(smtpUser ? {} : { devOtp: otp })
+      message: 'A 6-digit verification code has been sent to your email.'
     });
   } catch (err) {
     console.error('[Auth:ForgotPassword] Error:', err);
