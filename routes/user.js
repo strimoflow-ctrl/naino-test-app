@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { DATA_DIR, getMongoDb, isMongoConnected } from '../db.js';
+import { verifyToken, optionalToken } from '../middleware/auth.js';
 
 const router = express.Router();
 const USER_DIR = path.join(DATA_DIR, 'user');
@@ -343,17 +344,101 @@ router.post('/clear-history', async (req, res) => {
   });
 });
 
-// 6. GET Profile
-router.get('/profile', (req, res) => {
-  res.json({
-    name: 'Future Doctor',
-    targetExam: 'NEET 2026',
-    targetScore: '680+ / 720',
-    streak: streakData.currentStreak,
-    bestStreak: streakData.bestStreak,
-    totalBookmarks: userBookmarks.length,
-    totalTestsTaken: localTestRecords.length
-  });
+// 6. GET Profile (Returns dynamic user info from MongoDB if authenticated)
+router.get('/profile', optionalToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    let userFromDb = null;
+
+    if (db && req.user && req.user.userId) {
+      userFromDb = await db.collection('users').findOne({ userId: req.user.userId });
+    }
+
+    res.json({
+      success: true,
+      name: userFromDb?.name || req.user?.name || 'Future Doctor',
+      email: userFromDb?.email || req.user?.email || 'aspirant@naino.local',
+      targetExam: userFromDb?.targetExam || 'NEET 2026',
+      targetScore: userFromDb?.targetScore || '680+ / 720',
+      streak: userFromDb?.streak || streakData.currentStreak,
+      bestStreak: streakData.bestStreak,
+      totalBookmarks: userBookmarks.length,
+      totalTestsTaken: localTestRecords.length
+    });
+  } catch (err) {
+    res.json({
+      success: true,
+      name: 'Future Doctor',
+      email: 'aspirant@naino.local',
+      targetExam: 'NEET 2026',
+      targetScore: '680+ / 720',
+      streak: streakData.currentStreak,
+      bestStreak: streakData.bestStreak,
+      totalBookmarks: userBookmarks.length,
+      totalTestsTaken: localTestRecords.length
+    });
+  }
+});
+
+// 7. PUT Update Profile (Allows user to edit name and email in MongoDB)
+router.put('/profile', verifyToken, async (req, res) => {
+  try {
+    const { name, email, targetExam, targetScore } = req.body;
+    const userId = req.user.userId;
+
+    const db = getMongoDb();
+    if (!db) {
+      return res.status(503).json({
+        success: false,
+        error: 'Database connection currently offline.'
+      });
+    }
+
+    const updateFields = { updatedAt: new Date() };
+    if (name && name.trim()) updateFields.name = name.trim();
+    if (email && email.trim()) {
+      const cleanEmail = email.trim().toLowerCase();
+      // Check if new email is taken by another account
+      const existing = await db.collection('users').findOne({
+        email: cleanEmail,
+        userId: { $ne: userId }
+      });
+      if (existing) {
+        return res.status(409).json({
+          success: false,
+          error: 'This email is already in use by another account.'
+        });
+      }
+      updateFields.email = cleanEmail;
+    }
+    if (targetExam) updateFields.targetExam = targetExam;
+    if (targetScore) updateFields.targetScore = targetScore;
+
+    await db.collection('users').updateOne(
+      { userId },
+      { $set: updateFields }
+    );
+
+    const updatedUser = await db.collection('users').findOne({ userId });
+
+    res.json({
+      success: true,
+      message: 'Profile updated successfully!',
+      user: {
+        userId: updatedUser.userId,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        targetExam: updatedUser.targetExam,
+        targetScore: updatedUser.targetScore
+      }
+    });
+  } catch (err) {
+    console.error('[User:UpdateProfile] Error:', err);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to update profile.'
+    });
+  }
 });
 
 export default router;

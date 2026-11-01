@@ -56,8 +56,11 @@ router.get('/chapters', (req, res) => {
     return res.status(400).json({ error: 'Subject query parameter required' });
   }
 
-  const subName = subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase();
-  const qs = masterBySubject[subName] || [];
+  const isPyq = subject.toLowerCase().includes('pyq');
+  const subName = isPyq ? 'Chapterwise PYQs' : (subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase());
+  const qs = isPyq
+      ? (masterByCategory.chapterwise_pyqs || masterByCategory.repeated_pyqs || [])
+      : (masterBySubject[subName] || []);
 
   const chapterCounts = {};
   for (const q of qs) {
@@ -81,8 +84,11 @@ router.get('/chapters', (req, res) => {
 // 3. Questions for a specific chapter
 router.get('/chapters/:subject/:chapterName/questions', (req, res) => {
   const { subject, chapterName } = req.params;
-  const subName = subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase();
-  const qs = masterBySubject[subName] || [];
+  const isPyq = subject.toLowerCase().includes('pyq');
+  const subName = isPyq ? 'Chapterwise PYQs' : (subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase());
+  const qs = isPyq
+      ? (masterByCategory.chapterwise_pyqs || masterByCategory.repeated_pyqs || [])
+      : (masterBySubject[subName] || []);
 
   const targetName = decodeURIComponent(chapterName).toLowerCase();
   const filtered = qs.filter(q => (q.chapter || '').toLowerCase() === targetName);

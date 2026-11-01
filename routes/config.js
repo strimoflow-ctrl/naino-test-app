@@ -497,6 +497,116 @@ const DEFAULT_BATCHES = [
         isDemo: false,
         fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf"
       }
+    ],
+    subjects: [
+      {
+        id: "subj_physics",
+        name: "Physics",
+        chaptersCount: 18,
+        totalLectures: 45,
+        chapters: [
+          {
+            id: "phy_ch_1",
+            title: "Units and Measurements",
+            lecturesCount: 3,
+            hasPdf: true,
+            lectures: [
+              {
+                id: "phy_lec_1",
+                title: "Units & Dimensions: 10-Second Calculation Shortcuts",
+                tag: "Live Stream",
+                duration: "45:30",
+                isLive: true,
+                date: "Streamed Today",
+                videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                pdfUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
+                notesPdfUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
+                dppPdfUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf"
+              },
+              {
+                id: "phy_lec_2",
+                title: "Dimensional Analysis & Error Propagation Masterclass",
+                tag: "Classroom",
+                duration: "52:10",
+                isLive: false,
+                date: "29 Oct 2026",
+                videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                notesPdfUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf"
+              }
+            ]
+          },
+          {
+            id: "phy_ch_2",
+            title: "Kinematics in 1D & 2D",
+            lecturesCount: 4,
+            hasPdf: true,
+            lectures: [
+              {
+                id: "phy_lec_3",
+                title: "Relative Velocity & Projectile Trajectory Tricks",
+                tag: "Upcoming Class",
+                duration: "60:00",
+                isUpcoming: true,
+                scheduledTime: new Date(Date.now() + 7200000).toISOString(),
+                date: "Tomorrow 7:00 PM",
+                videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "subj_chemistry",
+        name: "Chemistry",
+        chaptersCount: 16,
+        totalLectures: 42,
+        chapters: [
+          {
+            id: "chem_ch_1",
+            title: "Some Basic Concepts of Chemistry",
+            lecturesCount: 3,
+            hasPdf: true,
+            lectures: [
+              {
+                id: "chem_lec_1",
+                title: "Mole Concept & Stoichiometry Formula Tricks",
+                tag: "Classroom",
+                duration: "52:10",
+                isLive: false,
+                date: "Streamed 2 days ago",
+                videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                notesPdfUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "subj_biology",
+        name: "Biology",
+        chaptersCount: 28,
+        totalLectures: 65,
+        chapters: [
+          {
+            id: "bio_ch_1",
+            title: "Human Health and Disease",
+            lecturesCount: 3,
+            hasPdf: true,
+            lectures: [
+              {
+                id: "bio_lec_1",
+                title: "Immunity, Antibodies & Diagnostic Traps",
+                tag: "Classroom",
+                duration: "48:15",
+                isLive: false,
+                date: "Streamed 3 days ago",
+                videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                notesPdfUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/human_health_and_disease.pdf"
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -677,6 +787,36 @@ router.get('/test-packs/:id', async (req, res) => {
     console.warn('MongoDB test_pack single error:', err.message);
   }
   res.status(404).json({ error: 'Test pack not found' });
+});
+
+// 8. Dynamic Classroom Live Chat per Lecture ID
+const inMemoryLectureChats = {};
+
+// GET /api/classroom/chat/:lectureId
+router.get('/classroom/chat/:lectureId', (req, res) => {
+  const { lectureId } = req.params;
+  const chats = inMemoryLectureChats[lectureId] || [];
+  res.json({ lectureId, messages: chats });
+});
+
+// POST /api/classroom/chat/:lectureId
+router.post('/classroom/chat/:lectureId', (req, res) => {
+  const { lectureId } = req.params;
+  const { sender, text, isMentor } = req.body;
+  if (!text || !text.trim()) return res.status(400).json({ error: 'Text required' });
+  if (!inMemoryLectureChats[lectureId]) {
+    inMemoryLectureChats[lectureId] = [];
+  }
+  const newMsg = {
+    id: 'msg_' + Date.now(),
+    sender: sender || 'Student',
+    text: text.trim(),
+    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    isMentor: !!isMentor,
+    timestamp: Date.now()
+  };
+  inMemoryLectureChats[lectureId].push(newMsg);
+  res.json({ success: true, message: newMsg });
 });
 
 export default router;
