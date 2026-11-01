@@ -166,9 +166,10 @@ router.post('/login', authLimiter, async (req, res) => {
     const user = await usersCol.findOne({ email: cleanEmail });
 
     if (!user) {
-      return res.status(401).json({
+      return res.status(404).json({
         success: false,
-        error: 'Invalid email or password. Please check and try again.'
+        code: 'USER_NOT_FOUND',
+        error: 'No account found with this email. Please switch to Create Account to sign up.'
       });
     }
 
@@ -184,7 +185,8 @@ router.post('/login', authLimiter, async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({
         success: false,
-        error: 'Invalid email or password. Please check and try again.'
+        code: 'INVALID_PASSWORD',
+        error: 'Incorrect password. Please try again or tap Forgot Password.'
       });
     }
 
@@ -467,8 +469,8 @@ router.post('/forgot-password', authLimiter, async (req, res) => {
     );
 
     // Send email via nodemailer if SMTP credentials exist in env
-    const smtpUser = process.env.SMTP_USER;
-    const smtpPass = process.env.SMTP_PASS;
+    const smtpUser = process.env.SMTP_USER ? process.env.SMTP_USER.trim() : null;
+    const smtpPass = process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s+/g, '') : null;
 
     if (smtpUser && smtpPass) {
       try {
