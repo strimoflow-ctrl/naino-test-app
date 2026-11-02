@@ -215,7 +215,7 @@ router.get('/study-materials', async (req, res) => {
   res.json({ totalMaterials: 0, materials: [] });
 });
 
-// 5. Premium Desk & PPT Slide Decks System
+// 5. Premium Desk, Study Materials & Batches Decks System
 const DEFAULT_PREMIUM_DESKS = [
   {
     id: "desk_1",
@@ -223,13 +223,13 @@ const DEFAULT_PREMIUM_DESKS = [
     subtitle: "Target NEET Physics • Masterclass Formula Deck",
     subject: "Physics",
     chapter: "Units and Measurements",
-    type: "Slide Desk",
-    badge: "TRENDING #1",
+    type: "PDF",
+    actionType: "pdf",
+    actionTarget: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
     isTrending: true,
     order: 1,
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/units_and_measurements.jpg",
-    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/units_and_measurements.pdf",
-    slidesCount: 20,
     size: "1.8 MB",
     gradient: ["#0284C7", "#0369A1"]
   },
@@ -239,45 +239,46 @@ const DEFAULT_PREMIUM_DESKS = [
     subtitle: "Target NEET Chemistry • Mole Concept & Stoichiometry Deck",
     subject: "Chemistry",
     chapter: "Some Basic Concepts of Chemistry",
-    type: "Slide Desk",
-    badge: "HIGH YIELD",
+    type: "Slide Deck",
+    actionType: "pdf",
+    actionTarget: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf",
     isTrending: true,
     order: 2,
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/basic_concepts_of_chemistry.jpg",
-    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/basic_concepts_of_chemistry.pdf",
-    slidesCount: 15,
     size: "1.5 MB",
     gradient: ["#D97706", "#B45309"]
   },
   {
     id: "desk_3",
-    title: "Human Health and Disease",
-    subtitle: "Visual Mindmaps: Immunity, Diseases & Paradigm of Health",
+    title: "Target NEET 2027 Conqueror Batch",
+    subtitle: "Flagship live classes, DPPs and mentorship batch",
     subject: "Biology",
-    chapter: "Human Health and Disease",
-    type: "PPT",
-    badge: "DIAGRAM MASTER",
+    chapter: "Complete NEET 2027",
+    type: "Batch",
+    actionType: "batch",
+    actionTarget: "batch_neet_2027_conqueror",
+    batchId: "batch_neet_2027_conqueror",
     isTrending: true,
     order: 3,
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/human_health_and_disease.jpg",
-    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/human_health_and_disease.pdf",
-    slidesCount: 20,
-    size: "2.5 MB",
+    fileUrl: "",
+    size: "Live Batch",
     gradient: ["#059669", "#047857"]
   },
   {
     id: "desk_4",
-    title: "Structure of Atom",
+    title: "Structure of Atom - High Yield",
     subtitle: "Tracing the Electron: Dual Nature to Quantum Mechanics Model",
     subject: "Chemistry",
     chapter: "Structure of Atom",
-    type: "PPT",
-    badge: "EXAM BOOSTER",
+    type: "Video",
+    actionType: "video",
+    actionTarget: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/structure_of_atom.pdf",
     isTrending: true,
     order: 4,
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/structure_of_atom.jpg",
-    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/structure_of_atom.pdf",
-    slidesCount: 15,
     size: "1.8 MB",
     gradient: ["#7C3AED", "#6D28D9"]
   },
@@ -287,13 +288,13 @@ const DEFAULT_PREMIUM_DESKS = [
     subtitle: "NEET Biology • Conceptual Notes & Taxonomy Slides",
     subject: "Biology",
     chapter: "The Living World",
-    type: "Slide Desk",
-    badge: "NCERT CRACKER",
+    type: "Slide Deck",
+    actionType: "pdf",
+    actionTarget: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf",
+    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf",
     isTrending: true,
     order: 5,
     thumbnail: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/the_living_world.jpg",
-    fileUrl: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/study_library/premium_desks/the_living_world.pdf",
-    slidesCount: 10,
     size: "0.9 MB",
     gradient: ["#10B981", "#047857"]
   }
@@ -345,17 +346,20 @@ router.get('/premium-desk', async (req, res) => {
   });
 });
 
-// POST /api/admin/premium-desk (Allows admin to set order, toggle trending, add new desks)
+// POST /api/admin/premium-desk (Allows admin to add/update items: PDF, Video, Batch, Slide Deck)
 router.post('/admin/premium-desk', async (req, res) => {
   const deskData = req.body;
   if (!deskData || !deskData.title) {
-    return res.status(400).json({ error: 'Title is required for slide desk' });
+    return res.status(400).json({ error: 'Title is required for study deck / batch' });
   }
 
   const id = deskData.id || `desk_${Date.now()}`;
   const newItem = {
     ...deskData,
     id,
+    type: deskData.type || 'PDF', // "PDF", "Video", "Batch", "Slide Deck"
+    actionType: deskData.actionType || (deskData.fileUrl ? 'pdf' : (deskData.batchId ? 'batch' : 'route')),
+    actionTarget: deskData.actionTarget || deskData.fileUrl || deskData.batchId || deskData.targetRoute || '',
     order: typeof deskData.order === 'number' ? deskData.order : 99,
     isTrending: deskData.isTrending !== undefined ? deskData.isTrending : true,
     updatedAt: new Date().toISOString()
@@ -386,8 +390,30 @@ router.post('/admin/premium-desk', async (req, res) => {
 
   res.json({
     success: true,
-    message: 'Premium desk saved successfully!',
+    message: 'Deck/Batch saved successfully!',
     item: newItem
+  });
+});
+
+// DELETE /api/admin/premium-desk/:id (Allows admin to remove items)
+router.delete('/admin/premium-desk/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('premium_desks').deleteOne({
+        $or: [{ id }, { _id: id }]
+      });
+    }
+  } catch (err) {
+    console.warn('MongoDB admin delete error:', err.message);
+  }
+
+  inMemoryPremiumDesks = inMemoryPremiumDesks.filter(d => d.id !== id);
+
+  res.json({
+    success: true,
+    message: 'Deck/Batch deleted successfully!'
   });
 });
 
