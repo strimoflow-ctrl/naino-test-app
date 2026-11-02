@@ -99,11 +99,12 @@ router.post('/broadcast', async (req, res) => {
       imageUrl,
       route = '/daily-test',
       tag = 'LIVE ARENA',
-      adminKey,
     } = req.body;
 
-    const validKey = adminKey === 'naino_admin_master_2026' || adminKey === process.env.ADMIN_SECRET;
-    if (!validKey) {
+    const incomingKey = req.headers['x-admin-key'] || req.body.adminKey;
+    const configuredSecret = process.env.ADMIN_SECRET || 'naino_admin_secure_vault_2026';
+    
+    if (!incomingKey || incomingKey !== configuredSecret) {
       return res.status(403).json({ success: false, message: 'Unauthorized: Invalid admin key' });
     }
 
