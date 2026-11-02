@@ -43,52 +43,105 @@ function getTodayIST() {
   return new Date(now.getTime() + (5.5 * 60 * 60 * 1000)).toISOString().split('T')[0];
 }
 
-// 1. GET Streak Info
-router.get('/streak', (req, res) => {
+// 1. GET Streak Info (MongoDB Atlas + In-Memory Fallback)
+router.get('/streak', optionalToken, async (req, res) => {
+  const userId = req.user?.id || req.user?.email || 'default_user';
+  let userStreak = { ...streakData };
+
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const doc = await db.collection('user_streaks').findOne({ userId });
+      if (doc) {
+        userStreak = {
+          currentStreak: doc.currentStreak || 1,
+          bestStreak: doc.bestStreak || 1,
+          lastActiveDate: doc.lastActiveDate || null,
+          history: doc.history || []
+        };
+      }
+    }
+  } catch (err) {
+    console.warn('[User:Streak] Mongo fetch warning:', err.message);
+  }
+
   res.json({
-    currentStreak: streakData.currentStreak,
-    bestStreak: streakData.bestStreak,
-    lastActiveDate: streakData.lastActiveDate,
-    history: streakData.history || []
+    currentStreak: userStreak.currentStreak,
+    bestStreak: userStreak.bestStreak,
+    lastActiveDate: userStreak.lastActiveDate,
+    history: userStreak.history || []
   });
 });
 
-// 2. POST Ping / Update Streak
-router.post('/streak/ping', (req, res) => {
+// 2. POST Ping / Update Streak (MongoDB Atlas Persistent)
+router.post('/streak/ping', optionalToken, async (req, res) => {
+  const userId = req.user?.id || req.user?.email || 'default_user';
   const today = getTodayIST();
+  let userStreak = { ...streakData };
 
-  if (streakData.lastActiveDate !== today) {
-    if (streakData.lastActiveDate) {
-      const lastDate = new Date(streakData.lastActiveDate);
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const doc = await db.collection('user_streaks').findOne({ userId });
+      if (doc) {
+        userStreak = {
+          currentStreak: doc.currentStreak || 1,
+          bestStreak: doc.bestStreak || 1,
+          lastActiveDate: doc.lastActiveDate || null,
+          history: doc.history || []
+        };
+      }
+    }
+  } catch (err) {
+    console.warn('[User:Streak] Mongo lookup warning:', err.message);
+  }
+
+  if (userStreak.lastActiveDate !== today) {
+    if (userStreak.lastActiveDate) {
+      const lastDate = new Date(userStreak.lastActiveDate);
       const currDate = new Date(today);
       const diffDays = Math.round((currDate - lastDate) / (1000 * 60 * 60 * 24));
 
       if (diffDays === 1) {
-        streakData.currentStreak += 1;
+        userStreak.currentStreak += 1;
       } else if (diffDays > 1) {
-        streakData.currentStreak = 1;
+        userStreak.currentStreak = 1;
       }
     } else {
-      streakData.currentStreak = 1;
+      userStreak.currentStreak = 1;
     }
 
-    if (streakData.currentStreak > streakData.bestStreak) {
-      streakData.bestStreak = streakData.currentStreak;
+    if (userStreak.currentStreak > userStreak.bestStreak) {
+      userStreak.bestStreak = userStreak.currentStreak;
     }
 
-    streakData.lastActiveDate = today;
-    if (!streakData.history.includes(today)) {
-      streakData.history.push(today);
+    userStreak.lastActiveDate = today;
+    if (!userStreak.history.includes(today)) {
+      userStreak.history.push(today);
     }
 
+    try {
+      if (isMongoConnected()) {
+        const db = getMongoDb();
+        await db.collection('user_streaks').updateOne(
+          { userId },
+          { $set: { ...userStreak, userId, updatedAt: new Date().toISOString() } },
+          { upsert: true }
+        );
+      }
+    } catch (err) {
+      console.warn('[User:Streak] Mongo update warning:', err.message);
+    }
+
+    streakData = { ...userStreak };
     saveStreakToDisk();
   }
 
   res.json({
     success: true,
-    currentStreak: streakData.currentStreak,
-    bestStreak: streakData.bestStreak,
-    lastActiveDate: streakData.lastActiveDate
+    currentStreak: userStreak.currentStreak,
+    bestStreak: userStreak.bestStreak,
+    lastActiveDate: userStreak.lastActiveDate
   });
 });
 
