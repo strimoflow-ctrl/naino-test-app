@@ -12,6 +12,7 @@ import libraryRouter from './routes/library.js';
 import userRouter from './routes/user.js';
 import configRouter from './routes/config.js';
 import authRouter from './routes/auth.js';
+import bannersRouter from './routes/banners.js';
 import { verifyAppSecret } from './middleware/auth.js';
 
 const app = express();
@@ -53,6 +54,11 @@ app.get('/media/pdfs/:filename', (req, res, next) => {
   }
   next();
 });
+
+const publicBannersDir = path.join(__dirname, 'public', 'banners');
+if (fs.existsSync(publicBannersDir)) {
+  app.use('/media/banners', express.static(publicBannersDir));
+}
 
 if (fs.existsSync(DOWNLOADS_DIR)) {
   app.use('/media/pdfs', express.static(path.join(DOWNLOADS_DIR, 'pdfs')));
@@ -101,6 +107,7 @@ app.get('/api/health', (req, res) => {
 // 3. Mount Modular Routes & Security Middleware
 app.use(verifyAppSecret);
 app.use('/api/auth', authRouter);        // /api/auth/signup, /api/auth/login, /api/auth/google, /api/auth/refresh-token
+app.use('/api', bannersRouter);         // /api/banners (GET, POST, PUT, DELETE)
 app.use('/api', configRouter);           // /api/app-config, /api/home-layout, /api/dynamic-chapters, /api/study-materials
 app.use('/api', testsRouter);            // /api/daily-test, /api/chapters, /api/dpp, /api/diagrams
 app.use('/api/pyq', pyqsRouter);         // /api/pyq/papers, /api/pyq/paper/:year
