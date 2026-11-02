@@ -13,6 +13,7 @@ import userRouter from './routes/user.js';
 import configRouter from './routes/config.js';
 import authRouter from './routes/auth.js';
 import bannersRouter from './routes/banners.js';
+import notificationsRouter from './routes/notifications.js';
 import { verifyAppSecret } from './middleware/auth.js';
 
 const app = express();
@@ -106,13 +107,14 @@ app.get('/api/health', (req, res) => {
 
 // 3. Mount Modular Routes & Security Middleware
 app.use(verifyAppSecret);
-app.use('/api/auth', authRouter);        // /api/auth/signup, /api/auth/login, /api/auth/google, /api/auth/refresh-token
-app.use('/api', bannersRouter);         // /api/banners (GET, POST, PUT, DELETE)
-app.use('/api', configRouter);           // /api/app-config, /api/home-layout, /api/dynamic-chapters, /api/study-materials
-app.use('/api', testsRouter);            // /api/daily-test, /api/chapters, /api/dpp, /api/diagrams
-app.use('/api/pyq', pyqsRouter);         // /api/pyq/papers, /api/pyq/paper/:year
-app.use('/api', libraryRouter);          // /api/notes, /api/library/books
-app.use('/api/user', userRouter);        // /api/user/streak, /api/user/profile, /api/user/bookmarks
+app.use('/api/auth', authRouter);              // /api/auth/signup, /api/auth/login, /api/auth/google, /api/auth/refresh-token
+app.use('/api', bannersRouter);               // /api/banners (GET, POST, PUT, DELETE)
+app.use('/api', configRouter);                 // /api/app-config, /api/home-layout, /api/dynamic-chapters, /api/study-materials
+app.use('/api', testsRouter);                  // /api/daily-test, /api/chapters, /api/dpp, /api/diagrams
+app.use('/api/pyq', pyqsRouter);               // /api/pyq/papers, /api/pyq/paper/:year
+app.use('/api', libraryRouter);                // /api/notes, /api/library/books
+app.use('/api/user', userRouter);              // /api/user/streak, /api/user/profile, /api/user/bookmarks
+app.use('/api/notifications', notificationsRouter); // /api/notifications/register-token, /list, /broadcast
 
 // Compatibility fallback for /api/bookmarks
 app.use('/api', userRouter);
