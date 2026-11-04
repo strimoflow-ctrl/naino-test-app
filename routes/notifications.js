@@ -1,5 +1,7 @@
 import express from 'express';
+import { ObjectId } from 'mongodb';
 import { getMongoDb } from '../db.js';
+import { optionalToken } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -72,19 +74,66 @@ router.post('/register-token', async (req, res) => {
   }
 });
 
-// 2. Fetch Active In-App Notifications
-router.get('/list', async (req, res) => {
+// 2. Fetch Active In-App Notifications (Filtered by user deletions)
+router.get('/list', optionalToken, async (req, res) => {
   try {
     const db = getMongoDb();
     let list = [];
     if (db) {
+      const userId = req.user?.userId;
+      const filter = {};
+      if (userId) {
+        filter.deletedForUsers = { $ne: userId.toString() };
+      }
+
       list = await db.collection('app_notifications')
-        .find({})
+        .find(filter)
         .sort({ createdAt: -1 })
         .limit(50)
         .toArray();
     }
     return res.status(200).json({ success: true, data: list });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 2b. Dismiss / Delete a Notification for the authenticated user
+router.post('/delete/:id', optionalToken, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userId = req.user?.userId || req.body?.userId;
+    const db = getMongoDb();
+
+    if (!db || !id) {
+      return res.status(400).json({ success: false, message: 'Invalid request' });
+    }
+
+    let filter = {};
+    try {
+      filter = { _id: new ObjectId(id) };
+    } catch (_) {
+      filter = { _id: id };
+    }
+
+    if (userId) {
+      // Mark as deleted for this specific user so it persists across re-login
+      await db.collection('app_notifications').updateOne(
+        filter,
+        { $addToSet: { deletedForUsers: userId.toString() } }
+      );
+    } else {
+      // If anonymous/no userId, also track by token if passed
+      const { deviceToken } = req.body;
+      if (deviceToken) {
+        await db.collection('app_notifications').updateOne(
+          filter,
+          { $addToSet: { deletedForTokens: deviceToken } }
+        );
+      }
+    }
+
+    return res.status(200).json({ success: true, message: 'Notification dismissed for user' });
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
   }
