@@ -5,18 +5,19 @@ const router = express.Router();
 
 // Default Fallback Configurations
 const DEFAULT_APP_CONFIG = {
-  header_target_text: "NEET 2027",
-  header_subtext: "Mission 720/720",
+  app_name: "Naino Academy",
+  header_target_text: "",
+  header_subtext: "",
   header_badge: "Live Test Series",
   daily_challenge: {
-    title: "Daily NEET 7:00 PM Live Challenge",
+    title: "Daily 7:00 PM Live Challenge",
     subtitle: "20 Questions • 20 Minutes • National Ranking",
     badge: "LIVE NOW",
     duration_minutes: 20,
     total_questions: 20,
     is_enabled: true
   },
-  announcement_ticker: "Welcome to Naino NEET 2027 Test Series! Daily Live Test opens at 7:00 PM IST.",
+  announcement_ticker: "",
   is_maintenance: false
 };
 

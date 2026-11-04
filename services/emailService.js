@@ -15,10 +15,10 @@ export async function sendPasswordResetOtpEmail(toEmail, otp, recipientName) {
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 28px; border: 1px solid #e2e8f0; border-radius: 16px; background: #ffffff;">
       <div style="display: flex; align-items: center; margin-bottom: 20px;">
         <div style="width: 36px; height: 36px; background: #e8f5e9; border-radius: 10px; text-align: center; line-height: 36px; font-size: 20px; color: #0f3d26; font-weight: bold; margin-right: 12px;">+</div>
-        <h2 style="color: #0f3d26; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px;">NAINO NEET</h2>
+        <h2 style="color: #0f3d26; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px;">NAINO ACADEMY</h2>
       </div>
       <p style="color: #334155; font-size: 15px; line-height: 1.5;">Hello <strong>${name}</strong>,</p>
-      <p style="color: #475569; font-size: 14px; line-height: 1.5;">We received a request to reset the password for your Naino NEET account. Use the 6-digit verification code below:</p>
+      <p style="color: #475569; font-size: 14px; line-height: 1.5;">We received a request to reset the password for your Naino Academy account. Use the 6-digit verification code below:</p>
       <div style="text-align: center; margin: 28px 0;">
         <span style="display: inline-block; font-size: 34px; font-weight: 800; letter-spacing: 7px; color: #0f3d26; background: #f0fdf4; padding: 14px 28px; border-radius: 12px; border: 1.5px dashed #10b981;">
           ${otp}
@@ -26,7 +26,7 @@ export async function sendPasswordResetOtpEmail(toEmail, otp, recipientName) {
       </div>
       <p style="color: #64748b; font-size: 13px; line-height: 1.4;">This code is valid for <strong>10 minutes</strong>. If you did not make this request, your account is safe—you can safely ignore this email.</p>
       <hr style="border: none; border-top: 1px solid #f1f5f9; margin: 24px 0;" />
-      <p style="color: #94a3b8; font-size: 11px; text-align: center; margin: 0;">Naino NEET — Your Companion for NEET Preparation</p>
+      <p style="color: #94a3b8; font-size: 11px; text-align: center; margin: 0;">Naino Academy — Your Learning Companion</p>
     </div>
   `;
 
@@ -40,9 +40,9 @@ export async function sendPasswordResetOtpEmail(toEmail, otp, recipientName) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          from: 'Naino NEET <onboarding@resend.dev>',
+          from: 'Naino Academy <onboarding@resend.dev>',
           to: [cleanEmail],
-          subject: `${otp} is your Naino NEET Password Reset Code`,
+          subject: `${otp} is your Naino Academy Password Reset Code`,
           html: htmlContent
         })
       });
@@ -64,9 +64,9 @@ export async function sendPasswordResetOtpEmail(toEmail, otp, recipientName) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          sender: { name: 'Naino NEET', email: ENV.SMTP_USER || 'nainoneet@gmail.com' },
+          sender: { name: 'Naino Academy', email: ENV.SMTP_USER || 'nainoneet@gmail.com' },
           to: [{ email: cleanEmail }],
-          subject: `${otp} is your Naino NEET Password Reset Code`,
+          subject: `${otp} is your Naino Academy Password Reset Code`,
           htmlContent: htmlContent
         })
       });
@@ -89,9 +89,9 @@ export async function sendPasswordResetOtpEmail(toEmail, otp, recipientName) {
         socketTimeout: 3000
       });
       await transporter.sendMail({
-        from: `"Naino NEET" <${ENV.SMTP_USER}>`,
+        from: `"Naino Academy" <${ENV.SMTP_USER}>`,
         to: cleanEmail,
-        subject: `${otp} is your Naino NEET Password Reset Code`,
+        subject: `${otp} is your Naino Academy Password Reset Code`,
         html: htmlContent
       });
       console.log(`[EmailService:SMTP] Email delivered to ${cleanEmail}`);
