@@ -422,4 +422,79 @@ router.get('/repeated-pyqs', (req, res) => {
   });
 });
 
+// 11. Custom Mock Test Generator
+router.post('/custom-mock', (req, res) => {
+  const {
+    physics = 0,
+    chemistry = 0,
+    botany = 0,
+    zoology = 0,
+    biology = 0,
+    customDuration
+  } = req.body || {};
+
+  const pCount = Math.max(0, parseInt(physics) || 0);
+  const cCount = Math.max(0, parseInt(chemistry) || 0);
+  let bCount = Math.max(0, parseInt(botany) || 0);
+  let zCount = Math.max(0, parseInt(zoology) || 0);
+  const bioCount = Math.max(0, parseInt(biology) || 0);
+
+  if (bioCount > 0 && bCount === 0 && zCount === 0) {
+    bCount = Math.floor(bioCount / 2);
+    zCount = bioCount - bCount;
+  }
+
+  const sampleQuestions = (pool, count, subName) => {
+    if (!pool || pool.length === 0 || count <= 0) return [];
+    const shuffled = [...pool].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count).map(q => {
+      const formatted = formatQuestion(q, req);
+      if (!formatted.subject || formatted.subject === 'Biology') {
+        formatted.subject = subName;
+      }
+      return formatted;
+    });
+  };
+
+  const phyPool = masterBySubject.Physics || [];
+  const chemPool = masterBySubject.Chemistry || [];
+  const botPool = (masterBySubject.Botany && masterBySubject.Botany.length)
+    ? masterBySubject.Botany
+    : (masterBySubject.Biology || []);
+  const zooPool = (masterBySubject.Zoology && masterBySubject.Zoology.length)
+    ? masterBySubject.Zoology
+    : (masterBySubject.Biology || []);
+
+  const phyQs = sampleQuestions(phyPool, pCount, 'Physics');
+  const chemQs = sampleQuestions(chemPool, cCount, 'Chemistry');
+  const botQs = sampleQuestions(botPool, bCount, 'Botany');
+  const zooQs = sampleQuestions(zooPool, zCount, 'Zoology');
+
+  const allQuestions = [...phyQs, ...chemQs, ...botQs, ...zooQs];
+  const total = allQuestions.length;
+
+  if (total === 0) {
+    return res.status(400).json({ error: 'Please select at least 1 question for any subject.' });
+  }
+
+  const duration = parseInt(customDuration) > 0 ? parseInt(customDuration) : total;
+  const testId = `custom_mock_${Date.now()}`;
+
+  res.json({
+    testId,
+    title: `Custom NEET Mock (${total} Qs)`,
+    subtitle: `Physics: ${phyQs.length} • Chemistry: ${chemQs.length} • Botany: ${botQs.length} • Zoology: ${zooQs.length}`,
+    durationMinutes: duration,
+    totalQuestions: total,
+    marks: total * 4,
+    breakdown: {
+      Physics: phyQs.length,
+      Chemistry: chemQs.length,
+      Botany: botQs.length,
+      Zoology: zooQs.length,
+    },
+    questions: allQuestions
+  });
+});
+
 export default router;
