@@ -28,7 +28,12 @@ const DEFAULT_APP_CONFIG = {
     title: "Exciting New Update Available! 🚀",
     message: "Naino Academy v2.1 includes brand new 3D Glassmorphic tests, AIR ranking fixes & lightning speed.",
     button_text: "Update on Play Store",
-    playstore_url: "https://play.google.com/store/apps/details?id=com.naino.neet"
+    playstore_url: "https://play.google.com/store/apps/details?id=com.naino.neet",
+    changelog: [
+      "Apple iOS 18 3D Glassmorphic Exam Interface",
+      "Instant All-India Rank (AIR) & Percentile Engine",
+      "Zero-Lag Offline Resilience & Auto Sync"
+    ]
   },
 
   // 2. Full App Remote Lock (Technical Emergency / Maintenance)
