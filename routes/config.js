@@ -33,7 +33,8 @@ const DEFAULT_HOME_SECTIONS = [
     gradient: ["#2563EB", "#1D4ED8"],
     route_key: "/grand-mocks",
     sort_order: 1,
-    is_active: true
+    is_active: true,
+    is_locked: false
   },
   {
     card_id: "chapterwise_tests",
@@ -165,6 +166,45 @@ router.get('/home-layout', async (req, res) => {
     totalSections: DEFAULT_HOME_SECTIONS.length,
     sections: DEFAULT_HOME_SECTIONS
   });
+});
+
+// 2b. Admin: Toggle Lock on any Home Section Card
+router.post('/admin/sections/toggle-lock', async (req, res) => {
+  try {
+    const incomingKey = req.headers['x-admin-key'] || req.body.adminKey;
+    const configuredSecret = process.env.ADMIN_SECRET || 'naino_admin_secure_vault_2026';
+    if (!incomingKey || incomingKey !== configuredSecret) {
+      return res.status(403).json({ success: false, message: 'Unauthorized: Invalid admin key' });
+    }
+
+    const { card_id, is_locked = true } = req.body;
+    if (!card_id) {
+      return res.status(400).json({ success: false, message: 'card_id is required' });
+    }
+
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('home_sections').updateOne(
+        { card_id },
+        { $set: { is_locked: Boolean(is_locked) } },
+        { upsert: false }
+      );
+    }
+
+    const target = DEFAULT_HOME_SECTIONS.find(s => s.card_id === card_id);
+    if (target) {
+      target.is_locked = Boolean(is_locked);
+    }
+
+    return res.json({
+      success: true,
+      message: `Card ${card_id} lock status updated to ${is_locked}`,
+      card_id,
+      is_locked: Boolean(is_locked)
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 // 3. Dynamic Chapters from MongoDB
