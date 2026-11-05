@@ -14,6 +14,7 @@ import configRouter from './routes/config.js';
 import authRouter from './routes/auth.js';
 import bannersRouter from './routes/banners.js';
 import notificationsRouter from './routes/notifications.js';
+import analyticsRouter from './routes/analytics.js';
 import { verifyAppSecret } from './middleware/auth.js';
 
 const app = express();
@@ -115,6 +116,7 @@ app.use('/api/pyq', pyqsRouter);               // /api/pyq/papers, /api/pyq/pape
 app.use('/api', libraryRouter);                // /api/notes, /api/library/books
 app.use('/api/user', userRouter);              // /api/user/streak, /api/user/profile, /api/user/bookmarks
 app.use('/api/notifications', notificationsRouter); // /api/notifications/register-token, /list, /broadcast
+app.use('/api/analytics', analyticsRouter);         // /api/analytics/heartbeat, /api/analytics/events-batch
 
 // Compatibility fallback for /api/bookmarks
 app.use('/api', userRouter);

@@ -30,6 +30,12 @@ export async function signup(req, res) {
     const cleanEmail = email.trim().toLowerCase();
     const cleanName = name.trim();
     const clientIp = getClientIp(req);
+    const deviceInfo = req.body.deviceInfo || {};
+    const deviceModel = deviceInfo.deviceModel || req.body.deviceModel || 'Unknown Device';
+    const deviceBrand = deviceInfo.deviceBrand || req.body.deviceBrand || 'Unknown';
+    const deviceId = deviceInfo.deviceId || req.body.deviceId || null;
+    const osVersion = deviceInfo.osVersion || req.body.osVersion || null;
+    const appVersion = deviceInfo.appVersion || req.body.appVersion || '2.0.1';
 
     if (password.length < 6) {
       return res.status(400).json({
@@ -83,8 +89,25 @@ export async function signup(req, res) {
       // IP Tracking
       signupIp: clientIp,
       lastLoginIp: clientIp,
+      deviceModel,
+      deviceBrand,
+      deviceId,
+      osVersion,
+      appVersion,
       ipHistory: [
         { ip: clientIp, action: 'signup', timestamp: now }
+      ],
+      deviceHistory: [
+        {
+          deviceModel,
+          deviceBrand,
+          deviceId,
+          osVersion,
+          appVersion,
+          ip: clientIp,
+          action: 'signup',
+          timestamp: now
+        }
       ]
     };
 
@@ -137,6 +160,12 @@ export async function login(req, res) {
 
     const cleanEmail = email.trim().toLowerCase();
     const clientIp = getClientIp(req);
+    const deviceInfo = req.body.deviceInfo || {};
+    const deviceModel = deviceInfo.deviceModel || req.body.deviceModel || 'Unknown Device';
+    const deviceBrand = deviceInfo.deviceBrand || req.body.deviceBrand || 'Unknown';
+    const deviceId = deviceInfo.deviceId || req.body.deviceId || null;
+    const osVersion = deviceInfo.osVersion || req.body.osVersion || null;
+    const appVersion = deviceInfo.appVersion || req.body.appVersion || '2.0.1';
     const db = getMongoDb();
 
     if (!db) {
@@ -191,12 +220,31 @@ export async function login(req, res) {
         $set: {
           refreshToken: tokens.refreshToken,
           lastLoginAt: now,
-          lastLoginIp: clientIp
+          lastLoginIp: clientIp,
+          deviceModel,
+          deviceBrand,
+          deviceId,
+          osVersion,
+          appVersion,
+          isOnline: true
         },
         $push: {
           ipHistory: {
             $each: [{ ip: clientIp, action: 'login', timestamp: now }],
             $slice: -20 // Retain last 20 logins
+          },
+          deviceHistory: {
+            $each: [{
+              deviceModel,
+              deviceBrand,
+              deviceId,
+              osVersion,
+              appVersion,
+              ip: clientIp,
+              action: 'login',
+              timestamp: now
+            }],
+            $slice: -20
           }
         }
       }
@@ -243,6 +291,12 @@ export async function googleAuth(req, res) {
     const cleanEmail = email.trim().toLowerCase();
     const cleanName = (name || 'Future Doctor').trim();
     const clientIp = getClientIp(req);
+    const deviceInfo = req.body.deviceInfo || {};
+    const deviceModel = deviceInfo.deviceModel || req.body.deviceModel || 'Unknown Device';
+    const deviceBrand = deviceInfo.deviceBrand || req.body.deviceBrand || 'Unknown';
+    const deviceId = deviceInfo.deviceId || req.body.deviceId || null;
+    const osVersion = deviceInfo.osVersion || req.body.osVersion || null;
+    const appVersion = deviceInfo.appVersion || req.body.appVersion || '2.0.1';
     const db = getMongoDb();
 
     if (!db) {
@@ -272,7 +326,24 @@ export async function googleAuth(req, res) {
         streak: 1,
         signupIp: clientIp,
         lastLoginIp: clientIp,
-        ipHistory: [{ ip: clientIp, action: 'google_signup', timestamp: now }]
+        deviceModel,
+        deviceBrand,
+        deviceId,
+        osVersion,
+        appVersion,
+        ipHistory: [{ ip: clientIp, action: 'google_signup', timestamp: now }],
+        deviceHistory: [
+          {
+            deviceModel,
+            deviceBrand,
+            deviceId,
+            osVersion,
+            appVersion,
+            ip: clientIp,
+            action: 'google_signup',
+            timestamp: now
+          }
+        ]
       };
       await usersCol.insertOne(user);
     } else {
@@ -283,12 +354,34 @@ export async function googleAuth(req, res) {
           $set: {
             lastLoginAt: now,
             lastLoginIp: clientIp,
+            deviceModel,
+            deviceBrand,
+            deviceId,
+            osVersion,
+            appVersion,
+            isOnline: true,
             ...(photoUrl ? { photoUrl } : {}),
             ...(googleId ? { googleId } : {})
           },
           $push: {
             ipHistory: {
               $each: [{ ip: clientIp, action: 'google_login', timestamp: now }],
+              $slice: -20
+            },
+            deviceHistory: {
+              $each: [{
+                deviceModel,
+                deviceBrand,
+                deviceId,
+                osVersion,
+                appVersion,
+                ip: clientIp,
+                action: 'google_login',
+                timestamp: now
+              }],
+              $slice: -20
+            }
+          }
               $slice: -20
             }
           }
