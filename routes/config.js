@@ -18,7 +18,45 @@ const DEFAULT_APP_CONFIG = {
     is_enabled: true
   },
   announcement_ticker: "",
-  is_maintenance: false
+  is_maintenance: false,
+
+  // 1. Version Update System (Hard vs Soft Update)
+  version_control: {
+    latest_version: "2.1.0",
+    min_supported_version: "2.0.0",
+    update_type: "soft", // 'hard' (forces update, blocks app) or 'soft' (dismissible)
+    title: "Exciting New Update Available! 🚀",
+    message: "Naino Academy v2.1 includes brand new 3D Glassmorphic tests, AIR ranking fixes & lightning speed.",
+    button_text: "Update on Play Store",
+    playstore_url: "https://play.google.com/store/apps/details?id=com.naino.neet"
+  },
+
+  // 2. Full App Remote Lock (Technical Emergency / Maintenance)
+  app_lock: {
+    is_locked: false,
+    title: "App Under Upgradation 🛠️",
+    message: "We are currently performing scheduled maintenance to upgrade Naino Academy test servers. Please check back shortly!",
+    expected_time: "Back online in ~30 minutes",
+    support_phone: "+91 98765 43210"
+  },
+
+  // 3. Dynamic Sponsor & Announcement Popup
+  sponsor_popup: {
+    is_active: false,
+    popup_id: "popup_announcement_1",
+    image_url: "",
+    title: "Special NEET Announcement 🎉",
+    title_color: "#10B981",
+    message: "Enroll in the upcoming All-India Grand Mock Test Series to test your rank with 15,000+ aspirants!",
+    message_color: "#475569",
+    bg_color: "#FFFFFF",
+    button_text: "Explore Now",
+    button_color: "#10B981",
+    button_text_color: "#FFFFFF",
+    action_type: "route", // 'route' or 'url'
+    action_target: "/grand-mocks",
+    show_once_per_day: true
+  }
 };
 
 const DEFAULT_HOME_SECTIONS = [
@@ -135,7 +173,7 @@ router.get('/app-config', async (req, res) => {
     if (isMongoConnected()) {
       const db = getMongoDb();
       const cfg = await db.collection('app_config').findOne({ _id: 'main_config' });
-      if (cfg) return res.json(cfg);
+      if (cfg) return res.json({ ...DEFAULT_APP_CONFIG, ...cfg });
     }
   } catch (err) {
     console.warn('Error fetching app_config from MongoDB:', err.message);
@@ -201,6 +239,108 @@ router.post('/admin/sections/toggle-lock', async (req, res) => {
       message: `Card ${card_id} lock status updated to ${is_locked}`,
       card_id,
       is_locked: Boolean(is_locked)
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 2c. Admin: Update Version Control (Hard/Soft Update, Version & Text)
+router.post('/admin/config/update-version', async (req, res) => {
+  try {
+    const incomingKey = req.headers['x-admin-key'] || req.body.adminKey;
+    const configuredSecret = process.env.ADMIN_SECRET || 'naino_admin_secure_vault_2026';
+    if (!incomingKey || incomingKey !== configuredSecret) {
+      return res.status(403).json({ success: false, message: 'Unauthorized: Invalid admin key' });
+    }
+
+    const version_control = {
+      ...DEFAULT_APP_CONFIG.version_control,
+      ...(req.body.version_control || req.body)
+    };
+
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('app_config').updateOne(
+        { _id: 'main_config' },
+        { $set: { version_control } },
+        { upsert: true }
+      );
+    }
+    DEFAULT_APP_CONFIG.version_control = version_control;
+
+    return res.json({
+      success: true,
+      message: 'Version control updated successfully',
+      version_control
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 2d. Admin: Remote App Lock / Maintenance Toggle
+router.post('/admin/config/toggle-app-lock', async (req, res) => {
+  try {
+    const incomingKey = req.headers['x-admin-key'] || req.body.adminKey;
+    const configuredSecret = process.env.ADMIN_SECRET || 'naino_admin_secure_vault_2026';
+    if (!incomingKey || incomingKey !== configuredSecret) {
+      return res.status(403).json({ success: false, message: 'Unauthorized: Invalid admin key' });
+    }
+
+    const app_lock = {
+      ...DEFAULT_APP_CONFIG.app_lock,
+      ...(req.body.app_lock || req.body)
+    };
+
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('app_config').updateOne(
+        { _id: 'main_config' },
+        { $set: { app_lock } },
+        { upsert: true }
+      );
+    }
+    DEFAULT_APP_CONFIG.app_lock = app_lock;
+
+    return res.json({
+      success: true,
+      message: `App lock status updated to ${app_lock.is_locked}`,
+      app_lock
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 2e. Admin: Dynamic Sponsor / Announcement Popup Manager
+router.post('/admin/config/update-sponsor-popup', async (req, res) => {
+  try {
+    const incomingKey = req.headers['x-admin-key'] || req.body.adminKey;
+    const configuredSecret = process.env.ADMIN_SECRET || 'naino_admin_secure_vault_2026';
+    if (!incomingKey || incomingKey !== configuredSecret) {
+      return res.status(403).json({ success: false, message: 'Unauthorized: Invalid admin key' });
+    }
+
+    const sponsor_popup = {
+      ...DEFAULT_APP_CONFIG.sponsor_popup,
+      ...(req.body.sponsor_popup || req.body)
+    };
+
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('app_config').updateOne(
+        { _id: 'main_config' },
+        { $set: { sponsor_popup } },
+        { upsert: true }
+      );
+    }
+    DEFAULT_APP_CONFIG.sponsor_popup = sponsor_popup;
+
+    return res.json({
+      success: true,
+      message: 'Sponsor popup updated successfully',
+      sponsor_popup
     });
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
