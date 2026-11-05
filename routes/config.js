@@ -22,9 +22,9 @@ const DEFAULT_APP_CONFIG = {
 
   // 1. Version Update System (Hard vs Soft Update)
   version_control: {
-    latest_version: "2.1.0",
+    latest_version: "2.0.1",
     min_supported_version: "2.0.0",
-    update_type: "soft", // 'hard' (forces update, blocks app) or 'soft' (dismissible)
+    update_type: "none", // 'hard' (forces update, blocks app) or 'soft' (dismissible) or 'none'
     title: "Exciting New Update Available! 🚀",
     message: "Naino Academy v2.1 includes brand new 3D Glassmorphic tests, AIR ranking fixes & lightning speed.",
     button_text: "Update on Play Store",
