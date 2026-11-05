@@ -42,20 +42,20 @@ const DEFAULT_APP_CONFIG = {
 
   // 3. Dynamic Sponsor & Announcement Popup
   sponsor_popup: {
-    is_active: false,
-    popup_id: "popup_announcement_1",
-    image_url: "",
-    title: "Special NEET Announcement 🎉",
+    is_active: true,
+    popup_id: "popup_announcement_live",
+    image_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/banners/banner1.webp",
+    title: "Special NEET Grand Mock Live! 🎉",
     title_color: "#10B981",
-    message: "Enroll in the upcoming All-India Grand Mock Test Series to test your rank with 15,000+ aspirants!",
+    message: "Bhaiya's 100% Free NCERT Line-by-Line Mock Test is now LIVE. Tap below to start your test!",
     message_color: "#475569",
     bg_color: "#FFFFFF",
-    button_text: "Explore Now",
+    button_text: "Start Test Now 🚀",
     button_color: "#10B981",
     button_text_color: "#FFFFFF",
     action_type: "route", // 'route' or 'url'
-    action_target: "/grand-mocks",
-    show_once_per_day: true
+    action_target: "/daily-test",
+    show_once_per_day: false
   }
 };
 
