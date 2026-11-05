@@ -1,5 +1,6 @@
 import { getMongoDb } from '../db.js';
 import { getClientIp } from '../config/env.js';
+import bcrypt from 'bcryptjs';
 
 /**
  * GET user profile from MongoDB Atlas (Pure user info, no Target Score/Exam clutter)
@@ -113,4 +114,79 @@ export async function updateProfile(req, res) {
     res.status(500).json({ success: false, error: 'Failed to update profile.' });
   }
 }
+
+/**
+ * PUT change password using old password
+ */
+export async function changePassword(req, res) {
+  try {
+    const userId = req.user?.userId;
+    const { oldPassword, newPassword } = req.body;
+    const clientIp = getClientIp(req);
+
+    if (!userId) {
+      return res.status(401).json({ success: false, error: 'Unauthorized.' });
+    }
+
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({
+        success: false,
+        error: 'New password must be at least 6 characters long.'
+      });
+    }
+
+    const db = getMongoDb();
+    if (!db) {
+      return res.status(503).json({ success: false, error: 'Database connection offline.' });
+    }
+
+    const user = await db.collection('users').findOne({ userId });
+    if (!user) {
+      return res.status(404).json({ success: false, error: 'User not found.' });
+    }
+
+    // If user signed in via Google and has never set a password
+    if (user.password) {
+      if (!oldPassword) {
+        return res.status(400).json({
+          success: false,
+          error: 'Current password is required.'
+        });
+      }
+      const isMatch = await bcrypt.compare(oldPassword, user.password);
+      if (!isMatch) {
+        return res.status(400).json({
+          success: false,
+          error: 'Current password does not match.'
+        });
+      }
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+    const now = new Date();
+
+    await db.collection('users').updateOne(
+      { userId },
+      {
+        $set: { password: hashedPassword, updatedAt: now },
+        $push: {
+          ipHistory: {
+            $each: [{ ip: clientIp, action: 'password_change', timestamp: now }],
+            $slice: -20
+          }
+        }
+      }
+    );
+
+    res.json({
+      success: true,
+      message: 'Password changed successfully!'
+    });
+  } catch (err) {
+    console.error('[User:ChangePassword] Error:', err);
+    res.status(500).json({ success: false, error: 'Failed to change password.' });
+  }
+}
+
 

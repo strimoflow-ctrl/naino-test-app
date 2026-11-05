@@ -404,4 +404,7 @@ router.get('/profile', optionalToken, userController.getProfile);
 // 7. PUT Update Profile (Allows user to edit name and email with IP tracking)
 router.put('/profile', verifyToken, userController.updateProfile);
 
+// 8. PUT Change Password (Old password + New password with IP tracking)
+router.put('/change-password', verifyToken, userController.changePassword);
+
 export default router;
