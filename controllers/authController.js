@@ -382,9 +382,6 @@ export async function googleAuth(req, res) {
               $slice: -20
             }
           }
-              $slice: -20
-            }
-          }
         }
       );
     }
