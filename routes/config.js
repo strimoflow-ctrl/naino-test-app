@@ -47,7 +47,7 @@ const DEFAULT_APP_CONFIG = {
 
   // 3. Dynamic Sponsor & Announcement Popup
   sponsor_popup: {
-    is_active: true,
+    is_active: false,
     popup_id: "popup_announcement_live",
     image_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/banners/banner1.webp",
     title: "Special NEET Grand Mock Live! 🎉",
@@ -422,7 +422,7 @@ const DEFAULT_PREMIUM_DESKS = [
   {
     id: "desk_2",
     title: "Some Basic Concepts of Chemistry",
-    subtitle: "Target NEET Chemistry • Mole Concept & Stoichiometry Deck",
+    subtitle: "Target NEET Chemistry • Mole Concept & Stoichiometr y Deck",
     subject: "Chemistry",
     chapter: "Some Basic Concepts of Chemistry",
     type: "Slide Deck",
