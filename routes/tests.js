@@ -1,7 +1,21 @@
 import express from 'express';
 import { masterBySubject, masterByCategory, formatQuestion, getMongoDb, isMongoConnected } from '../db.js';
+import { verifyAppSecret, verifyToken, verifyDeviceBinding, verifyActiveSession } from '../middleware/auth.js';
+import { questionsLimiter } from '../middleware/rateLimiter.js';
 
 const router = express.Router();
+
+// 🛡️ FULL 5-LAYER ANTI-SCRAPING SECURITY STACK
+// 1. App Handshake (Blocks non-mobile web bots)
+router.use(verifyAppSecret);
+// 2. Behavioral Rate Limiter (Max 35 batches/min per user)
+router.use(questionsLimiter);
+// 3. User Authentication (Bearer Token required)
+router.use(verifyToken);
+// 4. Genuine Hardware Device Binding (Rejects requests from non-registered devices)
+router.use(verifyDeviceBinding);
+// 5. Active Session Verification (Instant kickout if logged in on another device)
+router.use(verifyActiveSession);
 
 // 1. Daily Live Test (7:00 PM IST)
 router.get('/daily-test', (req, res) => {

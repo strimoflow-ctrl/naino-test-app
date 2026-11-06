@@ -102,3 +102,27 @@ export async function checkOtpRateLimit(email, clientIp) {
   };
 }
 
+/**
+ * Point 2: Anti-Scraping Behavioral Rate Limiter for Question & Test Endpoints.
+ * Limits question requests to 35 per minute per authenticated user or IP address.
+ * Prevents automated Python/Node scrapers from rapidly looping through question IDs.
+ */
+export const questionsLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute window
+  max: 35, // max 35 question batches per minute
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => {
+    if (req.user && req.user.userId) {
+      return `usr_${req.user.userId}`;
+    }
+    return getClientIp(req);
+  },
+  message: {
+    success: false,
+    error: 'Rate limit exceeded: Question fetching speed is limited to prevent scraping abuse.',
+    code: 'RATE_LIMIT_EXCEEDED'
+  }
+});
+
+

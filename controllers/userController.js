@@ -21,6 +21,7 @@ export async function getProfile(req, res) {
           userId: user.userId,
           name: user.name || 'Future Doctor',
           email: user.email || 'aspirant@naino.local',
+          targetExam: user.targetExam || '',
           streak: user.streak || 1,
           createdAt: user.createdAt,
           lastLoginAt: user.lastLoginAt
@@ -45,7 +46,7 @@ export async function getProfile(req, res) {
  */
 export async function updateProfile(req, res) {
   try {
-    const { name, email } = req.body;
+    const { name, email, targetExam } = req.body;
     const userId = req.user?.userId;
     const clientIp = getClientIp(req);
 
@@ -65,6 +66,7 @@ export async function updateProfile(req, res) {
     };
 
     if (name && name.trim()) updateFields.name = name.trim();
+    if (targetExam !== undefined) updateFields.targetExam = targetExam.trim();
     if (email && email.trim()) {
       const cleanEmail = email.trim().toLowerCase();
       // Check if new email is taken by another account
@@ -106,6 +108,7 @@ export async function updateProfile(req, res) {
         userId: updatedUser.userId,
         name: updatedUser.name,
         email: updatedUser.email,
+        targetExam: updatedUser.targetExam || '',
         streak: updatedUser.streak || 1
       }
     });

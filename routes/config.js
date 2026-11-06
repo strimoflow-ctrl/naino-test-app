@@ -3,30 +3,17 @@ import { getMongoDb, isMongoConnected } from '../db.js';
 
 const router = express.Router();
 
-// Default Fallback Configurations
+// Clean Dynamic App Configuration
 const DEFAULT_APP_CONFIG = {
   app_name: "Naino Academy",
-  header_target_text: "",
-  header_subtext: "",
-  header_badge: "Live Test Series",
-  daily_challenge: {
-    title: "Daily 7:00 PM Live Challenge",
-    subtitle: "20 Questions • 20 Minutes • National Ranking",
-    badge: "LIVE NOW",
-    duration_minutes: 20,
-    total_questions: 20,
-    is_enabled: true
-  },
-  announcement_ticker: "",
-  is_maintenance: false,
 
   // 1. Version Update System (Hard vs Soft Update)
   version_control: {
     latest_version: "2.0.1",
     min_supported_version: "2.0.0",
-    update_type: "none", // 'hard' (forces update, blocks app) or 'soft' (dismissible) or 'none'
+    update_type: "none", // 'hard' (forces update) or 'soft' (dismissible) or 'none'
     title: "Exciting New Update Available! 🚀",
-    message: "Naino Academy v2.1 includes brand new 3D Glassmorphic tests, AIR ranking fixes & lightning speed.",
+    message: "Naino Academy v2.0.1 includes brand new 3D Glassmorphic tests, AIR ranking fixes & lightning speed.",
     button_text: "Update on Play Store",
     playstore_url: "https://play.google.com/store/apps/details?id=com.naino.neet",
     changelog: [
@@ -64,190 +51,34 @@ const DEFAULT_APP_CONFIG = {
   }
 };
 
-const DEFAULT_HOME_SECTIONS = [
-  {
-    card_id: "grand_mocks",
-    title: "Grand Mock Tests",
-    subtitle: "180 Qs • Full Syllabus",
-    category: "mock",
-    badge: "720 MARKS",
-    icon_name: "timer",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/mock.png",
-    gradient: ["#2563EB", "#1D4ED8"],
-    route_key: "/grand-mocks",
-    sort_order: 1,
-    is_active: true,
-    is_locked: false
-  },
-  {
-    card_id: "chapterwise_tests",
-    title: "Chapter-Wise Tests",
-    subtitle: "Physics, Chem & Bio",
-    category: "tests",
-    badge: "159+ CH",
-    icon_name: "auto_stories",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/chapter.png",
-    gradient: ["#0284C7", "#0369A1"],
-    route_key: "/chapterwise-tests",
-    sort_order: 2,
-    is_active: true
-  },
-  {
-    card_id: "challenger_mode",
-    title: "Challenger Mode",
-    subtitle: "Numericals & Tough Qs",
-    category: "practice",
-    badge: "30s BLITZ",
-    icon_name: "bolt",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/challenger.png",
-    gradient: ["#DC2626", "#B91C1C"],
-    route_key: "/challenger-mode",
-    sort_order: 3,
-    is_active: true
-  },
-  {
-    card_id: "pyq_papers",
-    title: "NEET PYQ Papers",
-    subtitle: "2015 - 2024 Real Tests",
-    category: "pyq",
-    badge: "10 YEARS",
-    icon_name: "history_edu",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/pyq.png",
-    gradient: ["#7C3AED", "#6D28D9"],
-    route_key: "/pyq-papers",
-    sort_order: 4,
-    is_active: true
-  },
-  {
-    card_id: "diagram_tests",
-    title: "Diagram & Anatomy Tests",
-    subtitle: "Visual NCERT Questions",
-    category: "tests",
-    badge: "VISUAL",
-    icon_name: "image",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/diagram.png",
-    gradient: ["#0D9488", "#0F766E"],
-    route_key: "/diagram-tests",
-    sort_order: 5,
-    is_active: true
-  },
-  {
-    card_id: "repeated_pyqs",
-    title: "Most Repeated PYQs",
-    subtitle: "500+ Guaranteed MCQs",
-    category: "practice",
-    badge: "V.IMP",
-    icon_name: "star",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/repeated.png",
-    gradient: ["#D97706", "#B45309"],
-    route_key: "/repeated-pyqs",
-    sort_order: 6,
-    is_active: true
-  },
-  {
-    card_id: "study_library",
-    title: "Study Library & PDFs",
-    subtitle: "590+ PDFs & Notes",
-    category: "library",
-    badge: "HIGH YIELD",
-    icon_name: "auto_stories",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/library.png",
-    gradient: ["#059669", "#047857"],
-    route_key: "/study-library",
-    sort_order: 7,
-    is_active: true
-  },
-  {
-    card_id: "premium_desk",
-    title: "Premium Desk",
-    subtitle: "Slide Decks & PPTs",
-    category: "library",
-    badge: "SLIDES & PPT",
-    icon_name: "slideshow",
-    icon_url: "https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/icons/slides.png",
-    gradient: ["#EA580C", "#C2410C"],
-    route_key: "/premium-desk",
-    sort_order: 8,
-    is_active: true
-  }
-];
-
-// 1. Dynamic App Configuration
+// 1. Dynamic App Configuration (Strictly returns only verified active keys)
 router.get('/app-config', async (req, res) => {
   try {
     if (isMongoConnected()) {
       const db = getMongoDb();
       const cfg = await db.collection('app_config').findOne({ _id: 'main_config' });
-      if (cfg) return res.json({ ...DEFAULT_APP_CONFIG, ...cfg });
+      if (cfg) {
+        return res.json({
+          app_name: cfg.app_name || DEFAULT_APP_CONFIG.app_name,
+          version_control: {
+            ...DEFAULT_APP_CONFIG.version_control,
+            ...(cfg.version_control || {})
+          },
+          app_lock: {
+            ...DEFAULT_APP_CONFIG.app_lock,
+            ...(cfg.app_lock || {})
+          },
+          sponsor_popup: {
+            ...DEFAULT_APP_CONFIG.sponsor_popup,
+            ...(cfg.sponsor_popup || {})
+          }
+        });
+      }
     }
   } catch (err) {
     console.warn('Error fetching app_config from MongoDB:', err.message);
   }
   res.json(DEFAULT_APP_CONFIG);
-});
-
-// 2. Dynamic Home Screen Sections / Categories
-router.get('/home-layout', async (req, res) => {
-  try {
-    if (isMongoConnected()) {
-      const db = getMongoDb();
-      const sections = await db.collection('home_sections')
-        .find({ is_active: true })
-        .sort({ sort_order: 1 })
-        .toArray();
-      if (sections && sections.length > 0) {
-        return res.json({
-          totalSections: sections.length,
-          sections
-        });
-      }
-    }
-  } catch (err) {
-    console.warn('Error fetching home_sections from MongoDB:', err.message);
-  }
-  res.json({
-    totalSections: DEFAULT_HOME_SECTIONS.length,
-    sections: DEFAULT_HOME_SECTIONS
-  });
-});
-
-// 2b. Admin: Toggle Lock on any Home Section Card
-router.post('/admin/sections/toggle-lock', async (req, res) => {
-  try {
-    const incomingKey = req.headers['x-admin-key'] || req.body.adminKey;
-    const configuredSecret = process.env.ADMIN_SECRET || 'naino_admin_secure_vault_2026';
-    if (!incomingKey || incomingKey !== configuredSecret) {
-      return res.status(403).json({ success: false, message: 'Unauthorized: Invalid admin key' });
-    }
-
-    const { card_id, is_locked = true } = req.body;
-    if (!card_id) {
-      return res.status(400).json({ success: false, message: 'card_id is required' });
-    }
-
-    if (isMongoConnected()) {
-      const db = getMongoDb();
-      await db.collection('home_sections').updateOne(
-        { card_id },
-        { $set: { is_locked: Boolean(is_locked) } },
-        { upsert: false }
-      );
-    }
-
-    const target = DEFAULT_HOME_SECTIONS.find(s => s.card_id === card_id);
-    if (target) {
-      target.is_locked = Boolean(is_locked);
-    }
-
-    return res.json({
-      success: true,
-      message: `Card ${card_id} lock status updated to ${is_locked}`,
-      card_id,
-      is_locked: Boolean(is_locked)
-    });
-  } catch (err) {
-    return res.status(500).json({ success: false, error: err.message });
-  }
 });
 
 // 2c. Admin: Update Version Control (Hard/Soft Update, Version & Text)
@@ -350,55 +181,6 @@ router.post('/admin/config/update-sponsor-popup', async (req, res) => {
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
   }
-});
-
-// 3. Dynamic Chapters from MongoDB
-router.get('/dynamic-chapters', async (req, res) => {
-  const { subject } = req.query;
-  try {
-    if (isMongoConnected()) {
-      const db = getMongoDb();
-      const query = { is_active: true };
-      if (subject) query.subject = new RegExp(`^${subject}$`, 'i');
-      const chapters = await db.collection('chapters')
-        .find(query)
-        .sort({ sort_order: 1 })
-        .toArray();
-      return res.json({
-        totalChapters: chapters.length,
-        chapters
-      });
-    }
-  } catch (err) {
-    console.warn('Error fetching chapters from MongoDB:', err.message);
-  }
-  res.json({ totalChapters: 0, chapters: [] });
-});
-
-// 4. Dynamic Study Materials (PDFs) from MongoDB
-router.get('/study-materials', async (req, res) => {
-  const { subject, type, search } = req.query;
-  try {
-    if (isMongoConnected()) {
-      const db = getMongoDb();
-      const query = { is_active: true };
-      if (subject) query.subject = new RegExp(`^${subject}$`, 'i');
-      if (type) query.type = type;
-      if (search) query.title = new RegExp(search, 'i');
-
-      const materials = await db.collection('study_materials')
-        .find(query)
-        .limit(100)
-        .toArray();
-      return res.json({
-        totalMaterials: materials.length,
-        materials
-      });
-    }
-  } catch (err) {
-    console.warn('Error fetching study_materials:', err.message);
-  }
-  res.json({ totalMaterials: 0, materials: [] });
 });
 
 // 5. Premium Desk, Study Materials & Batches Decks System
@@ -999,36 +781,6 @@ router.get('/test-packs/:id', async (req, res) => {
     console.warn('MongoDB test_pack single error:', err.message);
   }
   res.status(404).json({ error: 'Test pack not found' });
-});
-
-// 8. Dynamic Classroom Live Chat per Lecture ID
-const inMemoryLectureChats = {};
-
-// GET /api/classroom/chat/:lectureId
-router.get('/classroom/chat/:lectureId', (req, res) => {
-  const { lectureId } = req.params;
-  const chats = inMemoryLectureChats[lectureId] || [];
-  res.json({ lectureId, messages: chats });
-});
-
-// POST /api/classroom/chat/:lectureId
-router.post('/classroom/chat/:lectureId', (req, res) => {
-  const { lectureId } = req.params;
-  const { sender, text, isMentor } = req.body;
-  if (!text || !text.trim()) return res.status(400).json({ error: 'Text required' });
-  if (!inMemoryLectureChats[lectureId]) {
-    inMemoryLectureChats[lectureId] = [];
-  }
-  const newMsg = {
-    id: 'msg_' + Date.now(),
-    sender: sender || 'Student',
-    text: text.trim(),
-    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-    isMentor: !!isMentor,
-    timestamp: Date.now()
-  };
-  inMemoryLectureChats[lectureId].push(newMsg);
-  res.json({ success: true, message: newMsg });
 });
 
 export default router;

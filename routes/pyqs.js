@@ -1,7 +1,16 @@
 import express from 'express';
 import { masterByCategory, formatQuestion } from '../db.js';
+import { verifyAppSecret, verifyToken, verifyDeviceBinding, verifyActiveSession } from '../middleware/auth.js';
+import { questionsLimiter } from '../middleware/rateLimiter.js';
 
 const router = express.Router();
+
+// 🛡️ FULL 5-LAYER ANTI-SCRAPING SECURITY STACK
+router.use(verifyAppSecret);
+router.use(questionsLimiter);
+router.use(verifyToken);
+router.use(verifyDeviceBinding);
+router.use(verifyActiveSession);
 
 // 1. PYQ Papers (2015 to 2024)
 router.get('/papers', (req, res) => {
