@@ -1,8 +1,11 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
+import fs from 'fs';
+import path from 'path';
 import { ENV, getClientIp } from '../config/env.js';
 import { getMongoDb, isMongoConnected, reloadQuestionsFromMongo, addQuestionToMemory, updateQuestionInMemory, removeQuestionFromMemory } from '../db.js';
 import { verifyAdminToken, adminLoginLimiter, adminActionLimiter } from '../middleware/adminAuth.js';
+import { parseBookMetadata } from './library.js';
 
 const router = express.Router();
 
@@ -807,6 +810,27 @@ router.put('/batches/:id', verifyAdminToken, async (req, res) => {
   }
 });
 
+router.delete('/batches/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const bid = req.params.id;
+    const result = await db.collection('batches').deleteOne({
+      $or: [{ id: bid }, { _id: bid }]
+    });
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ success: false, error: 'Batch not found.' });
+    }
+
+    console.log(`[Admin Action] Deleted batch: ${bid}`);
+    res.json({ success: true, message: 'Batch deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 router.post('/batches/:id/lectures', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
@@ -896,6 +920,231 @@ router.put('/test-packs/:id', verifyAdminToken, async (req, res) => {
     );
 
     res.json({ success: true, message: 'Test pack updated successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 10. STUDY LIBRARY & PDF MANAGEMENT
+// ==========================================
+let cachedManifest = null;
+function getManifest() {
+  if (cachedManifest) return cachedManifest;
+  const manifestPaths = [
+    path.join(process.cwd(), 'cloud_manifest.json'),
+    path.join(process.cwd(), 'data', 'cloud_manifest.json'),
+    path.join(process.cwd(), 'backend', 'cloud_manifest.json')
+  ];
+  for (const p of manifestPaths) {
+    if (fs.existsSync(p)) {
+      try {
+        cachedManifest = JSON.parse(fs.readFileSync(p, 'utf8'));
+        return cachedManifest;
+      } catch (_) {}
+    }
+  }
+  return {};
+}
+
+router.get('/library/books', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    const manifest = getManifest();
+    const manifestKeys = Object.keys(manifest).filter(k => k.endsWith('.pdf'));
+
+    // 1. Get overrides / custom books from MongoDB
+    let dbBooks = [];
+    if (db) {
+      dbBooks = await db.collection('study_library').find({}).toArray();
+    }
+    const dbMap = new Map();
+    const deletedSet = new Set();
+    const customList = [];
+
+    for (const item of dbBooks) {
+      if (item.isDeleted) {
+        deletedSet.add(item.id || item.fileName);
+      } else if (item.isCustom) {
+        customList.push(item);
+      } else {
+        dbMap.set(item.id || item.fileName, item);
+      }
+    }
+
+    // 2. Build base list from manifest
+    const books = [];
+    const baseUrl = process.env.R2_PUBLIC_URL || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/pdfs';
+
+    for (const f of manifestKeys) {
+      const id = f.replace('.pdf', '');
+      if (deletedSet.has(id) || deletedSet.has(f)) continue;
+
+      if (dbMap.has(id) || dbMap.has(f)) {
+        books.push(dbMap.get(id) || dbMap.get(f));
+        continue;
+      }
+
+      const meta = parseBookMetadata(f);
+      const r2Entry = manifest[f] || {};
+      let sizeMB = '2.5';
+      if (r2Entry.size_bytes) {
+        sizeMB = (r2Entry.size_bytes / (1024 * 1024)).toFixed(2);
+      }
+      const downloadUrl = r2Entry.r2_url || `${baseUrl}/${f}`;
+
+      books.push({
+        id,
+        fileName: f,
+        title: meta.title,
+        category: meta.category,
+        subject: meta.subject,
+        chapterNum: meta.chapterNum,
+        chapterName: meta.chapterName,
+        downloadUrl,
+        sizeMB: `${sizeMB} MB`,
+        isCustom: false
+      });
+    }
+
+    // Add custom books created by admin
+    for (const c of customList) {
+      books.push(c);
+    }
+
+    // Filters
+    const { category, subject, search } = req.query;
+    let filtered = books;
+
+    if (category && category !== 'all') {
+      filtered = filtered.filter(b => (b.category || '').toLowerCase() === category.toLowerCase());
+    }
+    if (subject && subject !== 'all') {
+      filtered = filtered.filter(b => (b.subject || '').toLowerCase() === subject.toLowerCase());
+    }
+    if (search && search.trim()) {
+      const s = search.trim().toLowerCase();
+      filtered = filtered.filter(b => 
+        (b.title || '').toLowerCase().includes(s) || 
+        (b.chapterName || '').toLowerCase().includes(s) ||
+        (b.fileName || '').toLowerCase().includes(s)
+      );
+    }
+
+    res.json({
+      success: true,
+      total: filtered.length,
+      totalAll: books.length,
+      books: filtered
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.post('/library/books', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const body = req.body || {};
+    if (!body.title || !body.downloadUrl) {
+      return res.status(400).json({ success: false, error: 'Book title and PDF Download/View URL are required.' });
+    }
+
+    const newBook = {
+      id: `custom_pdf_${Date.now()}`,
+      fileName: body.fileName || `${body.title.toLowerCase().replace(/[^a-z0-9]/g, '_')}.pdf`,
+      title: body.title.trim(),
+      category: body.category || 'NCERT Short Notes',
+      subject: body.subject || 'Physics',
+      chapterNum: body.chapterNum ? parseInt(body.chapterNum) : 1,
+      chapterName: body.chapterName || body.title.trim(),
+      downloadUrl: body.downloadUrl.trim(),
+      sizeMB: body.sizeMB || '2.0 MB',
+      isCustom: true,
+      createdAt: new Date().toISOString()
+    };
+
+    await db.collection('study_library').insertOne(newBook);
+    res.status(201).json({ success: true, book: newBook });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/library/books/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { id } = req.params;
+    const updates = req.body || {};
+    delete updates._id;
+    updates.updatedAt = new Date().toISOString();
+
+    await db.collection('study_library').updateOne(
+      { $or: [{ id }, { fileName: id }] },
+      { $set: updates },
+      { upsert: true }
+    );
+
+    res.json({ success: true, message: 'Study material updated successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/library/books/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { id } = req.params;
+
+    // Check if it's a custom book or manifest book
+    const existing = await db.collection('study_library').findOne({ $or: [{ id }, { fileName: id }] });
+    if (existing && existing.isCustom) {
+      await db.collection('study_library').deleteOne({ $or: [{ id }, { fileName: id }] });
+    } else {
+      // Mark as deleted so it is excluded from manifest
+      await db.collection('study_library').updateOne(
+        { $or: [{ id }, { fileName: id }] },
+        { $set: { id, isDeleted: true, deletedAt: new Date().toISOString() } },
+        { upsert: true }
+      );
+    }
+
+    res.json({ success: true, message: 'PDF book deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 11. PYQ EXAM PAPERS SUMMARY
+// ==========================================
+router.get('/pyqs/years', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const yearsAgg = await db.collection('questions').aggregate([
+      { $match: { category: 'yearwise_pyq' } },
+      { $group: { _id: '$year', count: { $sum: 1 } } },
+      { $sort: { _id: -1 } }
+    ]).toArray();
+
+    const defaultYears = ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'];
+    const aggMap = new Map(yearsAgg.map(y => [String(y._id), y.count]));
+
+    const years = defaultYears.map(year => ({
+      year,
+      title: `NEET ${year} Official Question Paper`,
+      questionCount: aggMap.get(year) || 0
+    }));
+
+    res.json({ success: true, years });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }

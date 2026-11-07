@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import { NOTES_DIR, DOWNLOADS_DIR } from '../db.js';
+import { NOTES_DIR, DOWNLOADS_DIR, getMongoDb } from '../db.js';
 
 const router = express.Router();
 
@@ -243,7 +243,7 @@ router.get('/notes/:subject/:fileName', (req, res) => {
 });
 
 // 3. Study Library (605 PDFs Catalog with Subject & Chapter Breakdowns)
-router.get('/library/books', (req, res) => {
+router.get('/library/books', async (req, res) => {
   const pdfDir = path.join(DOWNLOADS_DIR, 'pdfs');
   const manifestPaths = [
     path.join(process.cwd(), 'cloud_manifest.json'),
@@ -259,9 +259,28 @@ router.get('/library/books', (req, res) => {
     } catch (_) {}
   }
 
+  // Fetch overrides/custom books from MongoDB
+  let deletedIds = new Set();
+  let customBooks = [];
+  try {
+    const db = getMongoDb();
+    if (db) {
+      const items = await db.collection('study_library').find({}).toArray();
+      for (const it of items) {
+        if (it.isDeleted) {
+          deletedIds.add(it.id);
+          if (it.fileName) deletedIds.add(it.fileName);
+        } else if (it.isCustom) {
+          customBooks.push(it);
+        }
+      }
+    }
+  } catch (_) {}
+
   const localFiles = fs.existsSync(pdfDir) ? fs.readdirSync(pdfDir).filter(f => f.endsWith('.pdf')) : [];
   const manifestFiles = Object.keys(manifest).filter(f => f.endsWith('.pdf'));
-  const allFileNames = Array.from(new Set([...localFiles, ...manifestFiles]));
+  const allFileNames = Array.from(new Set([...localFiles, ...manifestFiles]))
+    .filter(f => !deletedIds.has(f) && !deletedIds.has(f.replace('.pdf', '')));
 
   if (allFileNames.length === 0) {
     return res.json({ totalPdfs: 0, categories: {}, byCategoryAndSubject: {} });
@@ -333,6 +352,28 @@ router.get('/library/books', (req, res) => {
     }
   }
 
+  // Add custom books created by Admin in MongoDB
+  for (const c of customBooks) {
+    const cat = c.category || 'NCERT Short Notes';
+    const sub = c.subject || 'Physics';
+    if (!byCategoryAndSubject[cat]) byCategoryAndSubject[cat] = {};
+    if (!byCategoryAndSubject[cat][sub]) byCategoryAndSubject[cat][sub] = [];
+    if (!flatCategories[cat]) flatCategories[cat] = [];
+
+    const entry = {
+      fileName: c.fileName || `${c.title}.pdf`,
+      title: c.title,
+      chapterNum: c.chapterNum || 1,
+      chapterName: c.chapterName || c.title,
+      subject: sub,
+      category: cat,
+      sizeMB: c.sizeMB || '2.0 MB',
+      downloadUrl: c.downloadUrl
+    };
+    byCategoryAndSubject[cat][sub].push(entry);
+    flatCategories[cat].push(entry);
+  }
+
   // Sort each subject list numerically by chapterNum
   for (const cat of Object.keys(byCategoryAndSubject)) {
     for (const sub of Object.keys(byCategoryAndSubject[cat])) {
@@ -384,4 +425,5 @@ router.get('/library/books', (req, res) => {
   });
 });
 
+export { parseBookMetadata };
 export default router;
