@@ -69,6 +69,16 @@ if (fs.existsSync(DOWNLOADS_DIR)) {
   app.use('/media/solutions', express.static(path.join(DOWNLOADS_DIR, 'solution_images')));
 }
 
+// Serve Super Admin Web Dashboard
+const adminDistPath = path.join(__dirname, '..', 'admin', 'dist');
+if (fs.existsSync(adminDistPath)) {
+  app.use('/admin', express.static(adminDistPath));
+  app.get('/admin', (req, res) => res.redirect('/admin/'));
+  app.get('/admin/*', (req, res) => {
+    res.sendFile(path.join(adminDistPath, 'index.html'));
+  });
+}
+
 // 2. Health & 24/7 Uptime Keep-Alive Check (Supports HEAD & GET for UptimeRobot / Cron pings)
 app.head('/', (req, res) => res.status(200).end());
 app.get('/', (req, res) => res.send('Naino NEET API is online and running 24/7!'));
