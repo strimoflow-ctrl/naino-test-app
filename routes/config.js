@@ -76,7 +76,8 @@ const DEFAULT_APP_CONFIG = {
     challenger_mode: {
       is_locked: true,
       required_ads: 1
-    }
+    },
+    item_overrides: {}
   }
 };
 

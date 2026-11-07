@@ -1150,4 +1150,102 @@ router.get('/pyqs/years', verifyAdminToken, async (req, res) => {
   }
 });
 
+// ==========================================
+// 12. DYNAMIC AD-LOCKS ENGINE (IN-CONTEXT)
+// ==========================================
+router.get('/ad-locks', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const doc = await db.collection('app_config').findOne({ _id: 'main_config' });
+    const adLocks = (doc && doc.ad_locks) || {
+      is_enabled: true,
+      pdf_library: { is_locked: true, required_ads: 1 },
+      mock_tests: { is_locked: true, required_ads: 2 },
+      pyq_papers: { is_locked: true, required_ads: 2 },
+      chapter_parts: { is_locked: true, required_ads: 5 },
+      diagram_sets: { is_locked: true, required_ads: 2 },
+      challenger_mode: { is_locked: true, required_ads: 1 },
+      item_overrides: {}
+    };
+
+    res.json({ success: true, adLocks });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/ad-locks/section', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { section, is_locked, required_ads } = req.body || {};
+    if (!section) return res.status(400).json({ success: false, error: 'Section name required.' });
+
+    const updateObj = {};
+    if (is_locked !== undefined) updateObj[`ad_locks.${section}.is_locked`] = !!is_locked;
+    if (required_ads !== undefined) updateObj[`ad_locks.${section}.required_ads`] = Math.max(0, parseInt(required_ads) || 0);
+
+    await db.collection('app_config').updateOne(
+      { _id: 'main_config' },
+      { $set: updateObj },
+      { upsert: true }
+    );
+
+    res.json({ success: true, message: `Ad lock updated for ${section}` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/ad-locks/item', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { itemKey, is_locked, required_ads } = req.body || {};
+    if (!itemKey) return res.status(400).json({ success: false, error: 'itemKey required.' });
+
+    const cleanKey = itemKey.replace(/\./g, '_');
+    const updateObj = {};
+    updateObj[`ad_locks.item_overrides.${cleanKey}`] = {
+      is_locked: !!is_locked,
+      required_ads: Math.max(0, parseInt(required_ads) || 0),
+      updatedAt: new Date().toISOString()
+    };
+
+    await db.collection('app_config').updateOne(
+      { _id: 'main_config' },
+      { $set: updateObj },
+      { upsert: true }
+    );
+
+    res.json({ success: true, message: `Ad lock override saved for ${cleanKey}` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 13. GRAND MOCK TESTS FULL MANAGEMENT
+// ==========================================
+router.get('/mocks/:id/questions', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { id } = req.params;
+    const questions = await db.collection('questions')
+      .find({ category: 'mock_test', mockId: id })
+      .limit(200)
+      .toArray();
+
+    res.json({ success: true, total: questions.length, questions });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 export default router;
