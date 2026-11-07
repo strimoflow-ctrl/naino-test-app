@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { DOWNLOADS_DIR, masterBySubject, connectMongo, isMongoConnected } from './db.js';
+import { DOWNLOADS_DIR, masterBySubject, connectMongo, isMongoConnected, reloadQuestionsFromMongo } from './db.js';
 import testsRouter from './routes/tests.js';
 import pyqsRouter from './routes/pyqs.js';
 import libraryRouter from './routes/library.js';
@@ -120,6 +120,22 @@ app.use('/api/analytics', analyticsRouter);         // /api/analytics/heartbeat,
 
 // Compatibility fallback for /api/bookmarks
 app.use('/api', userRouter);
+
+// Admin Live Database Cache Reload (Sync from MongoDB Atlas without server restart)
+app.post('/api/admin/reload-database', async (req, res) => {
+  try {
+    const success = await reloadQuestionsFromMongo();
+    const total = Object.values(masterBySubject).reduce((acc, curr) => acc + curr.length, 0);
+    res.json({
+      success,
+      message: success ? 'Questions synced live from MongoDB Atlas!' : 'Failed to sync questions from MongoDB Atlas.',
+      totalQuestions: total,
+      timestamp: new Date().toISOString()
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 // 4. Start Server
 app.listen(PORT, '0.0.0.0', async () => {

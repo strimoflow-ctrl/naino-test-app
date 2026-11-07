@@ -1,8 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+import dns from 'dns';
 import { MongoClient } from 'mongodb';
+
+// Ensure DNS SRV lookups succeed across all ISPs and Windows environments
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch (_) {}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,10 +17,140 @@ let mongoClient = null;
 let mongoDb = null;
 let mongoReady = false;
 
+export const DATA_DIR = path.join(__dirname, 'data');
+export const NOTES_DIR = path.join(__dirname, 'data', 'study_notes');
+export const DOWNLOADS_DIR = path.join(__dirname, '..', 'data', 'downloads');
+export const USER_DATA_DIR = path.join(__dirname, 'data', 'user');
+
+if (!fs.existsSync(USER_DATA_DIR)) {
+  fs.mkdirSync(USER_DATA_DIR, { recursive: true });
+}
+
+// In-Memory Fast Cache populated directly from MongoDB Atlas
+export const masterBySubject = {
+  Physics: [],
+  Chemistry: [],
+  Botany: [],
+  Zoology: [],
+  Biology: []
+};
+
+export const masterByCategory = {
+  daily_pool: [],
+  dpp: [],
+  chapterwise: [],
+  chapterwise_pyqs: [],
+  neet_papers: [],
+  diagrams: [],
+  repeated_pyqs: [],
+  numericals: [],
+  tough: [],
+  mock_summary: [],
+  mock_1: null,
+  mock_2: null,
+  mock_3: null
+};
+
+/**
+ * Loads all questions directly from MongoDB Atlas into high-speed memory cache.
+ * Any update in MongoDB Atlas is synced into this cache.
+ */
+export async function loadQuestionsFromMongo() {
+  if (!mongoDb) {
+    console.warn('[Database] Cannot load questions: MongoDB Atlas not connected.');
+    return false;
+  }
+
+  console.log('[Database] Loading fresh questions directly from MongoDB Atlas...');
+  const startTime = Date.now();
+
+  try {
+    // 1. Fetch all questions from 'questions' collection
+    const allQuestions = await mongoDb.collection('questions').find({}).toArray();
+    console.log(`[Database] Fetched ${allQuestions.length} total questions from MongoDB Atlas.`);
+
+    // Reset subject buckets
+    masterBySubject.Physics = [];
+    masterBySubject.Chemistry = [];
+    masterBySubject.Botany = [];
+    masterBySubject.Zoology = [];
+    masterBySubject.Biology = [];
+
+    // Reset category buckets
+    const catMap = {
+      numericals: [],
+      yearwise_pyq: [],
+      chapterwise: [],
+      repeated_pyq: [],
+      dpp: [],
+      tough: [],
+      chapterwise_pyq: [],
+      diagram_question: [],
+      mixed_set: []
+    };
+
+    for (const q of allQuestions) {
+      // Organize by subject
+      const sub = q.subject || 'Biology';
+      if (masterBySubject[sub]) {
+        masterBySubject[sub].push(q);
+      } else {
+        masterBySubject.Biology.push(q);
+      }
+
+      // Organize by category
+      const cat = q.category || 'mixed_set';
+      if (catMap[cat]) {
+        catMap[cat].push(q);
+      }
+    }
+
+    masterByCategory.numericals = catMap.numericals;
+    masterByCategory.neet_papers = catMap.yearwise_pyq;
+    masterByCategory.chapterwise = catMap.chapterwise;
+    masterByCategory.repeated_pyqs = catMap.repeated_pyq;
+    masterByCategory.tough = catMap.tough;
+    masterByCategory.chapterwise_pyqs = catMap.chapterwise_pyq;
+    masterByCategory.diagrams = catMap.diagram_question;
+
+    // 2. Fetch daily test pool
+    const dailyPool = await mongoDb.collection('daily_test_pool').find({}).toArray();
+    masterByCategory.daily_pool = dailyPool.length > 0 ? dailyPool : catMap.dpp;
+    masterByCategory.dpp = masterByCategory.daily_pool;
+
+    // 3. Fetch mock tests
+    const mocks = await mongoDb.collection('mock_tests').find({}).toArray();
+    masterByCategory.mock_summary = mocks.map(m => ({
+      id: m.id || m._id,
+      title: m.title,
+      subtitle: m.subtitle || '',
+      durationMinutes: m.durationMinutes || 200,
+      totalQuestions: m.totalQuestions || (m.questions ? m.questions.length : 180),
+      marks: m.marks || (m.questions ? m.questions.length * 4 : 720)
+    }));
+
+    for (const m of mocks) {
+      const mockKey = m.id || m._id;
+      masterByCategory[mockKey] = m;
+    }
+
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+    console.log(`[Database] MongoDB Atlas cache ready in ${elapsed}s! Total: ${allQuestions.length} Qs in RAM.`);
+    return true;
+  } catch (err) {
+    console.error('[Database] Failed to load questions from MongoDB Atlas:', err.message);
+    return false;
+  }
+}
+
+export async function reloadQuestionsFromMongo() {
+  return await loadQuestionsFromMongo();
+}
+
 export async function connectMongo() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
-    console.log('[Database] No MONGODB_URI in environment. Operating with high-speed in-memory JSON.');
+    console.log('[Database] No MONGODB_URI configured in environment.');
     return null;
   }
   try {
@@ -28,10 +163,14 @@ export async function connectMongo() {
     const dbName = process.env.MONGODB_DB_NAME || 'naino_neet_db';
     mongoDb = mongoClient.db(dbName);
     mongoReady = true;
-    console.log(`[Database] Successfully connected to MongoDB Atlas database: ${dbName}!`);
+    console.log(`[Database] Successfully connected to MongoDB Atlas (${dbName})!`);
+
+    // Immediately load all data into memory
+    await loadQuestionsFromMongo();
+
     return mongoDb;
   } catch (err) {
-    console.warn(`[Database] MongoDB Atlas connection error (${err.message}). Seamlessly using in-memory JSON fallback.`);
+    console.error(`[Database] MongoDB Atlas connection error (${err.message}).`);
     mongoReady = false;
     return null;
   }
@@ -43,66 +182,6 @@ export function getMongoDb() {
 
 export function isMongoConnected() {
   return mongoReady;
-}
-
-export const DATA_DIR = path.join(__dirname, 'data', 'master_database');
-export const NOTES_DIR = path.join(__dirname, 'data', 'study_notes');
-export const DOWNLOADS_DIR = path.join(__dirname, '..', 'data', 'downloads');
-export const USER_DATA_DIR = path.join(__dirname, 'data', 'user');
-
-if (!fs.existsSync(USER_DATA_DIR)) {
-  fs.mkdirSync(USER_DATA_DIR, { recursive: true });
-}
-
-export const masterBySubject = {
-  Physics: [],
-  Chemistry: [],
-  Botany: [],
-  Zoology: [],
-  Biology: []
-};
-
-export const masterByCategory = {};
-
-console.log('Loading Master Database into Memory...');
-
-try {
-  const subFiles = ['physics', 'chemistry', 'botany', 'zoology', 'biology'];
-  for (const s of subFiles) {
-    const fPath = path.join(DATA_DIR, 'by_subject', `${s}_master.json`);
-    if (fs.existsSync(fPath)) {
-      const data = JSON.parse(fs.readFileSync(fPath, 'utf-8'));
-      const subName = s.charAt(0).toUpperCase() + s.slice(1);
-      masterBySubject[subName] = data;
-      console.log(`  Loaded ${subName}: ${data.length} Qs`);
-    }
-  }
-
-  const catFiles = {
-    daily_pool: path.join(DATA_DIR, 'by_category', 'daily_20_questions', 'daily_20_questions_pool.json'),
-    chapterwise: path.join(DATA_DIR, 'by_category', 'chapterwise', 'chapterwise_all.json'),
-    chapterwise_pyqs: path.join(DATA_DIR, 'by_category', 'chapterwise', 'chapterwise_pyqs.json'),
-    neet_papers: path.join(DATA_DIR, 'by_category', 'pyq_papers', 'neet_papers_2015_2024.json'),
-    diagrams: path.join(DATA_DIR, 'by_category', 'diagrams', 'diagram_questions.json'),
-    repeated_pyqs: path.join(DATA_DIR, 'by_category', 'repeated_pyqs', 'repeated_pyqs.json'),
-    numericals: path.join(DATA_DIR, 'by_category', 'challenger_mode', 'numericals.json'),
-    tough: path.join(DATA_DIR, 'by_category', 'challenger_mode', 'tough_questions.json'),
-    mock_summary: path.join(DATA_DIR, 'by_category', 'mock_tests', 'all_mock_tests.json'),
-    mock_1: path.join(DATA_DIR, 'by_category', 'mock_tests', 'mock_1.json'),
-    mock_2: path.join(DATA_DIR, 'by_category', 'mock_tests', 'mock_2.json'),
-    mock_3: path.join(DATA_DIR, 'by_category', 'mock_tests', 'mock_3.json'),
-  };
-
-  for (const [k, fPath] of Object.entries(catFiles)) {
-    if (fs.existsSync(fPath)) {
-      masterByCategory[k] = JSON.parse(fs.readFileSync(fPath, 'utf-8'));
-    }
-  }
-  // Alias dpp to daily_pool for backward compatibility
-  masterByCategory.dpp = masterByCategory.daily_pool || [];
-  console.log('Master Database Ready!');
-} catch (err) {
-  console.error('Error loading database:', err);
 }
 
 const imgManifestPaths = [
@@ -251,52 +330,12 @@ export function sanitizeLatex(str) {
   return text.trim();
 }
 
-/**
- * Point 5: Zero-Width Forensic Watermarking.
- * Encodes the requesting user's ID into invisible Unicode characters embedded in the question text.
- * Renders 100% normally and invisibly in Flutter UI.
- * If scraped and leaked, running decodeWatermark() instantly recovers the exact user who downloaded it!
- */
-export function encodeWatermark(text, userId) {
-  if (!text || !userId) return text;
-  let binary = '';
-  for (let i = 0; i < userId.length; i++) {
-    binary += userId.charCodeAt(i).toString(2).padStart(8, '0');
-  }
-  let zw = '\u200D'; // marker start
-  for (let i = 0; i < binary.length; i++) {
-    zw += binary[i] === '0' ? '\u200B' : '\u200C';
-  }
-  zw += '\u200D'; // marker end
-  const firstSpace = text.indexOf(' ');
-  return firstSpace > 0 ? text.slice(0, firstSpace) + zw + text.slice(firstSpace) : zw + text;
-}
-
-export function decodeWatermark(text) {
-  if (!text) return null;
-  const start = text.indexOf('\u200D');
-  if (start === -1) return null;
-  const end = text.indexOf('\u200D', start + 1);
-  if (end === -1) return null;
-  const zwStr = text.substring(start + 1, end);
-  let binary = '';
-  for (const c of zwStr) {
-    if (c === '\u200B') binary += '0';
-    else if (c === '\u200C') binary += '1';
-  }
-  let res = '';
-  for (let i = 0; i < binary.length; i += 8) {
-    res += String.fromCharCode(parseInt(binary.substr(i, 8), 2));
-  }
-  return res;
-}
-
 export function formatQuestion(q, req) {
   const rawOptions = Array.isArray(q.options) && q.options.length > 0 ? q.options : ['Option A', 'Option B', 'Option C', 'Option D'];
-  const sanitizedQuestion = sanitizeLatex(q.questionText || '');
+  const sanitizedQuestion = sanitizeLatex(q.questionText || q.question || '');
 
   return {
-    id: q.id,
+    id: q.id || q._id,
     subject: q.subject || 'NEET',
     chapter: q.chapter || 'General',
     category: q.category || 'practice',
@@ -304,7 +343,7 @@ export function formatQuestion(q, req) {
     question: sanitizedQuestion,
     questionImage: resolveImageUrl(q.questionImg, 'questions', req),
     options: rawOptions.map(opt => sanitizeLatex(String(opt))),
-    answer: typeof q.correctIndex === 'number' ? q.correctIndex : 0,
+    answer: typeof q.correctIndex === 'number' ? q.correctIndex : (q.answerIndex || 0),
     explanation: sanitizeLatex(q.explanation || ''),
     explanationImage: resolveImageUrl(q.explanationImg, 'solutions', req)
   };
