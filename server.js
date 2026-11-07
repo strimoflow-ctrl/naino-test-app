@@ -70,8 +70,12 @@ if (fs.existsSync(DOWNLOADS_DIR)) {
 }
 
 // Serve Super Admin Web Dashboard
-const adminDistPath = path.join(__dirname, '..', 'admin', 'dist');
-if (fs.existsSync(adminDistPath)) {
+const adminDistPaths = [
+  path.join(__dirname, 'public', 'admin'),
+  path.join(__dirname, '..', 'admin', 'dist')
+];
+const adminDistPath = adminDistPaths.find(p => fs.existsSync(p));
+if (adminDistPath) {
   app.use('/admin', express.static(adminDistPath));
   app.get('/admin', (req, res) => res.redirect('/admin/'));
   app.get('/admin/*', (req, res) => {
