@@ -143,6 +143,64 @@ export async function loadQuestionsFromMongo() {
   }
 }
 
+/**
+ * Fast In-Memory Mutation Helpers (< 1ms execution time)
+ * Keeps server RAM perfectly in sync with MongoDB without full re-fetching.
+ */
+export function addQuestionToMemory(q) {
+  const sub = q.subject || 'Biology';
+  if (masterBySubject[sub]) masterBySubject[sub].push(q);
+  else masterBySubject.Biology.push(q);
+
+  const cat = q.category || 'chapterwise';
+  if (cat === 'yearwise_pyq') masterByCategory.neet_papers.push(q);
+  else if (cat === 'diagram_question') masterByCategory.diagrams.push(q);
+  else if (cat === 'repeated_pyq') masterByCategory.repeated_pyqs.push(q);
+  else if (cat === 'chapterwise_pyq') masterByCategory.chapterwise_pyqs.push(q);
+  else if (masterByCategory[cat] && Array.isArray(masterByCategory[cat])) masterByCategory[cat].push(q);
+}
+
+export function updateQuestionInMemory(qid, updates) {
+  const updateItem = (item) => {
+    if (item.id === qid || item._id === qid) {
+      Object.assign(item, updates);
+      return true;
+    }
+    return false;
+  };
+
+  for (const list of Object.values(masterBySubject)) {
+    if (Array.isArray(list)) {
+      for (const item of list) {
+        if (updateItem(item)) break;
+      }
+    }
+  }
+
+  for (const list of Object.values(masterByCategory)) {
+    if (Array.isArray(list)) {
+      for (const item of list) {
+        if (updateItem(item)) break;
+      }
+    }
+  }
+}
+
+export function removeQuestionFromMemory(qid) {
+  const filterOut = (list) => {
+    const idx = list.findIndex(item => item.id === qid || item._id === qid);
+    if (idx !== -1) list.splice(idx, 1);
+  };
+
+  for (const list of Object.values(masterBySubject)) {
+    if (Array.isArray(list)) filterOut(list);
+  }
+
+  for (const list of Object.values(masterByCategory)) {
+    if (Array.isArray(list)) filterOut(list);
+  }
+}
+
 export async function reloadQuestionsFromMongo() {
   return await loadQuestionsFromMongo();
 }

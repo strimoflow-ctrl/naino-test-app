@@ -17,6 +17,11 @@ export const ENV = {
   // Anti-Scraping Mobile Handshake Secret (Strictly from Environment)
   APP_SECRET_KEY: process.env.APP_SECRET_KEY ? process.env.APP_SECRET_KEY.trim() : '',
 
+  // Super Admin Control Credentials (Strictly from Environment)
+  ADMIN_USERNAME: process.env.ADMIN_USERNAME ? process.env.ADMIN_USERNAME.trim() : 'admin',
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD ? process.env.ADMIN_PASSWORD.trim() : '',
+  ADMIN_JWT_SECRET: process.env.ADMIN_JWT_SECRET ? process.env.ADMIN_JWT_SECRET.trim() : '',
+
   // Email API Keys & Credentials
   RESEND_API_KEY: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.trim() : null,
   BREVO_API_KEY: process.env.BREVO_API_KEY ? process.env.BREVO_API_KEY.trim() : null,

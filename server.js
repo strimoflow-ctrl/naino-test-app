@@ -15,6 +15,7 @@ import authRouter from './routes/auth.js';
 import bannersRouter from './routes/banners.js';
 import notificationsRouter from './routes/notifications.js';
 import analyticsRouter from './routes/analytics.js';
+import adminRouter from './routes/admin.js';
 import { verifyAppSecret } from './middleware/auth.js';
 
 const app = express();
@@ -105,6 +106,9 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// 2.5 Dedicated Super Admin Dashboard APIs (Secured by Admin JWT & Brute Force Guard)
+app.use('/api/admin', adminRouter);
 
 // 3. Mount Modular Routes & Security Middleware
 app.use(verifyAppSecret);
