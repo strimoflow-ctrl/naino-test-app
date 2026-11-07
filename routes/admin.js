@@ -429,4 +429,476 @@ router.post('/sync-cache', verifyAdminToken, async (req, res) => {
   }
 });
 
+// ==========================================
+// 5. REGISTERED STUDENTS / USERS MANAGEMENT
+// ==========================================
+router.get('/users', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const search = req.query.search ? req.query.search.trim() : '';
+    const filter = {};
+    if (search) {
+      filter.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { email: { $regex: search, $options: 'i' } },
+        { phone: { $regex: search, $options: 'i' } },
+        { deviceId: { $regex: search, $options: 'i' } }
+      ];
+    }
+
+    const users = await db.collection('users')
+      .find(filter, { projection: { password: 0, resetToken: 0, resetTokenExpiry: 0 } })
+      .sort({ createdAt: -1 })
+      .limit(100)
+      .toArray();
+
+    res.json({
+      success: true,
+      total: users.length,
+      users
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/users/:userId/device-reset', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { userId } = req.params;
+    await db.collection('users').updateOne(
+      { userId },
+      { $set: { deviceId: null, activeSessionToken: null, updatedAt: new Date().toISOString() } }
+    );
+    console.log(`[Admin Action] Reset device binding for user: ${userId}`);
+    res.json({ success: true, message: `Device binding for user ${userId} has been reset.` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/users/:userId/toggle-status', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { userId } = req.params;
+    const user = await db.collection('users').findOne({ userId });
+    if (!user) return res.status(404).json({ success: false, error: 'User not found.' });
+
+    const newStatus = !user.isLocked;
+    await db.collection('users').updateOne(
+      { userId },
+      { $set: { isLocked: newStatus, isBanned: newStatus, updatedAt: new Date().toISOString() } }
+    );
+    res.json({ success: true, isLocked: newStatus, message: `User account is now ${newStatus ? 'LOCKED / BANNED' : 'ACTIVE'}.` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 6. APP CONFIG: POPUP, BANNERS, MAINTENANCE
+// ==========================================
+router.get('/app-config', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const [mainConfigDoc, banners] = await Promise.all([
+      db.collection('app_config').findOne({ key: 'main_config' }),
+      db.collection('banners').find({}).toArray()
+    ]);
+
+    res.json({
+      success: true,
+      popup: mainConfigDoc?.sponsor_popup || {},
+      appLock: mainConfigDoc?.app_lock || {},
+      banners: banners || []
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/app-config/popup', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const popupData = req.body || {};
+    await db.collection('app_config').updateOne(
+      { key: 'main_config' },
+      { $set: { sponsor_popup: popupData, updatedAt: new Date().toISOString() } },
+      { upsert: true }
+    );
+    res.json({ success: true, message: 'Notice popup settings updated successfully!' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/app-config/app-lock', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const lockData = req.body || {};
+    await db.collection('app_config').updateOne(
+      { key: 'main_config' },
+      { $set: { app_lock: lockData, updatedAt: new Date().toISOString() } },
+      { upsert: true }
+    );
+    res.json({ success: true, message: 'App maintenance lock updated successfully!' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.post('/app-config/banners', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { title, image_url, action_type, action_target } = req.body || {};
+    const newBanner = {
+      banner_id: `banner_${Date.now()}`,
+      title: title || 'Special Banner',
+      image_url,
+      action_type: action_type || 'route',
+      action_target: action_target || '/daily-test',
+      is_active: true,
+      created_at: new Date().toISOString()
+    };
+    await db.collection('banners').insertOne(newBanner);
+    res.status(201).json({ success: true, banner: newBanner });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/app-config/banners/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { id } = req.params;
+    await db.collection('banners').deleteOne({ $or: [{ banner_id: id }, { _id: id }] });
+    res.json({ success: true, message: 'Banner deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 7. CHAPTER TESTS HIERARCHY (SUBJECT -> CHAPTERS -> PARTS -> QUESTIONS)
+// ==========================================
+router.get('/chapters-tree', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const subject = req.query.subject || 'Physics';
+
+    // Group questions by chapter for this subject
+    const chapterStats = await db.collection('questions').aggregate([
+      { $match: { subject } },
+      {
+        $group: {
+          _id: '$chapter',
+          totalQuestions: { $sum: 1 },
+          years: { $addToSet: '$year' }
+        }
+      },
+      { $sort: { _id: 1 } }
+    ]).toArray();
+
+    const chapters = chapterStats.map(c => {
+      const qCount = c.totalQuestions || 0;
+      const totalParts = Math.max(1, Math.ceil(qCount / 25));
+      return {
+        chapterName: c._id || 'General Concepts',
+        totalQuestions: qCount,
+        totalParts,
+        hasPyqs: (c.years || []).some(Boolean)
+      };
+    });
+
+    res.json({
+      success: true,
+      subject,
+      totalChapters: chapters.length,
+      chapters
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.get('/chapters/:subject/:chapterName/parts', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { subject, chapterName } = req.params;
+    const targetName = decodeURIComponent(chapterName).trim();
+
+    const count = await db.collection('questions').countDocuments({
+      subject,
+      chapter: { $regex: `^${targetName}$`, $options: 'i' }
+    });
+
+    const PART_SIZE = 25;
+    const totalParts = Math.max(1, Math.ceil(count / PART_SIZE));
+    const parts = [];
+
+    for (let i = 0; i < totalParts; i++) {
+      const start = i * PART_SIZE;
+      const end = Math.min(start + PART_SIZE, count);
+      parts.push({
+        partNumber: i + 1,
+        title: `Part ${i + 1}`,
+        subtitle: i === 0 ? 'Free Starter Test' : 'Unlock via 5 Video Ads',
+        isFree: i === 0,
+        questionCount: Math.max(0, end - start),
+        offset: start,
+        limit: PART_SIZE
+      });
+    }
+
+    res.json({
+      success: true,
+      subject,
+      chapter: targetName,
+      totalQuestions: count,
+      totalParts: parts.length,
+      parts
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.get('/chapters/:subject/:chapterName/parts/:partNumber/questions', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { subject, chapterName, partNumber } = req.params;
+    const targetName = decodeURIComponent(chapterName).trim();
+    const part = parseInt(partNumber, 10) || 1;
+    const PART_SIZE = 25;
+    const skip = (part - 1) * PART_SIZE;
+
+    const [total, questions] = await Promise.all([
+      db.collection('questions').countDocuments({
+        subject,
+        chapter: { $regex: `^${targetName}$`, $options: 'i' }
+      }),
+      db.collection('questions')
+        .find({
+          subject,
+          chapter: { $regex: `^${targetName}$`, $options: 'i' }
+        })
+        .skip(skip)
+        .limit(PART_SIZE)
+        .toArray()
+    ]);
+
+    res.json({
+      success: true,
+      subject,
+      chapter: targetName,
+      partNumber: part,
+      totalInChapter: total,
+      questions
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 8. BATCHES & VIDEO LECTURES MANAGEMENT
+// ==========================================
+router.get('/batches', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const batches = await db.collection('batches').find({}).toArray();
+    res.json({ success: true, total: batches.length, batches });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.get('/batches/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const batch = await db.collection('batches').findOne({
+      $or: [{ id: req.params.id }, { _id: req.params.id }]
+    });
+
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+    res.json({ success: true, batch });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.post('/batches', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const body = req.body || {};
+    const newBatch = {
+      id: body.id || `batch_${Date.now()}`,
+      title: body.title || 'New NEET Batch',
+      subtitle: body.subtitle || '',
+      educator: body.educator || 'Bhaiya (4 Yrs NEET Experience)',
+      badge: body.badge || 'NEW BATCH',
+      price: body.price !== undefined ? parseFloat(body.price) : 0,
+      originalPrice: body.originalPrice !== undefined ? parseFloat(body.originalPrice) : 2999,
+      discount: body.discount || '100% FREE',
+      demoVideoId: body.demoVideoId || '',
+      thumbnail: body.thumbnail || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/units_and_measurements.jpg',
+      description: body.description || '',
+      features: Array.isArray(body.features) ? body.features : ['Video Lectures included', 'NCERT Mindmaps', 'Full Mocks'],
+      lectures: [],
+      materials: [],
+      rating: 4.9,
+      studentsCount: 1500,
+      createdAt: new Date().toISOString()
+    };
+
+    await db.collection('batches').insertOne(newBatch);
+    res.status(201).json({ success: true, batch: newBatch });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/batches/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const bid = req.params.id;
+    const updates = req.body || {};
+    delete updates._id;
+
+    await db.collection('batches').updateOne(
+      { $or: [{ id: bid }, { _id: bid }] },
+      { $set: updates }
+    );
+
+    const updated = await db.collection('batches').findOne({ $or: [{ id: bid }, { _id: bid }] });
+    res.json({ success: true, batch: updated });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.post('/batches/:id/lectures', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const bid = req.params.id;
+    const { title, videoId, duration, subject, chapter, notesPdfUrl, isFree } = req.body || {};
+
+    if (!title || !videoId) {
+      return res.status(400).json({ success: false, error: 'Lecture title and Video ID/URL are required.' });
+    }
+
+    // Clean videoId if user pasted full YouTube link e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    let cleanVideoId = videoId.trim();
+    const ytMatch = cleanVideoId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    if (ytMatch && ytMatch[1]) {
+      cleanVideoId = ytMatch[1];
+    }
+
+    const newLecture = {
+      lectureId: `lec_${Date.now()}`,
+      title: title.trim(),
+      videoId: cleanVideoId,
+      duration: duration || '45 mins',
+      subject: subject || 'Physics',
+      chapter: chapter || 'General',
+      notesPdfUrl: notesPdfUrl || '',
+      isFree: isFree !== undefined ? !!isFree : true,
+      createdAt: new Date().toISOString()
+    };
+
+    await db.collection('batches').updateOne(
+      { $or: [{ id: bid }, { _id: bid }] },
+      { $push: { lectures: newLecture } }
+    );
+
+    res.status(201).json({ success: true, lecture: newLecture });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/batches/:id/lectures/:lectureId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { id, lectureId } = req.params;
+    await db.collection('batches').updateOne(
+      { $or: [{ id }, { _id: id }] },
+      { $pull: { lectures: { lectureId } } }
+    );
+
+    res.json({ success: true, message: 'Lecture deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 9. STORE TEST PACKS MANAGEMENT
+// ==========================================
+router.get('/test-packs', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const packs = await db.collection('test_packs').find({}).toArray();
+    res.json({ success: true, total: packs.length, packs });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/test-packs/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const pid = req.params.id;
+    const updates = req.body || {};
+    delete updates._id;
+
+    await db.collection('test_packs').updateOne(
+      { $or: [{ id: pid }, { _id: pid }] },
+      { $set: updates }
+    );
+
+    res.json({ success: true, message: 'Test pack updated successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 export default router;
