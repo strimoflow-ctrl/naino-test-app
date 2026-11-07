@@ -293,9 +293,7 @@ export function decodeWatermark(text) {
 
 export function formatQuestion(q, req) {
   const rawOptions = Array.isArray(q.options) && q.options.length > 0 ? q.options : ['Option A', 'Option B', 'Option C', 'Option D'];
-  const userId = req?.user?.userId || '';
   const sanitizedQuestion = sanitizeLatex(q.questionText || '');
-  const watermarkedQuestion = userId ? encodeWatermark(sanitizedQuestion, userId) : sanitizedQuestion;
 
   return {
     id: q.id,
@@ -303,7 +301,7 @@ export function formatQuestion(q, req) {
     chapter: q.chapter || 'General',
     category: q.category || 'practice',
     year: q.year || null,
-    question: watermarkedQuestion,
+    question: sanitizedQuestion,
     questionImage: resolveImageUrl(q.questionImg, 'questions', req),
     options: rawOptions.map(opt => sanitizeLatex(String(opt))),
     answer: typeof q.correctIndex === 'number' ? q.correctIndex : 0,
