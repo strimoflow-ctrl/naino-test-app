@@ -48,6 +48,35 @@ const DEFAULT_APP_CONFIG = {
     action_type: "route", // 'route' or 'url'
     action_target: "/daily-test",
     show_once_per_day: false
+  },
+
+  // 4. Dynamic Ad Locks Configuration (Control which features require watching Ads)
+  ad_locks: {
+    is_enabled: true,
+    pdf_library: {
+      is_locked: true,
+      required_ads: 1
+    },
+    mock_tests: {
+      is_locked: true,
+      required_ads: 2
+    },
+    pyq_papers: {
+      is_locked: true,
+      required_ads: 2
+    },
+    chapter_parts: {
+      is_locked: true,
+      required_ads: 5
+    },
+    diagram_sets: {
+      is_locked: true,
+      required_ads: 2
+    },
+    challenger_mode: {
+      is_locked: true,
+      required_ads: 1
+    }
   }
 };
 
@@ -71,6 +100,10 @@ router.get('/app-config', async (req, res) => {
           sponsor_popup: {
             ...DEFAULT_APP_CONFIG.sponsor_popup,
             ...(cfg.sponsor_popup || {})
+          },
+          ad_locks: {
+            ...DEFAULT_APP_CONFIG.ad_locks,
+            ...(cfg.ad_locks || {})
           }
         });
       }
