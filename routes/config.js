@@ -51,31 +51,32 @@ const DEFAULT_APP_CONFIG = {
   },
 
   // 4. Dynamic Ad Locks Configuration (Control which features require watching Ads)
+  // Strictly restricted to Chapter Parts (Part 2+) and Submit Test per user directive
   ad_locks: {
     is_enabled: true,
     pdf_library: {
-      is_locked: true,
-      required_ads: 1
+      is_locked: false,
+      required_ads: 0
     },
     mock_tests: {
-      is_locked: true,
-      required_ads: 2
+      is_locked: false,
+      required_ads: 0
     },
     pyq_papers: {
-      is_locked: true,
-      required_ads: 2
+      is_locked: false,
+      required_ads: 0
     },
     chapter_parts: {
       is_locked: true,
       required_ads: 5
     },
     diagram_sets: {
-      is_locked: true,
-      required_ads: 2
+      is_locked: false,
+      required_ads: 0
     },
     challenger_mode: {
-      is_locked: true,
-      required_ads: 1
+      is_locked: false,
+      required_ads: 0
     },
     item_overrides: {}
   }
