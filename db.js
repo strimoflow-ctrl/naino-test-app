@@ -275,8 +275,8 @@ export function resolveImageUrl(img, type = 'questions', req) {
     return imageManifest[cleanName].url;
   }
 
-  const baseUrl = process.env.R2_PUBLIC_URL || `${req.protocol}://${req.get('host')}/media/${type}`;
-  return `${baseUrl}/${filename}`;
+  // Reliable fallback directly to Cloudflare R2 questions CDN
+  return `https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/questions/${cleanName}.webp`;
 }
 
 export function sanitizeLatex(str) {

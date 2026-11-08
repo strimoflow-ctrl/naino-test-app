@@ -3,11 +3,27 @@ import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
 import { ENV, getClientIp } from '../config/env.js';
-import { getMongoDb, isMongoConnected, reloadQuestionsFromMongo, addQuestionToMemory, updateQuestionInMemory, removeQuestionFromMemory } from '../db.js';
+import { getMongoDb, isMongoConnected, reloadQuestionsFromMongo, addQuestionToMemory, updateQuestionInMemory, removeQuestionFromMemory, resolveImageUrl } from '../db.js';
 import { verifyAdminToken, adminLoginLimiter, adminActionLimiter } from '../middleware/adminAuth.js';
 import { parseBookMetadata } from './library.js';
 
 const router = express.Router();
+
+function attachResolvedImages(q, req) {
+  if (!q) return q;
+  const rawQImg = q.questionImg || q.questionImage || q.diagramUrl || q.image;
+  const resolvedQImg = rawQImg ? resolveImageUrl(rawQImg, 'questions', req) : null;
+  const rawExpImg = q.explanationImg || q.explanationImage;
+  const resolvedExpImg = rawExpImg ? resolveImageUrl(rawExpImg, 'solutions', req) : null;
+  return {
+    ...q,
+    rawQuestionImg: rawQImg,
+    questionImg: resolvedQImg || rawQImg,
+    questionImage: resolvedQImg || rawQImg,
+    diagramUrl: resolvedQImg || rawQImg,
+    explanationImg: resolvedExpImg || rawExpImg
+  };
+}
 
 // ==========================================
 // 1. ADMIN AUTHENTICATION
@@ -224,7 +240,7 @@ router.get('/questions', verifyAdminToken, adminActionLimiter, async (req, res) 
       page,
       limit,
       totalPages: Math.ceil(total / limit),
-      questions
+      questions: questions.map(q => attachResolvedImages(q, req))
     });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -248,7 +264,7 @@ router.get('/questions/:id', verifyAdminToken, async (req, res) => {
       return res.status(404).json({ success: false, error: 'Question not found.' });
     }
 
-    res.json({ success: true, question });
+    res.json({ success: true, question: attachResolvedImages(question, req) });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
@@ -735,7 +751,7 @@ router.get('/chapters/:subject/:chapterName/parts/:partNumber/questions', verify
       chapter: targetName,
       partNumber: part,
       totalInChapter: total,
-      questions
+      questions: questions.map(q => attachResolvedImages(q, req))
     });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -951,7 +967,8 @@ function getManifest() {
   const manifestPaths = [
     path.join(process.cwd(), 'cloud_manifest.json'),
     path.join(process.cwd(), 'data', 'cloud_manifest.json'),
-    path.join(process.cwd(), 'backend', 'cloud_manifest.json')
+    path.join(process.cwd(), 'backend', 'cloud_manifest.json'),
+    path.join(process.cwd(), 'backend', 'data', 'cloud_manifest.json')
   ];
   for (const p of manifestPaths) {
     if (fs.existsSync(p)) {
@@ -1029,14 +1046,48 @@ router.get('/library/books', verifyAdminToken, async (req, res) => {
       books.push(c);
     }
 
+    // Also include Quick Study Notes (79 HTML notes) from data/study_notes
+    const notesPaths = [
+      path.join(process.cwd(), 'data', 'study_notes'),
+      path.join(process.cwd(), 'backend', 'data', 'study_notes')
+    ];
+    const realNotesDir = notesPaths.find(p => fs.existsSync(p));
+    if (realNotesDir) {
+      const subs = ['botany', 'chemistry', 'physics', 'zoology'];
+      for (const sub of subs) {
+        const subDir = path.join(realNotesDir, sub);
+        if (fs.existsSync(subDir)) {
+          const files = fs.readdirSync(subDir).filter(f => f.endsWith('.html'));
+          for (const f of files) {
+            const rawTitle = f.replace('.html', '').replace(/_/g, ' ');
+            const formattedTitle = rawTitle.charAt(0).toUpperCase() + rawTitle.slice(1);
+            const noteId = `note_${sub}_${f.replace('.html', '')}`;
+            if (!deletedSet.has(noteId)) {
+              books.push({
+                id: noteId,
+                fileName: f,
+                title: formattedTitle,
+                category: 'Quick Study Notes',
+                subject: sub.charAt(0).toUpperCase() + sub.slice(1),
+                downloadUrl: `/api/notes/${sub}/${f}`,
+                sizeMB: 'HTML Note',
+                isHtmlNote: true,
+                isCustom: false
+              });
+            }
+          }
+        }
+      }
+    }
+
     // Filters
     const { category, subject, search } = req.query;
     let filtered = books;
 
-    if (category && category !== 'all') {
+    if (category && category.toLowerCase() !== 'all') {
       filtered = filtered.filter(b => (b.category || '').toLowerCase() === category.toLowerCase());
     }
-    if (subject && subject !== 'all') {
+    if (subject && subject.toLowerCase() !== 'all') {
       filtered = filtered.filter(b => (b.subject || '').toLowerCase() === subject.toLowerCase());
     }
     if (search && search.trim()) {
@@ -1259,7 +1310,7 @@ router.get('/mocks/:id/questions', verifyAdminToken, async (req, res) => {
       .limit(200)
       .toArray();
 
-    res.json({ success: true, total: questions.length, questions });
+    res.json({ success: true, total: questions.length, questions: questions.map(q => attachResolvedImages(q, req)) });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
