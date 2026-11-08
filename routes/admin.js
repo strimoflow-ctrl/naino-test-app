@@ -504,6 +504,23 @@ router.put('/users/:userId/toggle-status', verifyAdminToken, async (req, res) =>
   }
 });
 
+router.delete('/users/:userId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { userId } = req.params;
+    const result = await db.collection('users').deleteOne({ userId });
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ success: false, error: 'User not found.' });
+    }
+    console.log(`[Admin Action] Deleted user account: ${userId}`);
+    res.json({ success: true, message: `Student account ${userId} permanently removed.` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // ==========================================
 // 6. APP CONFIG: POPUP, BANNERS, MAINTENANCE
 // ==========================================
