@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { DOWNLOADS_DIR, masterBySubject, connectMongo, isMongoConnected, reloadQuestionsFromMongo } from './db.js';
+import { masterBySubject, connectMongo, isMongoConnected, reloadQuestionsFromMongo } from './db.js';
 import testsRouter from './routes/tests.js';
 import pyqsRouter from './routes/pyqs.js';
 import libraryRouter from './routes/library.js';

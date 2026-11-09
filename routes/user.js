@@ -1,42 +1,17 @@
 import * as userController from '../controllers/userController.js';
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
-import { DATA_DIR, getMongoDb, isMongoConnected } from '../db.js';
+import { getMongoDb, isMongoConnected } from '../db.js';
 import { verifyToken, optionalToken } from '../middleware/auth.js';
 
 const router = express.Router();
-const USER_DIR = path.join(DATA_DIR, 'user');
-if (!fs.existsSync(USER_DIR)) {
-  fs.mkdirSync(USER_DIR, { recursive: true });
-}
 
-const STREAK_FILE = path.join(USER_DIR, 'user_streak.json');
-const BOOKMARKS_FILE = path.join(USER_DIR, 'user_bookmarks.json');
-const PROFILE_FILE = path.join(USER_DIR, 'user_profile.json');
-const TEST_RECORDS_FILE = path.join(USER_DIR, 'user_test_records.json');
-
-// --- STREAK ENGINE ---
+// --- STREAK ENGINE (In-Memory RAM cache + MongoDB Atlas) ---
 let streakData = {
   currentStreak: 1,
   bestStreak: 1,
   lastActiveDate: null,
   history: []
 };
-
-if (fs.existsSync(STREAK_FILE)) {
-  try {
-    streakData = JSON.parse(fs.readFileSync(STREAK_FILE, 'utf-8'));
-  } catch (_) {}
-}
-
-function saveStreakToDisk() {
-  try {
-    fs.writeFileSync(STREAK_FILE, JSON.stringify(streakData, null, 2), 'utf-8');
-  } catch (err) {
-    console.error('Error saving streak:', err);
-  }
-}
 
 function getTodayIST() {
   const now = new Date();
@@ -134,7 +109,6 @@ router.post('/streak/ping', optionalToken, async (req, res) => {
     }
 
     streakData = { ...userStreak };
-    saveStreakToDisk();
   }
 
   res.json({
@@ -145,21 +119,8 @@ router.post('/streak/ping', optionalToken, async (req, res) => {
   });
 });
 
-// --- BOOKMARKS ---
+// --- BOOKMARKS (In-Memory + MongoDB Atlas) ---
 let userBookmarks = [];
-if (fs.existsSync(BOOKMARKS_FILE)) {
-  try {
-    userBookmarks = JSON.parse(fs.readFileSync(BOOKMARKS_FILE, 'utf-8'));
-  } catch (_) {}
-}
-
-function saveBookmarksToDisk() {
-  try {
-    fs.writeFileSync(BOOKMARKS_FILE, JSON.stringify(userBookmarks, null, 2), 'utf-8');
-  } catch (err) {
-    console.error('Error saving bookmarks:', err);
-  }
-}
 
 router.get('/bookmarks', (req, res) => {
   res.json({ totalBookmarks: userBookmarks.length, bookmarks: userBookmarks });
@@ -171,11 +132,9 @@ router.post('/bookmarks', (req, res) => {
     const idx = userBookmarks.findIndex(b => String(b.id) === String(item.id));
     if (idx >= 0) {
       userBookmarks.splice(idx, 1);
-      saveBookmarksToDisk();
       return res.json({ success: true, isBookmarked: false, totalBookmarks: userBookmarks.length });
     } else {
       userBookmarks.unshift({ ...item, bookmarkedAt: new Date().toISOString() });
-      saveBookmarksToDisk();
       return res.json({ success: true, isBookmarked: true, totalBookmarks: userBookmarks.length });
     }
   }
@@ -184,17 +143,6 @@ router.post('/bookmarks', (req, res) => {
 
 // --- REAL USER PERFORMANCE & TEST RECORDS ---
 let localTestRecords = [];
-if (fs.existsSync(TEST_RECORDS_FILE)) {
-  try {
-    localTestRecords = JSON.parse(fs.readFileSync(TEST_RECORDS_FILE, 'utf-8'));
-  } catch (_) {}
-}
-
-function saveLocalRecordsToDisk() {
-  try {
-    fs.writeFileSync(TEST_RECORDS_FILE, JSON.stringify(localTestRecords, null, 2), 'utf-8');
-  } catch (_) {}
-}
 
 function calculateRank(avgScore, totalTests) {
   if (totalTests === 0) return 'Unranked';
@@ -321,9 +269,8 @@ router.post('/test-record', async (req, res) => {
     submittedAt: new Date().toISOString()
   };
 
-  // 1. Save to local fallback
+  // 1. Save to local in-memory fallback
   localTestRecords.unshift(record);
-  saveLocalRecordsToDisk();
 
   // 2. Save to MongoDB Atlas
   if (isMongoConnected()) {
@@ -382,7 +329,6 @@ router.get('/test-history', async (req, res) => {
 router.post('/clear-history', async (req, res) => {
   const userId = req.body.userId || 'guest_user';
   localTestRecords = localTestRecords.filter(r => r.userId && r.userId !== userId);
-  saveLocalRecordsToDisk();
 
   if (isMongoConnected()) {
     try {

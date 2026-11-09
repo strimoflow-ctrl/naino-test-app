@@ -17,15 +17,6 @@ let mongoClient = null;
 let mongoDb = null;
 let mongoReady = false;
 
-export const DATA_DIR = path.join(__dirname, 'data');
-export const NOTES_DIR = path.join(__dirname, 'data', 'study_notes');
-export const DOWNLOADS_DIR = path.join(__dirname, '..', 'data', 'downloads');
-export const USER_DATA_DIR = path.join(__dirname, 'data', 'user');
-
-if (!fs.existsSync(USER_DATA_DIR)) {
-  fs.mkdirSync(USER_DATA_DIR, { recursive: true });
-}
-
 // In-Memory Fast Cache populated directly from MongoDB Atlas
 export const masterBySubject = {
   Physics: [],

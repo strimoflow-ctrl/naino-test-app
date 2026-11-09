@@ -1,7 +1,5 @@
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
-import { NOTES_DIR, DOWNLOADS_DIR, getMongoDb } from '../db.js';
+import { getMongoDb } from '../db.js';
 
 const router = express.Router();
 
@@ -226,41 +224,7 @@ router.get('/notes', async (req, res) => {
     console.warn('[Library] MongoDB study_notes query warning:', err.message);
   }
 
-  // Fallback to local files if MongoDB is unavailable
-  if (!fs.existsSync(NOTES_DIR)) {
-    return res.json({ totalNotes: 0, notes: [] });
-  }
-
-  const subjects = ['botany', 'chemistry', 'physics', 'zoology'];
-  const notesList = [];
-  const subjectCounts = {};
-
-  for (const sub of subjects) {
-    const subName = sub.charAt(0).toUpperCase() + sub.slice(1);
-    const subPath = path.join(NOTES_DIR, sub);
-    let count = 0;
-    if (fs.existsSync(subPath)) {
-      const files = fs.readdirSync(subPath).filter(f => f.endsWith('.html'));
-      count = files.length;
-      if (!requestedSubject || requestedSubject.toLowerCase() === sub.toLowerCase()) {
-        for (const f of files) {
-          const rawTitle = f.replace('.html', '').replace(/_/g, ' ');
-          const formattedTitle = rawTitle.charAt(0).toUpperCase() + rawTitle.slice(1);
-          notesList.push({
-            title: formattedTitle,
-            fileName: f,
-            subject: subName,
-            url: `/api/notes/${sub}/${f}`
-          });
-        }
-      }
-    }
-    if (count > 0) {
-      subjectCounts[subName] = count;
-    }
-  }
-
-  res.json({ totalNotes: notesList.length, subjectCounts, notes: notesList });
+  return res.json({ totalNotes: 0, notes: [] });
 });
 
 // 2. Single HTML Note Content (Streamed directly from Cloudflare R2 / RAM Cache)
@@ -277,6 +241,7 @@ router.get('/notes/:subject/:fileName', async (req, res) => {
   // Try MongoDB + Cloudflare R2
   try {
     const db = getMongoDb();
+    let r2Url = `https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/notes/${subject.toLowerCase()}/${fileName}`;
     if (db) {
       const noteDoc = await db.collection('study_notes').findOne({
         $or: [
@@ -285,25 +250,20 @@ router.get('/notes/:subject/:fileName', async (req, res) => {
           { _id: `note_${subject.toLowerCase()}_${fileName.replace('.html', '')}` }
         ]
       });
-
-      const r2Url = noteDoc?.r2_url || `https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/notes/${subject.toLowerCase()}/${fileName}`;
-      const r2Resp = await fetch(r2Url);
-      if (r2Resp.ok) {
-        const html = await r2Resp.text();
-        notesHtmlCache.set(cacheKey, html);
-        res.setHeader('Content-Type', 'text/html; charset=utf-8');
-        return res.send(html);
+      if (noteDoc?.r2_url) {
+        r2Url = noteDoc.r2_url;
       }
+    }
+
+    const r2Resp = await fetch(r2Url);
+    if (r2Resp.ok) {
+      const html = await r2Resp.text();
+      notesHtmlCache.set(cacheKey, html);
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      return res.send(html);
     }
   } catch (err) {
     console.warn('[Library] Failed to fetch note from R2:', err.message);
-  }
-
-  // Fallback to local file if available
-  const filePath = path.join(NOTES_DIR, subject.toLowerCase(), fileName);
-  if (fs.existsSync(filePath)) {
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    return res.send(fs.readFileSync(filePath, 'utf-8'));
   }
 
   res.status(404).send('Study Note Not Found');
