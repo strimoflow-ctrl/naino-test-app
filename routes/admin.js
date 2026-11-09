@@ -1278,15 +1278,6 @@ router.delete('/test-packs/:id', verifyAdminToken, async (req, res) => {
     res.status(500).json({ success: false, error: err.message });
   }
 });
-      { $or: [{ id: pid }, { _id: pid }] },
-      { $set: updates }
-    );
-
-    res.json({ success: true, message: 'Test pack updated successfully.' });
-  } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
-  }
-});
 
 // ==========================================
 // 10. STUDY LIBRARY & PDF MANAGEMENT
