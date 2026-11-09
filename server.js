@@ -30,43 +30,27 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 1. Cloud-First Media Redirects (Cloudflare R2 Direct CDN Offload)
-const manifestPaths = [
-  path.join(__dirname, 'cloud_manifest.json'),
-  path.join(__dirname, 'data', 'cloud_manifest.json'),
-  path.join(DOWNLOADS_DIR, '..', 'cloud_manifest.json')
-];
-const getManifestPath = () => manifestPaths.find(p => fs.existsSync(p)) || manifestPaths[0];
+// 1. Cloud-First Media Redirects (100% Cloudflare R2 Direct CDN Offload)
+const R2_PUBLIC_BASE = process.env.R2_PUBLIC_URL || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev';
 
-let cloudManifest = {};
-const loadManifest = () => {
-  const mPath = getManifestPath();
-  if (fs.existsSync(mPath)) {
-    try {
-      cloudManifest = JSON.parse(fs.readFileSync(mPath, 'utf8'));
-    } catch (_) {}
-  }
-};
-loadManifest();
-
-app.get('/media/pdfs/:filename', (req, res, next) => {
+app.get('/media/pdfs/:filename', (req, res) => {
   const { filename } = req.params;
-  if (!cloudManifest[filename]) loadManifest();
-  if (cloudManifest[filename] && cloudManifest[filename].r2_url) {
-    return res.redirect(302, cloudManifest[filename].r2_url);
-  }
-  next();
+  return res.redirect(302, `${R2_PUBLIC_BASE}/pdfs/${filename}`);
+});
+
+app.get('/media/questions/:filename', (req, res) => {
+  const clean = req.params.filename.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+  return res.redirect(302, `${R2_PUBLIC_BASE}/questions/${clean}.webp`);
+});
+
+app.get('/media/solutions/:filename', (req, res) => {
+  const clean = req.params.filename.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+  return res.redirect(302, `${R2_PUBLIC_BASE}/questions/${clean}.webp`);
 });
 
 const publicBannersDir = path.join(__dirname, 'public', 'banners');
 if (fs.existsSync(publicBannersDir)) {
   app.use('/media/banners', express.static(publicBannersDir));
-}
-
-if (fs.existsSync(DOWNLOADS_DIR)) {
-  app.use('/media/pdfs', express.static(path.join(DOWNLOADS_DIR, 'pdfs')));
-  app.use('/media/questions', express.static(path.join(DOWNLOADS_DIR, 'question_images')));
-  app.use('/media/solutions', express.static(path.join(DOWNLOADS_DIR, 'solution_images')));
 }
 
 // Serve Super Admin Web Dashboard

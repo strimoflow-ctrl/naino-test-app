@@ -890,7 +890,7 @@ router.post('/lectures/:lectureId/chat', async (req, res) => {
   const newMsg = {
     id: body.id || `msg_${Date.now()}`,
     lectureId,
-    sender: body.sender && body.sender.trim() ? body.sender.trim() : 'Doctor Aspirant',
+    sender: body.sender && body.sender.trim() ? body.sender.trim() : 'Student',
     userId: body.userId || 'anon_student',
     isMentor: body.isMentor === true,
     text,

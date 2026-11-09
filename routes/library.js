@@ -190,13 +190,47 @@ function parseBookMetadata(fileName) {
   };
 }
 
-// 1. 79 HTML Study Notes List
-router.get('/notes', (req, res) => {
+// In-memory cache for fetched HTML notes (TTL: 1 hour)
+const notesHtmlCache = new Map();
+
+// 1. 79 HTML Study Notes List (100% Cloudflare R2 + MongoDB Atlas driven)
+router.get('/notes', async (req, res) => {
+  const requestedSubject = req.query.subject;
+  const db = getMongoDb();
+
+  try {
+    if (db) {
+      const query = {};
+      if (requestedSubject) {
+        query.subject = { $regex: new RegExp(`^${requestedSubject}$`, 'i') };
+      }
+      const docs = await db.collection('study_notes').find(query).toArray();
+      if (docs && docs.length > 0) {
+        const notesList = docs.map(d => ({
+          title: d.title || d.fileName.replace('.html', '').replace(/_/g, ' '),
+          fileName: d.fileName,
+          subject: d.subject,
+          r2_url: d.r2_url,
+          url: `/api/notes/${(d.subject || 'general').toLowerCase()}/${d.fileName}`
+        }));
+
+        const subjectCounts = {};
+        for (const n of notesList) {
+          subjectCounts[n.subject] = (subjectCounts[n.subject] || 0) + 1;
+        }
+
+        return res.json({ totalNotes: notesList.length, subjectCounts, notes: notesList });
+      }
+    }
+  } catch (err) {
+    console.warn('[Library] MongoDB study_notes query warning:', err.message);
+  }
+
+  // Fallback to local files if MongoDB is unavailable
   if (!fs.existsSync(NOTES_DIR)) {
     return res.json({ totalNotes: 0, notes: [] });
   }
 
-  const requestedSubject = req.query.subject;
   const subjects = ['botany', 'chemistry', 'physics', 'zoology'];
   const notesList = [];
   const subjectCounts = {};
@@ -229,102 +263,120 @@ router.get('/notes', (req, res) => {
   res.json({ totalNotes: notesList.length, subjectCounts, notes: notesList });
 });
 
-// 2. Single HTML Note Content
-router.get('/notes/:subject/:fileName', (req, res) => {
+// 2. Single HTML Note Content (Streamed directly from Cloudflare R2 / RAM Cache)
+router.get('/notes/:subject/:fileName', async (req, res) => {
   const { subject, fileName } = req.params;
-  const filePath = path.join(NOTES_DIR, subject.toLowerCase(), fileName);
+  const cacheKey = `${subject.toLowerCase()}_${fileName}`;
 
-  if (fs.existsSync(filePath)) {
-    res.setHeader('Content-Type', 'text/html');
-    res.send(fs.readFileSync(filePath, 'utf-8'));
-  } else {
-    res.status(404).send('Study Note Not Found');
-  }
-});
-
-// 3. Study Library (605 PDFs Catalog with Subject & Chapter Breakdowns)
-router.get('/library/books', async (req, res) => {
-  const pdfDir = path.join(DOWNLOADS_DIR, 'pdfs');
-  const manifestPaths = [
-    path.join(process.cwd(), 'cloud_manifest.json'),
-    path.join(process.cwd(), 'data', 'cloud_manifest.json'),
-    path.join(DOWNLOADS_DIR, '..', 'cloud_manifest.json')
-  ];
-  const manifestPath = manifestPaths.find(p => fs.existsSync(p)) || manifestPaths[0];
-  
-  let manifest = {};
-  if (fs.existsSync(manifestPath)) {
-    try {
-      manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-    } catch (_) {}
+  // Check in-memory cache
+  if (notesHtmlCache.has(cacheKey)) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    return res.send(notesHtmlCache.get(cacheKey));
   }
 
-  // Fetch overrides/custom books from MongoDB
-  let deletedIds = new Set();
-  let customBooks = [];
+  // Try MongoDB + Cloudflare R2
   try {
     const db = getMongoDb();
     if (db) {
-      const items = await db.collection('study_library').find({}).toArray();
-      for (const it of items) {
-        if (it.isDeleted) {
-          deletedIds.add(it.id);
-          if (it.fileName) deletedIds.add(it.fileName);
-        } else if (it.isCustom) {
-          customBooks.push(it);
-        }
+      const noteDoc = await db.collection('study_notes').findOne({
+        $or: [
+          { fileName },
+          { fileName: fileName.toLowerCase() },
+          { _id: `note_${subject.toLowerCase()}_${fileName.replace('.html', '')}` }
+        ]
+      });
+
+      const r2Url = noteDoc?.r2_url || `https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/notes/${subject.toLowerCase()}/${fileName}`;
+      const r2Resp = await fetch(r2Url);
+      if (r2Resp.ok) {
+        const html = await r2Resp.text();
+        notesHtmlCache.set(cacheKey, html);
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        return res.send(html);
       }
     }
-  } catch (_) {}
-
-  const localFiles = fs.existsSync(pdfDir) ? fs.readdirSync(pdfDir).filter(f => f.endsWith('.pdf')) : [];
-  const manifestFiles = Object.keys(manifest).filter(f => f.endsWith('.pdf'));
-  const allFileNames = Array.from(new Set([...localFiles, ...manifestFiles]))
-    .filter(f => !deletedIds.has(f) && !deletedIds.has(f.replace('.pdf', '')));
-
-  if (allFileNames.length === 0) {
-    return res.json({ totalPdfs: 0, categories: {}, byCategoryAndSubject: {} });
+  } catch (err) {
+    console.warn('[Library] Failed to fetch note from R2:', err.message);
   }
 
+  // Fallback to local file if available
+  const filePath = path.join(NOTES_DIR, subject.toLowerCase(), fileName);
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    return res.send(fs.readFileSync(filePath, 'utf-8'));
+  }
+
+  res.status(404).send('Study Note Not Found');
+});
+
+// 3. Study Library Catalog (100% MongoDB Atlas + Cloudflare R2 driven)
+router.get('/library/books', async (req, res) => {
   const filterCat = req.query.category;
   const filterSub = req.query.subject;
-  const baseUrl = process.env.R2_PUBLIC_URL || `${req.protocol}://${req.get('host')}/media/pdfs`;
+  const defaultR2Base = process.env.R2_PUBLIC_URL || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/pdfs';
+
+  let materials = [];
+  try {
+    const db = getMongoDb();
+    if (db) {
+      materials = await db.collection('study_materials').find({ is_active: { $ne: false } }).toArray();
+    }
+  } catch (err) {
+    console.warn('[Library] MongoDB study_materials query failed:', err.message);
+  }
+
+  // Fallback to manifest on disk only if MongoDB returned 0 records
+  if (!materials || materials.length === 0) {
+    const manifestPaths = [
+      path.join(process.cwd(), 'cloud_manifest.json'),
+      path.join(process.cwd(), 'data', 'cloud_manifest.json'),
+      path.join(DOWNLOADS_DIR, '..', 'cloud_manifest.json')
+    ];
+    const manifestPath = manifestPaths.find(p => fs.existsSync(p));
+    if (manifestPath) {
+      try {
+        const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+        materials = Object.entries(manifest).map(([fn, meta]) => ({
+          filename: fn,
+          title: meta.title,
+          r2_url: meta.r2_url,
+          size_bytes: meta.size_bytes,
+          subject: meta.subject
+        }));
+      } catch (_) {}
+    }
+  }
+
+  if (materials.length === 0) {
+    return res.json({ totalPdfs: 0, categories: {}, byCategoryAndSubject: {} });
+  }
 
   // Structured by Category -> Subject -> Sorted Chapters
   const byCategoryAndSubject = {};
   const flatCategories = {};
 
-  for (const f of allFileNames) {
-    const meta = parseBookMetadata(f);
-    const cat = meta.category;
-    const sub = meta.subject;
+  for (const doc of materials) {
+    const filename = doc.filename || `${doc.material_id}.pdf`;
+    const meta = parseBookMetadata(filename);
+    const cat = doc.category || meta.category;
+    const sub = doc.subject || meta.subject;
 
     if (!byCategoryAndSubject[cat]) byCategoryAndSubject[cat] = {};
     if (!byCategoryAndSubject[cat][sub]) byCategoryAndSubject[cat][sub] = [];
     if (!flatCategories[cat]) flatCategories[cat] = [];
 
-    const r2Entry = manifest[f];
-    let sizeMB = '2.5';
-    if (r2Entry && r2Entry.size_bytes) {
-      sizeMB = (r2Entry.size_bytes / (1024 * 1024)).toFixed(2);
-    } else {
-      try {
-        const localPath = path.join(pdfDir, f);
-        if (fs.existsSync(localPath)) {
-          sizeMB = (fs.statSync(localPath).size / (1024 * 1024)).toFixed(2);
-        }
-      } catch (_) {}
-    }
-
-    const downloadUrl = (r2Entry && r2Entry.r2_url) ? r2Entry.r2_url : `${baseUrl}/${f}`;
+    const sizeBytes = doc.size_bytes || 2600000;
+    const sizeMB = (sizeBytes / (1024 * 1024)).toFixed(2);
+    const downloadUrl = doc.r2_url || `${defaultR2Base}/${filename}`;
 
     const bookEntry = {
-      fileName: f,
-      title: meta.title,
-      chapterNum: meta.chapterNum,
-      chapterName: meta.chapterName,
-      subject: meta.subject,
-      category: meta.category,
+      material_id: doc.material_id || doc._id?.toString(),
+      fileName: filename,
+      title: doc.title || meta.title,
+      chapterNum: doc.chapterNum || meta.chapterNum,
+      chapterName: doc.chapterName || meta.chapterName,
+      subject: sub,
+      category: cat,
       sizeMB: `${sizeMB} MB`,
       downloadUrl: downloadUrl
     };
@@ -332,7 +384,7 @@ router.get('/library/books', async (req, res) => {
     byCategoryAndSubject[cat][sub].push(bookEntry);
     flatCategories[cat].push(bookEntry);
 
-    // Intelligently map Biology books into Botany and Zoology as well!
+    // Intelligently map Biology books into Botany and Zoology
     if (sub === 'Biology') {
       if (cat === 'NEET Syllabus') {
         if (!byCategoryAndSubject[cat]['Botany']) byCategoryAndSubject[cat]['Botany'] = [];
@@ -350,28 +402,6 @@ router.get('/library/books', async (req, res) => {
         }
       }
     }
-  }
-
-  // Add custom books created by Admin in MongoDB
-  for (const c of customBooks) {
-    const cat = c.category || 'NCERT Short Notes';
-    const sub = c.subject || 'Physics';
-    if (!byCategoryAndSubject[cat]) byCategoryAndSubject[cat] = {};
-    if (!byCategoryAndSubject[cat][sub]) byCategoryAndSubject[cat][sub] = [];
-    if (!flatCategories[cat]) flatCategories[cat] = [];
-
-    const entry = {
-      fileName: c.fileName || `${c.title}.pdf`,
-      title: c.title,
-      chapterNum: c.chapterNum || 1,
-      chapterName: c.chapterName || c.title,
-      subject: sub,
-      category: cat,
-      sizeMB: c.sizeMB || '2.0 MB',
-      downloadUrl: c.downloadUrl
-    };
-    byCategoryAndSubject[cat][sub].push(entry);
-    flatCategories[cat].push(entry);
   }
 
   // Sort each subject list numerically by chapterNum
@@ -419,7 +449,7 @@ router.get('/library/books', async (req, res) => {
   }
 
   res.json({
-    totalPdfs: allFileNames.length,
+    totalPdfs: materials.length,
     byCategoryAndSubject,
     categories: flatCategories
   });

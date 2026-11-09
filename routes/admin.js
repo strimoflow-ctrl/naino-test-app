@@ -1587,122 +1587,60 @@ router.delete('/test-packs/:id', verifyAdminToken, async (req, res) => {
 // 10. STUDY LIBRARY & PDF MANAGEMENT
 // ==========================================
 let cachedManifest = null;
-function getManifest() {
-  if (cachedManifest) return cachedManifest;
-  const manifestPaths = [
-    path.join(process.cwd(), 'cloud_manifest.json'),
-    path.join(process.cwd(), 'data', 'cloud_manifest.json'),
-    path.join(process.cwd(), 'backend', 'cloud_manifest.json'),
-    path.join(process.cwd(), 'backend', 'data', 'cloud_manifest.json')
-  ];
-  for (const p of manifestPaths) {
-    if (fs.existsSync(p)) {
-      try {
-        cachedManifest = JSON.parse(fs.readFileSync(p, 'utf8'));
-        return cachedManifest;
-      } catch (_) {}
-    }
-  }
-  return {};
-}
-
 router.get('/library/books', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
-    const manifest = getManifest();
-    const manifestKeys = Object.keys(manifest).filter(k => k.endsWith('.pdf'));
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    // 1. Get overrides / custom books from MongoDB
-    let dbBooks = [];
-    if (db) {
-      dbBooks = await db.collection('study_library').find({}).toArray();
-    }
-    const dbMap = new Map();
-    const deletedSet = new Set();
-    const customList = [];
+    // 1. Fetch study_materials from MongoDB (100% cloud-driven)
+    const materials = await db.collection('study_materials').find({ is_active: { $ne: false } }).toArray();
 
-    for (const item of dbBooks) {
-      if (item.isDeleted) {
-        deletedSet.add(item.id || item.fileName);
-      } else if (item.isCustom) {
-        customList.push(item);
-      } else {
-        dbMap.set(item.id || item.fileName, item);
-      }
-    }
+    // 2. Fetch study_notes from MongoDB (79 HTML Notes)
+    const notesDocs = await db.collection('study_notes').find({}).toArray();
 
-    // 2. Build base list from manifest
     const books = [];
     const baseUrl = process.env.R2_PUBLIC_URL || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/pdfs';
 
-    for (const f of manifestKeys) {
-      const id = f.replace('.pdf', '');
-      if (deletedSet.has(id) || deletedSet.has(f)) continue;
-
-      if (dbMap.has(id) || dbMap.has(f)) {
-        books.push(dbMap.get(id) || dbMap.get(f));
-        continue;
-      }
-
-      const meta = parseBookMetadata(f);
-      const r2Entry = manifest[f] || {};
-      let sizeMB = '2.5';
-      if (r2Entry.size_bytes) {
-        sizeMB = (r2Entry.size_bytes / (1024 * 1024)).toFixed(2);
-      }
-      const downloadUrl = r2Entry.r2_url || `${baseUrl}/${f}`;
+    for (const doc of materials) {
+      const filename = doc.filename || `${doc.material_id}.pdf`;
+      const meta = parseBookMetadata(filename);
+      const sizeBytes = doc.size_bytes || 2500000;
+      const sizeMB = (sizeBytes / (1024 * 1024)).toFixed(2);
+      const id = doc.material_id || doc.filename?.replace('.pdf', '') || doc._id?.toString();
 
       books.push({
         id,
-        fileName: f,
-        title: meta.title,
-        category: meta.category,
-        subject: meta.subject,
-        chapterNum: meta.chapterNum,
-        chapterName: meta.chapterName,
-        downloadUrl,
+        _id: doc._id,
+        fileName: filename,
+        title: doc.title || meta.title,
+        category: doc.category || meta.category,
+        subject: doc.subject || meta.subject,
+        chapterNum: doc.chapterNum || meta.chapterNum,
+        chapterName: doc.chapterName || meta.chapterName,
+        downloadUrl: doc.r2_url || `${baseUrl}/${filename}`,
         sizeMB: `${sizeMB} MB`,
-        isCustom: false
+        isCustom: doc.isCustom === true,
+        isActive: doc.is_active !== false
       });
     }
 
-    // Add custom books created by admin
-    for (const c of customList) {
-      books.push(c);
-    }
-
-    // Also include Quick Study Notes (79 HTML notes) from data/study_notes
-    const notesPaths = [
-      path.join(process.cwd(), 'data', 'study_notes'),
-      path.join(process.cwd(), 'backend', 'data', 'study_notes')
-    ];
-    const realNotesDir = notesPaths.find(p => fs.existsSync(p));
-    if (realNotesDir) {
-      const subs = ['botany', 'chemistry', 'physics', 'zoology'];
-      for (const sub of subs) {
-        const subDir = path.join(realNotesDir, sub);
-        if (fs.existsSync(subDir)) {
-          const files = fs.readdirSync(subDir).filter(f => f.endsWith('.html'));
-          for (const f of files) {
-            const rawTitle = f.replace('.html', '').replace(/_/g, ' ');
-            const formattedTitle = rawTitle.charAt(0).toUpperCase() + rawTitle.slice(1);
-            const noteId = `note_${sub}_${f.replace('.html', '')}`;
-            if (!deletedSet.has(noteId)) {
-              books.push({
-                id: noteId,
-                fileName: f,
-                title: formattedTitle,
-                category: 'Quick Study Notes',
-                subject: sub.charAt(0).toUpperCase() + sub.slice(1),
-                downloadUrl: `/api/notes/${sub}/${f}`,
-                sizeMB: 'HTML Note',
-                isHtmlNote: true,
-                isCustom: false
-              });
-            }
-          }
-        }
-      }
+    // Include 79 Quick Study Notes from MongoDB study_notes
+    for (const note of notesDocs) {
+      const sub = note.subject || 'General';
+      const id = note._id?.toString() || `note_${sub.toLowerCase()}_${note.fileName.replace('.html', '')}`;
+      books.push({
+        id,
+        _id: note._id,
+        fileName: note.fileName,
+        title: note.title || note.fileName.replace('.html', '').replace(/_/g, ' '),
+        category: 'Quick Study Notes',
+        subject: sub,
+        downloadUrl: note.r2_url || `/api/notes/${sub.toLowerCase()}/${note.fileName}`,
+        sizeMB: 'HTML Note',
+        isHtmlNote: true,
+        isCustom: false,
+        isActive: true
+      });
     }
 
     // Filters
@@ -1745,21 +1683,31 @@ router.post('/library/books', verifyAdminToken, async (req, res) => {
       return res.status(400).json({ success: false, error: 'Book title and PDF Download/View URL are required.' });
     }
 
+    const materialId = `mat_${Date.now()}`;
+    const filename = body.fileName || `${body.title.toLowerCase().replace(/[^a-z0-9]/g, '_')}.pdf`;
+
     const newBook = {
-      id: `custom_pdf_${Date.now()}`,
-      fileName: body.fileName || `${body.title.toLowerCase().replace(/[^a-z0-9]/g, '_')}.pdf`,
+      material_id: materialId,
+      filename: filename,
       title: body.title.trim(),
       category: body.category || 'NCERT Short Notes',
       subject: body.subject || 'Physics',
       chapterNum: body.chapterNum ? parseInt(body.chapterNum) : 1,
       chapterName: body.chapterName || body.title.trim(),
-      downloadUrl: body.downloadUrl.trim(),
-      sizeMB: body.sizeMB || '2.0 MB',
+      type: 'pdf',
+      r2_url: body.downloadUrl.trim(),
+      size_bytes: body.size_bytes || 2500000,
+      is_active: true,
       isCustom: true,
-      createdAt: new Date().toISOString()
+      uploaded_at: new Date().toISOString()
     };
 
-    await db.collection('study_library').insertOne(newBook);
+    const result = await db.collection('study_materials').insertOne(newBook);
+    newBook._id = result.insertedId;
+    newBook.id = materialId;
+    newBook.downloadUrl = newBook.r2_url;
+    newBook.sizeMB = ((newBook.size_bytes) / (1024 * 1024)).toFixed(2) + ' MB';
+
     res.status(201).json({ success: true, book: newBook });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -1776,12 +1724,20 @@ router.put('/library/books/:id', verifyAdminToken, async (req, res) => {
     delete updates._id;
     updates.updatedAt = new Date().toISOString();
 
-    await db.collection('study_library').updateOne(
-      { $or: [{ id }, { fileName: id }] },
-      { $set: updates },
-      { upsert: true }
-    );
+    if (updates.downloadUrl) {
+      updates.r2_url = updates.downloadUrl;
+    }
 
+    const filter = {
+      $or: [
+        { material_id: id },
+        { filename: id },
+        { filename: `${id}.pdf` },
+        { _id: ObjectId.isValid(id) ? new ObjectId(id) : null }
+      ].filter(f => f._id !== null || !f._id)
+    };
+
+    await db.collection('study_materials').updateOne(filter, { $set: updates });
     res.json({ success: true, message: 'Study material updated successfully.' });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -1794,19 +1750,19 @@ router.delete('/library/books/:id', verifyAdminToken, async (req, res) => {
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
     const { id } = req.params;
+    const filter = {
+      $or: [
+        { material_id: id },
+        { filename: id },
+        { filename: `${id}.pdf` },
+        { _id: ObjectId.isValid(id) ? new ObjectId(id) : null }
+      ].filter(f => f._id !== null || !f._id)
+    };
 
-    // Check if it's a custom book or manifest book
-    const existing = await db.collection('study_library').findOne({ $or: [{ id }, { fileName: id }] });
-    if (existing && existing.isCustom) {
-      await db.collection('study_library').deleteOne({ $or: [{ id }, { fileName: id }] });
-    } else {
-      // Mark as deleted so it is excluded from manifest
-      await db.collection('study_library').updateOne(
-        { $or: [{ id }, { fileName: id }] },
-        { $set: { id, isDeleted: true, deletedAt: new Date().toISOString() } },
-        { upsert: true }
-      );
-    }
+    // Soft delete to maintain audit log and prevent broken links
+    await db.collection('study_materials').updateOne(filter, {
+      $set: { is_active: false, deletedAt: new Date().toISOString() }
+    });
 
     res.json({ success: true, message: 'PDF book deleted successfully.' });
   } catch (err) {

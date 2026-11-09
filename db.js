@@ -242,41 +242,17 @@ export function isMongoConnected() {
   return mongoReady;
 }
 
-const imgManifestPaths = [
-  path.join(__dirname, 'image_manifest.json'),
-  path.join(__dirname, 'data', 'image_manifest.json'),
-  path.join(__dirname, '..', 'data', 'image_manifest.json')
-];
-let imageManifest = {};
-export const loadImageManifest = () => {
-  for (const p of imgManifestPaths) {
-    if (fs.existsSync(p)) {
-      try {
-        imageManifest = JSON.parse(fs.readFileSync(p, 'utf8'));
-        break;
-      } catch (_) {}
-    }
-  }
-};
-loadImageManifest();
+// 100% Cloudflare R2 Direct Question Diagram & Solution Image CDN
+const R2_QUESTIONS_BASE = process.env.R2_PUBLIC_URL
+  ? `${process.env.R2_PUBLIC_URL}/questions`
+  : 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/questions';
 
 export function resolveImageUrl(img, type = 'questions', req) {
   if (!img) return null;
   if (img.startsWith('http://') || img.startsWith('https://')) return img;
-  let filename = img.trim();
-  if (!filename.includes('.')) filename += '.png';
-
-  // Check 3rd party cloud CDN manifest
-  if (imageManifest[filename] && imageManifest[filename].url) {
-    return imageManifest[filename].url;
-  }
+  const filename = img.trim();
   const cleanName = filename.replace(/\.(png|jpg|jpeg|webp)$/i, '');
-  if (imageManifest[cleanName] && imageManifest[cleanName].url) {
-    return imageManifest[cleanName].url;
-  }
-
-  // Reliable fallback directly to Cloudflare R2 questions CDN
-  return `https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/questions/${cleanName}.webp`;
+  return `${R2_QUESTIONS_BASE}/${cleanName}.webp`;
 }
 
 export function sanitizeLatex(str) {
