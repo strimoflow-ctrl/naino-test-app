@@ -1194,6 +1194,310 @@ router.delete('/batches/:id/subjects/:subjectId/chapters/:chapterId/lectures/:le
   }
 });
 
+// 8.4 Batch Tests / Test Series Management
+router.post('/batches/:id/tests', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const body = req.body || {};
+    const newTest = {
+      id: body.id || `btest_${Date.now()}`,
+      title: body.title || 'New Batch Mock Test',
+      pattern: body.pattern || 'Full Syllabus NEET 720',
+      totalQuestions: parseInt(body.totalQuestions) || 200,
+      durationMinutes: parseInt(body.durationMinutes) || 180,
+      testId: body.testId || '',
+      testUrl: body.testUrl || '',
+      status: body.status || 'Active', // 'Active', 'Upcoming', 'Completed'
+      badge: body.badge || 'BATCH TEST',
+      badgeColor: body.badgeColor || '#059669',
+      createdAt: new Date()
+    };
+
+    const updateRes = await db.collection('batches').updateOne(
+      query,
+      { $push: { tests: newTest } }
+    );
+
+    if (updateRes.matchedCount === 0) {
+      return res.status(404).json({ success: false, error: 'Batch not found.' });
+    }
+
+    res.status(201).json({ success: true, test: newTest });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/batches/:id/tests/:testId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const batch = await db.collection('batches').findOne(query);
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+
+    const tests = batch.tests || [];
+    const tIdx = tests.findIndex(t => t.id === req.params.testId);
+    if (tIdx === -1) return res.status(404).json({ success: false, error: 'Test not found.' });
+
+    const body = req.body || {};
+    tests[tIdx] = {
+      ...tests[tIdx],
+      ...body,
+      totalQuestions: body.totalQuestions ? parseInt(body.totalQuestions) : tests[tIdx].totalQuestions,
+      durationMinutes: body.durationMinutes ? parseInt(body.durationMinutes) : tests[tIdx].durationMinutes,
+      updatedAt: new Date()
+    };
+
+    await db.collection('batches').updateOne(query, { $set: { tests } });
+    res.json({ success: true, test: tests[tIdx] });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/batches/:id/tests/:testId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const result = await db.collection('batches').updateOne(
+      query,
+      { $pull: { tests: { id: req.params.testId } } }
+    );
+
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ success: false, error: 'Batch not found.' });
+    }
+
+    res.json({ success: true, message: 'Batch test deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 8.5 Batch DPP & Notes Management
+router.post('/batches/:id/dpp-notes', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const body = req.body || {};
+    const newMaterial = {
+      id: body.id || `mat_${Date.now()}`,
+      title: body.title || 'New Study Handbook',
+      chapter: body.chapter || 'All Chapters',
+      subject: body.subject || 'Physics',
+      type: body.type || 'DPP', // 'DPP', 'Notes', 'Mindmap', 'Formula Sheet'
+      questions: body.questions || 'Full Practice Deck',
+      fileSize: body.fileSize || '3.5 MB',
+      fileUrl: body.fileUrl || '',
+      createdAt: new Date()
+    };
+
+    const updateRes = await db.collection('batches').updateOne(
+      query,
+      { $push: { dppNotes: newMaterial } }
+    );
+
+    if (updateRes.matchedCount === 0) {
+      return res.status(404).json({ success: false, error: 'Batch not found.' });
+    }
+
+    res.status(201).json({ success: true, material: newMaterial });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.put('/batches/:id/dpp-notes/:materialId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const batch = await db.collection('batches').findOne(query);
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+
+    const dppNotes = batch.dppNotes || [];
+    const mIdx = dppNotes.findIndex(m => m.id === req.params.materialId);
+    if (mIdx === -1) return res.status(404).json({ success: false, error: 'Material not found.' });
+
+    const body = req.body || {};
+    dppNotes[mIdx] = {
+      ...dppNotes[mIdx],
+      ...body,
+      updatedAt: new Date()
+    };
+
+    await db.collection('batches').updateOne(query, { $set: { dppNotes } });
+    res.json({ success: true, material: dppNotes[mIdx] });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/batches/:id/dpp-notes/:materialId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const result = await db.collection('batches').updateOne(
+      query,
+      { $pull: { dppNotes: { id: req.params.materialId } } }
+    );
+
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ success: false, error: 'Batch not found.' });
+    }
+
+    res.json({ success: true, message: 'Batch material deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 8.6 Live Lecture Real-Time Chats (Admin Supervision & Mentor Reply)
+router.get('/live-lectures', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const batches = await db.collection('batches').find({}).toArray();
+    const lectureList = [];
+
+    for (const b of batches) {
+      // 1. Check latestUpdates (Live/Scheduled Streams)
+      if (b.latestUpdates && Array.isArray(b.latestUpdates)) {
+        for (const upd of b.latestUpdates) {
+          const chatCount = await db.collection('lecture_chats').countDocuments({ lectureId: upd.id });
+          lectureList.push({
+            lectureId: upd.id,
+            title: upd.title,
+            batchId: b.id || b._id?.toString(),
+            batchTitle: b.title,
+            subject: upd.subject || 'All Subjects',
+            videoUrl: upd.videoUrl || '',
+            isLive: upd.isLive === true || upd.status === 'live',
+            status: upd.status || (upd.isLive ? 'live' : 'scheduled'),
+            scheduledAt: upd.scheduledAt,
+            type: 'Live Stream',
+            chatCount
+          });
+        }
+      }
+
+      // 2. Check regular subject chapters & lectures
+      if (b.subjects && Array.isArray(b.subjects)) {
+        for (const s of b.subjects) {
+          if (s.chapters && Array.isArray(s.chapters)) {
+            for (const ch of s.chapters) {
+              if (ch.lectures && Array.isArray(ch.lectures)) {
+                for (const lec of ch.lectures) {
+                  const chatCount = await db.collection('lecture_chats').countDocuments({ lectureId: lec.id });
+                  lectureList.push({
+                    lectureId: lec.id,
+                    title: lec.title,
+                    batchId: b.id || b._id?.toString(),
+                    batchTitle: b.title,
+                    subject: s.name,
+                    chapterTitle: ch.title,
+                    videoUrl: lec.videoUrl || '',
+                    isLive: lec.isLive === true || (lec.tag && lec.tag.toLowerCase().includes('live')),
+                    status: lec.isLive ? 'live' : 'recorded',
+                    type: 'Chapter Lecture',
+                    chatCount
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    res.json({ success: true, total: lectureList.length, lectures: lectureList });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.get('/lectures/:lectureId/chat', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const messages = await db.collection('lecture_chats')
+      .find({ lectureId: req.params.lectureId })
+      .sort({ timestamp: 1 })
+      .limit(300)
+      .toArray();
+
+    res.json({ success: true, total: messages.length, messages });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.post('/lectures/:lectureId/chat', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const body = req.body || {};
+    const now = new Date();
+    const hours = now.getHours();
+    const mins = now.getMinutes().toString().padLeft ? now.getMinutes().toString().padStart(2, '0') : (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const hour12 = hours % 12 || 12;
+    const timeStr = `${hour12}:${mins} ${ampm}`;
+
+    const newMsg = {
+      id: `mentor_${Date.now()}`,
+      lectureId: req.params.lectureId,
+      sender: body.sender || 'Bhaiya (Mentor)',
+      userId: 'admin_mentor',
+      isMentor: true,
+      text: body.text || '',
+      time: timeStr,
+      timestamp: Date.now(),
+      createdAt: now
+    };
+
+    await db.collection('lecture_chats').insertOne(newMsg);
+    res.status(201).json({ success: true, message: newMsg });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/lectures/:lectureId/chat/:messageId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const { lectureId, messageId } = req.params;
+    await db.collection('lecture_chats').deleteOne({
+      lectureId,
+      $or: [
+        { id: messageId },
+        { _id: ObjectId.isValid(messageId) ? new ObjectId(messageId) : null }
+      ].filter(Boolean)
+    });
+
+    res.json({ success: true, message: 'Chat message deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // ==========================================
 // 9. STORE TEST PACKS MANAGEMENT
 // ==========================================

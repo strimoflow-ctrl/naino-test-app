@@ -821,4 +821,95 @@ router.get('/test-packs/:id', async (req, res) => {
   res.status(404).json({ error: 'Test pack not found' });
 });
 
+// ==========================================
+// 8. LECTURE & LIVE STREAM REAL-TIME CHAT API
+// ==========================================
+// GET /api/lectures/:lectureId/chat
+router.get('/lectures/:lectureId/chat', async (req, res) => {
+  const { lectureId } = req.params;
+  const since = parseInt(req.query.since) || 0;
+
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      const filter = { lectureId };
+      if (since > 0) {
+        filter.timestamp = { $gt: since };
+      }
+
+      const messages = await db.collection('lecture_chats')
+        .find(filter)
+        .sort({ timestamp: 1 })
+        .limit(200)
+        .toArray();
+
+      if (messages.length > 0 || since > 0) {
+        return res.json({ success: true, total: messages.length, messages });
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB lecture chat error:', err.message);
+  }
+
+  // Initial welcome message if chat room is fresh
+  res.json({
+    success: true,
+    total: 1,
+    messages: [
+      {
+        id: `welcome_${lectureId}`,
+        lectureId,
+        sender: 'Bhaiya (Mentor)',
+        userId: 'admin_mentor',
+        isMentor: true,
+        text: 'Welcome to this class! Ask your doubts and formula queries here.',
+        time: 'Just now',
+        timestamp: Date.now()
+      }
+    ]
+  });
+});
+
+// POST /api/lectures/:lectureId/chat
+router.post('/lectures/:lectureId/chat', async (req, res) => {
+  const { lectureId } = req.params;
+  const body = req.body || {};
+  const text = (body.text || '').trim();
+
+  if (!text) {
+    return res.status(400).json({ success: false, error: 'Message text cannot be empty.' });
+  }
+
+  const now = new Date();
+  const hours = now.getHours();
+  const mins = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const hour12 = hours % 12 || 12;
+  const timeStr = `${hour12}:${mins} ${ampm}`;
+
+  const newMsg = {
+    id: body.id || `msg_${Date.now()}`,
+    lectureId,
+    sender: body.sender && body.sender.trim() ? body.sender.trim() : 'Doctor Aspirant',
+    userId: body.userId || 'anon_student',
+    isMentor: body.isMentor === true,
+    text,
+    time: timeStr,
+    timestamp: Date.now(),
+    createdAt: now
+  };
+
+  try {
+    if (isMongoConnected()) {
+      const db = getMongoDb();
+      await db.collection('lecture_chats').insertOne(newMsg);
+      return res.status(201).json({ success: true, message: newMsg });
+    }
+  } catch (err) {
+    console.warn('MongoDB chat insert error:', err.message);
+  }
+
+  res.status(201).json({ success: true, message: newMsg });
+});
+
 export default router;
