@@ -1,4 +1,5 @@
 import express from 'express';
+import { ObjectId } from 'mongodb';
 import { getMongoDb, isMongoConnected } from '../db.js';
 
 const router = express.Router();
@@ -713,7 +714,9 @@ router.get('/batches/:id', async (req, res) => {
   try {
     if (isMongoConnected()) {
       const db = getMongoDb();
-      const batch = await db.collection('batches').findOne({ id });
+      const queries = [{ id }];
+      if (ObjectId.isValid(id)) queries.push({ _id: new ObjectId(id) });
+      const batch = await db.collection('batches').findOne({ $or: queries });
       if (batch) return res.json(batch);
     }
   } catch (err) {

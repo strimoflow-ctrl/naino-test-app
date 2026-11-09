@@ -2,12 +2,38 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
+import { ObjectId } from 'mongodb';
 import { ENV, getClientIp } from '../config/env.js';
 import { getMongoDb, isMongoConnected, reloadQuestionsFromMongo, addQuestionToMemory, updateQuestionInMemory, removeQuestionFromMemory, resolveImageUrl } from '../db.js';
 import { verifyAdminToken, adminLoginLimiter, adminActionLimiter } from '../middleware/adminAuth.js';
 import { parseBookMetadata } from './library.js';
 
 const router = express.Router();
+
+function toMongoIdQuery(id) {
+  if (!id) return { _id: '__non_existent__' };
+  const strId = String(id).trim();
+  const queries = [{ id: strId }];
+  if (ObjectId.isValid(strId)) {
+    queries.push({ _id: new ObjectId(strId) });
+  } else {
+    queries.push({ _id: strId });
+  }
+  return { $or: queries };
+}
+
+function formatYouTubeUrl(urlOrId) {
+  if (!urlOrId) return '';
+  const str = String(urlOrId).trim();
+  const ytMatch = str.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  if (ytMatch && ytMatch[1]) {
+    return `https://www.youtube.com/watch?v=${ytMatch[1]}`;
+  }
+  if (/^[\w-]{11}$/.test(str)) {
+    return `https://www.youtube.com/watch?v=${str}`;
+  }
+  return str;
+}
 
 function attachResolvedImages(q, req) {
   if (!q) return q;
@@ -759,28 +785,30 @@ router.get('/chapters/:subject/:chapterName/parts/:partNumber/questions', verify
 });
 
 // ==========================================
-// 8. BATCHES & VIDEO LECTURES MANAGEMENT
+// 8. BATCHES & CLASSROOM MANAGEMENT (Full 3-Tier Hierarchy & Live Updates)
 // ==========================================
+
+// 8.1 List All Batches
 router.get('/batches', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const batches = await db.collection('batches').find({}).toArray();
+    const batches = await db.collection('batches').find({}).sort({ createdAt: -1 }).toArray();
     res.json({ success: true, total: batches.length, batches });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
 });
 
+// 8.2 Get Single Batch by ID (Supports String id or ObjectId)
 router.get('/batches/:id', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const batch = await db.collection('batches').findOne({
-      $or: [{ id: req.params.id }, { _id: req.params.id }]
-    });
+    const query = toMongoIdQuery(req.params.id);
+    const batch = await db.collection('batches').findOne(query);
 
     if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
     res.json({ success: true, batch });
@@ -789,29 +817,61 @@ router.get('/batches/:id', verifyAdminToken, async (req, res) => {
   }
 });
 
+// 8.3 Create New Batch
 router.post('/batches', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
     const body = req.body || {};
+    const batchId = body.id || `batch_${Date.now()}`;
     const newBatch = {
-      id: body.id || `batch_${Date.now()}`,
+      id: batchId,
       title: body.title || 'New NEET Batch',
       subtitle: body.subtitle || '',
       educator: body.educator || 'Bhaiya (4 Yrs NEET Experience)',
-      badge: body.badge || 'NEW BATCH',
+      badge: body.badge || 'FLAGSHIP BATCH',
       price: body.price !== undefined ? parseFloat(body.price) : 0,
       originalPrice: body.originalPrice !== undefined ? parseFloat(body.originalPrice) : 2999,
-      discount: body.discount || '100% FREE',
-      demoVideoId: body.demoVideoId || '',
+      discount: body.discount || (parseFloat(body.price) === 0 ? '100% FREE' : '60% OFF'),
+      demoVideoId: body.demoVideoId || 'dQw4w9WgXcQ',
       thumbnail: body.thumbnail || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/units_and_measurements.jpg',
-      description: body.description || '',
-      features: Array.isArray(body.features) ? body.features : ['Video Lectures included', 'NCERT Mindmaps', 'Full Mocks'],
-      lectures: [],
+      description: body.description || 'Complete NEET batch with live streams, recorded classes, DPP notes and chapter tests.',
+      features: Array.isArray(body.features) && body.features.length > 0
+        ? body.features
+        : [
+            '120+ Video Lectures by Bhaiya (Physics, Chem, Bio)',
+            'Premium NCERT Mindmap PDFs & Handbooks included',
+            'Daily Practice Problem (DPP) Sheets with Solutions',
+            'Full Syllabus NEET Mocks with AI Rank Predictor'
+          ],
+      latestUpdates: [],
       materials: [],
+      subjects: [
+        {
+          id: 'subj_physics',
+          name: 'Physics',
+          chaptersCount: 0,
+          totalLectures: 0,
+          chapters: []
+        },
+        {
+          id: 'subj_chemistry',
+          name: 'Chemistry',
+          chaptersCount: 0,
+          totalLectures: 0,
+          chapters: []
+        },
+        {
+          id: 'subj_biology',
+          name: 'Biology',
+          chaptersCount: 0,
+          totalLectures: 0,
+          chapters: []
+        }
+      ],
       rating: 4.9,
-      studentsCount: 1500,
+      studentsCount: 2450,
       createdAt: new Date().toISOString()
     };
 
@@ -822,83 +882,280 @@ router.post('/batches', verifyAdminToken, async (req, res) => {
   }
 });
 
+// 8.4 Update Batch Metadata / Overview
 router.put('/batches/:id', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const bid = req.params.id;
-    const updates = req.body || {};
+    const query = toMongoIdQuery(req.params.id);
+    const updates = { ...(req.body || {}) };
     delete updates._id;
 
-    await db.collection('batches').updateOne(
-      { $or: [{ id: bid }, { _id: bid }] },
-      { $set: updates }
-    );
+    if (updates.price !== undefined) updates.price = parseFloat(updates.price) || 0;
+    if (updates.originalPrice !== undefined) updates.originalPrice = parseFloat(updates.originalPrice) || 0;
 
-    const updated = await db.collection('batches').findOne({ $or: [{ id: bid }, { _id: bid }] });
+    await db.collection('batches').updateOne(query, { $set: updates });
+    const updated = await db.collection('batches').findOne(query);
     res.json({ success: true, batch: updated });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
 });
 
+// 8.5 Delete Batch (100% Reliable ObjectId + id Query)
 router.delete('/batches/:id', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const bid = req.params.id;
-    const result = await db.collection('batches').deleteOne({
-      $or: [{ id: bid }, { _id: bid }]
-    });
+    const query = toMongoIdQuery(req.params.id);
+    const result = await db.collection('batches').deleteOne(query);
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ success: false, error: 'Batch not found.' });
     }
 
-    console.log(`[Admin Action] Deleted batch: ${bid}`);
+    console.log(`[Admin Action] Deleted batch: ${req.params.id}`);
     res.json({ success: true, message: 'Batch deleted successfully.' });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
 });
 
-router.post('/batches/:id/lectures', verifyAdminToken, async (req, res) => {
+// ==========================================
+// 8.6 LIVE & UPCOMING STREAMS (LATEST Updates Carousel)
+// ==========================================
+
+// Add Live / Scheduled Update to Batch
+router.post('/batches/:id/updates', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const bid = req.params.id;
-    const { title, videoId, duration, subject, chapter, notesPdfUrl, isFree } = req.body || {};
+    const query = toMongoIdQuery(req.params.id);
+    const { title, subject, videoUrl, isLive, scheduledAt, durationMinutes, tag, thumbnail } = req.body || {};
 
-    if (!title || !videoId) {
-      return res.status(400).json({ success: false, error: 'Lecture title and Video ID/URL are required.' });
+    if (!title) {
+      return res.status(400).json({ success: false, error: 'Title is required for stream/update.' });
     }
 
-    // Clean videoId if user pasted full YouTube link e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ
-    let cleanVideoId = videoId.trim();
-    const ytMatch = cleanVideoId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
-    if (ytMatch && ytMatch[1]) {
-      cleanVideoId = ytMatch[1];
-    }
+    const cleanVideo = formatYouTubeUrl(videoUrl);
+    const duration = parseInt(durationMinutes) || 60;
+    const isLiveNow = !!isLive;
 
-    const newLecture = {
-      lectureId: `lec_${Date.now()}`,
+    const newUpdate = {
+      id: `upd_${Date.now()}`,
       title: title.trim(),
-      videoId: cleanVideoId,
-      duration: duration || '45 mins',
-      subject: subject || 'Physics',
-      chapter: chapter || 'General',
-      notesPdfUrl: notesPdfUrl || '',
-      isFree: isFree !== undefined ? !!isFree : true,
+      subject: subject || 'General',
+      videoUrl: cleanVideo,
+      thumbnail: thumbnail || '',
+      isLive: isLiveNow,
+      status: isLiveNow ? 'live' : (scheduledAt ? 'upcoming' : 'ended'),
+      scheduledAt: scheduledAt || null,
+      durationMinutes: duration,
+      tag: isLiveNow ? 'LIVE NOW' : (tag || (scheduledAt ? 'UPCOMING CLASS' : 'RECORDED CLASS')),
       createdAt: new Date().toISOString()
     };
 
-    await db.collection('batches').updateOne(
-      { $or: [{ id: bid }, { _id: bid }] },
-      { $push: { lectures: newLecture } }
+    await db.collection('batches').updateOne(query, {
+      $push: { latestUpdates: newUpdate }
+    });
+
+    const updatedBatch = await db.collection('batches').findOne(query);
+    res.status(201).json({ success: true, update: newUpdate, batch: updatedBatch });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Delete Live / Scheduled Update
+router.delete('/batches/:id/updates/:updateId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    await db.collection('batches').updateOne(query, {
+      $pull: { latestUpdates: { id: req.params.updateId } }
+    });
+
+    res.json({ success: true, message: 'Update removed from carousel.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 8.7 SUBJECTS & CHAPTERS HIERARCHY
+// ==========================================
+
+// Add Custom Subject to Batch
+router.post('/batches/:id/subjects', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const { name } = req.body || {};
+    if (!name) return res.status(400).json({ success: false, error: 'Subject name is required.' });
+
+    const newSubject = {
+      id: `subj_${Date.now()}`,
+      name: name.trim(),
+      chaptersCount: 0,
+      totalLectures: 0,
+      chapters: []
+    };
+
+    await db.collection('batches').updateOne(query, {
+      $push: { subjects: newSubject }
+    });
+
+    const updatedBatch = await db.collection('batches').findOne(query);
+    res.status(201).json({ success: true, subject: newSubject, batch: updatedBatch });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Delete Subject from Batch
+router.delete('/batches/:id/subjects/:subjectId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    await db.collection('batches').updateOne(query, {
+      $pull: { subjects: { id: req.params.subjectId } }
+    });
+
+    res.json({ success: true, message: 'Subject deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Add Chapter under Subject
+router.post('/batches/:id/subjects/:subjectId/chapters', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const { title } = req.body || {};
+    if (!title) return res.status(400).json({ success: false, error: 'Chapter title is required.' });
+
+    const batch = await db.collection('batches').findOne(query);
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+
+    const subjects = batch.subjects || [];
+    const subjIndex = subjects.findIndex(s => s.id === req.params.subjectId);
+    if (subjIndex === -1) return res.status(404).json({ success: false, error: 'Subject not found.' });
+
+    const newChapter = {
+      id: `ch_${Date.now()}`,
+      title: title.trim(),
+      lecturesCount: 0,
+      hasPdf: true,
+      lectures: []
+    };
+
+    subjects[subjIndex].chapters = subjects[subjIndex].chapters || [];
+    subjects[subjIndex].chapters.push(newChapter);
+    subjects[subjIndex].chaptersCount = subjects[subjIndex].chapters.length;
+
+    await db.collection('batches').updateOne(query, { $set: { subjects } });
+
+    res.status(201).json({ success: true, chapter: newChapter });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Delete Chapter from Subject
+router.delete('/batches/:id/subjects/:subjectId/chapters/:chapterId', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const batch = await db.collection('batches').findOne(query);
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+
+    const subjects = batch.subjects || [];
+    const subjIndex = subjects.findIndex(s => s.id === req.params.subjectId);
+    if (subjIndex === -1) return res.status(404).json({ success: false, error: 'Subject not found.' });
+
+    const chapters = subjects[subjIndex].chapters || [];
+    subjects[subjIndex].chapters = chapters.filter(c => c.id !== req.params.chapterId);
+    subjects[subjIndex].chaptersCount = subjects[subjIndex].chapters.length;
+
+    // Recalculate total lectures for subject
+    subjects[subjIndex].totalLectures = subjects[subjIndex].chapters.reduce(
+      (sum, c) => sum + (c.lectures?.length || 0), 0
     );
+
+    await db.collection('batches').updateOne(query, { $set: { subjects } });
+
+    res.json({ success: true, message: 'Chapter deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 8.8 LECTURES INSIDE CHAPTER (Videos, Notes, DPPs)
+// ==========================================
+
+// Add Lecture to Chapter
+router.post('/batches/:id/subjects/:subjectId/chapters/:chapterId/lectures', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const { title, videoUrl, duration, tag, notesPdfUrl, dppPdfUrl, isLive, isUpcoming } = req.body || {};
+
+    if (!title || !videoUrl) {
+      return res.status(400).json({ success: false, error: 'Lecture title and Video URL/ID are required.' });
+    }
+
+    const batch = await db.collection('batches').findOne(query);
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+
+    const subjects = batch.subjects || [];
+    const subjIndex = subjects.findIndex(s => s.id === req.params.subjectId);
+    if (subjIndex === -1) return res.status(404).json({ success: false, error: 'Subject not found.' });
+
+    const chapters = subjects[subjIndex].chapters || [];
+    const chIndex = chapters.findIndex(c => c.id === req.params.chapterId);
+    if (chIndex === -1) return res.status(404).json({ success: false, error: 'Chapter not found.' });
+
+    const cleanVideo = formatYouTubeUrl(videoUrl);
+
+    const newLecture = {
+      id: `lec_${Date.now()}`,
+      title: title.trim(),
+      videoUrl: cleanVideo,
+      duration: duration || '45:00',
+      tag: tag || 'Classroom',
+      notesPdfUrl: notesPdfUrl?.trim() || '',
+      dppPdfUrl: dppPdfUrl?.trim() || '',
+      pdfUrl: notesPdfUrl?.trim() || dppPdfUrl?.trim() || '',
+      isLive: !!isLive,
+      isUpcoming: !!isUpcoming,
+      createdAt: new Date().toISOString()
+    };
+
+    chapters[chIndex].lectures = chapters[chIndex].lectures || [];
+    chapters[chIndex].lectures.push(newLecture);
+    chapters[chIndex].lecturesCount = chapters[chIndex].lectures.length;
+    chapters[chIndex].hasPdf = !!(newLecture.notesPdfUrl || newLecture.dppPdfUrl || chapters[chIndex].hasPdf);
+
+    subjects[subjIndex].totalLectures = chapters.reduce((sum, c) => sum + (c.lectures?.length || 0), 0);
+
+    await db.collection('batches').updateOne(query, { $set: { subjects } });
 
     res.status(201).json({ success: true, lecture: newLecture });
   } catch (err) {
@@ -906,16 +1163,30 @@ router.post('/batches/:id/lectures', verifyAdminToken, async (req, res) => {
   }
 });
 
-router.delete('/batches/:id/lectures/:lectureId', verifyAdminToken, async (req, res) => {
+// Delete Lecture from Chapter
+router.delete('/batches/:id/subjects/:subjectId/chapters/:chapterId/lectures/:lectureId', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const { id, lectureId } = req.params;
-    await db.collection('batches').updateOne(
-      { $or: [{ id }, { _id: id }] },
-      { $pull: { lectures: { lectureId } } }
-    );
+    const query = toMongoIdQuery(req.params.id);
+    const batch = await db.collection('batches').findOne(query);
+    if (!batch) return res.status(404).json({ success: false, error: 'Batch not found.' });
+
+    const subjects = batch.subjects || [];
+    const subjIndex = subjects.findIndex(s => s.id === req.params.subjectId);
+    if (subjIndex === -1) return res.status(404).json({ success: false, error: 'Subject not found.' });
+
+    const chapters = subjects[subjIndex].chapters || [];
+    const chIndex = chapters.findIndex(c => c.id === req.params.chapterId);
+    if (chIndex === -1) return res.status(404).json({ success: false, error: 'Chapter not found.' });
+
+    chapters[chIndex].lectures = (chapters[chIndex].lectures || []).filter(l => l.id !== req.params.lectureId);
+    chapters[chIndex].lecturesCount = chapters[chIndex].lectures.length;
+
+    subjects[subjIndex].totalLectures = chapters.reduce((sum, c) => sum + (c.lectures?.length || 0), 0);
+
+    await db.collection('batches').updateOne(query, { $set: { subjects } });
 
     res.json({ success: true, message: 'Lecture deleted successfully.' });
   } catch (err) {
@@ -938,16 +1209,75 @@ router.get('/test-packs', verifyAdminToken, async (req, res) => {
   }
 });
 
+router.post('/test-packs', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const body = req.body || {};
+    const newPack = {
+      id: body.id || `pack_${Date.now()}`,
+      title: body.title || 'New Test Series Pack',
+      subtitle: body.subtitle || '',
+      badge: body.badge || 'TEST PACK',
+      badgeColor: body.badgeColor || '#2563EB',
+      price: body.price !== undefined ? parseFloat(body.price) : 0,
+      originalPrice: body.originalPrice !== undefined ? parseFloat(body.originalPrice) : 999,
+      discount: body.discount || '100% FREE',
+      rating: 4.9,
+      testsCount: parseInt(body.testsCount) || 10,
+      thumbnail: body.thumbnail || 'https://pub-47ed3d1499e74513acc2f956e489e661.r2.dev/thumbnails/human_health_and_disease.jpg',
+      description: body.description || '',
+      highlights: Array.isArray(body.highlights) && body.highlights.length > 0 ? body.highlights : ['Full Length NTA Simulation Papers', 'Real CBT Interface with timer', 'Instant AI Analytics'],
+      createdAt: new Date().toISOString()
+    };
+
+    await db.collection('test_packs').insertOne(newPack);
+    res.status(201).json({ success: true, pack: newPack });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 router.put('/test-packs/:id', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();
     if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
 
-    const pid = req.params.id;
-    const updates = req.body || {};
+    const query = toMongoIdQuery(req.params.id);
+    const updates = { ...(req.body || {}) };
     delete updates._id;
 
-    await db.collection('test_packs').updateOne(
+    if (updates.price !== undefined) updates.price = parseFloat(updates.price) || 0;
+    if (updates.originalPrice !== undefined) updates.originalPrice = parseFloat(updates.originalPrice) || 0;
+    if (updates.testsCount !== undefined) updates.testsCount = parseInt(updates.testsCount) || 10;
+
+    await db.collection('test_packs').updateOne(query, { $set: updates });
+    const updated = await db.collection('test_packs').findOne(query);
+
+    res.json({ success: true, pack: updated });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+router.delete('/test-packs/:id', verifyAdminToken, async (req, res) => {
+  try {
+    const db = getMongoDb();
+    if (!db) return res.status(503).json({ success: false, error: 'Database not connected.' });
+
+    const query = toMongoIdQuery(req.params.id);
+    const result = await db.collection('test_packs').deleteOne(query);
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ success: false, error: 'Test pack not found.' });
+    }
+
+    res.json({ success: true, message: 'Test pack deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
       { $or: [{ id: pid }, { _id: pid }] },
       { $set: updates }
     );
