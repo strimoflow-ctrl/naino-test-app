@@ -1586,7 +1586,6 @@ router.delete('/test-packs/:id', verifyAdminToken, async (req, res) => {
 // ==========================================
 // 10. STUDY LIBRARY & PDF MANAGEMENT
 // ==========================================
-let cachedManifest = null;
 router.get('/library/books', verifyAdminToken, async (req, res) => {
   try {
     const db = getMongoDb();

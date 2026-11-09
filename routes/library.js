@@ -325,29 +325,7 @@ router.get('/library/books', async (req, res) => {
     console.warn('[Library] MongoDB study_materials query failed:', err.message);
   }
 
-  // Fallback to manifest on disk only if MongoDB returned 0 records
   if (!materials || materials.length === 0) {
-    const manifestPaths = [
-      path.join(process.cwd(), 'cloud_manifest.json'),
-      path.join(process.cwd(), 'data', 'cloud_manifest.json'),
-      path.join(DOWNLOADS_DIR, '..', 'cloud_manifest.json')
-    ];
-    const manifestPath = manifestPaths.find(p => fs.existsSync(p));
-    if (manifestPath) {
-      try {
-        const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-        materials = Object.entries(manifest).map(([fn, meta]) => ({
-          filename: fn,
-          title: meta.title,
-          r2_url: meta.r2_url,
-          size_bytes: meta.size_bytes,
-          subject: meta.subject
-        }));
-      } catch (_) {}
-    }
-  }
-
-  if (materials.length === 0) {
     return res.json({ totalPdfs: 0, categories: {}, byCategoryAndSubject: {} });
   }
 
