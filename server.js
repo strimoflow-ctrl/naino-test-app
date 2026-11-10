@@ -113,15 +113,13 @@ app.use(verifyAppSecret);
 app.use('/api/auth', authRouter);              // /api/auth/signup, /api/auth/login, /api/auth/google, /api/auth/refresh-token
 app.use('/api', bannersRouter);               // /api/banners (GET, POST, PUT, DELETE)
 app.use('/api', configRouter);                 // /api/app-config, /api/home-layout, /api/dynamic-chapters, /api/study-materials
+app.use('/api', libraryRouter);                // /api/notes, /api/library/books (Public educational resources)
+app.use('/api/user', userRouter);              // /api/user/streak, /api/user/profile, /api/user/bookmarks
+app.use('/api', userRouter);                   // Compatibility fallback for /api/bookmarks
 app.use('/api', testsRouter);                  // /api/daily-test, /api/chapters, /api/dpp, /api/diagrams
 app.use('/api/pyq', pyqsRouter);               // /api/pyq/papers, /api/pyq/paper/:year
-app.use('/api', libraryRouter);                // /api/notes, /api/library/books
-app.use('/api/user', userRouter);              // /api/user/streak, /api/user/profile, /api/user/bookmarks
 app.use('/api/notifications', notificationsRouter); // /api/notifications/register-token, /list, /broadcast
 app.use('/api/analytics', analyticsRouter);         // /api/analytics/heartbeat, /api/analytics/events-batch
-
-// Compatibility fallback for /api/bookmarks
-app.use('/api', userRouter);
 
 // Admin Live Database Cache Reload (Sync from MongoDB Atlas without server restart)
 app.post('/api/admin/reload-database', async (req, res) => {
